@@ -91,7 +91,7 @@
       resources="//@ownedElements.6"/>
   <ownedElements
       xsi:type="pasys:StormServer"
-      name="PollutionStorm"
+      name="PollutionStormNimbus"
       id="4"
       artifactName="storm"
       artifactLocator="/home/gestor/apache/servers/storm/bin"
@@ -104,7 +104,8 @@
       workflows="//@ownedElements.10"
       zookeeperConnect="//@ownedElements.4"
       nimbusSeeds="//@ownedElements.1"
-      supervisors="//@ownedElements.2">
+      supervisors="//@ownedElements.2"
+      isNimbus="true">
     <supervisorSlotPorts>6700</supervisorSlotPorts>
     <supervisorSlotPorts>6701</supervisorSlotPorts>
     <supervisorSlotPorts>6702</supervisorSlotPorts>
@@ -179,6 +180,26 @@
       ip="172.31.26.169"
       userName="gestor"
       externalIP="34.248.160.67"/>
+  <ownedElements
+      xsi:type="pasys:StormServer"
+      name="PollutionStormSupervisor"
+      id="4"
+      artifactName="storm"
+      artifactLocator="/home/gestor/apache/servers/storm/bin"
+      scriptFolderPath="/home/gestor/apache/servers/storm/scripts"
+      configFolderPath="/home/gestor/apache/servers/storm/conf"
+      dataFolderPath="/home/gestor/apache/servers/storm/data"
+      logFolderPath="/home/gestor/apache/servers/storm/logs"
+      host="//@ownedElements.15"
+      target="//@ownedElements.1"
+      zookeeperConnect="//@ownedElements.4"
+      nimbusSeeds="//@ownedElements.1"
+      supervisors="//@ownedElements.2">
+    <supervisorSlotPorts>6700</supervisorSlotPorts>
+    <supervisorSlotPorts>6701</supervisorSlotPorts>
+    <supervisorSlotPorts>6702</supervisorSlotPorts>
+    <supervisorSlotPorts>6703</supervisorSlotPorts>
+  </ownedElements>
   <authenticationFiles
       key="34.255.137.20"
       value="/home/algorrim/ISTR_keypair.pem"/>
