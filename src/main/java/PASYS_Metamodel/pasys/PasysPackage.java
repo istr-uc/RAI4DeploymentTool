@@ -4064,13 +4064,22 @@ public interface PasysPackage extends EPackage {
 	int STORM_SERVER__UI_PORT = SCHEDULING_SERVER_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Is Nimbus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORM_SERVER__IS_NIMBUS = SCHEDULING_SERVER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Storm Server</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORM_SERVER_FEATURE_COUNT = SCHEDULING_SERVER_FEATURE_COUNT + 7;
+	int STORM_SERVER_FEATURE_COUNT = SCHEDULING_SERVER_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Deploy</em>' operation.
@@ -10384,6 +10393,17 @@ public interface PasysPackage extends EPackage {
 	EAttribute getStormServer_UiPort();
 
 	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.StormServer#isIsNimbus <em>Is Nimbus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Nimbus</em>'.
+	 * @see PASYS_Metamodel.pasys.StormServer#isIsNimbus()
+	 * @see #getStormServer()
+	 * @generated
+	 */
+	EAttribute getStormServer_IsNimbus();
+
+	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.PersistenceServer <em>Persistence Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13036,6 +13056,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STORM_SERVER__UI_PORT = eINSTANCE.getStormServer_UiPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Nimbus</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STORM_SERVER__IS_NIMBUS = eINSTANCE.getStormServer_IsNimbus();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PersistenceServerImpl <em>Persistence Server</em>}' class.

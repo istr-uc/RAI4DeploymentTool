@@ -362,17 +362,14 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 		// Windows String filePath= directory+"\\"+getFileName();
 		// Linux
 		String filePath=directory+"/"+getFileName();
+		
 		try (PrintWriter out = new PrintWriter(filePath)) {
-		    out.println(getFileContent());
-		
-		
+		    out.println(getFileContent());	
 		Path path = Paths.get(filePath);
 		//System.out.println(path);
         if (!Files.exists(path)) Files.createFile(path);
-        Set<PosixFilePermission> perms = Files.readAttributes(path,PosixFileAttributes.class).permissions();
-			
-		
-    //   System.out.format("Permissions before: %s%n",  PosixFilePermissions.toString(perms));
+        Set<PosixFilePermission> perms = Files.readAttributes(path,PosixFileAttributes.class).permissions();		
+        //   System.out.format("Permissions before: %s%n",  PosixFilePermissions.toString(perms));
 
         perms.add(PosixFilePermission.OWNER_WRITE);
         perms.add(PosixFilePermission.OWNER_READ);
@@ -384,7 +381,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
         perms.add(PosixFilePermission.OTHERS_READ);
         perms.add(PosixFilePermission.OTHERS_EXECUTE);
         Files.setPosixFilePermissions(path, perms);
-      //  System.out.format("Permissions after:  %s%n",  PosixFilePermissions.toString(perms));
+        //  System.out.format("Permissions after:  %s%n",  PosixFilePermissions.toString(perms));
 		return filePath;
 		
 		} catch (IOException e) {

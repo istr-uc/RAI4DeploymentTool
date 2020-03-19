@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.StormServer#getDrpcServers <em>Drpc Servers</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormServer#getSupervisors <em>Supervisors</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormServer#getUiPort <em>Ui Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.StormServer#isIsNimbus <em>Is Nimbus</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getStormServer()
@@ -198,5 +199,31 @@ public interface StormServer extends SchedulingServer, SystemComponent {
 	 * @generated
 	 */
 	void setUiPort(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Nimbus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Nimbus</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Nimbus</em>' attribute.
+	 * @see #setIsNimbus(boolean)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormServer_IsNimbus()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isIsNimbus();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormServer#isIsNimbus <em>Is Nimbus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Nimbus</em>' attribute.
+	 * @see #isIsNimbus()
+	 * @generated
+	 */
+	void setIsNimbus(boolean value);
 
 } // StormServer

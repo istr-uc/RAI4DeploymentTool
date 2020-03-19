@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/IAP4_0DeploymentTool/src/main/java" modelPluginID="IAP4_0DeploymentTool"
-    modelName="PABM_Metamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/RAI4DeploymentTool/src/main/java" editorDirectory="/RAI4DeploymentTool.editor/src"
+    modelPluginID="RAI4DeploymentTool" modelName="PABM_Metamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    editorPluginID="RAI4DeploymentTool.editor" operationReflection="true" importOrganizing="true">
   <foreignModel>PABM_Metamodel.ecore</foreignModel>
   <genPackages prefix="PASYS_Metamodel" disposableProviderFactory="true" ecorePackage="PABM_Metamodel.ecore#/">
     <nestedGenPackages prefix="Pasys" disposableProviderFactory="true" ecorePackage="PABM_Metamodel.ecore#//pasys">
@@ -84,6 +84,7 @@
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ProcessingNode/codeFiles"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ProcessingNode/ownedMeters"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/ip"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/userName"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/prepareForDeployment"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/deployAndLaunch"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/bringBackConfiguration"/>
@@ -94,7 +95,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PhysicalProcessingNode/os"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/VirtualProcessingNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/VirtualProcessingNode/privateIP"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/VirtualProcessingNode/externalIP"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/AWSVirtualProcessingNode">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/AWSVirtualProcessingNode/vpc"/>
@@ -186,6 +187,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormServer/supervisors"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormServer/uiPort"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormServer/isNimbus"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PersistenceServer">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceServer/logging"/>

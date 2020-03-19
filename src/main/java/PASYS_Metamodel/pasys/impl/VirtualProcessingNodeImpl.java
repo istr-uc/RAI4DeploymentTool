@@ -4,16 +4,10 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentException;
-import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
-import deploymentTool.DeploymentToolsUtils;
-
-import java.io.IOException;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;

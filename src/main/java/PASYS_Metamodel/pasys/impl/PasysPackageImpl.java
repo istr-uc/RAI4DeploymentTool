@@ -1837,6 +1837,15 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStormServer_IsNimbus() {
+		return (EAttribute)stormServerEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getPersistenceServer() {
 		return persistenceServerEClass;
@@ -3490,6 +3499,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEReference(stormServerEClass, STORM_SERVER__DRPC_SERVERS);
 		createEReference(stormServerEClass, STORM_SERVER__SUPERVISORS);
 		createEAttribute(stormServerEClass, STORM_SERVER__UI_PORT);
+		createEAttribute(stormServerEClass, STORM_SERVER__IS_NIMBUS);
 
 		persistenceServerEClass = createEClass(PERSISTENCE_SERVER);
 		createEAttribute(persistenceServerEClass, PERSISTENCE_SERVER__LOGGING);
@@ -3942,6 +3952,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEReference(getStormServer_DrpcServers(), this.getNodeCluster(), null, "drpcServers", null, 0, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormServer_Supervisors(), this.getNodeCluster(), null, "supervisors", null, 1, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormServer_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 0, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStormServer_IsNimbus(), ecorePackage.getEBoolean(), "isNimbus", null, 1, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistenceServerEClass, PersistenceServer.class, "PersistenceServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistenceServer_Logging(), ecorePackage.getEString(), "logging", null, 1, 1, PersistenceServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
