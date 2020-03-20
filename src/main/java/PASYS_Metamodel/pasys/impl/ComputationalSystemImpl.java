@@ -439,7 +439,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			command += " "+node.getUserName()+"@"+ip+" "+fd.getFilePath()+"/"+fd.getFileName();
 			System.out.println("SSH Command: "+command);
 			
-			try {	
+			/*try {	
 				Process process = Runtime
 						.getRuntime()
 						.exec(command);	
@@ -450,7 +450,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				
 			} catch (IOException | InterruptedException e) {
 				throw new LaunchException("Error launching script in node "+ip);
-			}
+			}*/
 		}
 	}
 	

@@ -1,0 +1,202 @@
+version: '3.7'
+
+services:
+   zookeeper:
+      image: zookeeper
+      container_name: zookeeper
+      restart: always
+      networks:
+         storm:
+            aliases:
+               - zookeeper
+      deploy:
+         placement:
+            constraints:
+               - node.labels.zookeeper == 1
+      environment:
+         ZOO_MY_ID: 1
+         ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
+      ports:
+         - target: 2181
+           published: 2181
+           protocol: tcp
+           mode: ingress
+         - target: 2888
+           published: 2888
+           protocol: tcp
+           mode: ingress
+         - target: 3888
+           published: 2888
+           protocol: tcp
+           mode: ingress 
+
+   nimbus:
+      image: storm:latest
+      container_name: nimbus
+      command: storm nimbus -c storm.zookeeper.servers='["172.31.22.180"]' -c nimbus.seeds='["172.31.26.195"]' 
+      depends_on: 
+         - zookeeper
+      links:
+         - zookeeper
+      networks:
+         - storm
+      restart: always
+      ports:
+         - target: 6627
+           published: 6627
+           protocol: tcp
+           mode: ingress
+         - target: 3772
+           published: 3772
+           protocol: tcp
+           mode: ingress
+         - target: 3773
+           published: 3773
+           protocol: tcp
+           mode: ingress
+         - target: 3774
+           published: 3774
+           protocol: tcp
+           mode: ingress
+      deploy:
+         placement:
+            constraints:
+               - node.labels.nimbus == 1
+      volumes:
+         - type: bind
+           source: /home/gestor/storm.yaml
+           target: /conf/storm.yaml
+         - type: bind
+           source: /home/gestor/apache/servers/storm/logs
+           target: /logs
+   supervisor:
+      image: storm:latest
+      container_name: supervisor
+      command: storm supervisor -c storm.zookeeper.servers='["172.31.22.180"]' -c nimbus.seeds='["172.31.26.195"]'
+      depends_on:
+         - zookeeper
+         - nimbus
+      links:
+         - zookeeper
+         - nimbus
+      networks:
+         - storm
+      ports:
+         - target: 6700
+           published: 6700
+           protocol: tcp
+           mode: ingress
+         - target: 6701
+           published: 6701
+           protocol: tcp
+           mode: ingress
+         - target: 6702
+           published: 6702
+           protocol: tcp
+           mode: ingress
+         - target: 6703
+           published: 6703
+           protocol: tcp
+           mode: ingress
+      restart: always
+      deploy:
+         placement:
+            constraints:
+               - node.labels.supervisor == 1
+      volumes:
+         - type: bind
+           source: /home/gestor/storm.yaml
+           target: /conf/storm.yaml
+         - type: bind
+           source: /home/gestor/apache/servers/storm/logs
+           target: /logs
+   ui:
+      image: storm:latest
+      container_name: ui
+      command: storm ui -c storm.zookeeper.servers='["172.31.22.180"]' -c nimbus.seeds='["172.31.26.195"]'
+      depends_on: 
+         - zookeeper
+         - nimbus
+         - supervisor
+      links:
+         - zookeeper
+         - nimbus
+      networks:
+         - storm
+      restart: always
+      deploy:
+         placement:
+            constraints:
+               - node.labels.nimbus == 1
+      ports:
+         - target: 8080
+           published: 8080
+           protocol: tcp
+           mode: ingress
+      volumes:
+         - type: bind
+           source: /home/gestor/storm.yaml
+           target: /conf/storm.yaml
+         - type: bind
+           source: /home/gestor/apache/servers/storm/logs
+           target: /logs
+   kafka:
+      image: wurstmeister/kafka
+      container_name: kafka
+      ports:
+         - target: 9092
+           published: 9092
+           protocol: tcp
+           mode: host
+      environment:
+         HOSTNAME: kafka
+#         HOSTNAME_COMMAND: "hostname | awk -F'-' '{print $$2}'"
+         HOSTNAME_COMMAND: "docker info | grep 'Node Address: ' | cut -d' ' -f 5"
+         KAFKA_ZOOKEEPER_CONNECT: 172.31.22.180:2181
+         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+         KAFKA_ADVERTISED_LISTENERS: INSIDE://:9094,OUTSIDE://kafka:9092
+         KAFKA_LISTENERS: INSIDE://:9094,OUTSIDE://:9092
+         KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      volumes:
+         - type: bind
+           source: /var/run/docker.sock
+           target: /var/run/docker.sock
+      networks:
+         - storm
+      deploy:
+         placement:
+            constraints:
+               - node.labels.nimbus == 1
+   cassandra:
+      image: cassandra
+      container_name: cassandra
+      networks:
+         storm:
+            aliases:
+               - cassandra
+      volumes:
+         - type: bind
+           source: /home/gestor/apache/
+           target: /home/apache
+         - type: bind
+           source: /home/gestor/logs
+           target: /var/log/cassandra
+      environment:
+         CASSANDRA_BROADCAST_ADDRESS: cassandra 
+         CASSANDRA_CLUSTER_NAME: POLLUTION_CLUSTER
+         CASSANDRA_ENDPOIN_SNITCH: GossipingPropertyFileSnitch
+         CASSANDRA_DC: dc1
+         CASSANDRA_RACK: rack1
+         CASSANDRA_SEEDS: cassandra
+      ports:
+         - target: 9042
+           published: 9042
+           protocol: tcp
+           mode: ingress
+      deploy:
+         placement:
+            constraints:
+               - node.labels.cassandra == 1
+networks:
+   storm:
+      driver: overlay

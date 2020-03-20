@@ -557,13 +557,13 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 			// Config file generation
 			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("storm.yaml", configFolderPath,
 					generateConfigFileContent(), SystemComponentType.STORM_NIMBUS);
-			
-			host.getConfigFiles().add(configFile);
+			getHost().getConfigFiles().add(configFile);
 			
 			// Script generation
-			DeploymentFileDescriptor script = generateScript(this.isNimbus);
-			
-			host.getLaunchingScripts().add(script);
+			if (host!=null) {
+				DeploymentFileDescriptor script = generateScript(this.isNimbus);
+				getHost().getLaunchingScripts().add(script);
+			}
 
 		
 		} catch (YamlException e) {

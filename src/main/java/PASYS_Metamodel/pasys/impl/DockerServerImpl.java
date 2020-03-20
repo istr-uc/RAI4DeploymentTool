@@ -2,6 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
+import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.Stack;
@@ -210,5 +211,23 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void deploy() throws ConfigurationException {
+		for (Stack stack:stacks) {
+			generateStackFile(stack);
+		}
+	}
+
+	private void generateStackFile(Stack stack) {
+		
+		
+	}
+	
 
 } //DockerServerImpl

@@ -759,7 +759,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			// Para prueba
 			System.out.println(command);
 
-			Process process;
+			/*Process process;
 			try {
 
 				process = Runtime.getRuntime().exec(command);
@@ -772,7 +772,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			} catch (IOException | InterruptedException e) {
 				// TODO Auto-generated catch block
 				throw new DeploymentException("Error sending configuration file to node " + ip);
-			}
+			}*/
 		}
 		System.out.println();
 	}
@@ -794,7 +794,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			// Para prueba
 			System.out.println(command);
 
-			Process process;
+			/*Process process;
 			try {
 
 				process = Runtime.getRuntime().exec(command);
@@ -807,7 +807,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			} catch (IOException | InterruptedException e) {
 				// TODO Auto-generated catch block
 				throw new DeploymentException("Error sending configuration file to node " + ip);
-			}
+			}*/
 		}
 		System.out.println();
 	}
@@ -832,7 +832,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 					+ fd.getFileName();
 			System.out.println("SSH Command: " + command);
 
-			Process process;
+			/*Process process;
 			try {
 				process = Runtime.getRuntime().exec(command);
 
@@ -840,7 +840,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 			} catch (IOException | InterruptedException e) {
 				throw new LaunchException("Error deleting files in node " + id);
-			}
+			}*/
 		}
 	}
 

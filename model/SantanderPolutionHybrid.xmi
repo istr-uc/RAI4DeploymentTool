@@ -152,6 +152,7 @@
   <ownedElements
       xsi:type="pasys:StormServer"
       name="PollutionStormSupervisor"
+      id="12"
       artifactName="storm"
       artifactLocator="/home/gestor/apache/servers/storm/bin"
       scriptFolderPath="/home/gestor/apache/servers/storm/scripts"
@@ -206,7 +207,9 @@
       name="SwarmManagerVNode"
       id="SwarmManagerVNode"
       memorySize="2048"
+      ip="172.31.21.96"
       userName="gestor"
+      externalIP="34.255.137.20"
       vpc="default"
       subNet="eu-west-a"
       keyPair=""
@@ -218,7 +221,9 @@
       name="NimbusSwarmWorkerVNode"
       id="NimbusSwarmWorkerVNode"
       memorySize="2048"
+      ip="172.31.25.72"
       userName="gestor"
+      externalIP="54.194.37.254"
       vpc="default"
       subNet="eu-west-a"
       keyPair="ISTR_keypair.pem"
@@ -230,7 +235,9 @@
       name="SupervisorSwarmWorkerVNode"
       id="SupervisorSwarmWorkerVNode"
       memorySize="2048"
+      ip="172.31.26.169"
       userName="gestor"
+      externalIP="34.248.160.67"
       vpc="default"
       subNet="eu-west-a"
       keyPair="ISTR_keypair.pem"
@@ -242,7 +249,9 @@
       name="CassandraSwarmWorkerVNode"
       id="CassandraSwarmWorkerVNode"
       memorySize="2048"
+      ip="172.31.25.7"
       userName="gestor"
+      externalIP="54.194.247.222"
       vpc="default"
       subNet="eu-west-a"
       keyPair="ISTR_keypair.pem"
@@ -260,7 +269,8 @@
         id="PollutionStack"
         swarmCluster="//@ownedElements.25">
       <services
-          name="NimbusService">
+          name="nimbus"
+          id="nimbus">
         <volumes
             source="/home/gestor/apache/servers/storm/conf"
             target="/home/gestor/apache/servers/storm/conf"
@@ -271,16 +281,20 @@
             type="BIND"/>
         <ports
             target="6627"
-            published="6627"/>
+            published="6627"
+            mode="INGRESS"/>
         <ports
             target="3772"
-            published="3772"/>
+            published="3772"
+            mode="INGRESS"/>
         <ports
             target="3773"
-            published="3773"/>
+            published="3773"
+            mode="INGRESS"/>
         <ports
             target="3774"
-            published="3774"/>
+            published="3774"
+            mode="INGRESS"/>
         <networks/>
         <deploymentParam
             replicas="1"/>

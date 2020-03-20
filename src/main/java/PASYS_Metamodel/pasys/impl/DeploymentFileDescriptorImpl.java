@@ -362,7 +362,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 		// Windows String filePath= directory+"\\"+getFileName();
 		// Linux
 		String filePath=directory+"/"+getFileName();
-		try (PrintWriter out = new PrintWriter(filePath)) {
+		/*try (PrintWriter out = new PrintWriter(filePath)) {
 		    out.println(getFileContent());
 		
 		
@@ -383,13 +383,13 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
         perms.add(PosixFilePermission.OTHERS_WRITE);
         perms.add(PosixFilePermission.OTHERS_READ);
         perms.add(PosixFilePermission.OTHERS_EXECUTE);
-        Files.setPosixFilePermissions(path, perms);
+        Files.setPosixFilePermissions(path, perms);*/
       //  System.out.format("Permissions after:  %s%n",  PosixFilePermissions.toString(perms));
 		return filePath;
 		
-		} catch (IOException e) {
+		/*} catch (IOException e) {
 			throw new DeploymentException("Error creando fichero en "+filePath);
-		}
+		}*/
 	}
 	
 	public static class LaunchingFileComparator implements Comparator<DeploymentFileDescriptor> {

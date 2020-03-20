@@ -69,12 +69,12 @@ public class DeploymentTool {
 
 			// Testing purposes 
 
-			/*for (PASYS_Metamodel.pasys.SystemElement elem : system.getOwnedElements()) {
-				if (elem instanceof PASYS_Metamodel.pasys.impl.PhysicalProcessingNodeImpl) {
-					PASYS_Metamodel.pasys.impl.PhysicalProcessingNodeImpl node = (PASYS_Metamodel.pasys.impl.PhysicalProcessingNodeImpl) elem;
+			for (PASYS_Metamodel.pasys.SystemElement elem : system.getOwnedElements()) {
+				if (elem instanceof PASYS_Metamodel.pasys.impl.ProcessingNodeImpl) {
+					PASYS_Metamodel.pasys.impl.ProcessingNodeImpl node = (PASYS_Metamodel.pasys.impl.ProcessingNodeImpl) elem;
 					muestraNodo(node);
 				}
-			}*/
+			}
 
 			
 		} catch (IOException e) {
@@ -82,7 +82,7 @@ public class DeploymentTool {
 		}
 	}
 
-	private static void muestraNodo(PASYS_Metamodel.pasys.impl.PhysicalProcessingNodeImpl node) {
+	private static void muestraNodo(PASYS_Metamodel.pasys.impl.ProcessingNodeImpl node) {
 		System.out.println("%%%%%    " + node.getName() + "    %%%%%%");
 		/*
 		 * System.out.println(node.getPropertyConfigData().get("hostID"));
