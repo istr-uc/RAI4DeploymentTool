@@ -14,6 +14,7 @@ package PASYS_Metamodel.pasys;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.PlatformServer#getHost <em>Host</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.PlatformServer#getTarget <em>Target</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.PlatformServer#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformServer()
@@ -32,7 +33,7 @@ public interface PlatformServer extends PlatformResource, SystemComponent {
 	 * @return the value of the '<em>Host</em>' reference.
 	 * @see #setHost(ProcessingNode)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformServer_Host()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	ProcessingNode getHost();
@@ -72,5 +73,31 @@ public interface PlatformServer extends PlatformResource, SystemComponent {
 	 * @generated
 	 */
 	void setTarget(ResourceCluster value);
+
+	/**
+	 * Returns the value of the '<em><b>Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Container</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Container</em>' reference.
+	 * @see #setContainer(Container)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformServer_Container()
+	 * @model
+	 * @generated
+	 */
+	Container getContainer();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.PlatformServer#getContainer <em>Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Container</em>' reference.
+	 * @see #getContainer()
+	 * @generated
+	 */
+	void setContainer(Container value);
 
 } // PlatformServer

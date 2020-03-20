@@ -10,13 +10,19 @@ import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.CommunicationServer;
 import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.Container;
+import PASYS_Metamodel.pasys.ContainerizationServer;
+import PASYS_Metamodel.pasys.Deployment;
 import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
 import PASYS_Metamodel.pasys.DistributionServer;
+import PASYS_Metamodel.pasys.DockerContainer;
+import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
+import PASYS_Metamodel.pasys.Image;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaServer;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
@@ -33,26 +39,36 @@ import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.OrchestrationServer;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PersistenceServer;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.PlatformServer;
+import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusServer;
+import PASYS_Metamodel.pasys.Registry;
+import PASYS_Metamodel.pasys.Repository;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingServer;
 import PASYS_Metamodel.pasys.SerializationServer;
+import PASYS_Metamodel.pasys.Service;
+import PASYS_Metamodel.pasys.ServiceNetwork;
 import PASYS_Metamodel.pasys.SparkServer;
+import PASYS_Metamodel.pasys.Stack;
 import PASYS_Metamodel.pasys.StormServer;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
+import PASYS_Metamodel.pasys.SwarmNetwork;
+import PASYS_Metamodel.pasys.SwarmServer;
 import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponent;
 import PASYS_Metamodel.pasys.SystemElement;
@@ -63,6 +79,7 @@ import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
 import PASYS_Metamodel.pasys.TaskProcessingAmountMeter;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
+import PASYS_Metamodel.pasys.Volume;
 import PASYS_Metamodel.pasys.Workflow;
 import PASYS_Metamodel.pasys.WorkflowLatency;
 import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
@@ -748,6 +765,146 @@ public class PasysSwitch<T> extends Switch<T> {
 			case PasysPackage.STRING_TO_STRING_MAP: {
 				@SuppressWarnings("unchecked") Map.Entry<String, String> stringToStringMap = (Map.Entry<String, String>)theEObject;
 				T result = caseStringToStringMap(stringToStringMap);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.CONTAINER: {
+				Container container = (Container)theEObject;
+				T result = caseContainer(container);
+				if (result == null) result = casePlatformResource(container);
+				if (result == null) result = caseSystemElement(container);
+				if (result == null) result = caseNamedElement(container);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.DOCKER_CONTAINER: {
+				DockerContainer dockerContainer = (DockerContainer)theEObject;
+				T result = caseDockerContainer(dockerContainer);
+				if (result == null) result = caseContainer(dockerContainer);
+				if (result == null) result = casePlatformResource(dockerContainer);
+				if (result == null) result = caseSystemElement(dockerContainer);
+				if (result == null) result = caseNamedElement(dockerContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.CONTAINERIZATION_SERVER: {
+				ContainerizationServer containerizationServer = (ContainerizationServer)theEObject;
+				T result = caseContainerizationServer(containerizationServer);
+				if (result == null) result = casePlatformServer(containerizationServer);
+				if (result == null) result = casePlatformResource(containerizationServer);
+				if (result == null) result = caseSystemComponent(containerizationServer);
+				if (result == null) result = caseSystemElement(containerizationServer);
+				if (result == null) result = caseNamedElement(containerizationServer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.DOCKER_SERVER: {
+				DockerServer dockerServer = (DockerServer)theEObject;
+				T result = caseDockerServer(dockerServer);
+				if (result == null) result = caseContainerizationServer(dockerServer);
+				if (result == null) result = casePlatformServer(dockerServer);
+				if (result == null) result = casePlatformResource(dockerServer);
+				if (result == null) result = caseSystemComponent(dockerServer);
+				if (result == null) result = caseSystemElement(dockerServer);
+				if (result == null) result = caseNamedElement(dockerServer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.ORCHESTRATION_SERVER: {
+				OrchestrationServer orchestrationServer = (OrchestrationServer)theEObject;
+				T result = caseOrchestrationServer(orchestrationServer);
+				if (result == null) result = casePlatformServer(orchestrationServer);
+				if (result == null) result = casePlatformResource(orchestrationServer);
+				if (result == null) result = caseSystemComponent(orchestrationServer);
+				if (result == null) result = caseSystemElement(orchestrationServer);
+				if (result == null) result = caseNamedElement(orchestrationServer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SWARM_SERVER: {
+				SwarmServer swarmServer = (SwarmServer)theEObject;
+				T result = caseSwarmServer(swarmServer);
+				if (result == null) result = caseOrchestrationServer(swarmServer);
+				if (result == null) result = casePlatformServer(swarmServer);
+				if (result == null) result = casePlatformResource(swarmServer);
+				if (result == null) result = caseSystemComponent(swarmServer);
+				if (result == null) result = caseSystemElement(swarmServer);
+				if (result == null) result = caseNamedElement(swarmServer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SWARM_CLUSTER: {
+				SwarmCluster swarmCluster = (SwarmCluster)theEObject;
+				T result = caseSwarmCluster(swarmCluster);
+				if (result == null) result = caseResourceCluster(swarmCluster);
+				if (result == null) result = casePlatformResource(swarmCluster);
+				if (result == null) result = caseSystemElement(swarmCluster);
+				if (result == null) result = caseNamedElement(swarmCluster);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.STACK: {
+				Stack stack = (Stack)theEObject;
+				T result = caseStack(stack);
+				if (result == null) result = caseNamedElement(stack);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SERVICE: {
+				Service service = (Service)theEObject;
+				T result = caseService(service);
+				if (result == null) result = caseNamedElement(service);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.PORT: {
+				Port port = (Port)theEObject;
+				T result = casePort(port);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SERVICE_NETWORK: {
+				ServiceNetwork serviceNetwork = (ServiceNetwork)theEObject;
+				T result = caseServiceNetwork(serviceNetwork);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SWARM_NETWORK: {
+				SwarmNetwork swarmNetwork = (SwarmNetwork)theEObject;
+				T result = caseSwarmNetwork(swarmNetwork);
+				if (result == null) result = caseNamedElement(swarmNetwork);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.IMAGE: {
+				Image image = (Image)theEObject;
+				T result = caseImage(image);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.VOLUME: {
+				Volume volume = (Volume)theEObject;
+				T result = caseVolume(volume);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.DEPLOYMENT: {
+				Deployment deployment = (Deployment)theEObject;
+				T result = caseDeployment(deployment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.REGISTRY: {
+				Registry registry = (Registry)theEObject;
+				T result = caseRegistry(registry);
+				if (result == null) result = caseNamedElement(registry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.REPOSITORY: {
+				Repository repository = (Repository)theEObject;
+				T result = caseRepository(repository);
+				if (result == null) result = caseNamedElement(repository);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1742,6 +1899,261 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStringToStringMap(Map.Entry<String, String> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContainer(Container object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Docker Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Docker Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDockerContainer(DockerContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Containerization Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Containerization Server</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContainerizationServer(ContainerizationServer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Docker Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Docker Server</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDockerServer(DockerServer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Orchestration Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Orchestration Server</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrchestrationServer(OrchestrationServer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Swarm Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Swarm Server</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwarmServer(SwarmServer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Swarm Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Swarm Cluster</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwarmCluster(SwarmCluster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stack</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stack</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStack(Stack object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseService(Service object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePort(Port object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Network</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Network</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceNetwork(ServiceNetwork object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Swarm Network</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Swarm Network</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwarmNetwork(SwarmNetwork object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImage(Image object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Volume</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Volume</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVolume(Volume object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Deployment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Deployment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDeployment(Deployment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Registry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Registry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRegistry(Registry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepository(Repository object) {
 		return null;
 	}
 

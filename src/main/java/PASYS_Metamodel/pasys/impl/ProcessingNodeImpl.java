@@ -40,37 +40,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConcurrencyLevel
- * <em>Concurrency Level</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getMemorySize
- * <em>Memory Size</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getSpeedFactor
- * <em>Speed Factor</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConnectedTo
- * <em>Connected To</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getPropertyConfigData
- * <em>Property Config Data</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getLaunchingScripts
- * <em>Launching Scripts</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConfigFiles
- * <em>Config Files</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getCodeFiles
- * <em>Code Files</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getOwnedMeters
- * <em>Owned Meters</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getIp
- * <em>Ip</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getUserName <em>User
- * Name</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConcurrencyLevel <em>Concurrency Level</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getMemorySize <em>Memory Size</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getSpeedFactor <em>Speed Factor</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConnectedTo <em>Connected To</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getPropertyConfigData <em>Property Config Data</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getLaunchingScripts <em>Launching Scripts</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConfigFiles <em>Config Files</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getCodeFiles <em>Code Files</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getOwnedMeters <em>Owned Meters</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getIp <em>Ip</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getUserName <em>User Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProcessingNodeImpl extends PlatformResourceImpl implements ProcessingNode {
 	/**
-	 * The default value of the '{@link #getConcurrencyLevel() <em>Concurrency
-	 * Level</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getConcurrencyLevel() <em>Concurrency Level</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConcurrencyLevel()
 	 * @generated
 	 * @ordered
@@ -78,9 +66,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected static final int CONCURRENCY_LEVEL_EDEFAULT = 1;
 
 	/**
-	 * The cached value of the '{@link #getConcurrencyLevel() <em>Concurrency
-	 * Level</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getConcurrencyLevel() <em>Concurrency Level</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConcurrencyLevel()
 	 * @generated
 	 * @ordered
@@ -88,9 +75,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected int concurrencyLevel = CONCURRENCY_LEVEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMemorySize() <em>Memory Size</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getMemorySize() <em>Memory Size</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMemorySize()
 	 * @generated
 	 * @ordered
@@ -98,9 +84,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected static final int MEMORY_SIZE_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMemorySize() <em>Memory Size</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getMemorySize() <em>Memory Size</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMemorySize()
 	 * @generated
 	 * @ordered
@@ -108,9 +93,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected int memorySize = MEMORY_SIZE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSpeedFactor() <em>Speed
-	 * Factor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getSpeedFactor() <em>Speed Factor</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSpeedFactor()
 	 * @generated
 	 * @ordered
@@ -118,9 +102,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected static final double SPEED_FACTOR_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getSpeedFactor() <em>Speed Factor</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSpeedFactor() <em>Speed Factor</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSpeedFactor()
 	 * @generated
 	 * @ordered
@@ -128,9 +111,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected double speedFactor = SPEED_FACTOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConnectedTo() <em>Connected To</em>}'
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getConnectedTo() <em>Connected To</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConnectedTo()
 	 * @generated
 	 * @ordered
@@ -171,9 +153,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected EList<DeploymentFileDescriptor> launchingScripts;
 
 	/**
-	 * The cached value of the '{@link #getConfigFiles() <em>Config Files</em>}'
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getConfigFiles() <em>Config Files</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfigFiles()
 	 * @generated
 	 * @ordered
@@ -181,9 +162,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected EList<DeploymentFileDescriptor> configFiles;
 
 	/**
-	 * The cached value of the '{@link #getCodeFiles() <em>Code Files</em>}'
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getCodeFiles() <em>Code Files</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCodeFiles()
 	 * @generated
 	 * @ordered
@@ -191,9 +171,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected EList<ArtifactDescriptor> codeFiles;
 
 	/**
-	 * The cached value of the '{@link #getOwnedMeters() <em>Owned Meters</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getOwnedMeters() <em>Owned Meters</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOwnedMeters()
 	 * @generated
 	 * @ordered
@@ -221,9 +200,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected String ip = IP_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUserName() <em>User Name</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getUserName() <em>User Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getUserName()
 	 * @generated
 	 * @ordered
@@ -231,9 +209,8 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected static final String USER_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUserName() <em>User Name</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getUserName() <em>User Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getUserName()
 	 * @generated
 	 * @ordered
@@ -242,7 +219,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ProcessingNodeImpl() {
@@ -251,7 +227,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -261,7 +236,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -271,7 +245,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -279,56 +252,47 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 		int oldConcurrencyLevel = concurrencyLevel;
 		concurrencyLevel = newConcurrencyLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL,
-					oldConcurrencyLevel, concurrencyLevel));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL, oldConcurrencyLevel, concurrencyLevel));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<Network> getConnectedTo() {
 		if (connectedTo == null) {
-			connectedTo = new EObjectResolvingEList<Network>(Network.class, this,
-					PasysPackage.PROCESSING_NODE__CONNECTED_TO);
+			connectedTo = new EObjectResolvingEList<Network>(Network.class, this, PasysPackage.PROCESSING_NODE__CONNECTED_TO);
 		}
 		return connectedTo;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<DeploymentFileDescriptor> getLaunchingScripts() {
 		if (launchingScripts == null) {
-			launchingScripts = new EObjectWithInverseResolvingEList<DeploymentFileDescriptor>(
-					DeploymentFileDescriptor.class, this, PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS,
-					PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR__OWNER);
+			launchingScripts = new EObjectWithInverseResolvingEList<DeploymentFileDescriptor>(DeploymentFileDescriptor.class, this, PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS, PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR__OWNER);
 		}
 		return launchingScripts;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<DeploymentFileDescriptor> getConfigFiles() {
 		if (configFiles == null) {
-			configFiles = new EObjectResolvingEList<DeploymentFileDescriptor>(DeploymentFileDescriptor.class, this,
-					PasysPackage.PROCESSING_NODE__CONFIG_FILES);
+			configFiles = new EObjectResolvingEList<DeploymentFileDescriptor>(DeploymentFileDescriptor.class, this, PasysPackage.PROCESSING_NODE__CONFIG_FILES);
 		}
 		return configFiles;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -338,7 +302,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -346,27 +309,23 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 		Properties oldPropertyConfigData = propertyConfigData;
 		propertyConfigData = newPropertyConfigData;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA,
-					oldPropertyConfigData, propertyConfigData));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA, oldPropertyConfigData, propertyConfigData));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<NodeHostedMeter> getOwnedMeters() {
 		if (ownedMeters == null) {
-			ownedMeters = new EObjectContainmentWithInverseEList<NodeHostedMeter>(NodeHostedMeter.class, this,
-					PasysPackage.PROCESSING_NODE__OWNED_METERS, PasysPackage.NODE_HOSTED_METER__OWNER);
+			ownedMeters = new EObjectContainmentWithInverseEList<NodeHostedMeter>(NodeHostedMeter.class, this, PasysPackage.PROCESSING_NODE__OWNED_METERS, PasysPackage.NODE_HOSTED_METER__OWNER);
 		}
 		return ownedMeters;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getIp() {
@@ -375,7 +334,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setIp(String newIp) {
@@ -387,7 +345,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getUserName() {
@@ -396,20 +353,17 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUserName(String newUserName) {
 		String oldUserName = userName;
 		userName = newUserName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__USER_NAME, oldUserName,
-					userName));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__USER_NAME, oldUserName, userName));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -419,7 +373,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -427,13 +380,11 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 		int oldMemorySize = memorySize;
 		memorySize = newMemorySize;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__MEMORY_SIZE,
-					oldMemorySize, memorySize));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__MEMORY_SIZE, oldMemorySize, memorySize));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -443,7 +394,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -451,20 +401,17 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 		double oldSpeedFactor = speedFactor;
 		speedFactor = newSpeedFactor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__SPEED_FACTOR,
-					oldSpeedFactor, speedFactor));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__SPEED_FACTOR, oldSpeedFactor, speedFactor));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<ArtifactDescriptor> getCodeFiles() {
 		if (codeFiles == null) {
-			codeFiles = new EObjectResolvingEList<ArtifactDescriptor>(ArtifactDescriptor.class, this,
-					PasysPackage.PROCESSING_NODE__CODE_FILES);
+			codeFiles = new EObjectResolvingEList<ArtifactDescriptor>(ArtifactDescriptor.class, this, PasysPackage.PROCESSING_NODE__CODE_FILES);
 		}
 		return codeFiles;
 	}
@@ -490,7 +437,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -536,7 +482,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -548,246 +493,238 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getLaunchingScripts()).basicAdd(otherEnd, msgs);
-		case PasysPackage.PROCESSING_NODE__OWNED_METERS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedMeters()).basicAdd(otherEnd, msgs);
+			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLaunchingScripts()).basicAdd(otherEnd, msgs);
+			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedMeters()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-			return ((InternalEList<?>) getLaunchingScripts()).basicRemove(otherEnd, msgs);
-		case PasysPackage.PROCESSING_NODE__OWNED_METERS:
-			return ((InternalEList<?>) getOwnedMeters()).basicRemove(otherEnd, msgs);
+			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
+				return ((InternalEList<?>)getLaunchingScripts()).basicRemove(otherEnd, msgs);
+			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
+				return ((InternalEList<?>)getOwnedMeters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
-			return getConcurrencyLevel();
-		case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
-			return getMemorySize();
-		case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
-			return getSpeedFactor();
-		case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-			return getConnectedTo();
-		case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-			return getPropertyConfigData();
-		case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-			return getLaunchingScripts();
-		case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
-			return getConfigFiles();
-		case PasysPackage.PROCESSING_NODE__CODE_FILES:
-			return getCodeFiles();
-		case PasysPackage.PROCESSING_NODE__OWNED_METERS:
-			return getOwnedMeters();
-		case PasysPackage.PROCESSING_NODE__IP:
-			return getIp();
-		case PasysPackage.PROCESSING_NODE__USER_NAME:
-			return getUserName();
+			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
+				return getConcurrencyLevel();
+			case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
+				return getMemorySize();
+			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
+				return getSpeedFactor();
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				return getConnectedTo();
+			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
+				return getPropertyConfigData();
+			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
+				return getLaunchingScripts();
+			case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
+				return getConfigFiles();
+			case PasysPackage.PROCESSING_NODE__CODE_FILES:
+				return getCodeFiles();
+			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
+				return getOwnedMeters();
+			case PasysPackage.PROCESSING_NODE__IP:
+				return getIp();
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				return getUserName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
-			setConcurrencyLevel((Integer) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
-			setMemorySize((Integer) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
-			setSpeedFactor((Double) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-			getConnectedTo().clear();
-			getConnectedTo().addAll((Collection<? extends Network>) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-			setPropertyConfigData((Properties) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-			getLaunchingScripts().clear();
-			getLaunchingScripts().addAll((Collection<? extends DeploymentFileDescriptor>) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
-			getConfigFiles().clear();
-			getConfigFiles().addAll((Collection<? extends DeploymentFileDescriptor>) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__CODE_FILES:
-			getCodeFiles().clear();
-			getCodeFiles().addAll((Collection<? extends ArtifactDescriptor>) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__OWNED_METERS:
-			getOwnedMeters().clear();
-			getOwnedMeters().addAll((Collection<? extends NodeHostedMeter>) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__IP:
-			setIp((String) newValue);
-			return;
-		case PasysPackage.PROCESSING_NODE__USER_NAME:
-			setUserName((String) newValue);
-			return;
+			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
+				setConcurrencyLevel((Integer)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
+				setMemorySize((Integer)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
+				setSpeedFactor((Double)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				getConnectedTo().clear();
+				getConnectedTo().addAll((Collection<? extends Network>)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
+				setPropertyConfigData((Properties)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
+				getLaunchingScripts().clear();
+				getLaunchingScripts().addAll((Collection<? extends DeploymentFileDescriptor>)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
+				getConfigFiles().clear();
+				getConfigFiles().addAll((Collection<? extends DeploymentFileDescriptor>)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__CODE_FILES:
+				getCodeFiles().clear();
+				getCodeFiles().addAll((Collection<? extends ArtifactDescriptor>)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
+				getOwnedMeters().clear();
+				getOwnedMeters().addAll((Collection<? extends NodeHostedMeter>)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__IP:
+				setIp((String)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				setUserName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
-			setConcurrencyLevel(CONCURRENCY_LEVEL_EDEFAULT);
-			return;
-		case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
-			setMemorySize(MEMORY_SIZE_EDEFAULT);
-			return;
-		case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
-			setSpeedFactor(SPEED_FACTOR_EDEFAULT);
-			return;
-		case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-			getConnectedTo().clear();
-			return;
-		case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-			setPropertyConfigData(PROPERTY_CONFIG_DATA_EDEFAULT);
-			return;
-		case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-			getLaunchingScripts().clear();
-			return;
-		case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
-			getConfigFiles().clear();
-			return;
-		case PasysPackage.PROCESSING_NODE__CODE_FILES:
-			getCodeFiles().clear();
-			return;
-		case PasysPackage.PROCESSING_NODE__OWNED_METERS:
-			getOwnedMeters().clear();
-			return;
-		case PasysPackage.PROCESSING_NODE__IP:
-			setIp(IP_EDEFAULT);
-			return;
-		case PasysPackage.PROCESSING_NODE__USER_NAME:
-			setUserName(USER_NAME_EDEFAULT);
-			return;
+			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
+				setConcurrencyLevel(CONCURRENCY_LEVEL_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
+				setMemorySize(MEMORY_SIZE_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
+				setSpeedFactor(SPEED_FACTOR_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				getConnectedTo().clear();
+				return;
+			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
+				setPropertyConfigData(PROPERTY_CONFIG_DATA_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
+				getLaunchingScripts().clear();
+				return;
+			case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
+				getConfigFiles().clear();
+				return;
+			case PasysPackage.PROCESSING_NODE__CODE_FILES:
+				getCodeFiles().clear();
+				return;
+			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
+				getOwnedMeters().clear();
+				return;
+			case PasysPackage.PROCESSING_NODE__IP:
+				setIp(IP_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				setUserName(USER_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
-			return concurrencyLevel != CONCURRENCY_LEVEL_EDEFAULT;
-		case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
-			return memorySize != MEMORY_SIZE_EDEFAULT;
-		case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
-			return speedFactor != SPEED_FACTOR_EDEFAULT;
-		case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-			return connectedTo != null && !connectedTo.isEmpty();
-		case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-			return PROPERTY_CONFIG_DATA_EDEFAULT == null ? propertyConfigData != null
-					: !PROPERTY_CONFIG_DATA_EDEFAULT.equals(propertyConfigData);
-		case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-			return launchingScripts != null && !launchingScripts.isEmpty();
-		case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
-			return configFiles != null && !configFiles.isEmpty();
-		case PasysPackage.PROCESSING_NODE__CODE_FILES:
-			return codeFiles != null && !codeFiles.isEmpty();
-		case PasysPackage.PROCESSING_NODE__OWNED_METERS:
-			return ownedMeters != null && !ownedMeters.isEmpty();
-		case PasysPackage.PROCESSING_NODE__IP:
-			return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
-		case PasysPackage.PROCESSING_NODE__USER_NAME:
-			return USER_NAME_EDEFAULT == null ? userName != null : !USER_NAME_EDEFAULT.equals(userName);
+			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
+				return concurrencyLevel != CONCURRENCY_LEVEL_EDEFAULT;
+			case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
+				return memorySize != MEMORY_SIZE_EDEFAULT;
+			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
+				return speedFactor != SPEED_FACTOR_EDEFAULT;
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				return connectedTo != null && !connectedTo.isEmpty();
+			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
+				return PROPERTY_CONFIG_DATA_EDEFAULT == null ? propertyConfigData != null : !PROPERTY_CONFIG_DATA_EDEFAULT.equals(propertyConfigData);
+			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
+				return launchingScripts != null && !launchingScripts.isEmpty();
+			case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
+				return configFiles != null && !configFiles.isEmpty();
+			case PasysPackage.PROCESSING_NODE__CODE_FILES:
+				return codeFiles != null && !codeFiles.isEmpty();
+			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
+				return ownedMeters != null && !ownedMeters.isEmpty();
+			case PasysPackage.PROCESSING_NODE__IP:
+				return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				return USER_NAME_EDEFAULT == null ? userName != null : !USER_NAME_EDEFAULT.equals(userName);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case PasysPackage.PROCESSING_NODE___PREPARE_FOR_DEPLOYMENT:
-			try {
-				prepareForDeployment();
+			case PasysPackage.PROCESSING_NODE___PREPARE_FOR_DEPLOYMENT:
+				try {
+					prepareForDeployment();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PasysPackage.PROCESSING_NODE___DEPLOY_AND_LAUNCH:
+				try {
+					deployAndLaunch();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PasysPackage.PROCESSING_NODE___BRING_BACK_CONFIGURATION:
+				bringBackConfiguration();
 				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case PasysPackage.PROCESSING_NODE___DEPLOY_AND_LAUNCH:
-			try {
-				deployAndLaunch();
+			case PasysPackage.PROCESSING_NODE___BRING_BACK_DEPLOYMENT:
+				bringBackDeployment();
 				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case PasysPackage.PROCESSING_NODE___BRING_BACK_CONFIGURATION:
-			bringBackConfiguration();
-			return null;
-		case PasysPackage.PROCESSING_NODE___BRING_BACK_DEPLOYMENT:
-			bringBackDeployment();
-			return null;
-		case PasysPackage.PROCESSING_NODE___ABORT_LAUNCHING:
-			abortLaunching();
-			return null;
+			case PasysPackage.PROCESSING_NODE___ABORT_LAUNCHING:
+				abortLaunching();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (concurrencyLevel: ");

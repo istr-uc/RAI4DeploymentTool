@@ -436,6 +436,132 @@ public interface PasysFactory extends EFactory {
 	ExporterData createExporterData();
 
 	/**
+	 * Returns a new object of class '<em>Docker Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Docker Container</em>'.
+	 * @generated
+	 */
+	DockerContainer createDockerContainer();
+
+	/**
+	 * Returns a new object of class '<em>Docker Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Docker Server</em>'.
+	 * @generated
+	 */
+	DockerServer createDockerServer();
+
+	/**
+	 * Returns a new object of class '<em>Swarm Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swarm Server</em>'.
+	 * @generated
+	 */
+	SwarmServer createSwarmServer();
+
+	/**
+	 * Returns a new object of class '<em>Swarm Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swarm Cluster</em>'.
+	 * @generated
+	 */
+	SwarmCluster createSwarmCluster();
+
+	/**
+	 * Returns a new object of class '<em>Stack</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stack</em>'.
+	 * @generated
+	 */
+	Stack createStack();
+
+	/**
+	 * Returns a new object of class '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service</em>'.
+	 * @generated
+	 */
+	Service createService();
+
+	/**
+	 * Returns a new object of class '<em>Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Port</em>'.
+	 * @generated
+	 */
+	Port createPort();
+
+	/**
+	 * Returns a new object of class '<em>Service Network</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Network</em>'.
+	 * @generated
+	 */
+	ServiceNetwork createServiceNetwork();
+
+	/**
+	 * Returns a new object of class '<em>Swarm Network</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swarm Network</em>'.
+	 * @generated
+	 */
+	SwarmNetwork createSwarmNetwork();
+
+	/**
+	 * Returns a new object of class '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Image</em>'.
+	 * @generated
+	 */
+	Image createImage();
+
+	/**
+	 * Returns a new object of class '<em>Volume</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Volume</em>'.
+	 * @generated
+	 */
+	Volume createVolume();
+
+	/**
+	 * Returns a new object of class '<em>Deployment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Deployment</em>'.
+	 * @generated
+	 */
+	Deployment createDeployment();
+
+	/**
+	 * Returns a new object of class '<em>Registry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Registry</em>'.
+	 * @generated
+	 */
+	Registry createRegistry();
+
+	/**
+	 * Returns a new object of class '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Repository</em>'.
+	 * @generated
+	 */
+	Repository createRepository();
+
+	/**
 	 * Returns a new object of class '<em>Deployment File Descriptor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

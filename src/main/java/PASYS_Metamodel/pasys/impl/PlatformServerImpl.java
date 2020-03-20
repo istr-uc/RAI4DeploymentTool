@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#isIsRunning <em>Is Running</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getHost <em>Host</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @generated
@@ -216,6 +217,16 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	 * @ordered
 	 */
 	protected ResourceCluster target;
+
+	/**
+	 * The cached value of the '{@link #getContainer() <em>Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected PASYS_Metamodel.pasys.Container container;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -493,6 +504,44 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PASYS_Metamodel.pasys.Container getContainer() {
+		if (container != null && container.eIsProxy()) {
+			InternalEObject oldContainer = (InternalEObject)container;
+			container = (PASYS_Metamodel.pasys.Container)eResolveProxy(oldContainer);
+			if (container != oldContainer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer, container));
+			}
+		}
+		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PASYS_Metamodel.pasys.Container basicGetContainer() {
+		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(PASYS_Metamodel.pasys.Container newContainer) {
+		PASYS_Metamodel.pasys.Container oldContainer = container;
+		container = newContainer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer, container));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void deploy() throws ConfigurationException {
@@ -529,6 +578,9 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				if (resolve) return getContainer();
+				return basicGetContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -573,6 +625,9 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				setTarget((ResourceCluster)newValue);
 				return;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				setContainer((PASYS_Metamodel.pasys.Container)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -615,6 +670,9 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				setTarget((ResourceCluster)null);
 				return;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				setContainer((PASYS_Metamodel.pasys.Container)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -647,6 +705,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 				return host != null;
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				return target != null;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				return container != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -142,7 +142,8 @@
       workflows="//@ownedElements.16"
       zookeeperConnect="//@ownedElements.9"
       nimbusSeeds="//@ownedElements.6"
-      supervisors="//@ownedElements.7">
+      supervisors="//@ownedElements.7"
+      isNimbus="true">
     <supervisorSlotPorts>6700</supervisorSlotPorts>
     <supervisorSlotPorts>6701</supervisorSlotPorts>
     <supervisorSlotPorts>6702</supervisorSlotPorts>

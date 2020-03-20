@@ -127,7 +127,7 @@
       resources="//@ownedElements.11"/>
   <ownedElements
       xsi:type="pasys:StormServer"
-      name="PollutionStorm"
+      name="PollutionStormNimbus"
       id="4"
       artifactName="storm"
       artifactLocator="/home/gestor/apache/servers/storm/bin"
@@ -140,7 +140,8 @@
       workflows="//@ownedElements.15"
       zookeeperConnect="//@ownedElements.9"
       nimbusSeeds="//@ownedElements.6"
-      supervisors="//@ownedElements.7">
+      supervisors="//@ownedElements.7"
+      isNimbus="true">
     <supervisorSlotPorts>6700</supervisorSlotPorts>
     <supervisorSlotPorts>6701</supervisorSlotPorts>
     <supervisorSlotPorts>6702</supervisorSlotPorts>
@@ -179,5 +180,25 @@
         implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
         triggerStreamData="//@ownedElements.14"
         inputStreamData="//@ownedElements.14"/>
+  </ownedElements>
+  <ownedElements
+      xsi:type="pasys:StormServer"
+      name="PollutionStormSupervisor"
+      id="4"
+      artifactName="storm"
+      artifactLocator="/home/gestor/apache/servers/storm/bin"
+      scriptFolderPath="/home/gestor/apache/servers/storm/scripts"
+      configFolderPath="/home/gestor/apache/servers/storm/conf"
+      dataFolderPath="/home/gestor/apache/servers/storm/data"
+      logFolderPath="/home/gestor/apache/servers/storm/logs"
+      host="//@ownedElements.3"
+      target="//@ownedElements.6"
+      zookeeperConnect="//@ownedElements.9"
+      nimbusSeeds="//@ownedElements.6"
+      supervisors="//@ownedElements.7">
+    <supervisorSlotPorts>6700</supervisorSlotPorts>
+    <supervisorSlotPorts>6701</supervisorSlotPorts>
+    <supervisorSlotPorts>6702</supervisorSlotPorts>
+    <supervisorSlotPorts>6703</supervisorSlotPorts>
   </ownedElements>
 </pasys:ComputationalSystem>

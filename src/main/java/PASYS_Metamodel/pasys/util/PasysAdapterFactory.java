@@ -10,13 +10,19 @@ import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.CommunicationServer;
 import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.Container;
+import PASYS_Metamodel.pasys.ContainerizationServer;
+import PASYS_Metamodel.pasys.Deployment;
 import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
 import PASYS_Metamodel.pasys.DistributionServer;
+import PASYS_Metamodel.pasys.DockerContainer;
+import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
+import PASYS_Metamodel.pasys.Image;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaServer;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
@@ -33,26 +39,36 @@ import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.OrchestrationServer;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PersistenceServer;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.PlatformServer;
+import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusServer;
+import PASYS_Metamodel.pasys.Registry;
+import PASYS_Metamodel.pasys.Repository;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingServer;
 import PASYS_Metamodel.pasys.SerializationServer;
+import PASYS_Metamodel.pasys.Service;
+import PASYS_Metamodel.pasys.ServiceNetwork;
 import PASYS_Metamodel.pasys.SparkServer;
+import PASYS_Metamodel.pasys.Stack;
 import PASYS_Metamodel.pasys.StormServer;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
+import PASYS_Metamodel.pasys.SwarmNetwork;
+import PASYS_Metamodel.pasys.SwarmServer;
 import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponent;
 import PASYS_Metamodel.pasys.SystemElement;
@@ -63,6 +79,7 @@ import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
 import PASYS_Metamodel.pasys.TaskProcessingAmountMeter;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
+import PASYS_Metamodel.pasys.Volume;
 import PASYS_Metamodel.pasys.Workflow;
 import PASYS_Metamodel.pasys.WorkflowLatency;
 import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
@@ -405,6 +422,74 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStringToStringMap(Map.Entry<String, String> object) {
 				return createStringToStringMapAdapter();
+			}
+			@Override
+			public Adapter caseContainer(Container object) {
+				return createContainerAdapter();
+			}
+			@Override
+			public Adapter caseDockerContainer(DockerContainer object) {
+				return createDockerContainerAdapter();
+			}
+			@Override
+			public Adapter caseContainerizationServer(ContainerizationServer object) {
+				return createContainerizationServerAdapter();
+			}
+			@Override
+			public Adapter caseDockerServer(DockerServer object) {
+				return createDockerServerAdapter();
+			}
+			@Override
+			public Adapter caseOrchestrationServer(OrchestrationServer object) {
+				return createOrchestrationServerAdapter();
+			}
+			@Override
+			public Adapter caseSwarmServer(SwarmServer object) {
+				return createSwarmServerAdapter();
+			}
+			@Override
+			public Adapter caseSwarmCluster(SwarmCluster object) {
+				return createSwarmClusterAdapter();
+			}
+			@Override
+			public Adapter caseStack(Stack object) {
+				return createStackAdapter();
+			}
+			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
+			public Adapter casePort(Port object) {
+				return createPortAdapter();
+			}
+			@Override
+			public Adapter caseServiceNetwork(ServiceNetwork object) {
+				return createServiceNetworkAdapter();
+			}
+			@Override
+			public Adapter caseSwarmNetwork(SwarmNetwork object) {
+				return createSwarmNetworkAdapter();
+			}
+			@Override
+			public Adapter caseImage(Image object) {
+				return createImageAdapter();
+			}
+			@Override
+			public Adapter caseVolume(Volume object) {
+				return createVolumeAdapter();
+			}
+			@Override
+			public Adapter caseDeployment(Deployment object) {
+				return createDeploymentAdapter();
+			}
+			@Override
+			public Adapter caseRegistry(Registry object) {
+				return createRegistryAdapter();
+			}
+			@Override
+			public Adapter caseRepository(Repository object) {
+				return createRepositoryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -1347,6 +1432,244 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringToStringMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Container <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Container
+	 * @generated
+	 */
+	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.DockerContainer <em>Docker Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.DockerContainer
+	 * @generated
+	 */
+	public Adapter createDockerContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.ContainerizationServer <em>Containerization Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.ContainerizationServer
+	 * @generated
+	 */
+	public Adapter createContainerizationServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.DockerServer <em>Docker Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.DockerServer
+	 * @generated
+	 */
+	public Adapter createDockerServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.OrchestrationServer <em>Orchestration Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.OrchestrationServer
+	 * @generated
+	 */
+	public Adapter createOrchestrationServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SwarmServer <em>Swarm Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.SwarmServer
+	 * @generated
+	 */
+	public Adapter createSwarmServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SwarmCluster <em>Swarm Cluster</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.SwarmCluster
+	 * @generated
+	 */
+	public Adapter createSwarmClusterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Stack <em>Stack</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Stack
+	 * @generated
+	 */
+	public Adapter createStackAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Port <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Port
+	 * @generated
+	 */
+	public Adapter createPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.ServiceNetwork <em>Service Network</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.ServiceNetwork
+	 * @generated
+	 */
+	public Adapter createServiceNetworkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SwarmNetwork <em>Swarm Network</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.SwarmNetwork
+	 * @generated
+	 */
+	public Adapter createSwarmNetworkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Image <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Image
+	 * @generated
+	 */
+	public Adapter createImageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Volume <em>Volume</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Volume
+	 * @generated
+	 */
+	public Adapter createVolumeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Deployment <em>Deployment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Deployment
+	 * @generated
+	 */
+	public Adapter createDeploymentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Registry <em>Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Registry
+	 * @generated
+	 */
+	public Adapter createRegistryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Repository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Repository
+	 * @generated
+	 */
+	public Adapter createRepositoryAdapter() {
 		return null;
 	}
 

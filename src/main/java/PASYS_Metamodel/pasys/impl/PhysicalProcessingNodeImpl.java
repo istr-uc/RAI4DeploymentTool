@@ -2,20 +2,12 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
-import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentException;
-import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.LaunchException;
-import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
-import deploymentTool.DeploymentToolsUtils;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Properties;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 

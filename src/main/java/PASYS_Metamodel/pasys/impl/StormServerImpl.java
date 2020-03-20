@@ -46,6 +46,7 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.StormServerImpl#getDrpcServers <em>Drpc Servers</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.StormServerImpl#getSupervisors <em>Supervisors</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.StormServerImpl#getUiPort <em>Ui Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServerImpl#isIsNimbus <em>Is Nimbus</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,6 +127,25 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 	 * @ordered
 	 */
 	protected int uiPort = UI_PORT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsNimbus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_NIMBUS_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsNimbus()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isNimbus = IS_NIMBUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -347,6 +367,27 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsNimbus() {
+		return isNimbus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsNimbus(boolean newIsNimbus) {
+		boolean oldIsNimbus = isNimbus;
+		isNimbus = newIsNimbus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVER__IS_NIMBUS, oldIsNimbus, isNimbus));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -371,6 +412,8 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 				return basicGetSupervisors();
 			case PasysPackage.STORM_SERVER__UI_PORT:
 				return getUiPort();
+			case PasysPackage.STORM_SERVER__IS_NIMBUS:
+				return isIsNimbus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -405,6 +448,9 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 			case PasysPackage.STORM_SERVER__UI_PORT:
 				setUiPort((Integer)newValue);
 				return;
+			case PasysPackage.STORM_SERVER__IS_NIMBUS:
+				setIsNimbus((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -437,6 +483,9 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 			case PasysPackage.STORM_SERVER__UI_PORT:
 				setUiPort(UI_PORT_EDEFAULT);
 				return;
+			case PasysPackage.STORM_SERVER__IS_NIMBUS:
+				setIsNimbus(IS_NIMBUS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -462,6 +511,8 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 				return supervisors != null;
 			case PasysPackage.STORM_SERVER__UI_PORT:
 				return uiPort != UI_PORT_EDEFAULT;
+			case PasysPackage.STORM_SERVER__IS_NIMBUS:
+				return isNimbus != IS_NIMBUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -481,6 +532,8 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 		result.append(supervisorSlotPorts);
 		result.append(", uiPort: ");
 		result.append(uiPort);
+		result.append(", isNimbus: ");
+		result.append(isNimbus);
 		result.append(')');
 		return result.toString();
 	}
@@ -501,48 +554,23 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 		System.out.println();
 
 		try {
+			// Config file generation
 			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("storm.yaml", configFolderPath,
 					generateConfigFileContent(), SystemComponentType.STORM_NIMBUS);
 			
-			for (PlatformResource rsrc : getNimbusSeeds().getResources()) {
-				ProcessingNode node = (ProcessingNode)rsrc;
-				node.getConfigFiles().add(configFile);
-			}
+			host.getConfigFiles().add(configFile);
 			
-			for (PlatformResource rsrc : getSupervisors().getResources()) {
-				ProcessingNode node = (ProcessingNode)rsrc;
-				node.getConfigFiles().add(configFile);
-			}
+			// Script generation
+			DeploymentFileDescriptor script = generateScript(this.isNimbus);
 			
-			// Script generation for Nimbus (master) node
-			//String scriptContent = "/usr/local/bin/launch ";
-			String scriptContent = "launch ";
-			scriptContent += this.artifactLocator + "/" + this.artifactName + " nimbus";
-			scriptContent = "cd " + getScriptFolderPath() + "\n" + scriptContent;
-			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("stormNimbus" + getId() + ".sh",
-					this.getScriptFolderPath(), scriptContent, SystemComponentType.STORM_NIMBUS);
-			for (PlatformResource rsrc : getNimbusSeeds().getResources()) {
-				ProcessingNode node = (ProcessingNode)rsrc;
-				node.getLaunchingScripts().add(script);
-			} 
+			host.getLaunchingScripts().add(script);
 
-			// Script generation for Supervisor (slave) nodes
-			//scriptContent = "/usr/local/bin/launch ";
-			scriptContent = "launch ";
-			scriptContent += this.artifactLocator + "/" + this.artifactName + " supervisor";
-			scriptContent = "cd " + getScriptFolderPath() + "\n" + scriptContent;
-			script = new DeploymentFileDescriptorImpl("stormSupervisor" + getId() + ".sh", this.getScriptFolderPath(),
-					scriptContent, SystemComponentType.STORM_SUPERVISOR);
-			for (PlatformResource rsrc : getSupervisors().getResources()) {
-				ProcessingNode node = (ProcessingNode)rsrc;
-				node.getLaunchingScripts().add(script);
-			}
 		
 		} catch (YamlException e) {
 			throw new ConfigurationException("No se ha podido crear el fichero de propiedades Storm");
 			
 		} catch (ClassCastException e) {
-			throw new ConfigurationException("La configuraci�n del Storm Server no es correcta");
+			throw new ConfigurationException("La configuracion del Storm Server no es correcta");
 			
 		}
 	}
@@ -577,23 +605,17 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 		map.put("storm.zookeeper.servers", zkServers);
 		map.put("storm.zookeeper.port", zk.getClientPort());
 
-		// nimbus.seeds
-		
+		// nimbus.seeds		
 		List<ProcessingNode> seeds = new LinkedList<ProcessingNode>();
 
 		for (PlatformResource rsrc : getNimbusSeeds().getResources()) {
 			ProcessingNode node = (ProcessingNode)rsrc;
 			seeds.add(node);
 		}
-		
-
 		List<String> nimbusSeeds = new LinkedList<String>();
 		for (ProcessingNode seed:seeds) {
 			nimbusSeeds.add(seed.getIp());
 		}
-
-		// map.put("nimbus.seeds", nimbusSeeds);
-		//map.put("nimbus.seeds", nimbusSeeds);
 
 		// Prueba para ver si me lo escribe sin comilla
 		if (!(getSupervisorSlotPorts() == null)) {
@@ -624,6 +646,24 @@ public class StormServerImpl extends SchedulingServerImpl implements StormServer
 		nseeds += "]";
 		configFileContent += nseeds;
 		return configFileContent;
+	}
+	
+	private DeploymentFileDescriptor generateScript(boolean isNimbus) {
+		String scriptContent = "launch "+ this.artifactLocator + "/" + this.artifactName+" ";
+		if (isNimbus)
+			scriptContent +="nimbus";
+	    else
+			scriptContent += "supervisor";
+		scriptContent = "cd " + getScriptFolderPath() + "\n" + scriptContent;
+		DeploymentFileDescriptor script = null;
+		if (isNimbus) {
+			script = new DeploymentFileDescriptorImpl("stormNimbus" + getId() + ".sh",
+				this.getScriptFolderPath(), scriptContent, SystemComponentType.STORM_NIMBUS);
+		} else {
+			script = new DeploymentFileDescriptorImpl("stormSupervisor" + getId() + ".sh", this.getScriptFolderPath(),
+					scriptContent, SystemComponentType.STORM_SUPERVISOR);
+		}
+		return script;
 	}
 
 } // StormServerImpl

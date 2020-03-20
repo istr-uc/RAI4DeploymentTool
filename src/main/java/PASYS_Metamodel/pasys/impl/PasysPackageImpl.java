@@ -10,14 +10,19 @@ import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.CommunicationServer;
 import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.ContainerizationServer;
+import PASYS_Metamodel.pasys.Deployment;
 import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
 import PASYS_Metamodel.pasys.DistributionServer;
+import PASYS_Metamodel.pasys.DockerContainer;
+import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.ExternalElementType;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
+import PASYS_Metamodel.pasys.Image;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaServer;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
@@ -29,32 +34,44 @@ import PASYS_Metamodel.pasys.MonitoringServer;
 import PASYS_Metamodel.pasys.NamedElement;
 import PASYS_Metamodel.pasys.Neo4JServer;
 import PASYS_Metamodel.pasys.Network;
+import PASYS_Metamodel.pasys.NetworkDriver;
 import PASYS_Metamodel.pasys.NetworkUtilization;
 import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.OrchestrationServer;
 import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PersistenceServer;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.PlatformServer;
+import PASYS_Metamodel.pasys.Port;
+import PASYS_Metamodel.pasys.PortMode;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusServer;
+import PASYS_Metamodel.pasys.Protocol;
+import PASYS_Metamodel.pasys.Repository;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingServer;
 import PASYS_Metamodel.pasys.SerializationServer;
+import PASYS_Metamodel.pasys.Service;
+import PASYS_Metamodel.pasys.ServiceNetwork;
 import PASYS_Metamodel.pasys.SparkServer;
+import PASYS_Metamodel.pasys.Stack;
 import PASYS_Metamodel.pasys.StormServer;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
+import PASYS_Metamodel.pasys.SwarmNetwork;
+import PASYS_Metamodel.pasys.SwarmServer;
 import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponent;
 import PASYS_Metamodel.pasys.SystemComponentType;
@@ -66,6 +83,8 @@ import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
 import PASYS_Metamodel.pasys.TaskProcessingAmountMeter;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
+import PASYS_Metamodel.pasys.Volume;
+import PASYS_Metamodel.pasys.VolumeType;
 import PASYS_Metamodel.pasys.Workflow;
 import PASYS_Metamodel.pasys.WorkflowLatency;
 import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
@@ -562,6 +581,125 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass containerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dockerContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containerizationServerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dockerServerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orchestrationServerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swarmServerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swarmClusterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stackEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass portEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceNetworkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swarmNetworkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass imageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass volumeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass deploymentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass registryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass repositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass nodeClusterEClass = null;
 
 	/**
@@ -584,6 +722,34 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EEnum systemComponentTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum portModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum protocolEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum networkDriverEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum volumeTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1277,6 +1443,15 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlatformServer_Container() {
+		return (EReference)platformServerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getSerializationServer() {
 		return serializationServerEClass;
@@ -1830,6 +2005,15 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EAttribute getStormServer_UiPort() {
 		return (EAttribute)stormServerEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStormServer_IsNimbus() {
+		return (EAttribute)stormServerEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3242,6 +3426,546 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getContainer() {
+		return containerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContainer_Host() {
+		return (EReference)containerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDockerContainer() {
+		return dockerContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDockerContainer_Service() {
+		return (EReference)dockerContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContainerizationServer() {
+		return containerizationServerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDockerServer() {
+		return dockerServerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDockerServer_Stacks() {
+		return (EReference)dockerServerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDockerServer_SwarmCluster() {
+		return (EReference)dockerServerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOrchestrationServer() {
+		return orchestrationServerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwarmServer() {
+		return swarmServerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwarmCluster() {
+		return swarmClusterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwarmCluster_Workers() {
+		return (EReference)swarmClusterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwarmCluster_Manager() {
+		return (EReference)swarmClusterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwarmCluster_Networks() {
+		return (EReference)swarmClusterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStack() {
+		return stackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStack_Services() {
+		return (EReference)stackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStack_SwarmCluster() {
+		return (EReference)stackEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getService() {
+		return serviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Stack() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_EnvFile() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Env() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_DependsOn() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Image() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Volumes() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Ports() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Networks() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_DeploymentParam() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPort() {
+		return portEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPort_Target() {
+		return (EAttribute)portEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPort_Published() {
+		return (EAttribute)portEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPort_Protocol() {
+		return (EAttribute)portEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPort_Mode() {
+		return (EAttribute)portEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getServiceNetwork() {
+		return serviceNetworkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceNetwork_Ipv4Address() {
+		return (EAttribute)serviceNetworkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceNetwork_Aliases() {
+		return (EAttribute)serviceNetworkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getServiceNetwork_Network() {
+		return (EReference)serviceNetworkEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwarmNetwork() {
+		return swarmNetworkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwarmNetwork_Subnets() {
+		return (EReference)swarmNetworkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSwarmNetwork_Driver() {
+		return (EAttribute)swarmNetworkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getImage() {
+		return imageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getImage_Repository() {
+		return (EReference)imageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImage_Tag() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImage_DockerFile() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImage_Description() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImage_Size() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVolume() {
+		return volumeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_Source() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_Target() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_ReadOnly() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_Type() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDeployment() {
+		return deploymentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDeployment_Replicas() {
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_Placement() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_RestartPolicy() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRegistry() {
+		return registryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRegistry_Url() {
+		return (EAttribute)registryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRegistry_Repositories() {
+		return (EReference)registryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRepository() {
+		return repositoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRepository_Images() {
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRepository_IsPrivate() {
+		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getNodeCluster() {
 		return nodeClusterEClass;
@@ -3305,6 +4029,42 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EEnum getSystemComponentType() {
 		return systemComponentTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPortMode() {
+		return portModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProtocol() {
+		return protocolEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNetworkDriver() {
+		return networkDriverEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getVolumeType() {
+		return volumeTypeEEnum;
 	}
 
 	/**
@@ -3424,6 +4184,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServerEClass = createEClass(PLATFORM_SERVER);
 		createEReference(platformServerEClass, PLATFORM_SERVER__HOST);
 		createEReference(platformServerEClass, PLATFORM_SERVER__TARGET);
+		createEReference(platformServerEClass, PLATFORM_SERVER__CONTAINER);
 
 		serializationServerEClass = createEClass(SERIALIZATION_SERVER);
 
@@ -3490,6 +4251,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEReference(stormServerEClass, STORM_SERVER__DRPC_SERVERS);
 		createEReference(stormServerEClass, STORM_SERVER__SUPERVISORS);
 		createEAttribute(stormServerEClass, STORM_SERVER__UI_PORT);
+		createEAttribute(stormServerEClass, STORM_SERVER__IS_NIMBUS);
 
 		persistenceServerEClass = createEClass(PERSISTENCE_SERVER);
 		createEAttribute(persistenceServerEClass, PERSISTENCE_SERVER__LOGGING);
@@ -3679,9 +4441,90 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__KEY);
 		createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__VALUE);
 
+		containerEClass = createEClass(CONTAINER);
+		createEReference(containerEClass, CONTAINER__HOST);
+
+		dockerContainerEClass = createEClass(DOCKER_CONTAINER);
+		createEReference(dockerContainerEClass, DOCKER_CONTAINER__SERVICE);
+
+		containerizationServerEClass = createEClass(CONTAINERIZATION_SERVER);
+
+		dockerServerEClass = createEClass(DOCKER_SERVER);
+		createEReference(dockerServerEClass, DOCKER_SERVER__STACKS);
+		createEReference(dockerServerEClass, DOCKER_SERVER__SWARM_CLUSTER);
+
+		orchestrationServerEClass = createEClass(ORCHESTRATION_SERVER);
+
+		swarmServerEClass = createEClass(SWARM_SERVER);
+
+		swarmClusterEClass = createEClass(SWARM_CLUSTER);
+		createEReference(swarmClusterEClass, SWARM_CLUSTER__WORKERS);
+		createEReference(swarmClusterEClass, SWARM_CLUSTER__MANAGER);
+		createEReference(swarmClusterEClass, SWARM_CLUSTER__NETWORKS);
+
+		stackEClass = createEClass(STACK);
+		createEReference(stackEClass, STACK__SERVICES);
+		createEReference(stackEClass, STACK__SWARM_CLUSTER);
+
+		serviceEClass = createEClass(SERVICE);
+		createEReference(serviceEClass, SERVICE__STACK);
+		createEAttribute(serviceEClass, SERVICE__ENV_FILE);
+		createEReference(serviceEClass, SERVICE__ENV);
+		createEReference(serviceEClass, SERVICE__DEPENDS_ON);
+		createEReference(serviceEClass, SERVICE__IMAGE);
+		createEReference(serviceEClass, SERVICE__VOLUMES);
+		createEReference(serviceEClass, SERVICE__PORTS);
+		createEReference(serviceEClass, SERVICE__NETWORKS);
+		createEReference(serviceEClass, SERVICE__DEPLOYMENT_PARAM);
+
+		portEClass = createEClass(PORT);
+		createEAttribute(portEClass, PORT__TARGET);
+		createEAttribute(portEClass, PORT__PUBLISHED);
+		createEAttribute(portEClass, PORT__PROTOCOL);
+		createEAttribute(portEClass, PORT__MODE);
+
+		serviceNetworkEClass = createEClass(SERVICE_NETWORK);
+		createEAttribute(serviceNetworkEClass, SERVICE_NETWORK__IPV4_ADDRESS);
+		createEAttribute(serviceNetworkEClass, SERVICE_NETWORK__ALIASES);
+		createEReference(serviceNetworkEClass, SERVICE_NETWORK__NETWORK);
+
+		swarmNetworkEClass = createEClass(SWARM_NETWORK);
+		createEReference(swarmNetworkEClass, SWARM_NETWORK__SUBNETS);
+		createEAttribute(swarmNetworkEClass, SWARM_NETWORK__DRIVER);
+
+		imageEClass = createEClass(IMAGE);
+		createEReference(imageEClass, IMAGE__REPOSITORY);
+		createEAttribute(imageEClass, IMAGE__TAG);
+		createEAttribute(imageEClass, IMAGE__DOCKER_FILE);
+		createEAttribute(imageEClass, IMAGE__DESCRIPTION);
+		createEAttribute(imageEClass, IMAGE__SIZE);
+
+		volumeEClass = createEClass(VOLUME);
+		createEAttribute(volumeEClass, VOLUME__SOURCE);
+		createEAttribute(volumeEClass, VOLUME__TARGET);
+		createEAttribute(volumeEClass, VOLUME__READ_ONLY);
+		createEAttribute(volumeEClass, VOLUME__TYPE);
+
+		deploymentEClass = createEClass(DEPLOYMENT);
+		createEAttribute(deploymentEClass, DEPLOYMENT__REPLICAS);
+		createEReference(deploymentEClass, DEPLOYMENT__PLACEMENT);
+		createEReference(deploymentEClass, DEPLOYMENT__RESTART_POLICY);
+
+		registryEClass = createEClass(REGISTRY);
+		createEAttribute(registryEClass, REGISTRY__URL);
+		createEReference(registryEClass, REGISTRY__REPOSITORIES);
+
+		repositoryEClass = createEClass(REPOSITORY);
+		createEReference(repositoryEClass, REPOSITORY__IMAGES);
+		createEAttribute(repositoryEClass, REPOSITORY__IS_PRIVATE);
+
 		// Create enums
 		externalElementTypeEEnum = createEEnum(EXTERNAL_ELEMENT_TYPE);
 		systemComponentTypeEEnum = createEEnum(SYSTEM_COMPONENT_TYPE);
+		portModeEEnum = createEEnum(PORT_MODE);
+		protocolEEnum = createEEnum(PROTOCOL);
+		networkDriverEEnum = createEEnum(NETWORK_DRIVER);
+		volumeTypeEEnum = createEEnum(VOLUME_TYPE);
 
 		// Create data types
 		propertiesEDataType = createEDataType(PROPERTIES);
@@ -3787,6 +4630,18 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		configurationExceptionEClass.getESuperTypes().add(this.getException());
 		deploymentExceptionEClass.getESuperTypes().add(this.getException());
 		launchExceptionEClass.getESuperTypes().add(this.getException());
+		containerEClass.getESuperTypes().add(this.getPlatformResource());
+		dockerContainerEClass.getESuperTypes().add(this.getContainer());
+		containerizationServerEClass.getESuperTypes().add(this.getPlatformServer());
+		dockerServerEClass.getESuperTypes().add(this.getContainerizationServer());
+		orchestrationServerEClass.getESuperTypes().add(this.getPlatformServer());
+		swarmServerEClass.getESuperTypes().add(this.getOrchestrationServer());
+		swarmClusterEClass.getESuperTypes().add(this.getResourceCluster());
+		stackEClass.getESuperTypes().add(this.getNamedElement());
+		serviceEClass.getESuperTypes().add(this.getNamedElement());
+		swarmNetworkEClass.getESuperTypes().add(this.getNamedElement());
+		registryEClass.getESuperTypes().add(this.getNamedElement());
+		repositoryEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(computationalSystemEClass, ComputationalSystem.class, "ComputationalSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3874,8 +4729,9 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 0, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformServerEClass, PlatformServer.class, "PlatformServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlatformServer_Host(), this.getProcessingNode(), null, "host", null, 1, 1, PlatformServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlatformServer_Host(), this.getProcessingNode(), null, "host", null, 0, 1, PlatformServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlatformServer_Target(), this.getResourceCluster(), null, "target", null, 1, 1, PlatformServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlatformServer_Container(), this.getContainer(), null, "container", null, 0, 1, PlatformServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serializationServerEClass, SerializationServer.class, "SerializationServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3942,6 +4798,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEReference(getStormServer_DrpcServers(), this.getNodeCluster(), null, "drpcServers", null, 0, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormServer_Supervisors(), this.getNodeCluster(), null, "supervisors", null, 1, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormServer_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 0, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStormServer_IsNimbus(), ecorePackage.getEBoolean(), "isNimbus", null, 1, 1, StormServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistenceServerEClass, PersistenceServer.class, "PersistenceServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistenceServer_Logging(), ecorePackage.getEString(), "logging", null, 1, 1, PersistenceServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4134,6 +4991,83 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getStringToStringMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringToStringMap_Value(), ecorePackage.getEString(), "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(containerEClass, PASYS_Metamodel.pasys.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContainer_Host(), this.getContainerizationServer(), null, "host", null, 1, 1, PASYS_Metamodel.pasys.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dockerContainerEClass, DockerContainer.class, "DockerContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDockerContainer_Service(), this.getService(), null, "service", null, 1, 1, DockerContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(containerizationServerEClass, ContainerizationServer.class, "ContainerizationServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dockerServerEClass, DockerServer.class, "DockerServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDockerServer_Stacks(), this.getStack(), null, "stacks", null, 0, -1, DockerServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDockerServer_SwarmCluster(), this.getSwarmCluster(), null, "swarmCluster", null, 0, 1, DockerServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(orchestrationServerEClass, OrchestrationServer.class, "OrchestrationServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(swarmServerEClass, SwarmServer.class, "SwarmServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(swarmClusterEClass, SwarmCluster.class, "SwarmCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwarmCluster_Workers(), this.getDockerServer(), null, "workers", null, 1, -1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwarmCluster_Manager(), this.getDockerServer(), null, "manager", null, 1, 1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwarmCluster_Networks(), this.getSwarmNetwork(), null, "networks", null, 0, -1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stackEClass, Stack.class, "Stack", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStack_Services(), this.getService(), this.getService_Stack(), "services", null, 1, -1, Stack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStack_SwarmCluster(), this.getSwarmCluster(), null, "swarmCluster", null, 0, 1, Stack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getService_Stack(), this.getStack(), this.getStack_Services(), "stack", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_EnvFile(), ecorePackage.getEString(), "envFile", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Env(), this.getStringToStringMap(), null, "env", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_DependsOn(), this.getService(), null, "dependsOn", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Image(), this.getImage(), null, "image", null, 1, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Ports(), this.getPort(), null, "ports", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Networks(), this.getServiceNetwork(), null, "networks", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_DeploymentParam(), this.getDeployment(), null, "deploymentParam", null, 1, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPort_Target(), ecorePackage.getEString(), "target", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPort_Published(), ecorePackage.getEString(), "published", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPort_Protocol(), this.getProtocol(), "protocol", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPort_Mode(), this.getPortMode(), "mode", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceNetworkEClass, ServiceNetwork.class, "ServiceNetwork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServiceNetwork_Ipv4Address(), ecorePackage.getEString(), "ipv4Address", null, 1, 1, ServiceNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServiceNetwork_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, ServiceNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServiceNetwork_Network(), this.getSwarmNetwork(), null, "network", null, 0, 1, ServiceNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(swarmNetworkEClass, SwarmNetwork.class, "SwarmNetwork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwarmNetwork_Subnets(), this.getStringToStringMap(), null, "subnets", null, 0, 1, SwarmNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSwarmNetwork_Driver(), this.getNetworkDriver(), "driver", null, 1, 1, SwarmNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getImage_Repository(), this.getRepository(), null, "repository", null, 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Tag(), ecorePackage.getEString(), "tag", null, 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_DockerFile(), ecorePackage.getEString(), "dockerFile", null, 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Description(), ecorePackage.getEString(), "description", null, 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Size(), ecorePackage.getEDouble(), "size", null, 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(volumeEClass, Volume.class, "Volume", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVolume_Source(), ecorePackage.getEString(), "source", null, 1, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolume_Target(), ecorePackage.getEString(), "target", null, 1, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolume_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 1, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolume_Type(), this.getVolumeType(), "type", null, 0, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDeployment_Replicas(), ecorePackage.getEInt(), "replicas", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_Placement(), this.getStringToStringMap(), null, "placement", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_RestartPolicy(), this.getStringToStringMap(), null, "restartPolicy", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(registryEClass, PASYS_Metamodel.pasys.Registry.class, "Registry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRegistry_Url(), ecorePackage.getEString(), "url", null, 1, 1, PASYS_Metamodel.pasys.Registry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRegistry_Repositories(), this.getRepository(), null, "repositories", null, 1, -1, PASYS_Metamodel.pasys.Registry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRepository_Images(), this.getImage(), null, "images", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRepository_IsPrivate(), ecorePackage.getEBoolean(), "isPrivate", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(externalElementTypeEEnum, ExternalElementType.class, "ExternalElementType");
 		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.PROCESSING_NODE);
@@ -4161,6 +5095,24 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_EXECUTOR);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_AMOUNT_METER);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.WORKFLOW);
+
+		initEEnum(portModeEEnum, PortMode.class, "PortMode");
+		addEEnumLiteral(portModeEEnum, PortMode.PORT);
+		addEEnumLiteral(portModeEEnum, PortMode.INGRESS);
+
+		initEEnum(protocolEEnum, Protocol.class, "Protocol");
+		addEEnumLiteral(protocolEEnum, Protocol.TCP);
+		addEEnumLiteral(protocolEEnum, Protocol.UDP);
+
+		initEEnum(networkDriverEEnum, NetworkDriver.class, "NetworkDriver");
+		addEEnumLiteral(networkDriverEEnum, NetworkDriver.BRIDGE);
+		addEEnumLiteral(networkDriverEEnum, NetworkDriver.OVERLAY);
+
+		initEEnum(volumeTypeEEnum, VolumeType.class, "VolumeType");
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.VOLUME);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.BIND);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.TMPFS);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.NPIPE);
 
 		// Initialize data types
 		initEDataType(propertiesEDataType, Properties.class, "Properties", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

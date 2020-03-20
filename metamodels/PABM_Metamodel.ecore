@@ -237,6 +237,8 @@
           eType="#//pasys/NodeCluster"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="8080"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNimbus" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PersistenceServer" abstract="true"
         eSuperTypes="#//pasys/PlatformServer">
