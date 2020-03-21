@@ -12,21 +12,21 @@ import PASYS_Metamodel.pasys.Stack;
 import PASYS_Metamodel.pasys.Volume;
 
 import java.util.Collection;
-import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -73,14 +73,14 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 	protected String envFile = ENV_FILE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEnv() <em>Env</em>}' reference.
+	 * The cached value of the '{@link #getEnv() <em>Env</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEnv()
 	 * @generated
 	 * @ordered
 	 */
-	protected Map.Entry<String, String> env;
+	protected EMap<String, String> env;
 
 	/**
 	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' reference list.
@@ -229,37 +229,11 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Map.Entry<String, String> getEnv() {
-		if (env != null && ((EObject)env).eIsProxy()) {
-			InternalEObject oldEnv = (InternalEObject)env;
-			env = (Map.Entry<String, String>)eResolveProxy(oldEnv);
-			if (env != oldEnv) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.SERVICE__ENV, oldEnv, env));
-			}
+	public EMap<String, String> getEnv() {
+		if (env == null) {
+			env = new EcoreEMap<String,String>(PasysPackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, PasysPackage.SERVICE__ENV);
 		}
 		return env;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Map.Entry<String, String> basicGetEnv() {
-		return env;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnv(Map.Entry<String, String> newEnv) {
-		Map.Entry<String, String> oldEnv = env;
-		env = newEnv;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.SERVICE__ENV, oldEnv, env));
 	}
 
 	/**
@@ -417,6 +391,8 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 		switch (featureID) {
 			case PasysPackage.SERVICE__STACK:
 				return basicSetStack(null, msgs);
+			case PasysPackage.SERVICE__ENV:
+				return ((InternalEList<?>)getEnv()).basicRemove(otherEnd, msgs);
 			case PasysPackage.SERVICE__VOLUMES:
 				return ((InternalEList<?>)getVolumes()).basicRemove(otherEnd, msgs);
 			case PasysPackage.SERVICE__PORTS:
@@ -456,8 +432,8 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 			case PasysPackage.SERVICE__ENV_FILE:
 				return getEnvFile();
 			case PasysPackage.SERVICE__ENV:
-				if (resolve) return getEnv();
-				return basicGetEnv();
+				if (coreType) return getEnv();
+				else return getEnv().map();
 			case PasysPackage.SERVICE__DEPENDS_ON:
 				return getDependsOn();
 			case PasysPackage.SERVICE__IMAGE:
@@ -491,7 +467,7 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 				setEnvFile((String)newValue);
 				return;
 			case PasysPackage.SERVICE__ENV:
-				setEnv((Map.Entry<String, String>)newValue);
+				((EStructuralFeature.Setting)getEnv()).set(newValue);
 				return;
 			case PasysPackage.SERVICE__DEPENDS_ON:
 				getDependsOn().clear();
@@ -534,7 +510,7 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 				setEnvFile(ENV_FILE_EDEFAULT);
 				return;
 			case PasysPackage.SERVICE__ENV:
-				setEnv((Map.Entry<String, String>)null);
+				getEnv().clear();
 				return;
 			case PasysPackage.SERVICE__DEPENDS_ON:
 				getDependsOn().clear();
@@ -571,7 +547,7 @@ public class ServiceImpl extends NamedElementImpl implements Service {
 			case PasysPackage.SERVICE__ENV_FILE:
 				return ENV_FILE_EDEFAULT == null ? envFile != null : !ENV_FILE_EDEFAULT.equals(envFile);
 			case PasysPackage.SERVICE__ENV:
-				return env != null;
+				return env != null && !env.isEmpty();
 			case PasysPackage.SERVICE__DEPENDS_ON:
 				return dependsOn != null && !dependsOn.isEmpty();
 			case PasysPackage.SERVICE__IMAGE:

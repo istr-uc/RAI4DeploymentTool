@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RegistryImpl extends NamedElementImpl implements Registry {
+public class RegistryImpl extends SystemElementImpl implements Registry {
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->

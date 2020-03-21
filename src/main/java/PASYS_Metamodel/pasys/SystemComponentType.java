@@ -134,6 +134,14 @@ public enum SystemComponentType implements Enumerator {
 	 * @ordered
 	 */
 	TASK_AMOUNT_METER(13, "TASK_AMOUNT_METER", "TASK_AMOUNT_METER"), /**
+	 * The '<em><b>DOCKER STACK</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DOCKER_STACK_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DOCKER_STACK(14, "DOCKER_STACK", "DOCKER_STACK"), /**
 	 * The '<em><b>WORKFLOW</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,7 +149,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WORKFLOW(14, "WORKFLOW", "WORKFLOW");
+	WORKFLOW(15, "WORKFLOW", "WORKFLOW");
 
 	/**
 	 * The '<em><b>PROMETHEUS SERVER</b></em>' literal value.
@@ -354,6 +362,21 @@ public enum SystemComponentType implements Enumerator {
 	public static final int TASK_AMOUNT_METER_VALUE = 13;
 
 	/**
+	 * The '<em><b>DOCKER STACK</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DOCKER STACK</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DOCKER_STACK
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DOCKER_STACK_VALUE = 14;
+
+	/**
 	 * The '<em><b>WORKFLOW</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -366,7 +389,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WORKFLOW_VALUE = 14;
+	public static final int WORKFLOW_VALUE = 15;
 
 	/**
 	 * An array of all the '<em><b>System Component Type</b></em>' enumerators.
@@ -390,6 +413,7 @@ public enum SystemComponentType implements Enumerator {
 			NODE_RESOURCE_METER,
 			TASK_EXECUTOR,
 			TASK_AMOUNT_METER,
+			DOCKER_STACK,
 			WORKFLOW,
 		};
 
@@ -461,6 +485,7 @@ public enum SystemComponentType implements Enumerator {
 			case NODE_RESOURCE_METER_VALUE: return NODE_RESOURCE_METER;
 			case TASK_EXECUTOR_VALUE: return TASK_EXECUTOR;
 			case TASK_AMOUNT_METER_VALUE: return TASK_AMOUNT_METER;
+			case DOCKER_STACK_VALUE: return DOCKER_STACK;
 			case WORKFLOW_VALUE: return WORKFLOW;
 		}
 		return null;

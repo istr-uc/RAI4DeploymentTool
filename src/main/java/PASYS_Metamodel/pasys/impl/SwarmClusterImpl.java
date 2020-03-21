@@ -5,8 +5,6 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.SwarmCluster;
-import PASYS_Metamodel.pasys.SwarmNetwork;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,7 +28,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.SwarmClusterImpl#getWorkers <em>Workers</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.SwarmClusterImpl#getManager <em>Manager</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.SwarmClusterImpl#getNetworks <em>Networks</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,16 +52,6 @@ public class SwarmClusterImpl extends ResourceClusterImpl implements SwarmCluste
 	 * @ordered
 	 */
 	protected DockerServer manager;
-
-	/**
-	 * The cached value of the '{@link #getNetworks() <em>Networks</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNetworks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SwarmNetwork> networks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,18 +127,6 @@ public class SwarmClusterImpl extends ResourceClusterImpl implements SwarmCluste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SwarmNetwork> getNetworks() {
-		if (networks == null) {
-			networks = new EObjectResolvingEList<SwarmNetwork>(SwarmNetwork.class, this, PasysPackage.SWARM_CLUSTER__NETWORKS);
-		}
-		return networks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -160,8 +135,6 @@ public class SwarmClusterImpl extends ResourceClusterImpl implements SwarmCluste
 			case PasysPackage.SWARM_CLUSTER__MANAGER:
 				if (resolve) return getManager();
 				return basicGetManager();
-			case PasysPackage.SWARM_CLUSTER__NETWORKS:
-				return getNetworks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,10 +155,6 @@ public class SwarmClusterImpl extends ResourceClusterImpl implements SwarmCluste
 			case PasysPackage.SWARM_CLUSTER__MANAGER:
 				setManager((DockerServer)newValue);
 				return;
-			case PasysPackage.SWARM_CLUSTER__NETWORKS:
-				getNetworks().clear();
-				getNetworks().addAll((Collection<? extends SwarmNetwork>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -204,9 +173,6 @@ public class SwarmClusterImpl extends ResourceClusterImpl implements SwarmCluste
 			case PasysPackage.SWARM_CLUSTER__MANAGER:
 				setManager((DockerServer)null);
 				return;
-			case PasysPackage.SWARM_CLUSTER__NETWORKS:
-				getNetworks().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -223,8 +189,6 @@ public class SwarmClusterImpl extends ResourceClusterImpl implements SwarmCluste
 				return workers != null && !workers.isEmpty();
 			case PasysPackage.SWARM_CLUSTER__MANAGER:
 				return manager != null;
-			case PasysPackage.SWARM_CLUSTER__NETWORKS:
-				return networks != null && !networks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -10107,22 +10107,13 @@ public interface PasysPackage extends EPackage {
 	int SWARM_CLUSTER__MANAGER = RESOURCE_CLUSTER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Networks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_CLUSTER__NETWORKS = RESOURCE_CLUSTER_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Swarm Cluster</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWARM_CLUSTER_FEATURE_COUNT = RESOURCE_CLUSTER_FEATURE_COUNT + 3;
+	int SWARM_CLUSTER_FEATURE_COUNT = RESOURCE_CLUSTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Swarm Cluster</em>' class.
@@ -10180,13 +10171,31 @@ public interface PasysPackage extends EPackage {
 	int STACK__SWARM_CLUSTER = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Networks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK__NETWORKS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Stack</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STACK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int STACK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Stack</em>' class.
@@ -10244,7 +10253,7 @@ public interface PasysPackage extends EPackage {
 	int SERVICE__ENV_FILE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Env</b></em>' reference.
+	 * The feature id for the '<em><b>Env</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -10518,13 +10527,31 @@ public interface PasysPackage extends EPackage {
 	int IMAGE = 80;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__REPOSITORY = 0;
+	int IMAGE__REPOSITORY = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
@@ -10533,7 +10560,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__TAG = 1;
+	int IMAGE__TAG = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Docker File</b></em>' attribute.
@@ -10542,7 +10569,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__DOCKER_FILE = 2;
+	int IMAGE__DOCKER_FILE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -10551,7 +10578,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__DESCRIPTION = 3;
+	int IMAGE__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -10560,7 +10587,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__SIZE = 4;
+	int IMAGE__SIZE = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Image</em>' class.
@@ -10569,7 +10596,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = 5;
+	int IMAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Image</em>' class.
@@ -10578,7 +10605,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_OPERATION_COUNT = 0;
+	int IMAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.VolumeImpl <em>Volume</em>}' class.
@@ -10664,7 +10691,7 @@ public interface PasysPackage extends EPackage {
 	int DEPLOYMENT__REPLICAS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Placement</b></em>' reference.
+	 * The feature id for the '<em><b>Placement</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -10673,7 +10700,7 @@ public interface PasysPackage extends EPackage {
 	int DEPLOYMENT__PLACEMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Restart Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Restart Policy</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -10716,7 +10743,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REGISTRY__NAME = NAMED_ELEMENT__NAME;
+	int REGISTRY__NAME = SYSTEM_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10725,7 +10752,16 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REGISTRY__ID = NAMED_ELEMENT__ID;
+	int REGISTRY__ID = SYSTEM_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRY__OWNER = SYSTEM_ELEMENT__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -10734,7 +10770,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REGISTRY__URL = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int REGISTRY__URL = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -10743,7 +10779,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REGISTRY__REPOSITORIES = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int REGISTRY__REPOSITORIES = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Registry</em>' class.
@@ -10752,7 +10788,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REGISTRY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int REGISTRY_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Registry</em>' class.
@@ -10761,7 +10797,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REGISTRY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int REGISTRY_OPERATION_COUNT = SYSTEM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.RepositoryImpl <em>Repository</em>}' class.
@@ -13847,17 +13883,6 @@ public interface PasysPackage extends EPackage {
 	EReference getSwarmCluster_Manager();
 
 	/**
-	 * Returns the meta object for the reference list '{@link PASYS_Metamodel.pasys.SwarmCluster#getNetworks <em>Networks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Networks</em>'.
-	 * @see PASYS_Metamodel.pasys.SwarmCluster#getNetworks()
-	 * @see #getSwarmCluster()
-	 * @generated
-	 */
-	EReference getSwarmCluster_Networks();
-
-	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.Stack <em>Stack</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13888,6 +13913,28 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStack_SwarmCluster();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.Stack#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see PASYS_Metamodel.pasys.Stack#getVersion()
+	 * @see #getStack()
+	 * @generated
+	 */
+	EAttribute getStack_Version();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.Stack#getNetworks <em>Networks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Networks</em>'.
+	 * @see PASYS_Metamodel.pasys.Stack#getNetworks()
+	 * @see #getStack()
+	 * @generated
+	 */
+	EReference getStack_Networks();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.Service <em>Service</em>}'.
@@ -13922,10 +13969,10 @@ public interface PasysPackage extends EPackage {
 	EAttribute getService_EnvFile();
 
 	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.Service#getEnv <em>Env</em>}'.
+	 * Returns the meta object for the map '{@link PASYS_Metamodel.pasys.Service#getEnv <em>Env</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Env</em>'.
+	 * @return the meta object for the map '<em>Env</em>'.
 	 * @see PASYS_Metamodel.pasys.Service#getEnv()
 	 * @see #getService()
 	 * @generated
@@ -14268,10 +14315,10 @@ public interface PasysPackage extends EPackage {
 	EAttribute getDeployment_Replicas();
 
 	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.Deployment#getPlacement <em>Placement</em>}'.
+	 * Returns the meta object for the map '{@link PASYS_Metamodel.pasys.Deployment#getPlacement <em>Placement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Placement</em>'.
+	 * @return the meta object for the map '<em>Placement</em>'.
 	 * @see PASYS_Metamodel.pasys.Deployment#getPlacement()
 	 * @see #getDeployment()
 	 * @generated
@@ -14279,10 +14326,10 @@ public interface PasysPackage extends EPackage {
 	EReference getDeployment_Placement();
 
 	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.Deployment#getRestartPolicy <em>Restart Policy</em>}'.
+	 * Returns the meta object for the map '{@link PASYS_Metamodel.pasys.Deployment#getRestartPolicy <em>Restart Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Restart Policy</em>'.
+	 * @return the meta object for the map '<em>Restart Policy</em>'.
 	 * @see PASYS_Metamodel.pasys.Deployment#getRestartPolicy()
 	 * @see #getDeployment()
 	 * @generated
@@ -16883,14 +16930,6 @@ public interface PasysPackage extends EPackage {
 		EReference SWARM_CLUSTER__MANAGER = eINSTANCE.getSwarmCluster_Manager();
 
 		/**
-		 * The meta object literal for the '<em><b>Networks</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SWARM_CLUSTER__NETWORKS = eINSTANCE.getSwarmCluster_Networks();
-
-		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.StackImpl <em>Stack</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16915,6 +16954,22 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STACK__SWARM_CLUSTER = eINSTANCE.getStack_SwarmCluster();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STACK__VERSION = eINSTANCE.getStack_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Networks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STACK__NETWORKS = eINSTANCE.getStack_Networks();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.ServiceImpl <em>Service</em>}' class.
@@ -16943,7 +16998,7 @@ public interface PasysPackage extends EPackage {
 		EAttribute SERVICE__ENV_FILE = eINSTANCE.getService_EnvFile();
 
 		/**
-		 * The meta object literal for the '<em><b>Env</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Env</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -17211,7 +17266,7 @@ public interface PasysPackage extends EPackage {
 		EAttribute DEPLOYMENT__REPLICAS = eINSTANCE.getDeployment_Replicas();
 
 		/**
-		 * The meta object literal for the '<em><b>Placement</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Placement</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -17219,7 +17274,7 @@ public interface PasysPackage extends EPackage {
 		EReference DEPLOYMENT__PLACEMENT = eINSTANCE.getDeployment_Placement();
 
 		/**
-		 * The meta object literal for the '<em><b>Restart Policy</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Restart Policy</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -41,50 +41,35 @@ import com.esotericsoftware.yamlbeans.YamlException;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getNumTokens
- * <em>Num Tokens</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getSeeds
- * <em>Seeds</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getSeedProviderClass
- * <em>Seed Provider Class</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getListenAddress
- * <em>Listen Address</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getRpcAddress
- * <em>Rpc Address</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getEndpointSnitch
- * <em>Endpoint Snitch</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getDataCenter
- * <em>Data Center</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getDataFileDir
- * <em>Data File Dir</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getNativeTransportPort
- * <em>Native Transport Port</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getRack
- * <em>Rack</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#isAutoBootstrap
- * <em>Auto Bootstrap</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getCqlSchemas
- * <em>Cql Schemas</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#isIsSeed <em>Is
- * Seed</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getNumTokens <em>Num Tokens</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getSeeds <em>Seeds</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getSeedProviderClass <em>Seed Provider Class</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getListenAddress <em>Listen Address</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getRpcAddress <em>Rpc Address</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getDataCenter <em>Data Center</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getDataFileDir <em>Data File Dir</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getNativeTransportPort <em>Native Transport Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getRack <em>Rack</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#getCqlSchemas <em>Cql Schemas</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServerImpl#isIsSeed <em>Is Seed</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CassandraServerImpl extends PersistenceServerImpl implements CassandraServer {
 	/**
-	 * The default value of the '{@link #getNumTokens() <em>Num Tokens</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getNumTokens() <em>Num Tokens</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNumTokens()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int NUM_TOKENS_EDEFAULT = 256;
 	/**
-	 * The cached value of the '{@link #getNumTokens() <em>Num Tokens</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getNumTokens() <em>Num Tokens</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNumTokens()
 	 * @generated
 	 * @ordered
@@ -93,89 +78,79 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	/**
 	 * The cached value of the '{@link #getSeeds() <em>Seeds</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getSeeds()
 	 * @generated
 	 * @ordered
 	 */
 	protected ResourceCluster seeds;
 	/**
-	 * The default value of the '{@link #getSeedProviderClass() <em>Seed
-	 * Provider Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getSeedProviderClass() <em>Seed Provider Class</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getSeedProviderClass()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String SEED_PROVIDER_CLASS_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getSeedProviderClass() <em>Seed Provider
-	 * Class</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSeedProviderClass() <em>Seed Provider Class</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSeedProviderClass()
 	 * @generated
 	 * @ordered
 	 */
 	protected String seedProviderClass = SEED_PROVIDER_CLASS_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getListenAddress() <em>Listen
-	 * Address</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getListenAddress() <em>Listen Address</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getListenAddress()
 	 * @generated
 	 * @ordered
 	 */
 	protected ProcessingNode listenAddress;
 	/**
-	 * The cached value of the '{@link #getRpcAddress() <em>Rpc Address</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getRpcAddress() <em>Rpc Address</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRpcAddress()
 	 * @generated
 	 * @ordered
 	 */
 	protected ProcessingNode rpcAddress;
 	/**
-	 * The default value of the '{@link #getEndpointSnitch() <em>Endpoint
-	 * Snitch</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getEndpointSnitch() <em>Endpoint Snitch</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndpointSnitch()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ENDPOINT_SNITCH_EDEFAULT = "SimpleSnitch";
 	/**
-	 * The cached value of the '{@link #getEndpointSnitch() <em>Endpoint
-	 * Snitch</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getEndpointSnitch() <em>Endpoint Snitch</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndpointSnitch()
 	 * @generated
 	 * @ordered
 	 */
 	protected String endpointSnitch = ENDPOINT_SNITCH_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getDataCenter() <em>Data Center</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getDataCenter() <em>Data Center</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataCenter()
 	 * @generated
 	 * @ordered
 	 */
 	protected ResourceCluster dataCenter;
 	/**
-	 * The default value of the '{@link #getDataFileDir() <em>Data File
-	 * Dir</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getDataFileDir() <em>Data File Dir</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFileDir()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String DATA_FILE_DIR_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getDataFileDir() <em>Data File
-	 * Dir</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getDataFileDir() <em>Data File Dir</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFileDir()
 	 * @generated
 	 * @ordered
@@ -183,20 +158,18 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected String dataFileDir = DATA_FILE_DIR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNativeTransportPort() <em>Native
-	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getNativeTransportPort() <em>Native Transport Port</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getNativeTransportPort()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int NATIVE_TRANSPORT_PORT_EDEFAULT = 9042;
 	/**
-	 * The cached value of the '{@link #getNativeTransportPort() <em>Native
-	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getNativeTransportPort() <em>Native Transport Port</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getNativeTransportPort()
 	 * @generated
 	 * @ordered
@@ -206,7 +179,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	/**
 	 * The cached value of the '{@link #getRack() <em>Rack</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getRack()
 	 * @generated
 	 * @ordered
@@ -214,27 +186,24 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected ResourceCluster rack;
 
 	/**
-	 * The default value of the '{@link #isAutoBootstrap() <em>Auto
-	 * Bootstrap</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isAutoBootstrap() <em>Auto Bootstrap</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAutoBootstrap()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final boolean AUTO_BOOTSTRAP_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isAutoBootstrap() <em>Auto
-	 * Bootstrap</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isAutoBootstrap() <em>Auto Bootstrap</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAutoBootstrap()
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean autoBootstrap = AUTO_BOOTSTRAP_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getCqlSchemas() <em>Cql Schemas</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getCqlSchemas() <em>Cql Schemas</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCqlSchemas()
 	 * @generated
 	 * @ordered
@@ -242,9 +211,8 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected EList<FileDescriptor> cqlSchemas;
 
 	/**
-	 * The default value of the '{@link #isIsSeed() <em>Is Seed</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsSeed()
 	 * @generated
 	 * @ordered
@@ -253,7 +221,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	/**
 	 * The cached value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #isIsSeed()
 	 * @generated
 	 * @ordered
@@ -262,7 +229,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CassandraServerImpl() {
@@ -271,7 +237,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -281,7 +246,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -291,7 +255,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -299,24 +262,21 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		int oldNumTokens = numTokens;
 		numTokens = newNumTokens;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__NUM_TOKENS,
-					oldNumTokens, numTokens));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__NUM_TOKENS, oldNumTokens, numTokens));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ResourceCluster getSeeds() {
 		if (seeds != null && seeds.eIsProxy()) {
-			InternalEObject oldSeeds = (InternalEObject) seeds;
-			seeds = (ResourceCluster) eResolveProxy(oldSeeds);
+			InternalEObject oldSeeds = (InternalEObject)seeds;
+			seeds = (ResourceCluster)eResolveProxy(oldSeeds);
 			if (seeds != oldSeeds) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__SEEDS,
-							oldSeeds, seeds));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__SEEDS, oldSeeds, seeds));
 			}
 		}
 		return seeds;
@@ -324,7 +284,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ResourceCluster basicGetSeeds() {
@@ -333,7 +292,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -341,13 +299,11 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		ResourceCluster oldSeeds = seeds;
 		seeds = newSeeds;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__SEEDS, oldSeeds,
-					seeds));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__SEEDS, oldSeeds, seeds));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -357,7 +313,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -365,24 +320,21 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		String oldSeedProviderClass = seedProviderClass;
 		seedProviderClass = newSeedProviderClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS,
-					oldSeedProviderClass, seedProviderClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS, oldSeedProviderClass, seedProviderClass));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ProcessingNode getListenAddress() {
 		if (listenAddress != null && listenAddress.eIsProxy()) {
-			InternalEObject oldListenAddress = (InternalEObject) listenAddress;
-			listenAddress = (ProcessingNode) eResolveProxy(oldListenAddress);
+			InternalEObject oldListenAddress = (InternalEObject)listenAddress;
+			listenAddress = (ProcessingNode)eResolveProxy(oldListenAddress);
 			if (listenAddress != oldListenAddress) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS, oldListenAddress, listenAddress));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS, oldListenAddress, listenAddress));
 			}
 		}
 		return listenAddress;
@@ -390,7 +342,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProcessingNode basicGetListenAddress() {
@@ -399,7 +350,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -407,24 +357,21 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		ProcessingNode oldListenAddress = listenAddress;
 		listenAddress = newListenAddress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS,
-					oldListenAddress, listenAddress));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS, oldListenAddress, listenAddress));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ProcessingNode getRpcAddress() {
 		if (rpcAddress != null && rpcAddress.eIsProxy()) {
-			InternalEObject oldRpcAddress = (InternalEObject) rpcAddress;
-			rpcAddress = (ProcessingNode) eResolveProxy(oldRpcAddress);
+			InternalEObject oldRpcAddress = (InternalEObject)rpcAddress;
+			rpcAddress = (ProcessingNode)eResolveProxy(oldRpcAddress);
 			if (rpcAddress != oldRpcAddress) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS, oldRpcAddress, rpcAddress));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS, oldRpcAddress, rpcAddress));
 			}
 		}
 		return rpcAddress;
@@ -432,7 +379,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProcessingNode basicGetRpcAddress() {
@@ -441,7 +387,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -449,13 +394,11 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		ProcessingNode oldRpcAddress = rpcAddress;
 		rpcAddress = newRpcAddress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS,
-					oldRpcAddress, rpcAddress));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS, oldRpcAddress, rpcAddress));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -465,7 +408,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -473,24 +415,21 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		String oldEndpointSnitch = endpointSnitch;
 		endpointSnitch = newEndpointSnitch;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH,
-					oldEndpointSnitch, endpointSnitch));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH, oldEndpointSnitch, endpointSnitch));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ResourceCluster getDataCenter() {
 		if (dataCenter != null && dataCenter.eIsProxy()) {
-			InternalEObject oldDataCenter = (InternalEObject) dataCenter;
-			dataCenter = (ResourceCluster) eResolveProxy(oldDataCenter);
+			InternalEObject oldDataCenter = (InternalEObject)dataCenter;
+			dataCenter = (ResourceCluster)eResolveProxy(oldDataCenter);
 			if (dataCenter != oldDataCenter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PasysPackage.CASSANDRA_SERVER__DATA_CENTER, oldDataCenter, dataCenter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__DATA_CENTER, oldDataCenter, dataCenter));
 			}
 		}
 		return dataCenter;
@@ -498,7 +437,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ResourceCluster basicGetDataCenter() {
@@ -507,7 +445,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -515,27 +452,23 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		ResourceCluster oldDataCenter = dataCenter;
 		dataCenter = newDataCenter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__DATA_CENTER,
-					oldDataCenter, dataCenter));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__DATA_CENTER, oldDataCenter, dataCenter));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<FileDescriptor> getCqlSchemas() {
 		if (cqlSchemas == null) {
-			cqlSchemas = new EObjectContainmentEList<FileDescriptor>(FileDescriptor.class, this,
-					PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS);
+			cqlSchemas = new EObjectContainmentEList<FileDescriptor>(FileDescriptor.class, this, PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS);
 		}
 		return cqlSchemas;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isIsSeed() {
@@ -544,34 +477,30 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setIsSeed(boolean newIsSeed) {
 		boolean oldIsSeed = isSeed;
 		isSeed = newIsSeed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__IS_SEED, oldIsSeed,
-					isSeed));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__IS_SEED, oldIsSeed, isSeed));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
-			return ((InternalEList<?>) getCqlSchemas()).basicRemove(otherEnd, msgs);
+			case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
+				return ((InternalEList<?>)getCqlSchemas()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -581,7 +510,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -589,13 +517,11 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		String oldDataFileDir = dataFileDir;
 		dataFileDir = newDataFileDir;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR,
-					oldDataFileDir, dataFileDir));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR, oldDataFileDir, dataFileDir));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -605,7 +531,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -613,24 +538,21 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		int oldNativeTransportPort = nativeTransportPort;
 		nativeTransportPort = newNativeTransportPort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT,
-					oldNativeTransportPort, nativeTransportPort));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT, oldNativeTransportPort, nativeTransportPort));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ResourceCluster getRack() {
 		if (rack != null && rack.eIsProxy()) {
-			InternalEObject oldRack = (InternalEObject) rack;
-			rack = (ResourceCluster) eResolveProxy(oldRack);
+			InternalEObject oldRack = (InternalEObject)rack;
+			rack = (ResourceCluster)eResolveProxy(oldRack);
 			if (rack != oldRack) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__RACK,
-							oldRack, rack));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVER__RACK, oldRack, rack));
 			}
 		}
 		return rack;
@@ -638,7 +560,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ResourceCluster basicGetRack() {
@@ -647,7 +568,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRack(ResourceCluster newRack) {
@@ -659,7 +579,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -669,7 +588,6 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -677,211 +595,197 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		boolean oldAutoBootstrap = autoBootstrap;
 		autoBootstrap = newAutoBootstrap;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP,
-					oldAutoBootstrap, autoBootstrap));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP, oldAutoBootstrap, autoBootstrap));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
-			return getNumTokens();
-		case PasysPackage.CASSANDRA_SERVER__SEEDS:
-			if (resolve)
-				return getSeeds();
-			return basicGetSeeds();
-		case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
-			return getSeedProviderClass();
-		case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
-			if (resolve)
-				return getListenAddress();
-			return basicGetListenAddress();
-		case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
-			if (resolve)
-				return getRpcAddress();
-			return basicGetRpcAddress();
-		case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
-			return getEndpointSnitch();
-		case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
-			if (resolve)
-				return getDataCenter();
-			return basicGetDataCenter();
-		case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
-			return getDataFileDir();
-		case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
-			return getNativeTransportPort();
-		case PasysPackage.CASSANDRA_SERVER__RACK:
-			if (resolve)
-				return getRack();
-			return basicGetRack();
-		case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
-			return isAutoBootstrap();
-		case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
-			return getCqlSchemas();
-		case PasysPackage.CASSANDRA_SERVER__IS_SEED:
-			return isIsSeed();
+			case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
+				return getNumTokens();
+			case PasysPackage.CASSANDRA_SERVER__SEEDS:
+				if (resolve) return getSeeds();
+				return basicGetSeeds();
+			case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
+				return getSeedProviderClass();
+			case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
+				if (resolve) return getListenAddress();
+				return basicGetListenAddress();
+			case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
+				if (resolve) return getRpcAddress();
+				return basicGetRpcAddress();
+			case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
+				return getEndpointSnitch();
+			case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
+				if (resolve) return getDataCenter();
+				return basicGetDataCenter();
+			case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
+				return getDataFileDir();
+			case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
+				return getNativeTransportPort();
+			case PasysPackage.CASSANDRA_SERVER__RACK:
+				if (resolve) return getRack();
+				return basicGetRack();
+			case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
+				return isAutoBootstrap();
+			case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
+				return getCqlSchemas();
+			case PasysPackage.CASSANDRA_SERVER__IS_SEED:
+				return isIsSeed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
-			setNumTokens((Integer) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__SEEDS:
-			setSeeds((ResourceCluster) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
-			setSeedProviderClass((String) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
-			setListenAddress((ProcessingNode) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
-			setRpcAddress((ProcessingNode) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
-			setEndpointSnitch((String) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
-			setDataCenter((ResourceCluster) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
-			setDataFileDir((String) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
-			setNativeTransportPort((Integer) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__RACK:
-			setRack((ResourceCluster) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
-			setAutoBootstrap((Boolean) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
-			getCqlSchemas().clear();
-			getCqlSchemas().addAll((Collection<? extends FileDescriptor>) newValue);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__IS_SEED:
-			setIsSeed((Boolean) newValue);
-			return;
+			case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
+				setNumTokens((Integer)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__SEEDS:
+				setSeeds((ResourceCluster)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
+				setSeedProviderClass((String)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
+				setListenAddress((ProcessingNode)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
+				setRpcAddress((ProcessingNode)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
+				setEndpointSnitch((String)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
+				setDataCenter((ResourceCluster)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
+				setDataFileDir((String)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
+				setNativeTransportPort((Integer)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__RACK:
+				setRack((ResourceCluster)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
+				setAutoBootstrap((Boolean)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
+				getCqlSchemas().clear();
+				getCqlSchemas().addAll((Collection<? extends FileDescriptor>)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__IS_SEED:
+				setIsSeed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
-			setNumTokens(NUM_TOKENS_EDEFAULT);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__SEEDS:
-			setSeeds((ResourceCluster) null);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
-			setSeedProviderClass(SEED_PROVIDER_CLASS_EDEFAULT);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
-			setListenAddress((ProcessingNode) null);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
-			setRpcAddress((ProcessingNode) null);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
-			setEndpointSnitch(ENDPOINT_SNITCH_EDEFAULT);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
-			setDataCenter((ResourceCluster) null);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
-			setDataFileDir(DATA_FILE_DIR_EDEFAULT);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
-			setNativeTransportPort(NATIVE_TRANSPORT_PORT_EDEFAULT);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__RACK:
-			setRack((ResourceCluster) null);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
-			setAutoBootstrap(AUTO_BOOTSTRAP_EDEFAULT);
-			return;
-		case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
-			getCqlSchemas().clear();
-			return;
-		case PasysPackage.CASSANDRA_SERVER__IS_SEED:
-			setIsSeed(IS_SEED_EDEFAULT);
-			return;
+			case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
+				setNumTokens(NUM_TOKENS_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__SEEDS:
+				setSeeds((ResourceCluster)null);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
+				setSeedProviderClass(SEED_PROVIDER_CLASS_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
+				setListenAddress((ProcessingNode)null);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
+				setRpcAddress((ProcessingNode)null);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
+				setEndpointSnitch(ENDPOINT_SNITCH_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
+				setDataCenter((ResourceCluster)null);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
+				setDataFileDir(DATA_FILE_DIR_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
+				setNativeTransportPort(NATIVE_TRANSPORT_PORT_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__RACK:
+				setRack((ResourceCluster)null);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
+				setAutoBootstrap(AUTO_BOOTSTRAP_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
+				getCqlSchemas().clear();
+				return;
+			case PasysPackage.CASSANDRA_SERVER__IS_SEED:
+				setIsSeed(IS_SEED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
-			return numTokens != NUM_TOKENS_EDEFAULT;
-		case PasysPackage.CASSANDRA_SERVER__SEEDS:
-			return seeds != null;
-		case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
-			return SEED_PROVIDER_CLASS_EDEFAULT == null ? seedProviderClass != null
-					: !SEED_PROVIDER_CLASS_EDEFAULT.equals(seedProviderClass);
-		case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
-			return listenAddress != null;
-		case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
-			return rpcAddress != null;
-		case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
-			return ENDPOINT_SNITCH_EDEFAULT == null ? endpointSnitch != null
-					: !ENDPOINT_SNITCH_EDEFAULT.equals(endpointSnitch);
-		case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
-			return dataCenter != null;
-		case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
-			return DATA_FILE_DIR_EDEFAULT == null ? dataFileDir != null : !DATA_FILE_DIR_EDEFAULT.equals(dataFileDir);
-		case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
-			return nativeTransportPort != NATIVE_TRANSPORT_PORT_EDEFAULT;
-		case PasysPackage.CASSANDRA_SERVER__RACK:
-			return rack != null;
-		case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
-			return autoBootstrap != AUTO_BOOTSTRAP_EDEFAULT;
-		case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
-			return cqlSchemas != null && !cqlSchemas.isEmpty();
-		case PasysPackage.CASSANDRA_SERVER__IS_SEED:
-			return isSeed != IS_SEED_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVER__NUM_TOKENS:
+				return numTokens != NUM_TOKENS_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVER__SEEDS:
+				return seeds != null;
+			case PasysPackage.CASSANDRA_SERVER__SEED_PROVIDER_CLASS:
+				return SEED_PROVIDER_CLASS_EDEFAULT == null ? seedProviderClass != null : !SEED_PROVIDER_CLASS_EDEFAULT.equals(seedProviderClass);
+			case PasysPackage.CASSANDRA_SERVER__LISTEN_ADDRESS:
+				return listenAddress != null;
+			case PasysPackage.CASSANDRA_SERVER__RPC_ADDRESS:
+				return rpcAddress != null;
+			case PasysPackage.CASSANDRA_SERVER__ENDPOINT_SNITCH:
+				return ENDPOINT_SNITCH_EDEFAULT == null ? endpointSnitch != null : !ENDPOINT_SNITCH_EDEFAULT.equals(endpointSnitch);
+			case PasysPackage.CASSANDRA_SERVER__DATA_CENTER:
+				return dataCenter != null;
+			case PasysPackage.CASSANDRA_SERVER__DATA_FILE_DIR:
+				return DATA_FILE_DIR_EDEFAULT == null ? dataFileDir != null : !DATA_FILE_DIR_EDEFAULT.equals(dataFileDir);
+			case PasysPackage.CASSANDRA_SERVER__NATIVE_TRANSPORT_PORT:
+				return nativeTransportPort != NATIVE_TRANSPORT_PORT_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVER__RACK:
+				return rack != null;
+			case PasysPackage.CASSANDRA_SERVER__AUTO_BOOTSTRAP:
+				return autoBootstrap != AUTO_BOOTSTRAP_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVER__CQL_SCHEMAS:
+				return cqlSchemas != null && !cqlSchemas.isEmpty();
+			case PasysPackage.CASSANDRA_SERVER__IS_SEED:
+				return isSeed != IS_SEED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (numTokens: ");

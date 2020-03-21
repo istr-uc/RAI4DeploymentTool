@@ -2,9 +2,8 @@
  */
 package PASYS_Metamodel.pasys;
 
-import java.util.Map;
-
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,30 +85,21 @@ public interface Service extends NamedElement {
 	void setEnvFile(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Env</b></em>' reference.
+	 * Returns the value of the '<em><b>Env</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.String},
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Env</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Env</em>' reference.
-	 * @see #setEnv(Map.Entry)
+	 * @return the value of the '<em>Env</em>' map.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getService_Env()
 	 * @model mapType="PASYS_Metamodel.pasys.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 * @generated
 	 */
-	Map.Entry<String, String> getEnv();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Service#getEnv <em>Env</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Env</em>' reference.
-	 * @see #getEnv()
-	 * @generated
-	 */
-	void setEnv(Map.Entry<String, String> value);
+	EMap<String, String> getEnv();
 
 	/**
 	 * Returns the value of the '<em><b>Depends On</b></em>' reference list.

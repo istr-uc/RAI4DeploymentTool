@@ -2,8 +2,6 @@
  */
 package PASYS_Metamodel.pasys;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Image</b></em>'.
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Image extends EObject {
+public interface Image extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -3543,15 +3543,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwarmCluster_Networks() {
-		return (EReference)swarmClusterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStack() {
 		return stackEClass;
 	}
@@ -3572,6 +3563,24 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	public EReference getStack_SwarmCluster() {
 		return (EReference)stackEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStack_Version() {
+		return (EAttribute)stackEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStack_Networks() {
+		return (EReference)stackEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4460,11 +4469,12 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		swarmClusterEClass = createEClass(SWARM_CLUSTER);
 		createEReference(swarmClusterEClass, SWARM_CLUSTER__WORKERS);
 		createEReference(swarmClusterEClass, SWARM_CLUSTER__MANAGER);
-		createEReference(swarmClusterEClass, SWARM_CLUSTER__NETWORKS);
 
 		stackEClass = createEClass(STACK);
 		createEReference(stackEClass, STACK__SERVICES);
 		createEReference(stackEClass, STACK__SWARM_CLUSTER);
+		createEAttribute(stackEClass, STACK__VERSION);
+		createEReference(stackEClass, STACK__NETWORKS);
 
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__STACK);
@@ -4640,7 +4650,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		stackEClass.getESuperTypes().add(this.getNamedElement());
 		serviceEClass.getESuperTypes().add(this.getNamedElement());
 		swarmNetworkEClass.getESuperTypes().add(this.getNamedElement());
-		registryEClass.getESuperTypes().add(this.getNamedElement());
+		imageEClass.getESuperTypes().add(this.getNamedElement());
+		registryEClass.getESuperTypes().add(this.getSystemElement());
 		repositoryEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -5010,16 +5021,17 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(swarmClusterEClass, SwarmCluster.class, "SwarmCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwarmCluster_Workers(), this.getDockerServer(), null, "workers", null, 1, -1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwarmCluster_Manager(), this.getDockerServer(), null, "manager", null, 1, 1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwarmCluster_Networks(), this.getSwarmNetwork(), null, "networks", null, 0, -1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stackEClass, Stack.class, "Stack", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStack_Services(), this.getService(), this.getService_Stack(), "services", null, 1, -1, Stack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStack_SwarmCluster(), this.getSwarmCluster(), null, "swarmCluster", null, 0, 1, Stack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStack_Version(), ecorePackage.getEString(), "version", "3.7", 0, 1, Stack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStack_Networks(), this.getSwarmNetwork(), null, "networks", null, 0, -1, Stack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_Stack(), this.getStack(), this.getStack_Services(), "stack", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_EnvFile(), ecorePackage.getEString(), "envFile", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getService_Env(), this.getStringToStringMap(), null, "env", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Env(), this.getStringToStringMap(), null, "env", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_DependsOn(), this.getService(), null, "dependsOn", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_Image(), this.getImage(), null, "image", null, 1, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5057,8 +5069,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Replicas(), ecorePackage.getEInt(), "replicas", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeployment_Placement(), this.getStringToStringMap(), null, "placement", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeployment_RestartPolicy(), this.getStringToStringMap(), null, "restartPolicy", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_Placement(), this.getStringToStringMap(), null, "placement", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_RestartPolicy(), this.getStringToStringMap(), null, "restartPolicy", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(registryEClass, PASYS_Metamodel.pasys.Registry.class, "Registry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRegistry_Url(), ecorePackage.getEString(), "url", null, 1, 1, PASYS_Metamodel.pasys.Registry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5094,6 +5106,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.NODE_RESOURCE_METER);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_EXECUTOR);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_AMOUNT_METER);
+		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.DOCKER_STACK);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.WORKFLOW);
 
 		initEEnum(portModeEEnum, PortMode.class, "PortMode");

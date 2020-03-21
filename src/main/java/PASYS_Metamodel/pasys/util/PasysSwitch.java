@@ -879,6 +879,7 @@ public class PasysSwitch<T> extends Switch<T> {
 			case PasysPackage.IMAGE: {
 				Image image = (Image)theEObject;
 				T result = caseImage(image);
+				if (result == null) result = caseNamedElement(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -897,6 +898,7 @@ public class PasysSwitch<T> extends Switch<T> {
 			case PasysPackage.REGISTRY: {
 				Registry registry = (Registry)theEObject;
 				T result = caseRegistry(registry);
+				if (result == null) result = caseSystemElement(registry);
 				if (result == null) result = caseNamedElement(registry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

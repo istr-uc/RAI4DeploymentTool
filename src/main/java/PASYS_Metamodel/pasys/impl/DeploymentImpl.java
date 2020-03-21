@@ -9,12 +9,16 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreEMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +57,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	protected int replicas = REPLICAS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPlacement() <em>Placement</em>}' reference.
+	 * The cached value of the '{@link #getPlacement() <em>Placement</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPlacement()
@@ -63,14 +67,14 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	protected Map.Entry<String, String> placement;
 
 	/**
-	 * The cached value of the '{@link #getRestartPolicy() <em>Restart Policy</em>}' reference.
+	 * The cached value of the '{@link #getRestartPolicy() <em>Restart Policy</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRestartPolicy()
 	 * @generated
 	 * @ordered
 	 */
-	protected Map.Entry<String, String> restartPolicy;
+	protected EMap<String, String> restartPolicy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,14 +123,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 */
 	@SuppressWarnings("unchecked")
 	public Map.Entry<String, String> getPlacement() {
-		if (placement != null && ((EObject)placement).eIsProxy()) {
-			InternalEObject oldPlacement = (InternalEObject)placement;
-			placement = (Map.Entry<String, String>)eResolveProxy(oldPlacement);
-			if (placement != oldPlacement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.DEPLOYMENT__PLACEMENT, oldPlacement, placement));
-			}
-		}
 		return placement;
 	}
 
@@ -135,8 +131,14 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, String> basicGetPlacement() {
-		return placement;
+	public NotificationChain basicSetPlacement(Map.Entry<String, String> newPlacement, NotificationChain msgs) {
+		Map.Entry<String, String> oldPlacement = placement;
+		placement = newPlacement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PasysPackage.DEPLOYMENT__PLACEMENT, oldPlacement, newPlacement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -145,10 +147,17 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @generated
 	 */
 	public void setPlacement(Map.Entry<String, String> newPlacement) {
-		Map.Entry<String, String> oldPlacement = placement;
-		placement = newPlacement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.DEPLOYMENT__PLACEMENT, oldPlacement, placement));
+		if (newPlacement != placement) {
+			NotificationChain msgs = null;
+			if (placement != null)
+				msgs = ((InternalEObject)placement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PasysPackage.DEPLOYMENT__PLACEMENT, null, msgs);
+			if (newPlacement != null)
+				msgs = ((InternalEObject)newPlacement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PasysPackage.DEPLOYMENT__PLACEMENT, null, msgs);
+			msgs = basicSetPlacement(newPlacement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.DEPLOYMENT__PLACEMENT, newPlacement, newPlacement));
 	}
 
 	/**
@@ -157,14 +166,9 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Map.Entry<String, String> getRestartPolicy() {
-		if (restartPolicy != null && ((EObject)restartPolicy).eIsProxy()) {
-			InternalEObject oldRestartPolicy = (InternalEObject)restartPolicy;
-			restartPolicy = (Map.Entry<String, String>)eResolveProxy(oldRestartPolicy);
-			if (restartPolicy != oldRestartPolicy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.DEPLOYMENT__RESTART_POLICY, oldRestartPolicy, restartPolicy));
-			}
+	public EMap<String, String> getRestartPolicy() {
+		if (restartPolicy == null) {
+			restartPolicy = new EcoreEMap<String,String>(PasysPackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, PasysPackage.DEPLOYMENT__RESTART_POLICY);
 		}
 		return restartPolicy;
 	}
@@ -174,20 +178,15 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, String> basicGetRestartPolicy() {
-		return restartPolicy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRestartPolicy(Map.Entry<String, String> newRestartPolicy) {
-		Map.Entry<String, String> oldRestartPolicy = restartPolicy;
-		restartPolicy = newRestartPolicy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.DEPLOYMENT__RESTART_POLICY, oldRestartPolicy, restartPolicy));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PasysPackage.DEPLOYMENT__PLACEMENT:
+				return basicSetPlacement(null, msgs);
+			case PasysPackage.DEPLOYMENT__RESTART_POLICY:
+				return ((InternalEList<?>)getRestartPolicy()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -201,11 +200,10 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case PasysPackage.DEPLOYMENT__REPLICAS:
 				return getReplicas();
 			case PasysPackage.DEPLOYMENT__PLACEMENT:
-				if (resolve) return getPlacement();
-				return basicGetPlacement();
+				return getPlacement();
 			case PasysPackage.DEPLOYMENT__RESTART_POLICY:
-				if (resolve) return getRestartPolicy();
-				return basicGetRestartPolicy();
+				if (coreType) return getRestartPolicy();
+				else return getRestartPolicy().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,7 +224,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				setPlacement((Map.Entry<String, String>)newValue);
 				return;
 			case PasysPackage.DEPLOYMENT__RESTART_POLICY:
-				setRestartPolicy((Map.Entry<String, String>)newValue);
+				((EStructuralFeature.Setting)getRestartPolicy()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -247,7 +245,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				setPlacement((Map.Entry<String, String>)null);
 				return;
 			case PasysPackage.DEPLOYMENT__RESTART_POLICY:
-				setRestartPolicy((Map.Entry<String, String>)null);
+				getRestartPolicy().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -266,7 +264,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case PasysPackage.DEPLOYMENT__PLACEMENT:
 				return placement != null;
 			case PasysPackage.DEPLOYMENT__RESTART_POLICY:
-				return restartPolicy != null;
+				return restartPolicy != null && !restartPolicy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

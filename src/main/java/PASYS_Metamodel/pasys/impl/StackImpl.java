@@ -7,6 +7,7 @@ import PASYS_Metamodel.pasys.Service;
 import PASYS_Metamodel.pasys.Stack;
 import PASYS_Metamodel.pasys.SwarmCluster;
 
+import PASYS_Metamodel.pasys.SwarmNetwork;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.StackImpl#getServices <em>Services</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.StackImpl#getSwarmCluster <em>Swarm Cluster</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StackImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StackImpl#getNetworks <em>Networks</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +60,36 @@ public class StackImpl extends NamedElementImpl implements Stack {
 	 * @ordered
 	 */
 	protected SwarmCluster swarmCluster;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = "3.7";
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNetworks() <em>Networks</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNetworks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SwarmNetwork> networks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,6 +165,39 @@ public class StackImpl extends NamedElementImpl implements Stack {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STACK__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SwarmNetwork> getNetworks() {
+		if (networks == null) {
+			networks = new EObjectContainmentEList<SwarmNetwork>(SwarmNetwork.class, this, PasysPackage.STACK__NETWORKS);
+		}
+		return networks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -151,6 +218,8 @@ public class StackImpl extends NamedElementImpl implements Stack {
 		switch (featureID) {
 			case PasysPackage.STACK__SERVICES:
 				return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
+			case PasysPackage.STACK__NETWORKS:
+				return ((InternalEList<?>)getNetworks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -168,6 +237,10 @@ public class StackImpl extends NamedElementImpl implements Stack {
 			case PasysPackage.STACK__SWARM_CLUSTER:
 				if (resolve) return getSwarmCluster();
 				return basicGetSwarmCluster();
+			case PasysPackage.STACK__VERSION:
+				return getVersion();
+			case PasysPackage.STACK__NETWORKS:
+				return getNetworks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -188,6 +261,13 @@ public class StackImpl extends NamedElementImpl implements Stack {
 			case PasysPackage.STACK__SWARM_CLUSTER:
 				setSwarmCluster((SwarmCluster)newValue);
 				return;
+			case PasysPackage.STACK__VERSION:
+				setVersion((String)newValue);
+				return;
+			case PasysPackage.STACK__NETWORKS:
+				getNetworks().clear();
+				getNetworks().addAll((Collection<? extends SwarmNetwork>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -206,6 +286,12 @@ public class StackImpl extends NamedElementImpl implements Stack {
 			case PasysPackage.STACK__SWARM_CLUSTER:
 				setSwarmCluster((SwarmCluster)null);
 				return;
+			case PasysPackage.STACK__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case PasysPackage.STACK__NETWORKS:
+				getNetworks().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -222,8 +308,28 @@ public class StackImpl extends NamedElementImpl implements Stack {
 				return services != null && !services.isEmpty();
 			case PasysPackage.STACK__SWARM_CLUSTER:
 				return swarmCluster != null;
+			case PasysPackage.STACK__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case PasysPackage.STACK__NETWORKS:
+				return networks != null && !networks.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (version: ");
+		result.append(version);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StackImpl

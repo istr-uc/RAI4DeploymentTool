@@ -31,37 +31,25 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getArtifactName
- * <em>Artifact Name</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getArtifactLocator
- * <em>Artifact Locator</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getArguments
- * <em>Arguments</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getScriptFolderPath
- * <em>Script Folder Path</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getConfigFolderPath
- * <em>Config Folder Path</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getDataFolderPath
- * <em>Data Folder Path</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getLogFolderPath
- * <em>Log Folder Path</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#isIsRunning <em>Is
- * Running</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getHost
- * <em>Host</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getTarget
- * <em>Target</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getContainer
- * <em>Container</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getArtifactName <em>Artifact Name</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getArtifactLocator <em>Artifact Locator</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getArguments <em>Arguments</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getScriptFolderPath <em>Script Folder Path</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getConfigFolderPath <em>Config Folder Path</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getDataFolderPath <em>Data Folder Path</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getLogFolderPath <em>Log Folder Path</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#isIsRunning <em>Is Running</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PlatformServerImpl extends PlatformResourceImpl implements PlatformServer {
 	/**
-	 * The default value of the '{@link #getArtifactName() <em>Artifact
-	 * Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getArtifactName() <em>Artifact Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactName()
 	 * @generated
 	 * @ordered
@@ -69,9 +57,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected static final String ARTIFACT_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getArtifactName() <em>Artifact
-	 * Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getArtifactName() <em>Artifact Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactName()
 	 * @generated
 	 * @ordered
@@ -79,9 +66,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected String artifactName = ARTIFACT_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getArtifactLocator() <em>Artifact
-	 * Locator</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getArtifactLocator() <em>Artifact Locator</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactLocator()
 	 * @generated
 	 * @ordered
@@ -89,9 +75,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected static final String ARTIFACT_LOCATOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getArtifactLocator() <em>Artifact
-	 * Locator</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getArtifactLocator() <em>Artifact Locator</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactLocator()
 	 * @generated
 	 * @ordered
@@ -99,9 +84,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected String artifactLocator = ARTIFACT_LOCATOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}'
-	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArguments()
 	 * @generated
 	 * @ordered
@@ -109,9 +93,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected EList<String> arguments;
 
 	/**
-	 * The default value of the '{@link #getScriptFolderPath() <em>Script Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getScriptFolderPath() <em>Script Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getScriptFolderPath()
 	 * @generated
 	 * @ordered
@@ -119,9 +102,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected static final String SCRIPT_FOLDER_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getScriptFolderPath() <em>Script Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getScriptFolderPath() <em>Script Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getScriptFolderPath()
 	 * @generated
 	 * @ordered
@@ -129,9 +111,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected String scriptFolderPath = SCRIPT_FOLDER_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getConfigFolderPath() <em>Config Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getConfigFolderPath() <em>Config Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfigFolderPath()
 	 * @generated
 	 * @ordered
@@ -139,9 +120,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected static final String CONFIG_FOLDER_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getConfigFolderPath() <em>Config Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getConfigFolderPath() <em>Config Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfigFolderPath()
 	 * @generated
 	 * @ordered
@@ -149,9 +129,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected String configFolderPath = CONFIG_FOLDER_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDataFolderPath() <em>Data Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getDataFolderPath() <em>Data Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFolderPath()
 	 * @generated
 	 * @ordered
@@ -159,9 +138,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected static final String DATA_FOLDER_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDataFolderPath() <em>Data Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getDataFolderPath() <em>Data Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFolderPath()
 	 * @generated
 	 * @ordered
@@ -169,9 +147,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected String dataFolderPath = DATA_FOLDER_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLogFolderPath() <em>Log Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getLogFolderPath() <em>Log Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLogFolderPath()
 	 * @generated
 	 * @ordered
@@ -179,9 +156,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected static final String LOG_FOLDER_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLogFolderPath() <em>Log Folder
-	 * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getLogFolderPath() <em>Log Folder Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLogFolderPath()
 	 * @generated
 	 * @ordered
@@ -189,9 +165,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected String logFolderPath = LOG_FOLDER_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsRunning() <em>Is Running</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isIsRunning() <em>Is Running</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRunning()
 	 * @generated
 	 * @ordered
@@ -202,9 +177,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 																// not valid.
 
 	/**
-	 * The cached value of the '{@link #isIsRunning() <em>Is Running</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isIsRunning() <em>Is Running</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRunning()
 	 * @generated
 	 * @ordered
@@ -214,7 +188,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	/**
 	 * The cached value of the '{@link #getHost() <em>Host</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getHost()
 	 * @generated
 	 * @ordered
@@ -224,7 +197,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
@@ -232,9 +204,8 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected ResourceCluster target;
 
 	/**
-	 * The cached value of the '{@link #getContainer() <em>Container</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getContainer() <em>Container</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getContainer()
 	 * @generated
 	 * @ordered
@@ -243,7 +214,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected PlatformServerImpl() {
@@ -252,7 +222,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -262,7 +231,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -272,7 +240,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -280,13 +247,11 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		String oldArtifactName = artifactName;
 		artifactName = newArtifactName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME,
-					oldArtifactName, artifactName));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME, oldArtifactName, artifactName));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -296,7 +261,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -304,13 +268,11 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		String oldArtifactLocator = artifactLocator;
 		artifactLocator = newArtifactLocator;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR,
-					oldArtifactLocator, artifactLocator));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR, oldArtifactLocator, artifactLocator));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -323,7 +285,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -333,7 +294,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -341,13 +301,11 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		String oldScriptFolderPath = scriptFolderPath;
 		scriptFolderPath = newScriptFolderPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH,
-					oldScriptFolderPath, scriptFolderPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH, oldScriptFolderPath, scriptFolderPath));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -357,7 +315,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -365,13 +322,11 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		String oldConfigFolderPath = configFolderPath;
 		configFolderPath = newConfigFolderPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH,
-					oldConfigFolderPath, configFolderPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH, oldConfigFolderPath, configFolderPath));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -381,7 +336,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -389,13 +343,11 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		String oldDataFolderPath = dataFolderPath;
 		dataFolderPath = newDataFolderPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH,
-					oldDataFolderPath, dataFolderPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH, oldDataFolderPath, dataFolderPath));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -405,7 +357,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -413,13 +364,11 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		String oldLogFolderPath = logFolderPath;
 		logFolderPath = newLogFolderPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH,
-					oldLogFolderPath, logFolderPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH, oldLogFolderPath, logFolderPath));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -429,7 +378,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -437,8 +385,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		boolean oldIsRunning = isRunning;
 		isRunning = newIsRunning;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__IS_RUNNING,
-					oldIsRunning, isRunning));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__IS_RUNNING, oldIsRunning, isRunning));
 	}
 
 	/**
@@ -469,7 +416,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProcessingNode basicGetHost() {
@@ -478,7 +424,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -491,18 +436,16 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ResourceCluster getTarget() {
 		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject) target;
-			target = (ResourceCluster) eResolveProxy(oldTarget);
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (ResourceCluster)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__TARGET,
-							oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -510,7 +453,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ResourceCluster basicGetTarget() {
@@ -519,7 +461,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -527,23 +468,20 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		ResourceCluster oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__TARGET, oldTarget,
-					target));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__TARGET, oldTarget, target));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PASYS_Metamodel.pasys.Container getContainer() {
 		if (container != null && container.eIsProxy()) {
-			InternalEObject oldContainer = (InternalEObject) container;
-			container = (PASYS_Metamodel.pasys.Container) eResolveProxy(oldContainer);
+			InternalEObject oldContainer = (InternalEObject)container;
+			container = (PASYS_Metamodel.pasys.Container)eResolveProxy(oldContainer);
 			if (container != oldContainer) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__CONTAINER,
-							oldContainer, container));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer, container));
 			}
 		}
 		return container;
@@ -551,7 +489,6 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public PASYS_Metamodel.pasys.Container basicGetContainer() {
@@ -560,15 +497,13 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setContainer(PASYS_Metamodel.pasys.Container newContainer) {
 		PASYS_Metamodel.pasys.Container oldContainer = container;
 		container = newContainer;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer,
-					container));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer, container));
 	}
 
 	/**
@@ -582,202 +517,180 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
-			return getArtifactName();
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
-			return getArtifactLocator();
-		case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
-			return getArguments();
-		case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
-			return getScriptFolderPath();
-		case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
-			return getConfigFolderPath();
-		case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
-			return getDataFolderPath();
-		case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
-			return getLogFolderPath();
-		case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
-			return isIsRunning();
-		case PasysPackage.PLATFORM_SERVER__HOST:
-			if (resolve)
-				return getHost();
-			return basicGetHost();
-		case PasysPackage.PLATFORM_SERVER__TARGET:
-			if (resolve)
-				return getTarget();
-			return basicGetTarget();
-		case PasysPackage.PLATFORM_SERVER__CONTAINER:
-			if (resolve)
-				return getContainer();
-			return basicGetContainer();
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
+				return getArtifactName();
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
+				return getArtifactLocator();
+			case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
+				return getArguments();
+			case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
+				return getScriptFolderPath();
+			case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
+				return getConfigFolderPath();
+			case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
+				return getDataFolderPath();
+			case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
+				return getLogFolderPath();
+			case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
+				return isIsRunning();
+			case PasysPackage.PLATFORM_SERVER__HOST:
+				if (resolve) return getHost();
+				return basicGetHost();
+			case PasysPackage.PLATFORM_SERVER__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				if (resolve) return getContainer();
+				return basicGetContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
-			setArtifactName((String) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
-			setArtifactLocator((String) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
-			getArguments().clear();
-			getArguments().addAll((Collection<? extends String>) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
-			setScriptFolderPath((String) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
-			setConfigFolderPath((String) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
-			setDataFolderPath((String) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
-			setLogFolderPath((String) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
-			setIsRunning((Boolean) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__HOST:
-			setHost((ProcessingNode) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__TARGET:
-			setTarget((ResourceCluster) newValue);
-			return;
-		case PasysPackage.PLATFORM_SERVER__CONTAINER:
-			setContainer((PASYS_Metamodel.pasys.Container) newValue);
-			return;
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
+				setArtifactName((String)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
+				setArtifactLocator((String)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
+				getArguments().clear();
+				getArguments().addAll((Collection<? extends String>)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
+				setScriptFolderPath((String)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
+				setConfigFolderPath((String)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
+				setDataFolderPath((String)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
+				setLogFolderPath((String)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
+				setIsRunning((Boolean)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__HOST:
+				setHost((ProcessingNode)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__TARGET:
+				setTarget((ResourceCluster)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				setContainer((PASYS_Metamodel.pasys.Container)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
-			setArtifactName(ARTIFACT_NAME_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
-			setArtifactLocator(ARTIFACT_LOCATOR_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
-			getArguments().clear();
-			return;
-		case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
-			setScriptFolderPath(SCRIPT_FOLDER_PATH_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
-			setConfigFolderPath(CONFIG_FOLDER_PATH_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
-			setDataFolderPath(DATA_FOLDER_PATH_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
-			setLogFolderPath(LOG_FOLDER_PATH_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
-			setIsRunning(IS_RUNNING_EDEFAULT);
-			return;
-		case PasysPackage.PLATFORM_SERVER__HOST:
-			setHost((ProcessingNode) null);
-			return;
-		case PasysPackage.PLATFORM_SERVER__TARGET:
-			setTarget((ResourceCluster) null);
-			return;
-		case PasysPackage.PLATFORM_SERVER__CONTAINER:
-			setContainer((PASYS_Metamodel.pasys.Container) null);
-			return;
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
+				setArtifactName(ARTIFACT_NAME_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
+				setArtifactLocator(ARTIFACT_LOCATOR_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
+				getArguments().clear();
+				return;
+			case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
+				setScriptFolderPath(SCRIPT_FOLDER_PATH_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
+				setConfigFolderPath(CONFIG_FOLDER_PATH_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
+				setDataFolderPath(DATA_FOLDER_PATH_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
+				setLogFolderPath(LOG_FOLDER_PATH_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
+				setIsRunning(IS_RUNNING_EDEFAULT);
+				return;
+			case PasysPackage.PLATFORM_SERVER__HOST:
+				setHost((ProcessingNode)null);
+				return;
+			case PasysPackage.PLATFORM_SERVER__TARGET:
+				setTarget((ResourceCluster)null);
+				return;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				setContainer((PASYS_Metamodel.pasys.Container)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
-			return ARTIFACT_NAME_EDEFAULT == null ? artifactName != null : !ARTIFACT_NAME_EDEFAULT.equals(artifactName);
-		case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
-			return ARTIFACT_LOCATOR_EDEFAULT == null ? artifactLocator != null
-					: !ARTIFACT_LOCATOR_EDEFAULT.equals(artifactLocator);
-		case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
-			return arguments != null && !arguments.isEmpty();
-		case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
-			return SCRIPT_FOLDER_PATH_EDEFAULT == null ? scriptFolderPath != null
-					: !SCRIPT_FOLDER_PATH_EDEFAULT.equals(scriptFolderPath);
-		case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
-			return CONFIG_FOLDER_PATH_EDEFAULT == null ? configFolderPath != null
-					: !CONFIG_FOLDER_PATH_EDEFAULT.equals(configFolderPath);
-		case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
-			return DATA_FOLDER_PATH_EDEFAULT == null ? dataFolderPath != null
-					: !DATA_FOLDER_PATH_EDEFAULT.equals(dataFolderPath);
-		case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
-			return LOG_FOLDER_PATH_EDEFAULT == null ? logFolderPath != null
-					: !LOG_FOLDER_PATH_EDEFAULT.equals(logFolderPath);
-		case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
-			return isRunning != IS_RUNNING_EDEFAULT;
-		case PasysPackage.PLATFORM_SERVER__HOST:
-			return host != null;
-		case PasysPackage.PLATFORM_SERVER__TARGET:
-			return target != null;
-		case PasysPackage.PLATFORM_SERVER__CONTAINER:
-			return container != null;
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
+				return ARTIFACT_NAME_EDEFAULT == null ? artifactName != null : !ARTIFACT_NAME_EDEFAULT.equals(artifactName);
+			case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
+				return ARTIFACT_LOCATOR_EDEFAULT == null ? artifactLocator != null : !ARTIFACT_LOCATOR_EDEFAULT.equals(artifactLocator);
+			case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
+				return arguments != null && !arguments.isEmpty();
+			case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
+				return SCRIPT_FOLDER_PATH_EDEFAULT == null ? scriptFolderPath != null : !SCRIPT_FOLDER_PATH_EDEFAULT.equals(scriptFolderPath);
+			case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
+				return CONFIG_FOLDER_PATH_EDEFAULT == null ? configFolderPath != null : !CONFIG_FOLDER_PATH_EDEFAULT.equals(configFolderPath);
+			case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
+				return DATA_FOLDER_PATH_EDEFAULT == null ? dataFolderPath != null : !DATA_FOLDER_PATH_EDEFAULT.equals(dataFolderPath);
+			case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
+				return LOG_FOLDER_PATH_EDEFAULT == null ? logFolderPath != null : !LOG_FOLDER_PATH_EDEFAULT.equals(logFolderPath);
+			case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
+				return isRunning != IS_RUNNING_EDEFAULT;
+			case PasysPackage.PLATFORM_SERVER__HOST:
+				return host != null;
+			case PasysPackage.PLATFORM_SERVER__TARGET:
+				return target != null;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				return container != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == SystemComponent.class) {
 			switch (derivedFeatureID) {
-			case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME:
-				return PasysPackage.SYSTEM_COMPONENT__ARTIFACT_NAME;
-			case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR:
-				return PasysPackage.SYSTEM_COMPONENT__ARTIFACT_LOCATOR;
-			case PasysPackage.PLATFORM_SERVER__ARGUMENTS:
-				return PasysPackage.SYSTEM_COMPONENT__ARGUMENTS;
-			case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH:
-				return PasysPackage.SYSTEM_COMPONENT__SCRIPT_FOLDER_PATH;
-			case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH:
-				return PasysPackage.SYSTEM_COMPONENT__CONFIG_FOLDER_PATH;
-			case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH:
-				return PasysPackage.SYSTEM_COMPONENT__DATA_FOLDER_PATH;
-			case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH:
-				return PasysPackage.SYSTEM_COMPONENT__LOG_FOLDER_PATH;
-			case PasysPackage.PLATFORM_SERVER__IS_RUNNING:
-				return PasysPackage.SYSTEM_COMPONENT__IS_RUNNING;
-			default:
-				return -1;
+				case PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME: return PasysPackage.SYSTEM_COMPONENT__ARTIFACT_NAME;
+				case PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR: return PasysPackage.SYSTEM_COMPONENT__ARTIFACT_LOCATOR;
+				case PasysPackage.PLATFORM_SERVER__ARGUMENTS: return PasysPackage.SYSTEM_COMPONENT__ARGUMENTS;
+				case PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH: return PasysPackage.SYSTEM_COMPONENT__SCRIPT_FOLDER_PATH;
+				case PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH: return PasysPackage.SYSTEM_COMPONENT__CONFIG_FOLDER_PATH;
+				case PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH: return PasysPackage.SYSTEM_COMPONENT__DATA_FOLDER_PATH;
+				case PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH: return PasysPackage.SYSTEM_COMPONENT__LOG_FOLDER_PATH;
+				case PasysPackage.PLATFORM_SERVER__IS_RUNNING: return PasysPackage.SYSTEM_COMPONENT__IS_RUNNING;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -785,31 +698,21 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == SystemComponent.class) {
 			switch (baseFeatureID) {
-			case PasysPackage.SYSTEM_COMPONENT__ARTIFACT_NAME:
-				return PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME;
-			case PasysPackage.SYSTEM_COMPONENT__ARTIFACT_LOCATOR:
-				return PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR;
-			case PasysPackage.SYSTEM_COMPONENT__ARGUMENTS:
-				return PasysPackage.PLATFORM_SERVER__ARGUMENTS;
-			case PasysPackage.SYSTEM_COMPONENT__SCRIPT_FOLDER_PATH:
-				return PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH;
-			case PasysPackage.SYSTEM_COMPONENT__CONFIG_FOLDER_PATH:
-				return PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH;
-			case PasysPackage.SYSTEM_COMPONENT__DATA_FOLDER_PATH:
-				return PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH;
-			case PasysPackage.SYSTEM_COMPONENT__LOG_FOLDER_PATH:
-				return PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH;
-			case PasysPackage.SYSTEM_COMPONENT__IS_RUNNING:
-				return PasysPackage.PLATFORM_SERVER__IS_RUNNING;
-			default:
-				return -1;
+				case PasysPackage.SYSTEM_COMPONENT__ARTIFACT_NAME: return PasysPackage.PLATFORM_SERVER__ARTIFACT_NAME;
+				case PasysPackage.SYSTEM_COMPONENT__ARTIFACT_LOCATOR: return PasysPackage.PLATFORM_SERVER__ARTIFACT_LOCATOR;
+				case PasysPackage.SYSTEM_COMPONENT__ARGUMENTS: return PasysPackage.PLATFORM_SERVER__ARGUMENTS;
+				case PasysPackage.SYSTEM_COMPONENT__SCRIPT_FOLDER_PATH: return PasysPackage.PLATFORM_SERVER__SCRIPT_FOLDER_PATH;
+				case PasysPackage.SYSTEM_COMPONENT__CONFIG_FOLDER_PATH: return PasysPackage.PLATFORM_SERVER__CONFIG_FOLDER_PATH;
+				case PasysPackage.SYSTEM_COMPONENT__DATA_FOLDER_PATH: return PasysPackage.PLATFORM_SERVER__DATA_FOLDER_PATH;
+				case PasysPackage.SYSTEM_COMPONENT__LOG_FOLDER_PATH: return PasysPackage.PLATFORM_SERVER__LOG_FOLDER_PATH;
+				case PasysPackage.SYSTEM_COMPONENT__IS_RUNNING: return PasysPackage.PLATFORM_SERVER__IS_RUNNING;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -817,17 +720,14 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == SystemComponent.class) {
 			switch (baseOperationID) {
-			case PasysPackage.SYSTEM_COMPONENT___DEPLOY:
-				return PasysPackage.PLATFORM_SERVER___DEPLOY;
-			default:
-				return -1;
+				case PasysPackage.SYSTEM_COMPONENT___DEPLOY: return PasysPackage.PLATFORM_SERVER___DEPLOY;
+				default: return -1;
 			}
 		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
@@ -835,32 +735,30 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case PasysPackage.PLATFORM_SERVER___DEPLOY:
-			try {
-				deploy();
-				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
+			case PasysPackage.PLATFORM_SERVER___DEPLOY:
+				try {
+					deploy();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (artifactName: ");

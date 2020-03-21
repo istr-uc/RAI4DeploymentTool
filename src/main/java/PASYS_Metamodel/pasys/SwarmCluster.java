@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.SwarmCluster#getWorkers <em>Workers</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.SwarmCluster#getManager <em>Manager</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.SwarmCluster#getNetworks <em>Networks</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getSwarmCluster()
@@ -64,21 +63,5 @@ public interface SwarmCluster extends ResourceCluster {
 	 * @generated
 	 */
 	void setManager(DockerServer value);
-
-	/**
-	 * Returns the value of the '<em><b>Networks</b></em>' reference list.
-	 * The list contents are of type {@link PASYS_Metamodel.pasys.SwarmNetwork}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Networks</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Networks</em>' reference list.
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getSwarmCluster_Networks()
-	 * @model
-	 * @generated
-	 */
-	EList<SwarmNetwork> getNetworks();
 
 } // SwarmCluster

@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ImageImpl extends MinimalEObjectImpl.Container implements Image {
+public class ImageImpl extends NamedElementImpl implements Image {
 	/**
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' reference.
 	 * <!-- begin-user-doc -->

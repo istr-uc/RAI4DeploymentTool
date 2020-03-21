@@ -12,8 +12,6 @@ import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import deploymentTool.DeploymentToolsUtils;
-
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;

@@ -10,8 +10,6 @@ import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponent;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
-
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Collections;
