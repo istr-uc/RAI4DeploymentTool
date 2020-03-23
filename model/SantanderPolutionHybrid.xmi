@@ -262,7 +262,9 @@
       xsi:type="pasys:DockerServer"
       name="SwarmManagerDockerServer"
       id="SwarmManagerDockerServer"
+      scriptFolderPath="/home/gestor/apache/servers/docker/scripts"
       configFolderPath="/home/gestor/apache/servers/docker/conf"
+      dataFolderPath=""
       host="//@ownedElements.17"
       swarmCluster="//@ownedElements.25">
     <stacks
@@ -272,15 +274,19 @@
       <services
           name="nimbus"
           id="nimbus"
-          image="//@ownedElements.29/@repositories.0/@images.0">
+          image="//@ownedElements.29/@repositories.0/@images.0"
+          command="storm nimbus">
         <volumes
-            source="/home/gestor/apache/servers/storm/conf/storm.yaml"
-            target="/conf/storm.yaml"
+            source="/home/gestor/apache/servers/storm/conf"
+            target="/conf"
             type="BIND"/>
         <volumes
             source="/home/gestor/apache/servers/storm/logs"
             target="/logs"
             type="BIND"/>
+        <volumes
+            source="/home/gestor/apache/servers/storm/scripts"
+            target="/scripts"/>
         <ports
             target="6627"
             published="6627"
@@ -305,6 +311,18 @@
           <placement
               key="node.labels.nimbus"
               value="1"/>
+          <restartPolicy
+              key="condition"
+              value="on-failure"/>
+          <restartPolicy
+              key="delay"
+              value="5s"/>
+          <restartPolicy
+              key="max_attempts"
+              value="3"/>
+          <restartPolicy
+              key="window"
+              value="120s"/>
         </deploymentParam>
       </services>
       <services

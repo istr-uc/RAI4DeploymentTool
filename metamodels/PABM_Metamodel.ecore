@@ -520,7 +520,8 @@
       <eLiterals name="TASK_EXECUTOR" value="12"/>
       <eLiterals name="TASK_AMOUNT_METER" value="13"/>
       <eLiterals name="DOCKER_STACK" value="14"/>
-      <eLiterals name="WORKFLOW" value="15"/>
+      <eLiterals name="WORKFLOW" value="16"/>
+      <eLiterals name="CASSANDRA_SCHEMA" value="15"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -578,6 +579,7 @@
           eType="#//pasys/ServiceNetwork" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentParam" lowerBound="1"
           eType="#//pasys/Deployment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Port">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" lowerBound="1"

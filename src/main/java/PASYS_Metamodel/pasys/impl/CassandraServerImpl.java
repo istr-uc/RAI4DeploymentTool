@@ -840,13 +840,26 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 					getHost().getCodeFiles().add(artifact);
 				}
 
+				// Script generation
+				DeploymentFileDescriptor script=null;
 				if (host != null) {
-
-					// Script generation
-					String scriptContent = generateScriptContent(configFileName);
-					DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(
-							"cassandraServer" + getId() + ".sh", this.getScriptFolderPath(), scriptContent, type);
+					script = new DeploymentFileDescriptorImpl(
+							"cassandraServer" + getId() + ".sh", this.getScriptFolderPath(), 
+							generateScriptContent(configFileName), type);
 					getHost().getLaunchingScripts().add(script);
+				} else if (container!=null) {
+					String scriptContent="";
+					for (FileDescriptor cqlSchema : getCqlSchemas()) {
+						int i =0;
+						scriptContent = "docker exec $(docker ps | grep cassandra | awk {print $1}) cqlsh " + (getListenAddress()).getIp() + " -f " + scriptFolderPath + "/"
+								+ cqlSchema.getFileName();						
+						script = new DeploymentFileDescriptorImpl(
+								"cassandraSchema"+i + ".sh", this.getScriptFolderPath(), 
+								scriptContent, SystemComponentType.CASSANDRA_SCHEMA);
+						getHost().getLaunchingScripts().add(script);
+						i++;
+					}
+					
 				}
 
 			} catch (IOException e) {

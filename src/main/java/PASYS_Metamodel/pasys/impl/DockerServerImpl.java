@@ -42,19 +42,16 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link PASYS_Metamodel.pasys.impl.DockerServerImpl#getStacks
- * <em>Stacks</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.DockerServerImpl#getSwarmCluster
- * <em>Swarm Cluster</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.DockerServerImpl#getStacks <em>Stacks</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.DockerServerImpl#getSwarmCluster <em>Swarm Cluster</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DockerServerImpl extends ContainerizationServerImpl implements DockerServer {
 	/**
-	 * The cached value of the '{@link #getStacks() <em>Stacks</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getStacks() <em>Stacks</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStacks()
 	 * @generated
 	 * @ordered
@@ -62,9 +59,8 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 	protected EList<Stack> stacks;
 
 	/**
-	 * The cached value of the '{@link #getSwarmCluster() <em>Swarm
-	 * Cluster</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSwarmCluster() <em>Swarm Cluster</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSwarmCluster()
 	 * @generated
 	 * @ordered
@@ -73,7 +69,6 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DockerServerImpl() {
@@ -82,7 +77,6 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -92,7 +86,6 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Stack> getStacks() {
@@ -104,17 +97,15 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SwarmCluster getSwarmCluster() {
 		if (swarmCluster != null && swarmCluster.eIsProxy()) {
-			InternalEObject oldSwarmCluster = (InternalEObject) swarmCluster;
-			swarmCluster = (SwarmCluster) eResolveProxy(oldSwarmCluster);
+			InternalEObject oldSwarmCluster = (InternalEObject)swarmCluster;
+			swarmCluster = (SwarmCluster)eResolveProxy(oldSwarmCluster);
 			if (swarmCluster != oldSwarmCluster) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.DOCKER_SERVER__SWARM_CLUSTER,
-							oldSwarmCluster, swarmCluster));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.DOCKER_SERVER__SWARM_CLUSTER, oldSwarmCluster, swarmCluster));
 			}
 		}
 		return swarmCluster;
@@ -122,7 +113,6 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public SwarmCluster basicGetSwarmCluster() {
@@ -131,99 +121,91 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSwarmCluster(SwarmCluster newSwarmCluster) {
 		SwarmCluster oldSwarmCluster = swarmCluster;
 		swarmCluster = newSwarmCluster;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.DOCKER_SERVER__SWARM_CLUSTER,
-					oldSwarmCluster, swarmCluster));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.DOCKER_SERVER__SWARM_CLUSTER, oldSwarmCluster, swarmCluster));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PasysPackage.DOCKER_SERVER__STACKS:
-			return ((InternalEList<?>) getStacks()).basicRemove(otherEnd, msgs);
+			case PasysPackage.DOCKER_SERVER__STACKS:
+				return ((InternalEList<?>)getStacks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PasysPackage.DOCKER_SERVER__STACKS:
-			return getStacks();
-		case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
-			if (resolve)
-				return getSwarmCluster();
-			return basicGetSwarmCluster();
+			case PasysPackage.DOCKER_SERVER__STACKS:
+				return getStacks();
+			case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
+				if (resolve) return getSwarmCluster();
+				return basicGetSwarmCluster();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PasysPackage.DOCKER_SERVER__STACKS:
-			getStacks().clear();
-			getStacks().addAll((Collection<? extends Stack>) newValue);
-			return;
-		case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
-			setSwarmCluster((SwarmCluster) newValue);
-			return;
+			case PasysPackage.DOCKER_SERVER__STACKS:
+				getStacks().clear();
+				getStacks().addAll((Collection<? extends Stack>)newValue);
+				return;
+			case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
+				setSwarmCluster((SwarmCluster)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PasysPackage.DOCKER_SERVER__STACKS:
-			getStacks().clear();
-			return;
-		case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
-			setSwarmCluster((SwarmCluster) null);
-			return;
+			case PasysPackage.DOCKER_SERVER__STACKS:
+				getStacks().clear();
+				return;
+			case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
+				setSwarmCluster((SwarmCluster)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PasysPackage.DOCKER_SERVER__STACKS:
-			return stacks != null && !stacks.isEmpty();
-		case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
-			return swarmCluster != null;
+			case PasysPackage.DOCKER_SERVER__STACKS:
+				return stacks != null && !stacks.isEmpty();
+			case PasysPackage.DOCKER_SERVER__SWARM_CLUSTER:
+				return swarmCluster != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -239,13 +221,16 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 			try {
 				for (Stack stack : stacks) {
 					// Stack File generation
-					DeploymentFileDescriptor stackFile;
-
-					stackFile = new DeploymentFileDescriptorImpl(stack.getName() + ".yaml", configFolderPath,
+					DeploymentFileDescriptor stackFile = new DeploymentFileDescriptorImpl(stack.getName() + ".yaml", configFolderPath,
 							generateStackFileContent(stack), SystemComponentType.DOCKER_STACK);
 					getHost().getConfigFiles().add(stackFile);
 
 					// TODO launching script
+					
+					String scriptContent="docker stack deploy -c "+configFolderPath+"/"+stack.getName()+".yaml"+stack.getName();
+				    DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("deploy"+stack.getName() + ".sh", scriptFolderPath,
+							scriptContent, SystemComponentType.DOCKER_STACK);
+					getHost().getLaunchingScripts().add(script);
 				}
 
 			} catch (YamlException e) {
@@ -264,7 +249,7 @@ public class DockerServerImpl extends ContainerizationServerImpl implements Dock
 		HashMap map = (HashMap) object;
 		map.put("version", stack.getVersion());
 		
-		
+		// TODO Esto así no es
 		ArrayList<String> services = new ArrayList<String>();
 		for (Service serv:stack.getServices()) {
 			services.add(serv.getName());

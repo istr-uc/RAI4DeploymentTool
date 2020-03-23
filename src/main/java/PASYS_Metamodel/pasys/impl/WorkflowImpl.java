@@ -634,7 +634,7 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 		if (server.getContainer()!=null) {
 			DockerContainer container = (DockerContainer)server.getContainer();
 			String serviceName= container.getService().getName();
-			scriptContent= "docker exec $(docker ps | grep "+serviceName+ "|awk {print $1}) storm";
+			scriptContent= "docker exec $(docker ps | grep "+serviceName+ " | awk {print $1}) storm";
 		} else {
 			scriptContent = server.getArtifactLocator() + "/" + server.getArtifactName(); 
 		}

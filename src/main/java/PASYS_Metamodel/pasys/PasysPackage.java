@@ -10316,13 +10316,22 @@ public interface PasysPackage extends EPackage {
 	int SERVICE__DEPLOYMENT_PARAM = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__COMMAND = NAMED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int SERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -14046,6 +14055,17 @@ public interface PasysPackage extends EPackage {
 	EReference getService_DeploymentParam();
 
 	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.Service#getCommand <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Command</em>'.
+	 * @see PASYS_Metamodel.pasys.Service#getCommand()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Command();
+
+	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.Port <em>Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17052,6 +17072,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE__DEPLOYMENT_PARAM = eINSTANCE.getService_DeploymentParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__COMMAND = eINSTANCE.getService_Command();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PortImpl <em>Port</em>}' class.

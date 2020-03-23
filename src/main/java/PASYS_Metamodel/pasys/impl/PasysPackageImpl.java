@@ -3678,6 +3678,15 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getService_Command() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPort() {
 		return portEClass;
 	}
@@ -4486,6 +4495,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEReference(serviceEClass, SERVICE__PORTS);
 		createEReference(serviceEClass, SERVICE__NETWORKS);
 		createEReference(serviceEClass, SERVICE__DEPLOYMENT_PARAM);
+		createEAttribute(serviceEClass, SERVICE__COMMAND);
 
 		portEClass = createEClass(PORT);
 		createEAttribute(portEClass, PORT__TARGET);
@@ -5038,6 +5048,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEReference(getService_Ports(), this.getPort(), null, "ports", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_Networks(), this.getServiceNetwork(), null, "networks", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_DeploymentParam(), this.getDeployment(), null, "deploymentParam", null, 1, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_Command(), ecorePackage.getEString(), "command", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_Target(), ecorePackage.getEString(), "target", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5108,6 +5119,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_AMOUNT_METER);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.DOCKER_STACK);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.WORKFLOW);
+		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.CASSANDRA_SCHEMA);
 
 		initEEnum(portModeEEnum, PortMode.class, "PortMode");
 		addEEnumLiteral(portModeEEnum, PortMode.PORT);

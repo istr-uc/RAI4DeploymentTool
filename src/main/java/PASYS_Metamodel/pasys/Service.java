@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link PASYS_Metamodel.pasys.Service#getPorts <em>Ports</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.Service#getNetworks <em>Networks</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.Service#getDeploymentParam <em>Deployment Param</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.Service#getCommand <em>Command</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getService()
@@ -216,5 +217,31 @@ public interface Service extends NamedElement {
 	 * @generated
 	 */
 	void setDeploymentParam(Deployment value);
+
+	/**
+	 * Returns the value of the '<em><b>Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Command</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Command</em>' attribute.
+	 * @see #setCommand(String)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getService_Command()
+	 * @model
+	 * @generated
+	 */
+	String getCommand();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Service#getCommand <em>Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Command</em>' attribute.
+	 * @see #getCommand()
+	 * @generated
+	 */
+	void setCommand(String value);
 
 } // Service
