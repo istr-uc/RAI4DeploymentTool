@@ -8,18 +8,23 @@ import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.CassandraServer;
 import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.ComputationalSystem;
+import PASYS_Metamodel.pasys.Deployment;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
+import PASYS_Metamodel.pasys.DockerContainer;
+import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.ExternalElementType;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
+import PASYS_Metamodel.pasys.Image;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaServer;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.MemSQLServer;
 import PASYS_Metamodel.pasys.Neo4JServer;
 import PASYS_Metamodel.pasys.Network;
+import PASYS_Metamodel.pasys.NetworkDriver;
 import PASYS_Metamodel.pasys.NetworkUtilization;
 import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
@@ -28,18 +33,29 @@ import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.PlatformServer;
+import PASYS_Metamodel.pasys.Port;
+import PASYS_Metamodel.pasys.PortMode;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusServer;
+import PASYS_Metamodel.pasys.Protocol;
+import PASYS_Metamodel.pasys.Registry;
+import PASYS_Metamodel.pasys.Repository;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
+import PASYS_Metamodel.pasys.Service;
+import PASYS_Metamodel.pasys.ServiceNetwork;
 import PASYS_Metamodel.pasys.SparkServer;
+import PASYS_Metamodel.pasys.Stack;
 import PASYS_Metamodel.pasys.StormServer;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
+import PASYS_Metamodel.pasys.SwarmNetwork;
+import PASYS_Metamodel.pasys.SwarmServer;
 import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import PASYS_Metamodel.pasys.SystemElementAdapter;
@@ -48,6 +64,8 @@ import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
 import PASYS_Metamodel.pasys.TaskProcessingAmountMeter;
+import PASYS_Metamodel.pasys.Volume;
+import PASYS_Metamodel.pasys.VolumeType;
 import PASYS_Metamodel.pasys.Workflow;
 import PASYS_Metamodel.pasys.WorkflowLatency;
 import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
@@ -158,6 +176,20 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.ARTIFACT_DESCRIPTOR: return createArtifactDescriptor();
 			case PasysPackage.EXPORTER_DATA: return createExporterData();
 			case PasysPackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
+			case PasysPackage.DOCKER_CONTAINER: return createDockerContainer();
+			case PasysPackage.DOCKER_SERVER: return createDockerServer();
+			case PasysPackage.SWARM_SERVER: return createSwarmServer();
+			case PasysPackage.SWARM_CLUSTER: return createSwarmCluster();
+			case PasysPackage.STACK: return createStack();
+			case PasysPackage.SERVICE: return createService();
+			case PasysPackage.PORT: return createPort();
+			case PasysPackage.SERVICE_NETWORK: return createServiceNetwork();
+			case PasysPackage.SWARM_NETWORK: return createSwarmNetwork();
+			case PasysPackage.IMAGE: return createImage();
+			case PasysPackage.VOLUME: return createVolume();
+			case PasysPackage.DEPLOYMENT: return createDeployment();
+			case PasysPackage.REGISTRY: return createRegistry();
+			case PasysPackage.REPOSITORY: return createRepository();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -175,6 +207,14 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 				return createExternalElementTypeFromString(eDataType, initialValue);
 			case PasysPackage.SYSTEM_COMPONENT_TYPE:
 				return createSystemComponentTypeFromString(eDataType, initialValue);
+			case PasysPackage.PORT_MODE:
+				return createPortModeFromString(eDataType, initialValue);
+			case PasysPackage.PROTOCOL:
+				return createProtocolFromString(eDataType, initialValue);
+			case PasysPackage.NETWORK_DRIVER:
+				return createNetworkDriverFromString(eDataType, initialValue);
+			case PasysPackage.VOLUME_TYPE:
+				return createVolumeTypeFromString(eDataType, initialValue);
 			case PasysPackage.PROPERTIES:
 				return createPropertiesFromString(eDataType, initialValue);
 			default:
@@ -194,6 +234,14 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 				return convertExternalElementTypeToString(eDataType, instanceValue);
 			case PasysPackage.SYSTEM_COMPONENT_TYPE:
 				return convertSystemComponentTypeToString(eDataType, instanceValue);
+			case PasysPackage.PORT_MODE:
+				return convertPortModeToString(eDataType, instanceValue);
+			case PasysPackage.PROTOCOL:
+				return convertProtocolToString(eDataType, instanceValue);
+			case PasysPackage.NETWORK_DRIVER:
+				return convertNetworkDriverToString(eDataType, instanceValue);
+			case PasysPackage.VOLUME_TYPE:
+				return convertVolumeTypeToString(eDataType, instanceValue);
 			case PasysPackage.PROPERTIES:
 				return convertPropertiesToString(eDataType, instanceValue);
 			default:
@@ -720,6 +768,146 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DockerContainer createDockerContainer() {
+		DockerContainerImpl dockerContainer = new DockerContainerImpl();
+		return dockerContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DockerServer createDockerServer() {
+		DockerServerImpl dockerServer = new DockerServerImpl();
+		return dockerServer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwarmServer createSwarmServer() {
+		SwarmServerImpl swarmServer = new SwarmServerImpl();
+		return swarmServer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwarmCluster createSwarmCluster() {
+		SwarmClusterImpl swarmCluster = new SwarmClusterImpl();
+		return swarmCluster;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Stack createStack() {
+		StackImpl stack = new StackImpl();
+		return stack;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Service createService() {
+		ServiceImpl service = new ServiceImpl();
+		return service;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Port createPort() {
+		PortImpl port = new PortImpl();
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceNetwork createServiceNetwork() {
+		ServiceNetworkImpl serviceNetwork = new ServiceNetworkImpl();
+		return serviceNetwork;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwarmNetwork createSwarmNetwork() {
+		SwarmNetworkImpl swarmNetwork = new SwarmNetworkImpl();
+		return swarmNetwork;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Image createImage() {
+		ImageImpl image = new ImageImpl();
+		return image;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Volume createVolume() {
+		VolumeImpl volume = new VolumeImpl();
+		return volume;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Deployment createDeployment() {
+		DeploymentImpl deployment = new DeploymentImpl();
+		return deployment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Registry createRegistry() {
+		RegistryImpl registry = new RegistryImpl();
+		return registry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Repository createRepository() {
+		RepositoryImpl repository = new RepositoryImpl();
+		return repository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public DeploymentFileDescriptor createDeploymentFileDescriptor() {
 		DeploymentFileDescriptorImpl deploymentFileDescriptor = new DeploymentFileDescriptorImpl();
@@ -763,6 +951,86 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	public String convertSystemComponentTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PortMode createPortModeFromString(EDataType eDataType, String initialValue) {
+		PortMode result = PortMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPortModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Protocol createProtocolFromString(EDataType eDataType, String initialValue) {
+		Protocol result = Protocol.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NetworkDriver createNetworkDriverFromString(EDataType eDataType, String initialValue) {
+		NetworkDriver result = NetworkDriver.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNetworkDriverToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VolumeType createVolumeTypeFromString(EDataType eDataType, String initialValue) {
+		VolumeType result = VolumeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVolumeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

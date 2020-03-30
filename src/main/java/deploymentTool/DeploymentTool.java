@@ -69,12 +69,12 @@ public class DeploymentTool {
 
 			// Testing purposes 
 
-			/*for (PASYS_Metamodel.pasys.SystemElement elem : system.getOwnedElements()) {
-				if (elem instanceof PASYS_Metamodel.pasys.ProcessingNode) {
+			for (PASYS_Metamodel.pasys.SystemElement elem : system.getOwnedElements()) {
+				if (elem instanceof PASYS_Metamodel.pasys.impl.ProcessingNodeImpl) {
 					PASYS_Metamodel.pasys.impl.ProcessingNodeImpl node = (PASYS_Metamodel.pasys.impl.ProcessingNodeImpl) elem;
 					muestraNodo(node);
 				}
-			}*/
+			}
 
 			
 		} catch (IOException e) {

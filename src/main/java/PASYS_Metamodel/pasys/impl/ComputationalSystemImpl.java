@@ -10,8 +10,6 @@ import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponent;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
-
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Collections;
@@ -439,7 +437,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			command += " "+node.getUserName()+"@"+ip+" "+fd.getFilePath()+"/"+fd.getFileName();
 			System.out.println("SSH Command: "+command);
 			
-			try {	
+			/*try {	
 				Process process = Runtime
 						.getRuntime()
 						.exec(command);	
@@ -450,7 +448,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				
 			} catch (IOException | InterruptedException e) {
 				throw new LaunchException("Error launching script in node "+ip);
-			}
+			}*/
 		}
 	}
 	

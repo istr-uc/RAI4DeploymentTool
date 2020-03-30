@@ -76,9 +76,8 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	 */
 	protected int numTokens = NUM_TOKENS_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getSeeds() <em>Seeds</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSeeds() <em>Seeds</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSeeds()
 	 * @generated
 	 * @ordered
@@ -86,7 +85,8 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected ResourceCluster seeds;
 	/**
 	 * The default value of the '{@link #getSeedProviderClass() <em>Seed Provider Class</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getSeedProviderClass()
 	 * @generated
 	 * @ordered
@@ -158,20 +158,18 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected String dataFileDir = DATA_FILE_DIR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNativeTransportPort() <em>Native
-	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
+	 * The default value of the '{@link #getNativeTransportPort() <em>Native Transport Port</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getNativeTransportPort()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int NATIVE_TRANSPORT_PORT_EDEFAULT = 9042;
 	/**
-	 * The cached value of the '{@link #getNativeTransportPort() <em>Native
-	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
+	 * The cached value of the '{@link #getNativeTransportPort() <em>Native Transport Port</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getNativeTransportPort()
 	 * @generated
 	 * @ordered
@@ -179,9 +177,8 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected int nativeTransportPort = NATIVE_TRANSPORT_PORT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRack() <em>Rack</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getRack() <em>Rack</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRack()
 	 * @generated
 	 * @ordered
@@ -215,8 +212,7 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 
 	/**
 	 * The default value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsSeed()
 	 * @generated
 	 * @ordered
@@ -224,8 +220,7 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	protected static final boolean IS_SEED_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsSeed()
 	 * @generated
 	 * @ordered
@@ -473,8 +468,7 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isIsSeed() {
@@ -482,8 +476,7 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setIsSeed(boolean newIsSeed) {
@@ -494,8 +487,7 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -575,8 +567,7 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRack(ResourceCluster newRack) {
@@ -826,32 +817,49 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 			try {
 				SystemComponentType type = SystemComponentType.CASSANDRA_SERVER;
 				if (isSeed)
-					type=SystemComponentType.CASSANDRA_SERVER_SEED;
-					
+					type = SystemComponentType.CASSANDRA_SERVER_SEED;
+
 				// Config file generation
 				String configFileContent = generateConfigFileContent();
 				String configFileName = "cassandra" + id + ".yaml";
 				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(configFileName, configFolderPath,
 						configFileContent, type);
-				host.getConfigFiles().add(configFile);
+				getHost().getConfigFiles().add(configFile);
 
 				// Rack configuration file generation
 				String rackProps = "dc=" + getDataCenter().getName() + "\n";
 				rackProps += "rack=" + getRack().getName();
-				configFile = new DeploymentFileDescriptorImpl("cassandra-rackcd.properties", configFolderPath,
-						rackProps, type);
-				host.getConfigFiles().add(configFile);
+				DeploymentFileDescriptor rackConfFile = new DeploymentFileDescriptorImpl("cassandra-rackcd.properties",
+						configFolderPath, rackProps, type);
+				getHost().getConfigFiles().add(rackConfFile);
+
+				// Artifacts to move to the corresponding nodes
+				for (FileDescriptor cqlFile : getCqlSchemas()) {
+					ArtifactDescriptor artifact = new ArtifactDescriptorImpl(cqlFile.getFileName(),
+							scriptFolderPath + "/" + cqlFile.getFileName(), cqlFile.getFilePath());
+					getHost().getCodeFiles().add(artifact);
+				}
 
 				// Script generation
-				String scriptContent = generateScriptContent(configFileName);
-				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("cassandraServer" + getId() + ".sh",
-						this.getScriptFolderPath(), scriptContent, type);
-				host.getLaunchingScripts().add(script);
-				
-				// Artifacts to move to the corresponding nodes
-				for (FileDescriptor cqlFile: getCqlSchemas()) {
-					ArtifactDescriptor artifact = new ArtifactDescriptorImpl(cqlFile.getFileName(), scriptFolderPath+"/"+cqlFile.getFileName(), cqlFile.getFilePath());
-					host.getCodeFiles().add(artifact);
+				DeploymentFileDescriptor script=null;
+				if (host != null) {
+					script = new DeploymentFileDescriptorImpl(
+							"cassandraServer" + getId() + ".sh", this.getScriptFolderPath(), 
+							generateScriptContent(configFileName), type);
+					getHost().getLaunchingScripts().add(script);
+				} else if (container!=null) {
+					String scriptContent="";
+					for (FileDescriptor cqlSchema : getCqlSchemas()) {
+						int i =0;
+						scriptContent = "docker exec $(docker ps | grep cassandra | awk {print $1}) cqlsh " + (getListenAddress()).getIp() + " -f " + scriptFolderPath + "/"
+								+ cqlSchema.getFileName();						
+						script = new DeploymentFileDescriptorImpl(
+								"cassandraSchema"+i + ".sh", this.getScriptFolderPath(), 
+								scriptContent, SystemComponentType.CASSANDRA_SCHEMA);
+						getHost().getLaunchingScripts().add(script);
+						i++;
+					}
+					
 				}
 
 			} catch (IOException e) {
@@ -867,13 +875,16 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		scriptContent += getArtifactLocator() + "/" + getArtifactName() + " -Dcassandra.config=file:///"
 				+ configFolderPath + "/" + configFileName + "\n";
 		scriptContent = DeploymentToolsUtils.scriptHeaders(getScriptFolderPath()) + scriptContent;
-		//String hostIp = ((PhysicalProcessingNode) getListenAddress()).getIp();
+		// String hostIp = ((PhysicalProcessingNode)
+		// getListenAddress()).getIp();
 		String hostIp = (getListenAddress()).getIp();
 
-		scriptContent+="sleep 60 \n"; //Espera para que cassandra termine de arrancar antes de crear el schema.
+		scriptContent += "sleep 60 \n"; // Espera para que cassandra termine de
+										// arrancar antes de crear el schema.
 
-		for (FileDescriptor cqlSchema: getCqlSchemas()) 
-			scriptContent +=getArtifactLocator()+"/cqlsh "+hostIp+" -f "+scriptFolderPath+"/"+cqlSchema.getFileName();
+		for (FileDescriptor cqlSchema : getCqlSchemas())
+			scriptContent += getArtifactLocator() + "/cqlsh " + hostIp + " -f " + scriptFolderPath + "/"
+					+ cqlSchema.getFileName();
 
 		return scriptContent;
 	}
@@ -890,10 +901,12 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		map.put("cluster_name", getTarget().getName());
 		map.put("num_tokens", getNumTokens());
 
-		//map.put("listen_address", ((PhysicalProcessingNode) getListenAddress()).getIp());
+		// map.put("listen_address", ((PhysicalProcessingNode)
+		// getListenAddress()).getIp());
 		map.put("listen_address", (getListenAddress()).getIp());
 		map.put("native_transport_port", getNativeTransportPort());
-		//map.put("rpc_address", ((PhysicalProcessingNode) getRpcAddress()).getIp());
+		// map.put("rpc_address", ((PhysicalProcessingNode)
+		// getRpcAddress()).getIp());
 		map.put("rpc_address", (getRpcAddress()).getIp());
 		map.put("endpoint_snitch", getEndpointSnitch());
 		map.put("auto_bootstrap", isAutoBootstrap());
@@ -928,9 +941,9 @@ public class CassandraServerImpl extends PersistenceServerImpl implements Cassan
 		for (PlatformResource resource : getSeeds().getResources()) {
 			if (!first)
 				seeds += ",";
-			if (resource instanceof CassandraServer) { /// �Compreubo si es un CassandraServer?
-				CassandraServer zkpr = (CassandraServer) resource;
-				seeds += zkpr.getHost().getIp();
+			if (resource instanceof CassandraServer) { 
+				CassandraServer csdr = (CassandraServer) resource;			
+				seeds += csdr.getHost().getIp(); // No necesito cambiar a container porque el getHost ya me lo da bien
 				first = false;
 			} else {
 				throw new ConfigurationException("One of the seed nodes of a Cassandra Server is not valid");

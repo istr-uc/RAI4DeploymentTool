@@ -5,6 +5,7 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
+import PASYS_Metamodel.pasys.DockerContainer;
 import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.SchedulingServer;
@@ -177,18 +178,19 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 
 	/**
 	 * The default value of the '{@link #isIsRunning() <em>Is Running</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRunning()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_RUNNING_EDEFAULT = false; // TODO The default value literal "" is not valid.
+	protected static final boolean IS_RUNNING_EDEFAULT = false; // TODO The
+																// default value
+																// literal "" is
+																// not valid.
 
 	/**
 	 * The cached value of the '{@link #isIsRunning() <em>Is Running</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRunning()
 	 * @generated
 	 * @ordered
@@ -407,8 +409,7 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -417,8 +418,7 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -578,11 +578,11 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 	 * @generated NOT
 	 */
 	public void deploy() throws ConfigurationException {
-		
+
 		// Configuraci�n e instanciaci�n de los StreamData y StreamDataMeter
 		for (WorkflowStreamData sd : getOwnedStreamData()) {
 			if (sd instanceof FlowStreamData)
-				((FlowStreamData)sd).deploy();
+				((FlowStreamData) sd).deploy();
 		}
 		// Configuraci�n de los ownedTaskExecutors
 		for (TaskExecutor te : getOwnedTaskExecutors()) {
@@ -599,34 +599,21 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 		// del workflow los que no est�n referenciados como predecessor de
 		// nadie)
 		//
-		
-		
-		
-		//Script generation
-				
-							
-		
+
+		// Script generation
 		SchedulingServer server = getScheduler();
-		
-		if (server instanceof StormServer) {	
-			
-			String scriptName = "Workflow"+this.getId() + ".sh";	
-			String scriptContent ="";
-			scriptContent = server.getArtifactLocator()+"/"+server.getArtifactName()+" jar "
-			+scriptFolderPath+"/"+getArtifactName()+" "+rootTask.getImplementingClassName();
-			if (getArguments().size()>0) 
-				scriptContent+=" "+DeploymentToolsUtils.argumentsToString(arguments);
-		
-		
-		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, scriptFolderPath, 
-				scriptContent, SystemComponentType.WORKFLOW);
-		server.getHost().getLaunchingScripts().add(script);
-		
-		// Artifact to move to the corresponding nodes
-		ArtifactDescriptor artifact = new ArtifactDescriptorImpl(this.artifactName, scriptFolderPath, this.artifactLocator);
-		server.getHost().getCodeFiles().add(artifact);
+		if (server instanceof StormServer) {
+			String scriptName = "Workflow" + this.getId() + ".sh";
+			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, scriptFolderPath,
+					generateScriptContent(), SystemComponentType.WORKFLOW);
+			server.getHost().getLaunchingScripts().add(script);
+
+			// Artifact to move to the corresponding nodes
+			ArtifactDescriptor artifact = new ArtifactDescriptorImpl(this.artifactName, scriptFolderPath,
+					this.artifactLocator);
+			server.getHost().getCodeFiles().add(artifact);
 		}
-		
+
 		// // Instanciaci�n del workflow y del latencyMeter
 		// scriptFile.add(java +
 		// for lm: ownedMeter
@@ -636,8 +623,26 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 		// -jar artifactID + this.arguments)
 		// }
 
-		// Configuraci�n del propio Workflow �Hace falta? o de los StreamData
+		// Configuraci�n del propio Workflow �Hace falta? o de los
+		// StreamData
 
+	}
+	
+	private String generateScriptContent() {
+		String scriptContent;
+		SchedulingServer server = getScheduler();
+		if (server.getContainer()!=null) {
+			DockerContainer container = (DockerContainer)server.getContainer();
+			String serviceName= container.getService().getName();
+			scriptContent= "docker exec $(docker ps | grep "+serviceName+ " | awk {print $1}) storm";
+		} else {
+			scriptContent = server.getArtifactLocator() + "/" + server.getArtifactName(); 
+		}
+		scriptContent+=" jar " + scriptFolderPath
+				+ "/" + getArtifactName() + " " + rootTask.getImplementingClassName();
+		 if (getArguments().size() > 0)
+			scriptContent += " " + DeploymentToolsUtils.argumentsToString(arguments);
+		return scriptContent;
 	}
 
 	/**

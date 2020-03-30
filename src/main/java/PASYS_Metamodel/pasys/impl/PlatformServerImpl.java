@@ -25,9 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Platform Server</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Platform Server</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -42,6 +41,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#isIsRunning <em>Is Running</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getHost <em>Host</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServerImpl#getContainer <em>Container</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,8 +49,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 public class PlatformServerImpl extends PlatformResourceImpl implements PlatformServer {
 	/**
 	 * The default value of the '{@link #getArtifactName() <em>Artifact Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactName()
 	 * @generated
 	 * @ordered
@@ -59,8 +58,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getArtifactName() <em>Artifact Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactName()
 	 * @generated
 	 * @ordered
@@ -69,8 +67,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The default value of the '{@link #getArtifactLocator() <em>Artifact Locator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactLocator()
 	 * @generated
 	 * @ordered
@@ -79,8 +76,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getArtifactLocator() <em>Artifact Locator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactLocator()
 	 * @generated
 	 * @ordered
@@ -89,8 +85,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArguments()
 	 * @generated
 	 * @ordered
@@ -99,8 +94,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The default value of the '{@link #getScriptFolderPath() <em>Script Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getScriptFolderPath()
 	 * @generated
 	 * @ordered
@@ -109,8 +103,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getScriptFolderPath() <em>Script Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getScriptFolderPath()
 	 * @generated
 	 * @ordered
@@ -119,8 +112,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The default value of the '{@link #getConfigFolderPath() <em>Config Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfigFolderPath()
 	 * @generated
 	 * @ordered
@@ -129,8 +121,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getConfigFolderPath() <em>Config Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfigFolderPath()
 	 * @generated
 	 * @ordered
@@ -139,8 +130,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The default value of the '{@link #getDataFolderPath() <em>Data Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFolderPath()
 	 * @generated
 	 * @ordered
@@ -149,8 +139,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getDataFolderPath() <em>Data Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFolderPath()
 	 * @generated
 	 * @ordered
@@ -159,8 +148,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The default value of the '{@link #getLogFolderPath() <em>Log Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLogFolderPath()
 	 * @generated
 	 * @ordered
@@ -169,8 +157,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getLogFolderPath() <em>Log Folder Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLogFolderPath()
 	 * @generated
 	 * @ordered
@@ -179,18 +166,19 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The default value of the '{@link #isIsRunning() <em>Is Running</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRunning()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_RUNNING_EDEFAULT = false; // TODO The default value literal "" is not valid.
+	protected static final boolean IS_RUNNING_EDEFAULT = false; // TODO The
+																// default value
+																// literal "" is
+																// not valid.
 
 	/**
 	 * The cached value of the '{@link #isIsRunning() <em>Is Running</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRunning()
 	 * @generated
 	 * @ordered
@@ -199,8 +187,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getHost() <em>Host</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getHost()
 	 * @generated
 	 * @ordered
@@ -209,8 +196,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
@@ -218,8 +204,16 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	protected ResourceCluster target;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getContainer() <em>Container</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected PASYS_Metamodel.pasys.Container container;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected PlatformServerImpl() {
@@ -227,8 +221,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -237,8 +230,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -247,8 +239,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -260,8 +251,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -270,8 +260,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -283,8 +272,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -296,8 +284,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -306,8 +293,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -319,8 +305,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -329,8 +314,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -342,8 +326,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -352,8 +335,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -365,8 +347,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -375,8 +356,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -388,8 +368,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -398,8 +377,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -411,26 +389,33 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public ProcessingNode getHost() {
-		if (host != null && host.eIsProxy()) {
-			InternalEObject oldHost = (InternalEObject)host;
-			host = (ProcessingNode)eResolveProxy(oldHost);
-			if (host != oldHost) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__HOST, oldHost, host));
+		ProcessingNode result = null;
+		if (host != null) {
+			if (host != null && host.eIsProxy()) {
+				InternalEObject oldHost = (InternalEObject) host;
+				host = (ProcessingNode) eResolveProxy(oldHost);
+				if (host != oldHost) {
+					if (eNotificationRequired())
+						eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__HOST,
+								oldHost, host));
+				}
 			}
+			result = host;
+		} else {
+			result = this.getContainer().getHost().getHost();
 		}
-		return host;
+
+		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ProcessingNode basicGetHost() {
@@ -438,8 +423,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -451,8 +435,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -469,8 +452,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ResourceCluster basicGetTarget() {
@@ -478,8 +460,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -491,17 +472,51 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
-	public void deploy() throws ConfigurationException {
-		
+	public PASYS_Metamodel.pasys.Container getContainer() {
+		if (container != null && container.eIsProxy()) {
+			InternalEObject oldContainer = (InternalEObject)container;
+			container = (PASYS_Metamodel.pasys.Container)eResolveProxy(oldContainer);
+			if (container != oldContainer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer, container));
+			}
+		}
+		return container;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PASYS_Metamodel.pasys.Container basicGetContainer() {
+		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(PASYS_Metamodel.pasys.Container newContainer) {
+		PASYS_Metamodel.pasys.Container oldContainer = container;
+		container = newContainer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVER__CONTAINER, oldContainer, container));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void deploy() throws ConfigurationException {
+
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -529,13 +544,15 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				if (resolve) return getContainer();
+				return basicGetContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -573,13 +590,15 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				setTarget((ResourceCluster)newValue);
 				return;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				setContainer((PASYS_Metamodel.pasys.Container)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -615,13 +634,15 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				setTarget((ResourceCluster)null);
 				return;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				setContainer((PASYS_Metamodel.pasys.Container)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -647,13 +668,14 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 				return host != null;
 			case PasysPackage.PLATFORM_SERVER__TARGET:
 				return target != null;
+			case PasysPackage.PLATFORM_SERVER__CONTAINER:
+				return container != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -675,8 +697,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -698,8 +719,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -714,8 +734,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -734,8 +753,7 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -763,4 +781,4 @@ public class PlatformServerImpl extends PlatformResourceImpl implements Platform
 		return result.toString();
 	}
 
-} //PlatformServerImpl
+} // PlatformServerImpl

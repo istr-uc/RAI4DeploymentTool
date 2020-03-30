@@ -142,7 +142,8 @@
       workflows="//@ownedElements.16"
       zookeeperConnect="//@ownedElements.9"
       nimbusSeeds="//@ownedElements.6"
-      supervisors="//@ownedElements.7">
+      supervisors="//@ownedElements.7"
+      isNimbus="true">
     <supervisorSlotPorts>6700</supervisorSlotPorts>
     <supervisorSlotPorts>6701</supervisorSlotPorts>
     <supervisorSlotPorts>6702</supervisorSlotPorts>
@@ -151,6 +152,7 @@
   <ownedElements
       xsi:type="pasys:StormServer"
       name="PollutionStormSupervisor"
+      id="12"
       artifactName="storm"
       artifactLocator="/home/gestor/apache/servers/storm/bin"
       scriptFolderPath="/home/gestor/apache/servers/storm/scripts"
@@ -205,7 +207,9 @@
       name="SwarmManagerVNode"
       id="SwarmManagerVNode"
       memorySize="2048"
+      ip="172.31.21.96"
       userName="gestor"
+      externalIP="34.255.137.20"
       vpc="default"
       subNet="eu-west-a"
       keyPair=""
@@ -217,7 +221,9 @@
       name="NimbusSwarmWorkerVNode"
       id="NimbusSwarmWorkerVNode"
       memorySize="2048"
+      ip="172.31.25.72"
       userName="gestor"
+      externalIP="54.194.37.254"
       vpc="default"
       subNet="eu-west-a"
       keyPair="ISTR_keypair.pem"
@@ -229,7 +235,9 @@
       name="SupervisorSwarmWorkerVNode"
       id="SupervisorSwarmWorkerVNode"
       memorySize="2048"
+      ip="172.31.26.169"
       userName="gestor"
+      externalIP="34.248.160.67"
       vpc="default"
       subNet="eu-west-a"
       keyPair="ISTR_keypair.pem"
@@ -241,7 +249,9 @@
       name="CassandraSwarmWorkerVNode"
       id="CassandraSwarmWorkerVNode"
       memorySize="2048"
+      ip="172.31.25.7"
       userName="gestor"
+      externalIP="54.194.247.222"
       vpc="default"
       subNet="eu-west-a"
       keyPair="ISTR_keypair.pem"
@@ -252,6 +262,9 @@
       xsi:type="pasys:DockerServer"
       name="SwarmManagerDockerServer"
       id="SwarmManagerDockerServer"
+      scriptFolderPath="/home/gestor/apache/servers/docker/scripts"
+      configFolderPath="/home/gestor/apache/servers/docker/conf"
+      dataFolderPath=""
       host="//@ownedElements.17"
       swarmCluster="//@ownedElements.25">
     <stacks
@@ -259,58 +272,80 @@
         id="PollutionStack"
         swarmCluster="//@ownedElements.25">
       <services
-          name="NimbusService">
+          name="nimbus"
+          id="nimbus"
+          image="//@ownedElements.29/@repositories.0/@images.0"
+          command="storm nimbus">
         <volumes
             source="/home/gestor/apache/servers/storm/conf"
-            target="/home/gestor/apache/servers/storm/conf"
+            target="/conf"
             type="BIND"/>
         <volumes
             source="/home/gestor/apache/servers/storm/logs"
-            target="/home/gestor/apache/servers/storm/logs"
+            target="/logs"
             type="BIND"/>
+        <volumes
+            source="/home/gestor/apache/servers/storm/scripts"
+            target="/scripts"/>
         <ports
             target="6627"
-            published="6627"/>
+            published="6627"
+            mode="INGRESS"/>
         <ports
             target="3772"
-            published="3772"/>
+            published="3772"
+            mode="INGRESS"/>
         <ports
             target="3773"
-            published="3773"/>
+            published="3773"
+            mode="INGRESS"/>
         <ports
             target="3774"
-            published="3774"/>
-        <networks/>
+            published="3774"
+            mode="INGRESS"/>
+        <networks
+            ipv4Address="storm"
+            network="//@ownedElements.21/@stacks.0/@networks.0"/>
         <deploymentParam
-            replicas="1"/>
+            replicas="1">
+          <placement
+              key="node.labels.nimbus"
+              value="1"/>
+          <restartPolicy
+              key="condition"
+              value="on-failure"/>
+          <restartPolicy
+              key="delay"
+              value="5s"/>
+          <restartPolicy
+              key="max_attempts"
+              value="3"/>
+          <restartPolicy
+              key="window"
+              value="120s"/>
+        </deploymentParam>
       </services>
       <services
-          name="SupervisorService">
-        <volumes
-            source="/home/gestor/apache/servers/storm/conf"
-            target="/home/gestor/apache/servers/storm/conf"
-            type="BIND"/>
-        <volumes
-            source="/home/gestor/apache/servers/storm/logs"
-            target="/home/gestor/apache/servers/storm/logs"
-            type="BIND"/>
-        <ports
-            target="6700"
-            published="6700"/>
-        <ports
-            target="6701"
-            published="6701"/>
-        <ports
-            target="6702"
-            published="6702"/>
-        <ports
-            target="6703"
-            published="6703"/>
-        <deploymentParam
-            replicas="1"/>
-      </services>
-      <services
-          name="CassandraService">
+          name="cassandra"
+          image="//@ownedElements.29/@repositories.0/@images.1">
+        <env
+            key="CASSANDRA_BROADCAST_ADDRESS"
+            value="cassandra"/>
+        <env
+            key="CASSANDRA_CLUSTER_NAME"
+            value="POLLUTION_CLUSTER"/>
+        <env
+            key="CASSANDRA_ENDPOINT_SNITCH"
+            value="GossipingPropertyFileSnitch"/>
+        <env
+            key="CASSANDRA_DC"
+            value="dc1"/>
+        <env
+            key="CASSANDRA_RACK"
+            value="rack1"/>
+        <env
+            key="CASSANDRA_SEEDS"
+            value="cassandra"/>
         <volumes
             source="/home/gestor/apache/cassandra/conf"
             target="/home/gestor/apache/cassandra/conf"
@@ -320,8 +355,63 @@
             target="/var/log/cassandra"/>
         <ports
             target="9042"
-            published="9042"/>
+            published="9042"
+            mode="INGRESS"/>
+        <networks
+            ipv4Address="storm"
+            network="//@ownedElements.21/@stacks.0/@networks.0">
+          <aliases>cassandra</aliases>
+        </networks>
+        <deploymentParam
+            replicas="1">
+          <placement
+              key="node.labels.cassandra"
+              value="1"/>
+        </deploymentParam>
       </services>
+      <services
+          name="supervisor"
+          id="supervisor"
+          dependsOn="//@ownedElements.21/@stacks.0/@services.0"
+          image="//@ownedElements.29/@repositories.0/@images.0">
+        <volumes
+            source="/home/gestor/apache/servers/storm/conf/storm.yaml"
+            target="/conf/storm.yaml"
+            type="BIND"/>
+        <volumes
+            source="/home/gestor/apache/servers/storm/logs"
+            target="/logs"
+            type="BIND"/>
+        <ports
+            target="6700"
+            published="6700"
+            mode="INGRESS"/>
+        <ports
+            target="6701"
+            published="6701"
+            mode="INGRESS"/>
+        <ports
+            target="6702"
+            published="6702"
+            mode="INGRESS"/>
+        <ports
+            target="6703"
+            published="6703"
+            mode="INGRESS"/>
+        <networks
+            ipv4Address="storm"
+            network="//@ownedElements.21/@stacks.0/@networks.0"/>
+        <deploymentParam
+            replicas="1">
+          <placement
+              key="node.labels.supervisor"
+              value="1"/>
+        </deploymentParam>
+      </services>
+      <networks
+          name="network"
+          id="network"
+          driver="OVERLAY"/>
     </stacks>
   </ownedElements>
   <ownedElements
@@ -358,12 +448,30 @@
       xsi:type="pasys:DockerContainer"
       name="SupervisorDockerContainer"
       id="SupervisorDockerContainer"
-      host="//@ownedElements.23"
-      service="//@ownedElements.21/@stacks.0/@services.1"/>
+      host="//@ownedElements.23"/>
   <ownedElements
       xsi:type="pasys:DockerContainer"
       name="CassandraDockerContainer"
       id="CassandraDockerContainer"
       host="//@ownedElements.24"
-      service="//@ownedElements.21/@stacks.0/@services.2"/>
+      service="//@ownedElements.21/@stacks.0/@services.1"/>
+  <ownedElements
+      xsi:type="pasys:Registry"
+      name="reg"
+      id="reg"
+      url="www.unican.es/istr">
+    <repositories
+        name="repo"
+        id="repo">
+      <images
+          name="storm"
+          id="stormImg"
+          repository="//@ownedElements.29/@repositories.0"
+          tag="latest"/>
+      <images
+          name="cassandra"
+          id="csdrImg"
+          repository="//@ownedElements.29/@repositories.0"/>
+    </repositories>
+  </ownedElements>
 </pasys:ComputationalSystem>

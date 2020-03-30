@@ -570,23 +570,24 @@ public class ZookeeperServerImpl extends DistributionServerImpl implements Zooke
 		if (!isRunning) {		
 			try {
 				// Config File generation
-				String configFileContent = generateConfigFileContent();
 				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + ".cfg",
-						configFolderPath, configFileContent, SystemComponentType.ZOOKEEPER_SERVER);
-				host.getConfigFiles().add(configFile);
+						configFolderPath, generateConfigFileContent(), SystemComponentType.ZOOKEEPER_SERVER);
+				getHost().getConfigFiles().add(configFile);
 				
 				//myid file generation
 				configFile = new DeploymentFileDescriptorImpl("myid",
 						dataFolderPath, Integer.toString(serverId), SystemComponentType.ZOOKEEPER_SERVER);
-				host.getConfigFiles().add(configFile);
+				getHost().getConfigFiles().add(configFile);
 				
 				// Script generation
-				String scriptContent = getArtifactLocator()+ "/"+getArtifactName()+ " start "+configFolderPath+"/zoo"+serverId+".cfg";
-				scriptContent=DeploymentToolsUtils.scriptHeaders(getScriptFolderPath())+scriptContent;
-				scriptContent+="\nsleep 30";
-				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+getServerId()+".sh",
+				if (host!=null) {
+					String scriptContent = getArtifactLocator()+ "/"+getArtifactName()+ " start "+configFolderPath+"/zoo"+serverId+".cfg";
+					scriptContent=DeploymentToolsUtils.scriptHeaders(getScriptFolderPath())+scriptContent;
+					scriptContent+="\nsleep 30";
+					DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+getServerId()+".sh",
 						getScriptFolderPath(), scriptContent, SystemComponentType.ZOOKEEPER_SERVER);
-				host.getLaunchingScripts().add(script);
+					getHost().getLaunchingScripts().add(script);
+				}
 				
 			} catch (IOException e) {
 				throw new ConfigurationException("No se encuentra el fichero de propiedades de Zookeeper");
@@ -597,7 +598,6 @@ public class ZookeeperServerImpl extends DistributionServerImpl implements Zooke
 
 	private String generateConfigFileContent() throws IOException, ConfigurationException {
 		Properties props = new Properties();
-		//props.load(new FileInputStream(new File("src/main/resources/zookeeper-server-properties.cfg")));
 		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper-server-properties.cfg"));
 		
 		props.put("clientPort", Integer.toString(clientPort));

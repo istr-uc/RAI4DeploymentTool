@@ -119,10 +119,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="bandwith" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PlatformServer" eSuperTypes="#//pasys/PlatformResource #//pasys/SystemComponent">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="host" lowerBound="1"
-          eType="#//pasys/ProcessingNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="#//pasys/ResourceCluster"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//pasys/Container"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SerializationServer" abstract="true"
         eSuperTypes="#//pasys/PlatformServer"/>
@@ -519,12 +519,144 @@
       <eLiterals name="NODE_RESOURCE_METER" value="11"/>
       <eLiterals name="TASK_EXECUTOR" value="12"/>
       <eLiterals name="TASK_AMOUNT_METER" value="13"/>
-      <eLiterals name="WORKFLOW" value="14"/>
+      <eLiterals name="DOCKER_STACK" value="14"/>
+      <eLiterals name="WORKFLOW" value="16"/>
+      <eLiterals name="CASSANDRA_SCHEMA" value="15"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//pasys/PlatformResource">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" lowerBound="1"
+          eType="#//pasys/ContainerizationServer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DockerContainer" eSuperTypes="#//pasys/Container">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
+          eType="#//pasys/Service"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContainerizationServer" abstract="true"
+        eSuperTypes="#//pasys/PlatformServer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DockerServer" eSuperTypes="#//pasys/ContainerizationServer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stacks" upperBound="-1"
+          eType="#//pasys/Stack" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="swarmCluster" eType="#//pasys/SwarmCluster"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OrchestrationServer" abstract="true"
+        eSuperTypes="#//pasys/PlatformServer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SwarmServer" eSuperTypes="#//pasys/OrchestrationServer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SwarmCluster" eSuperTypes="#//pasys/ResourceCluster">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="workers" lowerBound="1"
+          upperBound="-1" eType="#//pasys/DockerServer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="manager" lowerBound="1"
+          eType="#//pasys/DockerServer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stack" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="services" lowerBound="1"
+          upperBound="-1" eType="#//pasys/Service" containment="true" eOpposite="#//pasys/Service/stack"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="swarmCluster" eType="#//pasys/SwarmCluster"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="3.7"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="networks" upperBound="-1"
+          eType="#//pasys/SwarmNetwork" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stack" eType="#//pasys/Stack"
+          eOpposite="#//pasys/Stack/services"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="envFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="env" upperBound="-1"
+          eType="#//pasys/StringToStringMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dependsOn" upperBound="-1"
+          eType="#//pasys/Service"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="image" lowerBound="1"
+          eType="#//pasys/Image"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="volumes" upperBound="-1"
+          eType="#//pasys/Volume" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+          eType="#//pasys/Port" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="networks" upperBound="-1"
+          eType="#//pasys/ServiceNetwork" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentParam" lowerBound="1"
+          eType="#//pasys/Deployment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Port">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="published" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" lowerBound="1"
+          eType="#//pasys/Protocol"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1"
+          eType="#//pasys/PortMode"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PortMode">
+      <eLiterals name="PORT"/>
+      <eLiterals name="INGRESS" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
+      <eLiterals name="TCP" literal="TCP"/>
+      <eLiterals name="UDP"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceNetwork">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ipv4Address" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="network" eType="#//pasys/SwarmNetwork"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SwarmNetwork" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subnets" eType="#//pasys/StringToStringMap"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="driver" lowerBound="1"
+          eType="#//pasys/NetworkDriver"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="NetworkDriver">
+      <eLiterals name="BRIDGE"/>
+      <eLiterals name="OVERLAY" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository" lowerBound="1"
+          eType="#//pasys/Repository"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dockerFile" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Volume">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//pasys/VolumeType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="VolumeType">
+      <eLiterals name="VOLUME"/>
+      <eLiterals name="BIND" value="1"/>
+      <eLiterals name="TMPFS" value="2"/>
+      <eLiterals name="NPIPE" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Deployment">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="placement" eType="#//pasys/StringToStringMap"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="restartPolicy" upperBound="-1"
+          eType="#//pasys/StringToStringMap" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Registry" eSuperTypes="#//pasys/SystemElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" lowerBound="1"
+          upperBound="-1" eType="#//pasys/Repository" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="images" upperBound="-1"
+          eType="#//pasys/Image" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPrivate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

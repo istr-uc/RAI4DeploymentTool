@@ -1024,93 +1024,102 @@ public class KafkaServerImpl extends CommunicationServerImpl implements KafkaSer
 	@Override
 	public void deploy() throws ConfigurationException {
 		if (!isRunning) {
-			Properties props = new Properties();
-			try {
-				props.load(this.getClass().getClassLoader().getResourceAsStream("kafka-server.properties"));
 
-				props.put("broker.id", id);
+			// Config File generation
+			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(
+					"kafka" + getCommId() + ".properties", configFolderPath, generateConfigFileContent(),
+					SystemComponentType.KAFKA_SERVER);
+			getHost().getConfigFiles().add(configFile);
 
-				// Suponiendo que ponen solo el estilo
-				// listeners = this.listeners://host.getId:this.clientPort
-				// PhysicalProcessingNode host =
-				// (PhysicalProcessingNode)getHost();
-				// fileContent+="listeners="+listeners+"://"+host.getIp()+":"+clientPort,;
-
-				// Suponiendo que lo dan completo
-				props.put("listeners", listeners);
-
-				// advertised.listeners=this.listeners://host.getId:this.clientPort
-				// fileContent+="advertised.listeners"+"="+advertisedListeners+"://"+host.getIp()+":"+clientPort+"\n";
-
-				props.put("advertised.listeners", advertisedListeners);
-
-				// num.network.threads = numNetworkThreads
-				props.put("num.network.threads", Integer.toString(numNetworkThreads));
-
-				// num.io.threads = numIOThreads
-				props.put("num.io.threads", Integer.toString(numIOThreads));
-
-				// socket.send.buffer.bytes = socketSendBufferBytes
-				props.put("socket.send.buffer.bytes", Integer.toString(socketSendBufferBytes));
-
-				// socket.receive.buffer.bytes = socketReceiveBufferBytes
-				props.put("socket.receive.buffer.bytes", Integer.toString(socketReceiveBufferBytes));
-
-				// socket.request.max.bytes = socketRequestMaxBytes
-				props.put("socket.request.max.bytes", Integer.toString(socketRequestMaxBytes));
-
-				// log.dirs = logFolderPath o anhadir uno al Kafka?
-				props.put("log.dirs", logFolderPath);
-
-				// num.Partitions = numPartitions
-				props.put("num.Partitions", Integer.toString(numPartitions));
-
-				// num.recovery.threads.per.data.dir
-				props.put("num.recovery.threads.per.data.dir", Integer.toString(numRecoveryThreadsPerDataDir));
-
-				// log.flush.interval.messages
-				props.put("log.flush.interval.messages", Integer.toString(logFlushIntervalMessages));
-
-				// log.flush.interval.ms =1000
-				props.put("log.flush.interval.ms", Integer.toString(logFlushInterval));
-
-				// zookeeper.connect =
-				// zookeeperConnect.host.ip:zookeeperConnect.clientPort
-
-				boolean first = true;
-				String zookeeperConnect = "";
-				for (PlatformResource resource : getZookeeperConnect().getResources()) {
-					if (!first)
-						zookeeperConnect += ",";
-					if (resource instanceof ZookeeperServer) {
-						ZookeeperServer zkpr = (ZookeeperServer) resource;
-						zookeeperConnect += zkpr.getHost().getIp() + ":" + zkpr.getClientPort();
-						first = false;
-					}
-				}
-				props.put("zookeeper.connect", zookeeperConnect);
-
-				// zookeeper.connection.timeout.ms
-				props.put("zookeeper.connection.timeout.ms", Integer.toString(zookeeperConnectionTimeout));
-
-				// Config File generation
-				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("kafka" + getCommId() + ".properties",
-						configFolderPath, DeploymentToolsUtils.propertiesToString(props), SystemComponentType.KAFKA_SERVER);
-				host.getConfigFiles().add(configFile);
-
+			if (host != null) {
 				// Script generation
-				String scriptContent = "rm -f "+getLogFolderPath()+"/meta.properties\n";
-				scriptContent += this.artifactLocator + "/" + this.artifactName + " -daemon " + this.getConfigFolderPath()+"/"
-						+ "kafka" + getCommId() + ".properties";
-				scriptContent = "cd "+getScriptFolderPath()+"\n"+scriptContent;
-				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("kafka"+getCommId()+".sh",
+				String scriptContent = "rm -f " + getLogFolderPath() + "/meta.properties\n";
+				scriptContent += this.artifactLocator + "/" + this.artifactName + " -daemon "
+						+ this.getConfigFolderPath() + "/" + "kafka" + getCommId() + ".properties";
+				scriptContent = "cd " + getScriptFolderPath() + "\n" + scriptContent;
+				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("kafka" + getCommId() + ".sh",
 						this.getScriptFolderPath(), scriptContent, SystemComponentType.KAFKA_SERVER);
-				host.getLaunchingScripts().add(script);
-			} catch (IOException e) {
-				throw new ConfigurationException("No se encuentra el fichero de propiedades de Kafka");
+				getHost().getLaunchingScripts().add(script);
 			}
 
 		}
 	}
 
+	private String generateConfigFileContent() throws ConfigurationException {
+		Properties props = new Properties();
+		try {
+			props.load(this.getClass().getClassLoader().getResourceAsStream("kafka-server.properties"));
+
+			props.put("broker.id", id);
+
+			// Suponiendo que ponen solo el estilo
+			// listeners = this.listeners://host.getId:this.clientPort
+			// PhysicalProcessingNode host =
+			// (PhysicalProcessingNode)getHost();
+			// fileContent+="listeners="+listeners+"://"+host.getIp()+":"+clientPort,;
+
+			// Suponiendo que lo dan completo
+			props.put("listeners", listeners);
+
+			// advertised.listeners=this.listeners://host.getId:this.clientPort
+			// fileContent+="advertised.listeners"+"="+advertisedListeners+"://"+host.getIp()+":"+clientPort+"\n";
+
+			props.put("advertised.listeners", advertisedListeners);
+
+			// num.network.threads = numNetworkThreads
+			props.put("num.network.threads", Integer.toString(numNetworkThreads));
+
+			// num.io.threads = numIOThreads
+			props.put("num.io.threads", Integer.toString(numIOThreads));
+
+			// socket.send.buffer.bytes = socketSendBufferBytes
+			props.put("socket.send.buffer.bytes", Integer.toString(socketSendBufferBytes));
+
+			// socket.receive.buffer.bytes = socketReceiveBufferBytes
+			props.put("socket.receive.buffer.bytes", Integer.toString(socketReceiveBufferBytes));
+
+			// socket.request.max.bytes = socketRequestMaxBytes
+			props.put("socket.request.max.bytes", Integer.toString(socketRequestMaxBytes));
+
+			// log.dirs = logFolderPath o anhadir uno al Kafka?
+			props.put("log.dirs", logFolderPath);
+
+			// num.Partitions = numPartitions
+			props.put("num.Partitions", Integer.toString(numPartitions));
+
+			// num.recovery.threads.per.data.dir
+			props.put("num.recovery.threads.per.data.dir", Integer.toString(numRecoveryThreadsPerDataDir));
+
+			// log.flush.interval.messages
+			props.put("log.flush.interval.messages", Integer.toString(logFlushIntervalMessages));
+
+			// log.flush.interval.ms =1000
+			props.put("log.flush.interval.ms", Integer.toString(logFlushInterval));
+
+			// zookeeper.connect =
+			// zookeeperConnect.host.ip:zookeeperConnect.clientPort
+
+			boolean first = true;
+			String zookeeperConnect = "";
+			for (PlatformResource resource : getZookeeperConnect().getResources()) {
+				if (!first)
+					zookeeperConnect += ",";
+				if (resource instanceof ZookeeperServer) {
+					ZookeeperServer zkpr = (ZookeeperServer) resource;
+					zookeeperConnect += zkpr.getHost().getIp() + ":" + zkpr.getClientPort();
+					first = false;
+				}
+			}
+			props.put("zookeeper.connect", zookeeperConnect);
+
+			// zookeeper.connection.timeout.ms
+			props.put("zookeeper.connection.timeout.ms", Integer.toString(zookeeperConnectionTimeout));
+
+			return DeploymentToolsUtils.propertiesToString(props);
+
+		} catch (IOException e) {
+			throw new ConfigurationException("No se encuentra el fichero de propiedades de Kafka");
+		}
+
+	}
 } // KafkaServerImpl
