@@ -65,7 +65,7 @@ scrape_configs:
     scrape_interval: 3600000s
     static_configs:
       - targets: ['172.31.16.53:9091']
-  - job_name: 245
+  - job_name: DailyConsumptionLoggingMeter
     scrape_interval: 2592000000s
     static_configs:
       - targets: ['172.31.16.49:12010', '172.31.16.53:12010', '172.31.16.54:12010', '172.31.16.44:12010', '172.31.16.63:12010', '172.31.16.38:12010']

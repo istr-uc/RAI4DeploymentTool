@@ -7,6 +7,9 @@ import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.SystemComponentType;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Comparator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -352,7 +355,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 		// Windows String filePath= directory+"\\"+getFileName();
 		// Linux
 		String filePath=directory+"/"+getFileName();
-		/*try (PrintWriter out = new PrintWriter(filePath)) {
+		try (PrintWriter out = new PrintWriter(filePath)) {
 		    out.println(getFileContent());
 		
 		
@@ -377,9 +380,9 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
       //  System.out.format("Permissions after:  %s%n",  PosixFilePermissions.toString(perms));
 		return filePath;
 		
-		/*} catch (IOException e) {
+		} catch (IOException e) {
 			throw new DeploymentException("Error creando fichero en "+filePath);
-		}*/
+		}
 	}
 	
 	public static class LaunchingFileComparator implements Comparator<DeploymentFileDescriptor> {

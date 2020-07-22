@@ -62,7 +62,7 @@ public class DeploymentTool {
 			
 			// Borra todos los ficheros del directorio
 			//File temp = new File(DeploymentToolsUtils.TEMP_DIR);
-			DeploymentToolsUtils.deleteFile(tempDir);
+			//DeploymentToolsUtils.deleteFile(tempDir);
 			
 			System.out.println("System deployed");
 			

@@ -1626,8 +1626,8 @@
   </ownedElements>
   <ownedElements
       xsi:type="pasys:Workflow"
-      name="DailyConsumptionLogging"
-      id="DailyConsumptionLogging"
+      name="DailyConformation"
+      id="240"
       artifactName="workflowLauncher.sh"
       artifactLocator="/home/gestor/apache/app/psg4c/workflows/scriptsFolder"
       scriptFolderPath="/home/gestor/apache/app/psg4c/workflows/scriptsFolder"
@@ -1638,8 +1638,8 @@
       scheduler="//@ownedElements.90">
     <ownedStreamData
         xsi:type="pasys:KafkaFlowStreamData"
-        name="powerStored"
-        id="517"
+        name="energyRecorded"
+        id="241"
         artifactName="kafka-topics.sh"
         artifactLocator="/home/gestor/apache/servers/kafka/bin"
         scriptFolderPath="/home/gestor/apache/app/psg4c/topics/scriptFolder"
@@ -1648,42 +1648,7 @@
         retention_ms="3600000"
         numPartitions="6"
         numReplication="1"
-        schemaFile=""
-        source="//@ownedElements.77"
-        predecessor="//@ownedElements.77"
-        holder="69">
-      <assignedPartition
-          key="centro"
-          host="//@ownedElements.12"/>
-      <assignedPartition
-          key="sardinero"
-          host="//@ownedElements.15"/>
-      <assignedPartition
-          key="cuatroCaminos"
-          host="//@ownedElements.18"/>
-      <assignedPartition
-          key="sanRoman"
-          host="//@ownedElements.21"/>
-      <assignedPartition
-          key="parayas"
-          host="//@ownedElements.24"/>
-      <assignedPartition
-          key="astillero"
-          host="//@ownedElements.27"/>
-    </ownedStreamData>
-    <ownedStreamData
-        xsi:type="pasys:KafkaFlowStreamData"
-        name="profileStored"
-        id="profileStored"
-        artifactName="kafka-topics.sh"
-        artifactLocator="/home/gestor/apache/servers/kafka/bin"
-        scriptFolderPath="/home/gestor/apache/app/psg4c/topics/scriptFolder"
-        configFolderPath="/home/gestor/apache/app/psg4c/topics/configFolder"
-        dataFolderPath="/home/gestor/apache/app/psg4c/topics/dataFolder"
-        retention_ms="3600000"
-        numPartitions="6"
-        numReplication="1"
-        schemaFile=""
+        schemaFile="UG_Consumption.avsc"
         source="//@ownedElements.77"
         predecessor="//@ownedElements.77"
         holder="69">
@@ -1707,22 +1672,22 @@
           host="//@ownedElements.27"/>
     </ownedStreamData>
     <ownedTasks
-        name="powerTask"
-        id="powerTask"
+        name="recordEnergyTask"
+        id="242"
         implementingClassName="recordDailyEnergyClass"
         returnedStreamData="//@ownedElements.96/@ownedStreamData.0"
         triggerStreamData="//@ownedElements.77"/>
     <ownedTasks
-        name="profileTask"
-        id="profileTask"
-        implementingClassName="PowerProfileClass"
-        returnedStreamData="//@ownedElements.96/@ownedStreamData.1"
+        name="conformPowerProfileTask"
+        id="243"
+        implementingClassName="conformPowerProfileClass"
+        returnedStreamData="//@ownedElements.74"
         triggerStreamData="//@ownedElements.96/@ownedStreamData.0"
         inputStreamData="//@ownedElements.76"/>
     <ownedTaskExecutors
-        name="DailyConsumptionExecutor"
-        id="DailyConsumptionExecutor"
-        artifactName="DailyConsumptionExecutor.jar"
+        name="DailyConformationExecutor"
+        id="244"
+        artifactName="DailyConformationExecutor.jar"
         artifactLocator="./jarFolder"
         scriptFolderPath="/home/gestor/apache/app/psg4c/workflows/scriptsFolder"
         configFolderPath="/home/gestor/apache/app/psg4c/workflows/configFolder"
@@ -1738,8 +1703,8 @@
           metric="//@ownedElements.98"/>
     </ownedTaskExecutors>
     <ownedMeters
-        name="DailyConsumptionLoggingMeter"
-        id="DailyConsumptionLoggingMeter"
+        name="DailyConformationMeter"
+        id="245"
         monitoringServer="//@ownedElements.46"
         monitoringPort="12010"
         monitoringTime="2592000000"
@@ -1747,13 +1712,13 @@
   </ownedElements>
   <ownedElements
       xsi:type="pasys:WorkflowLatency"
-      name="DailyConsumptionLoggingMetric"
+      name="DailyConformationLatency"
       id="247"
       target="//@ownedElements.96"
       meter="//@ownedElements.96/@ownedMeters.0"/>
   <ownedElements
       xsi:type="pasys:TaskProcessingAmount"
-      name="DailyConsumptionLoggingMetric"
+      name="DailyConformationMetric"
       id="248"
       target="//@ownedElements.96/@ownedTasks.1"
       meter="//@ownedElements.96/@ownedTaskExecutors.0/@ownedMeters.0"/>

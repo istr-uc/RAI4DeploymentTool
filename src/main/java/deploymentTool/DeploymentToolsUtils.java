@@ -19,7 +19,7 @@ public class DeploymentToolsUtils {
 	// public static final String TEMP_DIR = System.getProperty("user.dir")+"\\temp";
 	
 	// Linux
-	public static final String TEMP_DIR = System.getProperty("user.dir")+"/temp";
+	public static final String TEMP_DIR = System.getProperty("user.dir")+"/tempPRECON";
 
 	public static void createFile(String fileContent, String fileName) {
 		File file = new File(fileName);
