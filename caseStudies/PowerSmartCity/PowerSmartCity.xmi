@@ -84,7 +84,7 @@
       meter="//@ownedElements.3/@ownedMeters.0"/>
   <ownedElements
       xsi:type="pasys:PhysicalProcessingNode"
-      name="ciudadNode"
+      name="cityNode"
       id="90"
       concurrencyLevel="8"
       connectedTo="//@ownedElements.41"
@@ -108,13 +108,13 @@
   </ownedElements>
   <ownedElements
       xsi:type="pasys:ProcessingNodeUtilization"
-      name="ciudadUtilization"
+      name="cityUtilization"
       id="10"
       target="//@ownedElements.6"
       meter="//@ownedElements.6/@ownedMeters.0"/>
   <ownedElements
       xsi:type="pasys:ProcessingNodeMemory"
-      name="ciudadMemory"
+      name="cityMemory"
       id="11"
       target="//@ownedElements.6"
       meter="//@ownedElements.6/@ownedMeters.0"/>
@@ -1626,8 +1626,8 @@
   </ownedElements>
   <ownedElements
       xsi:type="pasys:Workflow"
-      name="DailyConsumptionLogging"
-      id="DailyConsumptionLogging"
+      name="DailyConsumption"
+      id="DailyConsumption"
       artifactName="workflowLauncher.sh"
       artifactLocator="/home/gestor/apache/app/psg4c/workflows/scriptsFolder"
       scriptFolderPath="/home/gestor/apache/app/psg4c/workflows/scriptsFolder"
@@ -1720,8 +1720,8 @@
         triggerStreamData="//@ownedElements.96/@ownedStreamData.0"
         inputStreamData="//@ownedElements.76"/>
     <ownedTaskExecutors
-        name="DailyConsumptionExecutor"
-        id="DailyConsumptionExecutor"
+        name="dailyConsumptionExec"
+        id="dailyConsumptionExec"
         artifactName="DailyConsumptionExecutor.jar"
         artifactLocator="./jarFolder"
         scriptFolderPath="/home/gestor/apache/app/psg4c/workflows/scriptsFolder"
@@ -1738,7 +1738,7 @@
           metric="//@ownedElements.98"/>
     </ownedTaskExecutors>
     <ownedMeters
-        name="DailyConsumptionLoggingMeter"
+        name="dailyConsumptionMeter"
         id="DailyConsumptionLoggingMeter"
         monitoringServer="//@ownedElements.46"
         monitoringPort="12010"
@@ -1747,13 +1747,13 @@
   </ownedElements>
   <ownedElements
       xsi:type="pasys:WorkflowLatency"
-      name="DailyConsumptionLoggingMetric"
+      name="dailyConsumptionMetric"
       id="247"
       target="//@ownedElements.96"
       meter="//@ownedElements.96/@ownedMeters.0"/>
   <ownedElements
       xsi:type="pasys:TaskProcessingAmount"
-      name="DailyConsumptionLoggingMetric"
+      name="DailyConsumptionMetric"
       id="248"
       target="//@ownedElements.96/@ownedTasks.1"
       meter="//@ownedElements.96/@ownedTaskExecutors.0/@ownedMeters.0"/>
