@@ -3,11 +3,11 @@
 package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ArtifactDescriptor;
-import PASYS_Metamodel.pasys.CassandraServer;
 import PASYS_Metamodel.pasys.CassandraService;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FileDescriptor;
+import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.ProcessingNode;
@@ -892,8 +892,21 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @generated NOT
 	 */
 	@Override
-	public void deploy() throws ConfigurationException {
-		if (!isRunning) {
+	public void configureDeployment() throws ConfigurationException {
+		super.configureDeployment();
+		if (getHost()!=null)
+			configureDeploymentOnHost();
+		else
+			configureDeploymentOnOrchestrator();
+	}
+	
+	private void configureDeploymentOnOrchestrator() {
+		
+	}
+	
+	private void configureDeploymentOnHost() throws ConfigurationException {
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		if (!conf.isIsRunning()) {		
 			try {
 				SystemComponentType type = SystemComponentType.CASSANDRA_SERVER;
 				if (isSeed)
@@ -902,21 +915,21 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				// Config file generation
 				String configFileContent = generateConfigFileContent();
 				String configFileName = "cassandra" + id + ".yaml";
-				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(configFileName, configFolderPath,
-						configFileContent, type);
+				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(configFileName, 
+						conf.getConfigFolderPath(),configFileContent, type);
 				getHost().getConfigFiles().add(configFile);
 
 				// Rack configuration file generation
 				String rackProps = "dc=" + getDataCenter().getName() + "\n";
 				rackProps += "rack=" + getRack().getName();
 				DeploymentFileDescriptor rackConfFile = new DeploymentFileDescriptorImpl("cassandra-rackcd.properties",
-						configFolderPath, rackProps, type);
+						conf.getConfigFolderPath(), rackProps, type);
 				getHost().getConfigFiles().add(rackConfFile);
 
 				// Artifacts to move to the corresponding nodes
 				for (FileDescriptor cqlFile : getCqlSchemas()) {
 					ArtifactDescriptor artifact = new ArtifactDescriptorImpl(cqlFile.getFileName(),
-							scriptFolderPath + "/" + cqlFile.getFileName(), cqlFile.getFilePath());
+							conf.getScriptFolderPath() + "/" + cqlFile.getFileName(), cqlFile.getFilePath());
 					getHost().getCodeFiles().add(artifact);
 				}
 
@@ -924,7 +937,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				DeploymentFileDescriptor script=null;
 				if (host != null) {
 					script = new DeploymentFileDescriptorImpl(
-							"cassandraServer" + getId() + ".sh", this.getScriptFolderPath(), 
+							"cassandraServer" + getId() + ".sh", conf.getScriptFolderPath(), 
 							generateScriptContent(configFileName), type);
 					getHost().getLaunchingScripts().add(script);
 				} else if (container!=null) {
@@ -1021,8 +1034,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		for (PlatformResource resource : getSeeds().getResources()) {
 			if (!first)
 				seeds += ",";
-			if (resource instanceof CassandraServer) { 
-				CassandraServer csdr = (CassandraServer) resource;			
+			if (resource instanceof CassandraService) { 
+				CassandraService csdr = (CassandraService) resource;			
 				seeds += csdr.getHost().getIp(); // No necesito cambiar a container porque el getHost ya me lo da bien
 				first = false;
 			} else {

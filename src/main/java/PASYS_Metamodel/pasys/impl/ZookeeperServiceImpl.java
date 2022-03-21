@@ -599,8 +599,8 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+getServerId()+".sh",
 					conf.getScriptFolderPath(), scriptContent, SystemComponentType.ZOOKEEPER_SERVER);
 				
-				List<ProcessingNode> nodes = getHost().getNodes();
-				for (ProcessingNode node: nodes) {
+				
+				for (ProcessingNode node: getHost().getNodes()) {
 					node.getLaunchingScripts().add(script);
 					node.getConfigFiles().add(configFile);
 					node.getConfigFiles().add(idFile);

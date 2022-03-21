@@ -6,7 +6,9 @@ import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.Meter;
+import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
+import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.SystemComponentType;
@@ -162,6 +164,21 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 	 */
 	@Override
 	public void configureDeployment() throws ConfigurationException {
+		super.configureDeployment();
+		if (getHost()!=null)
+			configureDeploymentOnHost();
+		else
+			configureDeploymentOnOrchestrator();
+		
+	}
+	
+	private void configureDeploymentOnOrchestrator() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void configureDeploymentOnHost() throws ConfigurationException {
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
 		
 		// prometheus.yml file generation
 		String prometheusConfigFile ="prometheus"+getId()+".yml";
@@ -172,18 +189,24 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 		}
 		
 		// Add file to the legatedConfigFiles of the host
-		DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(prometheusConfigFile, configFolderPath, 
-					prometheusConfigContent, SystemComponentType.PROMETHEUS_SERVER);
-		host.getConfigFiles().add(configFile);
-
+		DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(
+				prometheusConfigFile, conf.getConfigFolderPath(), 
+				prometheusConfigContent, SystemComponentType.PROMETHEUS_SERVER);
+		
 		// Launching script generation
 		String scriptContent =  "/usr/local/bin/launch ";
-		scriptContent += this.artifactLocator+"/"+this.artifactName+" --config.file="+configFolderPath+"/"+prometheusConfigFile;
-		scriptContent=DeploymentToolsUtils.scriptHeaders(getScriptFolderPath())+scriptContent;
+		scriptContent += conf.getArtifactLocator()+"/"+conf.getArtifactName()+
+				" --config.file="+conf.getConfigFolderPath()+"/"+prometheusConfigFile;
+		scriptContent=DeploymentToolsUtils.scriptHeaders(conf.getScriptFolderPath())+scriptContent;
 		String scriptName = "prometheusScript.sh";
 		
-		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, scriptFolderPath, scriptContent, SystemComponentType.PROMETHEUS_SERVER);
-		host.getLaunchingScripts().add(script);
+		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, 
+				conf.getScriptFolderPath(), scriptContent, SystemComponentType.PROMETHEUS_SERVER);
+
+		for (ProcessingNode node: getHost().getNodes()) {
+			node.getLaunchingScripts().add(script);
+			node.getConfigFiles().add(configFile);
+		}
 	}
 	
 	public static final String CONFIG_FILE_HEAD= "# my global config\nglobal:\n"

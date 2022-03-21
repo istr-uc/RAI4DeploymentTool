@@ -572,17 +572,17 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 	 */
 	public void configureDeployment() throws ConfigurationException {
 
-		// Configuraci�n e instanciaci�n de los StreamData y StreamDataMeter
+		// Configuration and instantiation of StreamDatas and StreamDataMeters
 		for (WorkflowStreamData sd : getOwnedStreamData()) {
 			if (sd instanceof FlowStreamData)
 				((FlowStreamData) sd).configureDeployment();
 		}
-		// Configuraci�n de los ownedTaskExecutors
+		// OwnedTaskExecutors configuration
 		for (TaskExecutor te : getOwnedTaskExecutors()) {
 			te.configureDeployment();
 		} // end for TaskExecutor
 
-		// Configuraci�n de los ownedMeters
+		// ownedMeters configuration
 		// for lm:LatencyMeter in this.ownedMeters (Este no se si es as�)
 		// for node:ProcessingNode in lm.getHosts()
 		// node.propertyConfigData.add(<lm.id>.scrapingPort = lm.monitoringPort)
