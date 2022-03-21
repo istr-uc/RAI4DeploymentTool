@@ -2,60 +2,54 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
-import PASYS_Metamodel.pasys.AVROServer;
+import PASYS_Metamodel.pasys.AVROService;
 import PASYS_Metamodel.pasys.AWSVirtualProcessingNode;
 import PASYS_Metamodel.pasys.ArtifactDescriptor;
-import PASYS_Metamodel.pasys.CassandraServer;
+import PASYS_Metamodel.pasys.CassandraService;
 import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.ComputationalSystem;
-import PASYS_Metamodel.pasys.Deployment;
+import PASYS_Metamodel.pasys.DeploymentConstraints;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
-import PASYS_Metamodel.pasys.DockerContainer;
-import PASYS_Metamodel.pasys.DockerServer;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.ExternalElementType;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
-import PASYS_Metamodel.pasys.Image;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
-import PASYS_Metamodel.pasys.KafkaServer;
+import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
-import PASYS_Metamodel.pasys.MemSQLServer;
-import PASYS_Metamodel.pasys.Neo4JServer;
+import PASYS_Metamodel.pasys.KubernetesPort;
+import PASYS_Metamodel.pasys.KubernetesService;
+import PASYS_Metamodel.pasys.MemSQLService;
+import PASYS_Metamodel.pasys.Neo4JService;
 import PASYS_Metamodel.pasys.Network;
-import PASYS_Metamodel.pasys.NetworkDriver;
 import PASYS_Metamodel.pasys.NetworkUtilization;
 import PASYS_Metamodel.pasys.NodeCluster;
+import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
 import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
-import PASYS_Metamodel.pasys.PlatformServer;
+import PASYS_Metamodel.pasys.PlatformService;
 import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.PortMode;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
-import PASYS_Metamodel.pasys.PrometheusServer;
+import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.Protocol;
-import PASYS_Metamodel.pasys.Registry;
-import PASYS_Metamodel.pasys.Repository;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
-import PASYS_Metamodel.pasys.Service;
-import PASYS_Metamodel.pasys.ServiceNetwork;
-import PASYS_Metamodel.pasys.SparkServer;
-import PASYS_Metamodel.pasys.Stack;
-import PASYS_Metamodel.pasys.StormServer;
+import PASYS_Metamodel.pasys.SparkService;
+import PASYS_Metamodel.pasys.StormService;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
-import PASYS_Metamodel.pasys.SwarmCluster;
-import PASYS_Metamodel.pasys.SwarmNetwork;
-import PASYS_Metamodel.pasys.SwarmServer;
+import PASYS_Metamodel.pasys.SwarmPort;
+import PASYS_Metamodel.pasys.SwarmService;
 import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import PASYS_Metamodel.pasys.SystemElementAdapter;
@@ -65,13 +59,13 @@ import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
 import PASYS_Metamodel.pasys.TaskProcessingAmountMeter;
 import PASYS_Metamodel.pasys.Volume;
+import PASYS_Metamodel.pasys.VolumeAccessMode;
 import PASYS_Metamodel.pasys.VolumeType;
 import PASYS_Metamodel.pasys.Workflow;
 import PASYS_Metamodel.pasys.WorkflowLatency;
 import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
 import PASYS_Metamodel.pasys.WorkloadStreamData;
-import PASYS_Metamodel.pasys.ZookeeperServer;
-
+import PASYS_Metamodel.pasys.ZookeeperService;
 import java.util.Map;
 import java.util.Properties;
 
@@ -138,17 +132,20 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.RESOURCE_CLUSTER: return createResourceCluster();
 			case PasysPackage.NODE_CLUSTER: return createNodeCluster();
 			case PasysPackage.NETWORK: return createNetwork();
-			case PasysPackage.PLATFORM_SERVER: return createPlatformServer();
-			case PasysPackage.AVRO_SERVER: return createAVROServer();
-			case PasysPackage.ZOOKEEPER_SERVER: return createZookeeperServer();
-			case PasysPackage.KAFKA_SERVER: return createKafkaServer();
+			case PasysPackage.PLATFORM_SERVICE: return createPlatformService();
+			case PasysPackage.KUBERNETES_SERVICE: return createKubernetesService();
+			case PasysPackage.SWARM_SERVICE: return createSwarmService();
+			case PasysPackage.AVRO_SERVICE: return createAVROService();
+			case PasysPackage.ZOOKEEPER_SERVICE: return createZookeeperService();
+			case PasysPackage.KAFKA_SERVICE: return createKafkaService();
 			case PasysPackage.NODE_SCHEDULER: return createNodeScheduler();
-			case PasysPackage.SPARK_SERVER: return createSparkServer();
-			case PasysPackage.STORM_SERVER: return createStormServer();
-			case PasysPackage.MEM_SQL_SERVER: return createMemSQLServer();
-			case PasysPackage.CASSANDRA_SERVER: return createCassandraServer();
-			case PasysPackage.NEO4_JSERVER: return createNeo4JServer();
-			case PasysPackage.PROMETHEUS_SERVER: return createPrometheusServer();
+			case PasysPackage.SPARK_SERVICE: return createSparkService();
+			case PasysPackage.STORM_SERVICE: return createStormService();
+			case PasysPackage.MEM_SQL_SERVICE: return createMemSQLService();
+			case PasysPackage.CASSANDRA_SERVICE: return createCassandraService();
+			case PasysPackage.NEO4_JSERVICE: return createNeo4JService();
+			case PasysPackage.PROMETHEUS_SERVICE: return createPrometheusService();
+			case PasysPackage.EXPORTER_DATA: return createExporterData();
 			case PasysPackage.STREAM_DATA_PARTITION: return createStreamDataPartition();
 			case PasysPackage.FLOW_STREAM_DATA: return createFlowStreamData();
 			case PasysPackage.KAFKA_FLOW_STREAM_DATA: return createKafkaFlowStreamData();
@@ -171,25 +168,17 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.STREAM_RATE_METER: return createStreamRateMeter();
 			case PasysPackage.WORKFLOW_LATENCY_METER: return createWorkflowLatencyMeter();
 			case PasysPackage.TASK_PROCESSING_AMOUNT_METER: return createTaskProcessingAmountMeter();
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF: return createOrchestrationServiceDeploymentConf();
+			case PasysPackage.NODE_CLUSTER_DEPLOYMENT_CONF: return createNodeClusterDeploymentConf();
+			case PasysPackage.VOLUME: return createVolume();
+			case PasysPackage.PORT: return createPort();
+			case PasysPackage.SWARM_PORT: return createSwarmPort();
+			case PasysPackage.KUBERNETES_PORT: return createKubernetesPort();
+			case PasysPackage.DEPLOYMENT_CONSTRAINTS: return createDeploymentConstraints();
+			case PasysPackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
 			case PasysPackage.FILE_DESCRIPTOR: return createFileDescriptor();
 			case PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR: return createDeploymentFileDescriptor();
 			case PasysPackage.ARTIFACT_DESCRIPTOR: return createArtifactDescriptor();
-			case PasysPackage.EXPORTER_DATA: return createExporterData();
-			case PasysPackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
-			case PasysPackage.DOCKER_CONTAINER: return createDockerContainer();
-			case PasysPackage.DOCKER_SERVER: return createDockerServer();
-			case PasysPackage.SWARM_SERVER: return createSwarmServer();
-			case PasysPackage.SWARM_CLUSTER: return createSwarmCluster();
-			case PasysPackage.STACK: return createStack();
-			case PasysPackage.SERVICE: return createService();
-			case PasysPackage.PORT: return createPort();
-			case PasysPackage.SERVICE_NETWORK: return createServiceNetwork();
-			case PasysPackage.SWARM_NETWORK: return createSwarmNetwork();
-			case PasysPackage.IMAGE: return createImage();
-			case PasysPackage.VOLUME: return createVolume();
-			case PasysPackage.DEPLOYMENT: return createDeployment();
-			case PasysPackage.REGISTRY: return createRegistry();
-			case PasysPackage.REPOSITORY: return createRepository();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -205,16 +194,16 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 		switch (eDataType.getClassifierID()) {
 			case PasysPackage.EXTERNAL_ELEMENT_TYPE:
 				return createExternalElementTypeFromString(eDataType, initialValue);
-			case PasysPackage.SYSTEM_COMPONENT_TYPE:
-				return createSystemComponentTypeFromString(eDataType, initialValue);
+			case PasysPackage.VOLUME_TYPE:
+				return createVolumeTypeFromString(eDataType, initialValue);
+			case PasysPackage.VOLUME_ACCESS_MODE:
+				return createVolumeAccessModeFromString(eDataType, initialValue);
 			case PasysPackage.PORT_MODE:
 				return createPortModeFromString(eDataType, initialValue);
 			case PasysPackage.PROTOCOL:
 				return createProtocolFromString(eDataType, initialValue);
-			case PasysPackage.NETWORK_DRIVER:
-				return createNetworkDriverFromString(eDataType, initialValue);
-			case PasysPackage.VOLUME_TYPE:
-				return createVolumeTypeFromString(eDataType, initialValue);
+			case PasysPackage.SYSTEM_COMPONENT_TYPE:
+				return createSystemComponentTypeFromString(eDataType, initialValue);
 			case PasysPackage.PROPERTIES:
 				return createPropertiesFromString(eDataType, initialValue);
 			default:
@@ -232,16 +221,16 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 		switch (eDataType.getClassifierID()) {
 			case PasysPackage.EXTERNAL_ELEMENT_TYPE:
 				return convertExternalElementTypeToString(eDataType, instanceValue);
-			case PasysPackage.SYSTEM_COMPONENT_TYPE:
-				return convertSystemComponentTypeToString(eDataType, instanceValue);
+			case PasysPackage.VOLUME_TYPE:
+				return convertVolumeTypeToString(eDataType, instanceValue);
+			case PasysPackage.VOLUME_ACCESS_MODE:
+				return convertVolumeAccessModeToString(eDataType, instanceValue);
 			case PasysPackage.PORT_MODE:
 				return convertPortModeToString(eDataType, instanceValue);
 			case PasysPackage.PROTOCOL:
 				return convertProtocolToString(eDataType, instanceValue);
-			case PasysPackage.NETWORK_DRIVER:
-				return convertNetworkDriverToString(eDataType, instanceValue);
-			case PasysPackage.VOLUME_TYPE:
-				return convertVolumeTypeToString(eDataType, instanceValue);
+			case PasysPackage.SYSTEM_COMPONENT_TYPE:
+				return convertSystemComponentTypeToString(eDataType, instanceValue);
 			case PasysPackage.PROPERTIES:
 				return convertPropertiesToString(eDataType, instanceValue);
 			default:
@@ -320,6 +309,7 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AWSVirtualProcessingNode createAWSVirtualProcessingNode() {
 		AWSVirtualProcessingNodeImpl awsVirtualProcessingNode = new AWSVirtualProcessingNodeImpl();
 		return awsVirtualProcessingNode;
@@ -364,9 +354,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public PlatformServer createPlatformServer() {
-		PlatformServerImpl platformServer = new PlatformServerImpl();
-		return platformServer;
+	public PlatformService createPlatformService() {
+		PlatformServiceImpl platformService = new PlatformServiceImpl();
+		return platformService;
 	}
 
 	/**
@@ -375,9 +365,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public AVROServer createAVROServer() {
-		AVROServerImpl avroServer = new AVROServerImpl();
-		return avroServer;
+	public KubernetesService createKubernetesService() {
+		KubernetesServiceImpl kubernetesService = new KubernetesServiceImpl();
+		return kubernetesService;
 	}
 
 	/**
@@ -386,9 +376,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public ZookeeperServer createZookeeperServer() {
-		ZookeeperServerImpl zookeeperServer = new ZookeeperServerImpl();
-		return zookeeperServer;
+	public SwarmService createSwarmService() {
+		SwarmServiceImpl swarmService = new SwarmServiceImpl();
+		return swarmService;
 	}
 
 	/**
@@ -397,9 +387,31 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public KafkaServer createKafkaServer() {
-		KafkaServerImpl kafkaServer = new KafkaServerImpl();
-		return kafkaServer;
+	public AVROService createAVROService() {
+		AVROServiceImpl avroService = new AVROServiceImpl();
+		return avroService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ZookeeperService createZookeeperService() {
+		ZookeeperServiceImpl zookeeperService = new ZookeeperServiceImpl();
+		return zookeeperService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public KafkaService createKafkaService() {
+		KafkaServiceImpl kafkaService = new KafkaServiceImpl();
+		return kafkaService;
 	}
 
 	/**
@@ -419,9 +431,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public SparkServer createSparkServer() {
-		SparkServerImpl sparkServer = new SparkServerImpl();
-		return sparkServer;
+	public SparkService createSparkService() {
+		SparkServiceImpl sparkService = new SparkServiceImpl();
+		return sparkService;
 	}
 
 	/**
@@ -430,9 +442,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public StormServer createStormServer() {
-		StormServerImpl stormServer = new StormServerImpl();
-		return stormServer;
+	public StormService createStormService() {
+		StormServiceImpl stormService = new StormServiceImpl();
+		return stormService;
 	}
 
 	/**
@@ -441,9 +453,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public MemSQLServer createMemSQLServer() {
-		MemSQLServerImpl memSQLServer = new MemSQLServerImpl();
-		return memSQLServer;
+	public MemSQLService createMemSQLService() {
+		MemSQLServiceImpl memSQLService = new MemSQLServiceImpl();
+		return memSQLService;
 	}
 
 	/**
@@ -452,9 +464,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public CassandraServer createCassandraServer() {
-		CassandraServerImpl cassandraServer = new CassandraServerImpl();
-		return cassandraServer;
+	public CassandraService createCassandraService() {
+		CassandraServiceImpl cassandraService = new CassandraServiceImpl();
+		return cassandraService;
 	}
 
 	/**
@@ -463,9 +475,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public Neo4JServer createNeo4JServer() {
-		Neo4JServerImpl neo4JServer = new Neo4JServerImpl();
-		return neo4JServer;
+	public Neo4JService createNeo4JService() {
+		Neo4JServiceImpl neo4JService = new Neo4JServiceImpl();
+		return neo4JService;
 	}
 
 	/**
@@ -474,9 +486,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public PrometheusServer createPrometheusServer() {
-		PrometheusServerImpl prometheusServer = new PrometheusServerImpl();
-		return prometheusServer;
+	public PrometheusService createPrometheusService() {
+		PrometheusServiceImpl prometheusService = new PrometheusServiceImpl();
+		return prometheusService;
 	}
 
 	/**
@@ -726,6 +738,29 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public OrchestrationServiceDeploymentConf createOrchestrationServiceDeploymentConf() {
+		OrchestrationServiceDeploymentConfImpl orchestrationServiceDeploymentConf = new OrchestrationServiceDeploymentConfImpl();
+		return orchestrationServiceDeploymentConf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NodeClusterDeploymentConf createNodeClusterDeploymentConf() {
+		NodeClusterDeploymentConfImpl nodeClusterDeploymentConf = new NodeClusterDeploymentConfImpl();
+		return nodeClusterDeploymentConf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FileDescriptor createFileDescriptor() {
 		FileDescriptorImpl fileDescriptor = new FileDescriptorImpl();
 		return fileDescriptor;
@@ -768,66 +803,7 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DockerContainer createDockerContainer() {
-		DockerContainerImpl dockerContainer = new DockerContainerImpl();
-		return dockerContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DockerServer createDockerServer() {
-		DockerServerImpl dockerServer = new DockerServerImpl();
-		return dockerServer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwarmServer createSwarmServer() {
-		SwarmServerImpl swarmServer = new SwarmServerImpl();
-		return swarmServer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwarmCluster createSwarmCluster() {
-		SwarmClusterImpl swarmCluster = new SwarmClusterImpl();
-		return swarmCluster;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Stack createStack() {
-		StackImpl stack = new StackImpl();
-		return stack;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Service createService() {
-		ServiceImpl service = new ServiceImpl();
-		return service;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public Port createPort() {
 		PortImpl port = new PortImpl();
 		return port;
@@ -838,9 +814,10 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceNetwork createServiceNetwork() {
-		ServiceNetworkImpl serviceNetwork = new ServiceNetworkImpl();
-		return serviceNetwork;
+	@Override
+	public SwarmPort createSwarmPort() {
+		SwarmPortImpl swarmPort = new SwarmPortImpl();
+		return swarmPort;
 	}
 
 	/**
@@ -848,9 +825,10 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwarmNetwork createSwarmNetwork() {
-		SwarmNetworkImpl swarmNetwork = new SwarmNetworkImpl();
-		return swarmNetwork;
+	@Override
+	public KubernetesPort createKubernetesPort() {
+		KubernetesPortImpl kubernetesPort = new KubernetesPortImpl();
+		return kubernetesPort;
 	}
 
 	/**
@@ -858,9 +836,10 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Image createImage() {
-		ImageImpl image = new ImageImpl();
-		return image;
+	@Override
+	public DeploymentConstraints createDeploymentConstraints() {
+		DeploymentConstraintsImpl deploymentConstraints = new DeploymentConstraintsImpl();
+		return deploymentConstraints;
 	}
 
 	/**
@@ -868,39 +847,10 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Volume createVolume() {
 		VolumeImpl volume = new VolumeImpl();
 		return volume;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Deployment createDeployment() {
-		DeploymentImpl deployment = new DeploymentImpl();
-		return deployment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Registry createRegistry() {
-		RegistryImpl registry = new RegistryImpl();
-		return registry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Repository createRepository() {
-		RepositoryImpl repository = new RepositoryImpl();
-		return repository;
 	}
 
 	/**
@@ -999,26 +949,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NetworkDriver createNetworkDriverFromString(EDataType eDataType, String initialValue) {
-		NetworkDriver result = NetworkDriver.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNetworkDriverToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public VolumeType createVolumeTypeFromString(EDataType eDataType, String initialValue) {
 		VolumeType result = VolumeType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1031,6 +961,26 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	public String convertVolumeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VolumeAccessMode createVolumeAccessModeFromString(EDataType eDataType, String initialValue) {
+		VolumeAccessMode result = VolumeAccessMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVolumeAccessModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

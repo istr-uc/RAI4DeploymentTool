@@ -112,40 +112,58 @@ public interface PasysFactory extends EFactory {
 	Network createNetwork();
 
 	/**
-	 * Returns a new object of class '<em>Platform Server</em>'.
+	 * Returns a new object of class '<em>Platform Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Platform Server</em>'.
+	 * @return a new object of class '<em>Platform Service</em>'.
 	 * @generated
 	 */
-	PlatformServer createPlatformServer();
+	PlatformService createPlatformService();
 
 	/**
-	 * Returns a new object of class '<em>AVRO Server</em>'.
+	 * Returns a new object of class '<em>Kubernetes Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>AVRO Server</em>'.
+	 * @return a new object of class '<em>Kubernetes Service</em>'.
 	 * @generated
 	 */
-	AVROServer createAVROServer();
+	KubernetesService createKubernetesService();
 
 	/**
-	 * Returns a new object of class '<em>Zookeeper Server</em>'.
+	 * Returns a new object of class '<em>Swarm Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Zookeeper Server</em>'.
+	 * @return a new object of class '<em>Swarm Service</em>'.
 	 * @generated
 	 */
-	ZookeeperServer createZookeeperServer();
+	SwarmService createSwarmService();
 
 	/**
-	 * Returns a new object of class '<em>Kafka Server</em>'.
+	 * Returns a new object of class '<em>AVRO Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Kafka Server</em>'.
+	 * @return a new object of class '<em>AVRO Service</em>'.
 	 * @generated
 	 */
-	KafkaServer createKafkaServer();
+	AVROService createAVROService();
+
+	/**
+	 * Returns a new object of class '<em>Zookeeper Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Zookeeper Service</em>'.
+	 * @generated
+	 */
+	ZookeeperService createZookeeperService();
+
+	/**
+	 * Returns a new object of class '<em>Kafka Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Kafka Service</em>'.
+	 * @generated
+	 */
+	KafkaService createKafkaService();
 
 	/**
 	 * Returns a new object of class '<em>Node Scheduler</em>'.
@@ -157,58 +175,58 @@ public interface PasysFactory extends EFactory {
 	NodeScheduler createNodeScheduler();
 
 	/**
-	 * Returns a new object of class '<em>Spark Server</em>'.
+	 * Returns a new object of class '<em>Spark Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Spark Server</em>'.
+	 * @return a new object of class '<em>Spark Service</em>'.
 	 * @generated
 	 */
-	SparkServer createSparkServer();
+	SparkService createSparkService();
 
 	/**
-	 * Returns a new object of class '<em>Storm Server</em>'.
+	 * Returns a new object of class '<em>Storm Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Storm Server</em>'.
+	 * @return a new object of class '<em>Storm Service</em>'.
 	 * @generated
 	 */
-	StormServer createStormServer();
+	StormService createStormService();
 
 	/**
-	 * Returns a new object of class '<em>Mem SQL Server</em>'.
+	 * Returns a new object of class '<em>Mem SQL Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mem SQL Server</em>'.
+	 * @return a new object of class '<em>Mem SQL Service</em>'.
 	 * @generated
 	 */
-	MemSQLServer createMemSQLServer();
+	MemSQLService createMemSQLService();
 
 	/**
-	 * Returns a new object of class '<em>Cassandra Server</em>'.
+	 * Returns a new object of class '<em>Cassandra Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cassandra Server</em>'.
+	 * @return a new object of class '<em>Cassandra Service</em>'.
 	 * @generated
 	 */
-	CassandraServer createCassandraServer();
+	CassandraService createCassandraService();
 
 	/**
-	 * Returns a new object of class '<em>Neo4 JServer</em>'.
+	 * Returns a new object of class '<em>Neo4 JService</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo4 JServer</em>'.
+	 * @return a new object of class '<em>Neo4 JService</em>'.
 	 * @generated
 	 */
-	Neo4JServer createNeo4JServer();
+	Neo4JService createNeo4JService();
 
 	/**
-	 * Returns a new object of class '<em>Prometheus Server</em>'.
+	 * Returns a new object of class '<em>Prometheus Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Prometheus Server</em>'.
+	 * @return a new object of class '<em>Prometheus Service</em>'.
 	 * @generated
 	 */
-	PrometheusServer createPrometheusServer();
+	PrometheusService createPrometheusService();
 
 	/**
 	 * Returns a new object of class '<em>Stream Data Partition</em>'.
@@ -409,6 +427,24 @@ public interface PasysFactory extends EFactory {
 	TaskProcessingAmountMeter createTaskProcessingAmountMeter();
 
 	/**
+	 * Returns a new object of class '<em>Orchestration Service Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Orchestration Service Deployment Conf</em>'.
+	 * @generated
+	 */
+	OrchestrationServiceDeploymentConf createOrchestrationServiceDeploymentConf();
+
+	/**
+	 * Returns a new object of class '<em>Node Cluster Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Node Cluster Deployment Conf</em>'.
+	 * @generated
+	 */
+	NodeClusterDeploymentConf createNodeClusterDeploymentConf();
+
+	/**
 	 * Returns a new object of class '<em>File Descriptor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,60 +472,6 @@ public interface PasysFactory extends EFactory {
 	ExporterData createExporterData();
 
 	/**
-	 * Returns a new object of class '<em>Docker Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Docker Container</em>'.
-	 * @generated
-	 */
-	DockerContainer createDockerContainer();
-
-	/**
-	 * Returns a new object of class '<em>Docker Server</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Docker Server</em>'.
-	 * @generated
-	 */
-	DockerServer createDockerServer();
-
-	/**
-	 * Returns a new object of class '<em>Swarm Server</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swarm Server</em>'.
-	 * @generated
-	 */
-	SwarmServer createSwarmServer();
-
-	/**
-	 * Returns a new object of class '<em>Swarm Cluster</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swarm Cluster</em>'.
-	 * @generated
-	 */
-	SwarmCluster createSwarmCluster();
-
-	/**
-	 * Returns a new object of class '<em>Stack</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Stack</em>'.
-	 * @generated
-	 */
-	Stack createStack();
-
-	/**
-	 * Returns a new object of class '<em>Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service</em>'.
-	 * @generated
-	 */
-	Service createService();
-
-	/**
 	 * Returns a new object of class '<em>Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -499,31 +481,31 @@ public interface PasysFactory extends EFactory {
 	Port createPort();
 
 	/**
-	 * Returns a new object of class '<em>Service Network</em>'.
+	 * Returns a new object of class '<em>Swarm Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service Network</em>'.
+	 * @return a new object of class '<em>Swarm Port</em>'.
 	 * @generated
 	 */
-	ServiceNetwork createServiceNetwork();
+	SwarmPort createSwarmPort();
 
 	/**
-	 * Returns a new object of class '<em>Swarm Network</em>'.
+	 * Returns a new object of class '<em>Kubernetes Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swarm Network</em>'.
+	 * @return a new object of class '<em>Kubernetes Port</em>'.
 	 * @generated
 	 */
-	SwarmNetwork createSwarmNetwork();
+	KubernetesPort createKubernetesPort();
 
 	/**
-	 * Returns a new object of class '<em>Image</em>'.
+	 * Returns a new object of class '<em>Deployment Constraints</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Image</em>'.
+	 * @return a new object of class '<em>Deployment Constraints</em>'.
 	 * @generated
 	 */
-	Image createImage();
+	DeploymentConstraints createDeploymentConstraints();
 
 	/**
 	 * Returns a new object of class '<em>Volume</em>'.
@@ -533,33 +515,6 @@ public interface PasysFactory extends EFactory {
 	 * @generated
 	 */
 	Volume createVolume();
-
-	/**
-	 * Returns a new object of class '<em>Deployment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Deployment</em>'.
-	 * @generated
-	 */
-	Deployment createDeployment();
-
-	/**
-	 * Returns a new object of class '<em>Registry</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Registry</em>'.
-	 * @generated
-	 */
-	Registry createRegistry();
-
-	/**
-	 * Returns a new object of class '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Repository</em>'.
-	 * @generated
-	 */
-	Repository createRepository();
 
 	/**
 	 * Returns a new object of class '<em>Deployment File Descriptor</em>'.

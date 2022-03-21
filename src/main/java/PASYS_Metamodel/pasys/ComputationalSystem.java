@@ -209,7 +209,7 @@ public interface ComputationalSystem extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Authentication Files</em>' map.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getComputationalSystem_AuthenticationFiles()
-	 * @model mapType="PASYS_Metamodel.pasys.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 * @model mapType="PASYS_Metamodel.pasys.StringToStringMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
 	 * @generated
 	 */
 	EMap<String, String> getAuthenticationFiles();

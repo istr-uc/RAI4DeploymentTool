@@ -70,6 +70,7 @@ public abstract class VirtualProcessingNodeImpl extends ProcessingNodeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExternalIP() {
 		return externalIP;
 	}
@@ -79,6 +80,7 @@ public abstract class VirtualProcessingNodeImpl extends ProcessingNodeImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalIP(String newExternalIP) {
 		String oldExternalIP = externalIP;
 		externalIP = newExternalIP;
@@ -153,7 +155,7 @@ public abstract class VirtualProcessingNodeImpl extends ProcessingNodeImpl imple
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (externalIP: ");
 		result.append(externalIP);
 		result.append(')');

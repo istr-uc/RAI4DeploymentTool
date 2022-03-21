@@ -15,17 +15,18 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getIp <em>Ip</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getOs <em>Os</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConcurrencyLevel <em>Concurrency Level</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getMemorySize <em>Memory Size</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getSpeedFactor <em>Speed Factor</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConnectedTo <em>Connected To</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getPropertyConfigData <em>Property Config Data</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getUserName <em>User Name</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConnectedTo <em>Connected To</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getLaunchingScripts <em>Launching Scripts</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConfigFiles <em>Config Files</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getCodeFiles <em>Code Files</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getOwnedMeters <em>Owned Meters</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getIp <em>Ip</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getUserName <em>User Name</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode()
@@ -179,6 +180,28 @@ public interface ProcessingNode extends PlatformResource {
 	 * @generated
 	 */
 	void setIp(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Os</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Os</em>' attribute.
+	 * @see #setOs(String)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_Os()
+	 * @model
+	 * @generated
+	 */
+	String getOs();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.ProcessingNode#getOs <em>Os</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Os</em>' attribute.
+	 * @see #getOs()
+	 * @generated
+	 */
+	void setOs(String value);
 
 	/**
 	 * Returns the value of the '<em><b>User Name</b></em>' attribute.

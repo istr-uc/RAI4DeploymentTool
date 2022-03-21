@@ -114,7 +114,7 @@ public class DeploymentTool {
 		for (ArtifactDescriptor f : node.getCodeFiles()) {
 			System.out.println();
 			System.out.println("File: " + f.getFilePath() + "/" + f.getFileName());
-			System.out.println("File local path: " + f.getFileLocator());
+			System.out.println("File local path: " + f.getLocalPath());
 		}
 
 	}

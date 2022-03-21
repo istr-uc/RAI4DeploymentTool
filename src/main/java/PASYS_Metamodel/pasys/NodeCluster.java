@@ -2,6 +2,8 @@
  */
 package PASYS_Metamodel.pasys;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +16,14 @@ package PASYS_Metamodel.pasys;
  * @generated
  */
 public interface NodeCluster extends ResourceCluster {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	EList<ProcessingNode> getNodes();
+	
 
 } // NodeCluster

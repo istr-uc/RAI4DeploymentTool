@@ -19,10 +19,10 @@ package PASYS_Metamodel.pasys;
  * @model abstract="true"
  * @generated
  */
-public interface Meter extends NamedElement {
+public interface Meter extends NamedElement, DeployableComponent {
 	/**
 	 * Returns the value of the '<em><b>Monitoring Server</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.MonitoringServer#getMonitorizedMeters <em>Monitorized Meters</em>}'.
+	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.MonitoringService#getMonitorizedMeters <em>Monitorized Meters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Monitoring Server</em>' reference isn't clear,
@@ -30,13 +30,13 @@ public interface Meter extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Monitoring Server</em>' reference.
-	 * @see #setMonitoringServer(MonitoringServer)
+	 * @see #setMonitoringServer(MonitoringService)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getMeter_MonitoringServer()
-	 * @see PASYS_Metamodel.pasys.MonitoringServer#getMonitorizedMeters
+	 * @see PASYS_Metamodel.pasys.MonitoringService#getMonitorizedMeters
 	 * @model opposite="monitorizedMeters"
 	 * @generated
 	 */
-	MonitoringServer getMonitoringServer();
+	MonitoringService getMonitoringServer();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Meter#getMonitoringServer <em>Monitoring Server</em>}' reference.
@@ -46,6 +46,6 @@ public interface Meter extends NamedElement {
 	 * @see #getMonitoringServer()
 	 * @generated
 	 */
-	void setMonitoringServer(MonitoringServer value);
+	void setMonitoringServer(MonitoringService value);
 
 } // Meter

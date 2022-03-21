@@ -29,12 +29,12 @@ public interface WorkloadStreamData extends SystemElement, StreamData {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Holder</em>' reference.
-	 * @see #setHolder(CommunicationServer)
+	 * @see #setHolder(CommunicationService)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getWorkloadStreamData_Holder()
 	 * @model required="true"
 	 * @generated
 	 */
-	CommunicationServer getHolder();
+	CommunicationService getHolder();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.WorkloadStreamData#getHolder <em>Holder</em>}' reference.
@@ -44,6 +44,6 @@ public interface WorkloadStreamData extends SystemElement, StreamData {
 	 * @see #getHolder()
 	 * @generated
 	 */
-	void setHolder(CommunicationServer value);
+	void setHolder(CommunicationService value);
 
 } // WorkloadStreamData

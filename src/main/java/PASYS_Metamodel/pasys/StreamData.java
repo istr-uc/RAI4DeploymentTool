@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface StreamData extends SystemComponent {
+public interface StreamData extends DeployableComponent {
 	/**
 	 * Returns the value of the '<em><b>Retention ms</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -2,11 +2,12 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
-import PASYS_Metamodel.pasys.CommunicationServer;
+import PASYS_Metamodel.pasys.CommunicationService;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
-import PASYS_Metamodel.pasys.KafkaServer;
+import PASYS_Metamodel.pasys.KafkaService;
+import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
@@ -46,40 +47,44 @@ public class KafkaFlowStreamDataImpl extends FlowStreamDataImpl implements Kafka
 	 * @generated NOT
 	 */
 	@Override
-	public void deploy() throws ConfigurationException {
+	public void configureDeployment() throws ConfigurationException {
 		
-		CommunicationServer server = this.getHolder();
-		if (!(server instanceof KafkaServer)) 
+		CommunicationService server = this.getHolder();
+		if (!(server instanceof KafkaService)) 
 			throw new ConfigurationException("The topic "+getName()+ " is not assigned to a Kafka Server");
 		
-		
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
 		// Launching script generation
-		// De estos puede haber muchos en un mismo nodo, as� que le ponemos el id
+		// De estos puede haber muchos en un mismo nodo, asi que le ponemos el id
 		String scriptName = "topic_"+this.getId()+".sh";
 		
-		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, scriptFolderPath, 
+		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
 				getScriptContent(getName(), server), SystemComponentType.KAFKA_FLOW_STREAM);
-		server.getHost().getLaunchingScripts().add(script);
+		
+		server.getHost().getNodes().get(0).getLaunchingScripts().add(script);
 	}
 	
-	private String getScriptContent(String topicName, CommunicationServer server) {
-		String ip = server.getHost().getIp();
-		int port = ((KafkaServer)server).getClientPort();
+	private String getScriptContent(String topicName, CommunicationService server) {
+		String ip = server.getHost().getNodes().get(0).getIp();
+		int port = ((KafkaService)server).getClientPort();
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
 		
-		String baseKafkaScript = this.artifactLocator+"/"+this.artifactName;
+		String baseKafkaScript = conf.getArtifactLocator()+"/"+conf.getArtifactName();
 		String scriptContent = "TOPIC_NAME=\""+topicName+"\"\n";
 		scriptContent += baseKafkaScript+" --list --bootstrap-server "+ip+":"+port+ " | grep "+topicName+"\n";
 		scriptContent += "#Si existe el topico \n";
 		scriptContent += "if [ $? -eq 0 ]; then\n"+"exit 0\n"+"fi\n";
 		scriptContent +=  "#Si no existe el topico se crea \n";
-		scriptContent += this.artifactLocator+"/"+this.artifactName+" --create --bootstrap-server " +ip+":"+port+
+		scriptContent += conf.getArtifactLocator()+"/"+conf.getArtifactName()+" --create --bootstrap-server " +ip+":"+port+
 				" --replication-factor "+this.numReplication+ " --partitions "+this.numPartitions + " --topic "+this.getName();
 
 		
 		//TODO Me falta los valores que van con --config
-		scriptContent=DeploymentToolsUtils.scriptHeaders(getScriptFolderPath())+scriptContent;
+		scriptContent=DeploymentToolsUtils.scriptHeaders(conf.getScriptFolderPath())+scriptContent;
 		return scriptContent;
 	}
+	
+
 	
 
 } //KafkaFlowStreamDataImpl

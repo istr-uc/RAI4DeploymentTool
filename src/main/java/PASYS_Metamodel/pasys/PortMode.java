@@ -19,16 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PortMode implements Enumerator {
 	/**
-	 * The '<em><b>PORT</b></em>' literal object.
+	 * The '<em><b>HOST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PORT_VALUE
+	 * @see #HOST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PORT(0, "PORT", "PORT"),
-
-	/**
+	HOST(0, "HOST", "HOST"), /**
 	 * The '<em><b>INGRESS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,19 +37,15 @@ public enum PortMode implements Enumerator {
 	INGRESS(1, "INGRESS", "INGRESS");
 
 	/**
-	 * The '<em><b>PORT</b></em>' literal value.
+	 * The '<em><b>HOST</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>PORT</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PORT
+	 * @see #HOST
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PORT_VALUE = 0;
+	public static final int HOST_VALUE = 0;
 
 	/**
 	 * The '<em><b>INGRESS</b></em>' literal value.
@@ -76,7 +70,7 @@ public enum PortMode implements Enumerator {
 	 */
 	private static final PortMode[] VALUES_ARRAY =
 		new PortMode[] {
-			PORT,
+			HOST,
 			INGRESS,
 		};
 
@@ -134,7 +128,7 @@ public enum PortMode implements Enumerator {
 	 */
 	public static PortMode get(int value) {
 		switch (value) {
-			case PORT_VALUE: return PORT;
+			case HOST_VALUE: return HOST;
 			case INGRESS_VALUE: return INGRESS;
 		}
 		return null;
@@ -178,6 +172,7 @@ public enum PortMode implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -187,6 +182,7 @@ public enum PortMode implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 	  return name;
 	}
@@ -196,6 +192,7 @@ public enum PortMode implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 	  return literal;
 	}

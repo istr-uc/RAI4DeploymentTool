@@ -4,9 +4,6 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.Port;
-import PASYS_Metamodel.pasys.PortMode;
-import PASYS_Metamodel.pasys.Protocol;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -24,8 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PortImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PortImpl#getPublished <em>Published</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.PortImpl#getProtocol <em>Protocol</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.PortImpl#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,46 +67,6 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	protected String published = PUBLISHED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.TCP;
-
-	/**
-	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
-	 * @generated
-	 * @ordered
-	 */
-	protected Protocol protocol = PROTOCOL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final PortMode MODE_EDEFAULT = PortMode.PORT;
-
-	/**
-	 * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMode()
-	 * @generated
-	 * @ordered
-	 */
-	protected PortMode mode = MODE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -135,6 +90,7 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTarget() {
 		return target;
 	}
@@ -144,6 +100,7 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(String newTarget) {
 		String oldTarget = target;
 		target = newTarget;
@@ -156,6 +113,7 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPublished() {
 		return published;
 	}
@@ -165,53 +123,12 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPublished(String newPublished) {
 		String oldPublished = published;
 		published = newPublished;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PORT__PUBLISHED, oldPublished, published));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Protocol getProtocol() {
-		return protocol;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProtocol(Protocol newProtocol) {
-		Protocol oldProtocol = protocol;
-		protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PORT__PROTOCOL, oldProtocol, protocol));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PortMode getMode() {
-		return mode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMode(PortMode newMode) {
-		PortMode oldMode = mode;
-		mode = newMode == null ? MODE_EDEFAULT : newMode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PORT__MODE, oldMode, mode));
 	}
 
 	/**
@@ -226,10 +143,6 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 				return getTarget();
 			case PasysPackage.PORT__PUBLISHED:
 				return getPublished();
-			case PasysPackage.PORT__PROTOCOL:
-				return getProtocol();
-			case PasysPackage.PORT__MODE:
-				return getMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,12 +160,6 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 				return;
 			case PasysPackage.PORT__PUBLISHED:
 				setPublished((String)newValue);
-				return;
-			case PasysPackage.PORT__PROTOCOL:
-				setProtocol((Protocol)newValue);
-				return;
-			case PasysPackage.PORT__MODE:
-				setMode((PortMode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,12 +179,6 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 			case PasysPackage.PORT__PUBLISHED:
 				setPublished(PUBLISHED_EDEFAULT);
 				return;
-			case PasysPackage.PORT__PROTOCOL:
-				setProtocol(PROTOCOL_EDEFAULT);
-				return;
-			case PasysPackage.PORT__MODE:
-				setMode(MODE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -294,10 +195,6 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 				return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
 			case PasysPackage.PORT__PUBLISHED:
 				return PUBLISHED_EDEFAULT == null ? published != null : !PUBLISHED_EDEFAULT.equals(published);
-			case PasysPackage.PORT__PROTOCOL:
-				return protocol != PROTOCOL_EDEFAULT;
-			case PasysPackage.PORT__MODE:
-				return mode != MODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -311,15 +208,11 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (target: ");
 		result.append(target);
 		result.append(", published: ");
 		result.append(published);
-		result.append(", protocol: ");
-		result.append(protocol);
-		result.append(", mode: ");
-		result.append(mode);
 		result.append(')');
 		return result.toString();
 	}

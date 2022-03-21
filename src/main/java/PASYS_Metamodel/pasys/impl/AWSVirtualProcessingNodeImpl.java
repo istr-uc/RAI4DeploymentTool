@@ -174,6 +174,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getVpc() {
 		return vpc;
 	}
@@ -183,6 +184,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVpc(String newVpc) {
 		String oldVpc = vpc;
 		vpc = newVpc;
@@ -195,6 +197,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSubNet() {
 		return subNet;
 	}
@@ -204,6 +207,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSubNet(String newSubNet) {
 		String oldSubNet = subNet;
 		subNet = newSubNet;
@@ -216,6 +220,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKeyPair() {
 		return keyPair;
 	}
@@ -225,6 +230,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKeyPair(String newKeyPair) {
 		String oldKeyPair = keyPair;
 		keyPair = newKeyPair;
@@ -237,6 +243,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSecurityGroup() {
 		return securityGroup;
 	}
@@ -246,6 +253,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSecurityGroup(String newSecurityGroup) {
 		String oldSecurityGroup = securityGroup;
 		securityGroup = newSecurityGroup;
@@ -258,6 +266,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAMI() {
 		return ami;
 	}
@@ -267,6 +276,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAMI(String newAMI) {
 		String oldAMI = ami;
 		ami = newAMI;
@@ -279,6 +289,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getInstanceType() {
 		return instanceType;
 	}
@@ -288,6 +299,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInstanceType(String newInstanceType) {
 		String oldInstanceType = instanceType;
 		instanceType = newInstanceType;
@@ -412,7 +424,7 @@ public class AWSVirtualProcessingNodeImpl extends VirtualProcessingNodeImpl impl
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (vpc: ");
 		result.append(vpc);
 		result.append(", subNet: ");

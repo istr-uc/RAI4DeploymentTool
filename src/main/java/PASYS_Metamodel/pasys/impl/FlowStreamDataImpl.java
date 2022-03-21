@@ -2,7 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
-import PASYS_Metamodel.pasys.CommunicationServer;
+import PASYS_Metamodel.pasys.CommunicationService;
 import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.StreamData;
@@ -59,7 +59,7 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 	 * @generated
 	 * @ordered
 	 */
-	protected CommunicationServer holder;
+	protected CommunicationService holder;
 
 	/**
 	 * The default value of the '{@link #isIsImplemented() <em>Is Implemented</em>}' attribute.
@@ -186,10 +186,10 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 	 * @generated
 	 */
 	@Override
-	public CommunicationServer getHolder() {
+	public CommunicationService getHolder() {
 		if (holder != null && holder.eIsProxy()) {
 			InternalEObject oldHolder = (InternalEObject)holder;
-			holder = (CommunicationServer)eResolveProxy(oldHolder);
+			holder = (CommunicationService)eResolveProxy(oldHolder);
 			if (holder != oldHolder) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.FLOW_STREAM_DATA__HOLDER, oldHolder, holder));
@@ -203,7 +203,7 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommunicationServer basicGetHolder() {
+	public CommunicationService basicGetHolder() {
 		return holder;
 	}
 
@@ -213,8 +213,8 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 	 * @generated
 	 */
 	@Override
-	public void setHolder(CommunicationServer newHolder) {
-		CommunicationServer oldHolder = holder;
+	public void setHolder(CommunicationService newHolder) {
+		CommunicationService oldHolder = holder;
 		holder = newHolder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.FLOW_STREAM_DATA__HOLDER, oldHolder, holder));
@@ -281,7 +281,7 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 				setPredecessor((StreamData)newValue);
 				return;
 			case PasysPackage.FLOW_STREAM_DATA__HOLDER:
-				setHolder((CommunicationServer)newValue);
+				setHolder((CommunicationService)newValue);
 				return;
 			case PasysPackage.FLOW_STREAM_DATA__IS_IMPLEMENTED:
 				setIsImplemented((Boolean)newValue);
@@ -305,7 +305,7 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 				setPredecessor((StreamData)null);
 				return;
 			case PasysPackage.FLOW_STREAM_DATA__HOLDER:
-				setHolder((CommunicationServer)null);
+				setHolder((CommunicationService)null);
 				return;
 			case PasysPackage.FLOW_STREAM_DATA__IS_IMPLEMENTED:
 				setIsImplemented(IS_IMPLEMENTED_EDEFAULT);
@@ -343,7 +343,7 @@ public class FlowStreamDataImpl extends WorkflowStreamDataImpl implements FlowSt
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (isImplemented: ");
 		result.append(isImplemented);
 		result.append(')');

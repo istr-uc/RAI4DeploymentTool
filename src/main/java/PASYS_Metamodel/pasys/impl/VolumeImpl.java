@@ -4,6 +4,7 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.Volume;
+import PASYS_Metamodel.pasys.VolumeAccessMode;
 import PASYS_Metamodel.pasys.VolumeType;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,8 +24,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.VolumeImpl#getSource <em>Source</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.VolumeImpl#getTarget <em>Target</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.VolumeImpl#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.VolumeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.VolumeImpl#getAccessMode <em>Access Mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,26 +72,6 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	protected String target = TARGET_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReadOnly()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean READ_ONLY_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReadOnly()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean readOnly = READ_ONLY_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,6 +90,26 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * @ordered
 	 */
 	protected VolumeType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAccessMode() <em>Access Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccessMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final VolumeAccessMode ACCESS_MODE_EDEFAULT = VolumeAccessMode.READWRITEONCE;
+
+	/**
+	 * The cached value of the '{@link #getAccessMode() <em>Access Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccessMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected VolumeAccessMode accessMode = ACCESS_MODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +135,7 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSource() {
 		return source;
 	}
@@ -143,6 +145,7 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(String newSource) {
 		String oldSource = source;
 		source = newSource;
@@ -155,6 +158,7 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTarget() {
 		return target;
 	}
@@ -164,6 +168,7 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(String newTarget) {
 		String oldTarget = target;
 		target = newTarget;
@@ -176,27 +181,7 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isReadOnly() {
-		return readOnly;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReadOnly(boolean newReadOnly) {
-		boolean oldReadOnly = readOnly;
-		readOnly = newReadOnly;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.VOLUME__READ_ONLY, oldReadOnly, readOnly));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public VolumeType getType() {
 		return type;
 	}
@@ -206,11 +191,35 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(VolumeType newType) {
 		VolumeType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.VOLUME__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VolumeAccessMode getAccessMode() {
+		return accessMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAccessMode(VolumeAccessMode newAccessMode) {
+		VolumeAccessMode oldAccessMode = accessMode;
+		accessMode = newAccessMode == null ? ACCESS_MODE_EDEFAULT : newAccessMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.VOLUME__ACCESS_MODE, oldAccessMode, accessMode));
 	}
 
 	/**
@@ -225,10 +234,10 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 				return getSource();
 			case PasysPackage.VOLUME__TARGET:
 				return getTarget();
-			case PasysPackage.VOLUME__READ_ONLY:
-				return isReadOnly();
 			case PasysPackage.VOLUME__TYPE:
 				return getType();
+			case PasysPackage.VOLUME__ACCESS_MODE:
+				return getAccessMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,11 +256,11 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 			case PasysPackage.VOLUME__TARGET:
 				setTarget((String)newValue);
 				return;
-			case PasysPackage.VOLUME__READ_ONLY:
-				setReadOnly((Boolean)newValue);
-				return;
 			case PasysPackage.VOLUME__TYPE:
 				setType((VolumeType)newValue);
+				return;
+			case PasysPackage.VOLUME__ACCESS_MODE:
+				setAccessMode((VolumeAccessMode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -271,11 +280,11 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 			case PasysPackage.VOLUME__TARGET:
 				setTarget(TARGET_EDEFAULT);
 				return;
-			case PasysPackage.VOLUME__READ_ONLY:
-				setReadOnly(READ_ONLY_EDEFAULT);
-				return;
 			case PasysPackage.VOLUME__TYPE:
 				setType(TYPE_EDEFAULT);
+				return;
+			case PasysPackage.VOLUME__ACCESS_MODE:
+				setAccessMode(ACCESS_MODE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -293,10 +302,10 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
 			case PasysPackage.VOLUME__TARGET:
 				return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
-			case PasysPackage.VOLUME__READ_ONLY:
-				return readOnly != READ_ONLY_EDEFAULT;
 			case PasysPackage.VOLUME__TYPE:
 				return type != TYPE_EDEFAULT;
+			case PasysPackage.VOLUME__ACCESS_MODE:
+				return accessMode != ACCESS_MODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -310,15 +319,15 @@ public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (source: ");
 		result.append(source);
 		result.append(", target: ");
 		result.append(target);
-		result.append(", readOnly: ");
-		result.append(readOnly);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", accessMode: ");
+		result.append(accessMode);
 		result.append(')');
 		return result.toString();
 	}

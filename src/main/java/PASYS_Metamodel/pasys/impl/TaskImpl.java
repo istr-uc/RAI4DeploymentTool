@@ -423,7 +423,7 @@ public class TaskImpl extends NamedElementImpl implements Task {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (implementingClassName: ");
 		result.append(implementingClassName);
 		result.append(')');

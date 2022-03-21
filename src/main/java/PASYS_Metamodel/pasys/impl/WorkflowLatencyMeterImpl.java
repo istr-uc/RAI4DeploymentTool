@@ -313,7 +313,7 @@ public class WorkflowLatencyMeterImpl extends PrometheusMeterImpl implements Wor
 	
 	private List<ProcessingNode> getHosts(){
 				
-		return this.getOwner().getScheduler().getHosts();
+		return this.getOwner().getScheduler().getHost().getNodes();
 		
 	}
 

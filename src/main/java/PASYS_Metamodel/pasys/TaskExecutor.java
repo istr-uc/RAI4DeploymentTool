@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TaskExecutor extends NamedElement, SystemComponent {
+public interface TaskExecutor extends NamedElement, DeployableComponent {
 	/**
 	 * Returns the value of the '<em><b>Executed Tasks</b></em>' reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.Task}.

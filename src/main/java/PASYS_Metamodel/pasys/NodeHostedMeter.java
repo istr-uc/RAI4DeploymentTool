@@ -19,7 +19,7 @@ package PASYS_Metamodel.pasys;
  * @model abstract="true"
  * @generated
  */
-public interface NodeHostedMeter extends SystemComponent, PrometheusMeter {
+public interface NodeHostedMeter extends PrometheusMeter {
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.ProcessingNode#getOwnedMeters <em>Owned Meters</em>}'.

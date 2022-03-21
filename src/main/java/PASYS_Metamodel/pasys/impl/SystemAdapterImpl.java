@@ -411,7 +411,7 @@ public class SystemAdapterImpl extends MinimalEObjectImpl.Container implements S
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (idPrefix: ");
 		result.append(idPrefix);
 		result.append(", prefix: ");

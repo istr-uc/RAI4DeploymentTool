@@ -220,7 +220,7 @@ public class PrometheusMeterImpl extends MeterImpl implements PrometheusMeter {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (monitoringPort: ");
 		result.append(monitoringPort);
 		result.append(", monitoringTime: ");

@@ -36,7 +36,7 @@ public enum Protocol implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UDP(0, "UDP", "UDP");
+	UDP(1, "UDP", "UDP");
 
 	/**
 	 * The '<em><b>TCP</b></em>' literal value.
@@ -66,7 +66,7 @@ public enum Protocol implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UDP_VALUE = 0;
+	public static final int UDP_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Protocol</b></em>' enumerators.
@@ -135,6 +135,7 @@ public enum Protocol implements Enumerator {
 	public static Protocol get(int value) {
 		switch (value) {
 			case TCP_VALUE: return TCP;
+			case UDP_VALUE: return UDP;
 		}
 		return null;
 	}
@@ -177,6 +178,7 @@ public enum Protocol implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -186,6 +188,7 @@ public enum Protocol implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 	  return name;
 	}
@@ -195,6 +198,7 @@ public enum Protocol implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 	  return literal;
 	}

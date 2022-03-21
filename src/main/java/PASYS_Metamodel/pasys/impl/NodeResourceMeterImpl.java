@@ -4,6 +4,7 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
+import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
@@ -275,13 +276,14 @@ public class NodeResourceMeterImpl extends NodeHostedMeterImpl implements NodeRe
 	 * @generated NOT
 	 */
 	@Override
-	public void deploy() throws ConfigurationException {
+	public void configureDeployment() throws ConfigurationException {
 		//System.out.println("deploy in PrometheusNodeMeter " + this.getId());
 		// No configuration needed
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
 
 		// Launching script generation
 		String scriptContent = "/usr/local/bin/launch "; 
-		scriptContent+= this.getArtifactLocator() + "/" + this.getArtifactName() + " "
+		scriptContent+= conf.getArtifactLocator() + "/" + conf.getArtifactName() + " "
 				+ "--no-collector.arp --no-collector.bcache " 
 				+ "--no-collector.bonding --no-collector.conntrack "
 				+ "--no-collector.diskstats --no-collector.edac --no-collector.entropy "
@@ -308,10 +310,10 @@ public class NodeResourceMeterImpl extends NodeHostedMeterImpl implements NodeRe
 			scriptContent += " --no-collector.meminfo";
 		
 		//scriptContent = "cd "+getScriptFolderPath()+"\n"+scriptContent;
-		scriptContent=DeploymentToolsUtils.scriptHeaders(getScriptFolderPath())+scriptContent;
+		scriptContent=DeploymentToolsUtils.scriptHeaders(conf.getScriptFolderPath())+scriptContent;
 		// Add the script to the scriptFiles of the host
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("NodeResourceMeter"+this.getId()+".sh",
-				scriptFolderPath, scriptContent, SystemComponentType.NODE_RESOURCE_METER);
+				conf.getScriptFolderPath(), scriptContent, SystemComponentType.NODE_RESOURCE_METER);
 		this.getOwner().getLaunchingScripts().add(script);
 	}
 

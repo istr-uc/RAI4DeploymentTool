@@ -133,6 +133,7 @@ public class StreamDataPartitionImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHost(ProcessingNode newHost) {
 		ProcessingNode oldHost = host;
 		host = newHost;
@@ -218,7 +219,7 @@ public class StreamDataPartitionImpl extends MinimalEObjectImpl.Container implem
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (key: ");
 		result.append(key);
 		result.append(')');

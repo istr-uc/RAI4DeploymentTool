@@ -154,7 +154,7 @@ public class NetworkImpl extends PlatformResourceImpl implements Network {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (bandwith: ");
 		result.append(bandwith);
 		result.append(')');

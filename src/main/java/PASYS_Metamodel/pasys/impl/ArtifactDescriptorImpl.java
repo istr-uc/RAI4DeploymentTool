@@ -19,31 +19,31 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl#getFileLocator <em>File Locator</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl#getLocalPath <em>Local Path</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ArtifactDescriptorImpl extends FileDescriptorImpl implements ArtifactDescriptor {
 	/**
-	 * The default value of the '{@link #getFileLocator() <em>File Locator</em>}' attribute.
+	 * The default value of the '{@link #getLocalPath() <em>Local Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFileLocator()
+	 * @see #getLocalPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FILE_LOCATOR_EDEFAULT = null;
+	protected static final String LOCAL_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFileLocator() <em>File Locator</em>}' attribute.
+	 * The cached value of the '{@link #getLocalPath() <em>Local Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFileLocator()
+	 * @see #getLocalPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String fileLocator = FILE_LOCATOR_EDEFAULT;
+	protected String localPath = LOCAL_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,9 +57,9 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	/**
 	 * @generated NOT
 	 */
-	protected ArtifactDescriptorImpl(String fileName, String filePath, String fileLocator) {
+	protected ArtifactDescriptorImpl(String fileName, String filePath, String localPath) {
 		super(fileName, filePath);
-		this.fileLocator=fileLocator;
+		this.localPath=localPath;
 	}
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,8 +77,8 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	 * @generated
 	 */
 	@Override
-	public String getFileLocator() {
-		return fileLocator;
+	public String getLocalPath() {
+		return localPath;
 	}
 
 	/**
@@ -87,11 +87,11 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	 * @generated
 	 */
 	@Override
-	public void setFileLocator(String newFileLocator) {
-		String oldFileLocator = fileLocator;
-		fileLocator = newFileLocator;
+	public void setLocalPath(String newLocalPath) {
+		String oldLocalPath = localPath;
+		localPath = newLocalPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ARTIFACT_DESCRIPTOR__FILE_LOCATOR, oldFileLocator, fileLocator));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ARTIFACT_DESCRIPTOR__LOCAL_PATH, oldLocalPath, localPath));
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PasysPackage.ARTIFACT_DESCRIPTOR__FILE_LOCATOR:
-				return getFileLocator();
+			case PasysPackage.ARTIFACT_DESCRIPTOR__LOCAL_PATH:
+				return getLocalPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,8 +116,8 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PasysPackage.ARTIFACT_DESCRIPTOR__FILE_LOCATOR:
-				setFileLocator((String)newValue);
+			case PasysPackage.ARTIFACT_DESCRIPTOR__LOCAL_PATH:
+				setLocalPath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +131,8 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PasysPackage.ARTIFACT_DESCRIPTOR__FILE_LOCATOR:
-				setFileLocator(FILE_LOCATOR_EDEFAULT);
+			case PasysPackage.ARTIFACT_DESCRIPTOR__LOCAL_PATH:
+				setLocalPath(LOCAL_PATH_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -146,8 +146,8 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PasysPackage.ARTIFACT_DESCRIPTOR__FILE_LOCATOR:
-				return FILE_LOCATOR_EDEFAULT == null ? fileLocator != null : !FILE_LOCATOR_EDEFAULT.equals(fileLocator);
+			case PasysPackage.ARTIFACT_DESCRIPTOR__LOCAL_PATH:
+				return LOCAL_PATH_EDEFAULT == null ? localPath != null : !LOCAL_PATH_EDEFAULT.equals(localPath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -161,9 +161,9 @@ public class ArtifactDescriptorImpl extends FileDescriptorImpl implements Artifa
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (fileLocator: ");
-		result.append(fileLocator);
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (localPath: ");
+		result.append(localPath);
 		result.append(')');
 		return result.toString();
 	}

@@ -13,5 +13,5 @@ package PASYS_Metamodel.pasys;
  * @model
  * @generated
  */
-public interface NodeScheduler extends SchedulingServer {
+public interface NodeScheduler extends SchedulingService {
 } // NodeScheduler

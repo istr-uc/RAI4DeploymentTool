@@ -15,8 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.Port#getTarget <em>Target</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.Port#getPublished <em>Published</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.Port#getProtocol <em>Protocol</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.Port#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getPort()
@@ -75,63 +73,5 @@ public interface Port extends EObject {
 	 * @generated
 	 */
 	void setPublished(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Protocol</b></em>' attribute.
-	 * The literals are from the enumeration {@link PASYS_Metamodel.pasys.Protocol}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Protocol</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Protocol</em>' attribute.
-	 * @see PASYS_Metamodel.pasys.Protocol
-	 * @see #setProtocol(Protocol)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getPort_Protocol()
-	 * @model required="true"
-	 * @generated
-	 */
-	Protocol getProtocol();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Port#getProtocol <em>Protocol</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protocol</em>' attribute.
-	 * @see PASYS_Metamodel.pasys.Protocol
-	 * @see #getProtocol()
-	 * @generated
-	 */
-	void setProtocol(Protocol value);
-
-	/**
-	 * Returns the value of the '<em><b>Mode</b></em>' attribute.
-	 * The literals are from the enumeration {@link PASYS_Metamodel.pasys.PortMode}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Mode</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mode</em>' attribute.
-	 * @see PASYS_Metamodel.pasys.PortMode
-	 * @see #setMode(PortMode)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getPort_Mode()
-	 * @model required="true"
-	 * @generated
-	 */
-	PortMode getMode();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Port#getMode <em>Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mode</em>' attribute.
-	 * @see PASYS_Metamodel.pasys.PortMode
-	 * @see #getMode()
-	 * @generated
-	 */
-	void setMode(PortMode value);
 
 } // Port

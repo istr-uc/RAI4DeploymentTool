@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.Volume#getSource <em>Source</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.Volume#getTarget <em>Target</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.Volume#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.Volume#getType <em>Type</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.Volume#getAccessMode <em>Access Mode</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getVolume()
@@ -77,32 +77,6 @@ public interface Volume extends EObject {
 	void setTarget(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Read Only</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Read Only</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Read Only</em>' attribute.
-	 * @see #setReadOnly(boolean)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getVolume_ReadOnly()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isReadOnly();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Volume#isReadOnly <em>Read Only</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Read Only</em>' attribute.
-	 * @see #isReadOnly()
-	 * @generated
-	 */
-	void setReadOnly(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link PASYS_Metamodel.pasys.VolumeType}.
 	 * <!-- begin-user-doc -->
@@ -130,5 +104,30 @@ public interface Volume extends EObject {
 	 * @generated
 	 */
 	void setType(VolumeType value);
+
+	/**
+	 * Returns the value of the '<em><b>Access Mode</b></em>' attribute.
+	 * The literals are from the enumeration {@link PASYS_Metamodel.pasys.VolumeAccessMode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Access Mode</em>' attribute.
+	 * @see PASYS_Metamodel.pasys.VolumeAccessMode
+	 * @see #setAccessMode(VolumeAccessMode)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getVolume_AccessMode()
+	 * @model
+	 * @generated
+	 */
+	VolumeAccessMode getAccessMode();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Volume#getAccessMode <em>Access Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Access Mode</em>' attribute.
+	 * @see PASYS_Metamodel.pasys.VolumeAccessMode
+	 * @see #getAccessMode()
+	 * @generated
+	 */
+	void setAccessMode(VolumeAccessMode value);
 
 } // Volume

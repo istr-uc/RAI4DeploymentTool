@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Workflow extends SystemElement, SystemComponent {
+public interface Workflow extends SystemElement, DeployableComponent {
 	/**
 	 * Returns the value of the '<em><b>Owned Stream Data</b></em>' containment reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.WorkflowStreamData}.
@@ -90,7 +90,7 @@ public interface Workflow extends SystemElement, SystemComponent {
 
 	/**
 	 * Returns the value of the '<em><b>Scheduler</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.SchedulingServer#getWorkflows <em>Workflows</em>}'.
+	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.SchedulingService#getWorkflows <em>Workflows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scheduler</em>' reference isn't clear,
@@ -98,13 +98,13 @@ public interface Workflow extends SystemElement, SystemComponent {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Scheduler</em>' reference.
-	 * @see #setScheduler(SchedulingServer)
+	 * @see #setScheduler(SchedulingService)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getWorkflow_Scheduler()
-	 * @see PASYS_Metamodel.pasys.SchedulingServer#getWorkflows
+	 * @see PASYS_Metamodel.pasys.SchedulingService#getWorkflows
 	 * @model opposite="workflows" required="true"
 	 * @generated
 	 */
-	SchedulingServer getScheduler();
+	SchedulingService getScheduler();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Workflow#getScheduler <em>Scheduler</em>}' reference.
@@ -114,7 +114,7 @@ public interface Workflow extends SystemElement, SystemComponent {
 	 * @see #getScheduler()
 	 * @generated
 	 */
-	void setScheduler(SchedulingServer value);
+	void setScheduler(SchedulingService value);
 
 	/**
 	 * Returns the value of the '<em><b>Owned Meters</b></em>' containment reference list.

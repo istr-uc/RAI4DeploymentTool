@@ -11,7 +11,7 @@ package PASYS_Metamodel.pasys;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link PASYS_Metamodel.pasys.ArtifactDescriptor#getFileLocator <em>File Locator</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ArtifactDescriptor#getLocalPath <em>Local Path</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getArtifactDescriptor()
@@ -20,29 +20,25 @@ package PASYS_Metamodel.pasys;
  */
 public interface ArtifactDescriptor extends FileDescriptor {
 	/**
-	 * Returns the value of the '<em><b>File Locator</b></em>' attribute.
+	 * Returns the value of the '<em><b>Local Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>File Locator</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>File Locator</em>' attribute.
-	 * @see #setFileLocator(String)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getArtifactDescriptor_FileLocator()
+	 * @return the value of the '<em>Local Path</em>' attribute.
+	 * @see #setLocalPath(String)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getArtifactDescriptor_LocalPath()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getFileLocator();
+	String getLocalPath();
 
 	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.ArtifactDescriptor#getFileLocator <em>File Locator</em>}' attribute.
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.ArtifactDescriptor#getLocalPath <em>Local Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>File Locator</em>' attribute.
-	 * @see #getFileLocator()
+	 * @param value the new value of the '<em>Local Path</em>' attribute.
+	 * @see #getLocalPath()
 	 * @generated
 	 */
-	void setFileLocator(String value);
+	void setLocalPath(String value);
 
 } // ArtifactDescriptor

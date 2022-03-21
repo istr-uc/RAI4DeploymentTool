@@ -7,7 +7,6 @@ import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.SystemAdapter;
-import PASYS_Metamodel.pasys.SystemComponent;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
 import java.lang.reflect.InvocationTargetException;
@@ -32,6 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.DeployableComponent;
 import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.LaunchException;
@@ -333,6 +333,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getAuthenticationFiles() {
 		if (authenticationFiles == null) {
 			authenticationFiles = new EcoreEMap<String,String>(PasysPackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, PasysPackage.COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES);
@@ -349,15 +350,15 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 
 		List<ProcessingNode> processingNodes = 
 				new LinkedList<ProcessingNode>();
-		List<SystemComponent> components = 
-				new LinkedList<SystemComponent>();
+		List<DeployableComponent> components = 
+				new LinkedList<DeployableComponent>();
 
 		// Get the required elements (processingNodes and components)
 		for (SystemElement elem : getOwnedElements()) {
 			if (elem instanceof ProcessingNode)
 				processingNodes.add((ProcessingNode) elem);
-			else if (elem instanceof SystemComponent)
-				components.add((SystemComponent) elem);
+			else if (elem instanceof DeployableComponent)
+				components.add((DeployableComponent) elem);
 		}
 
 		// Order Processing Nodes
@@ -372,8 +373,8 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				node.prepareForDeployment();
 			
 			// Generate deployment files 
-			for (SystemComponent comp : components)
-				comp.deploy();
+			for (DeployableComponent comp : components)
+				comp.configureDeployment();
 			
 			// Deploy files and generate the global list of scripts
 			List<DeploymentFileDescriptor> globalScriptsList = new LinkedList<DeploymentFileDescriptor>();
@@ -470,15 +471,15 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 	public void cleanDeployment() {
 		List<ProcessingNode> processingNodes = 
 				new LinkedList<ProcessingNode>();
-		List<SystemComponent> components = 
-				new LinkedList<SystemComponent>();
+		List<DeployableComponent> components = 
+				new LinkedList<DeployableComponent>();
 
 		// Get the required elements (processingNodes and components)
 		for (SystemElement elem : getOwnedElements()) {
 			if (elem instanceof ProcessingNode)
 				processingNodes.add((ProcessingNode) elem);
-			else if (elem instanceof SystemComponent)
-				components.add((SystemComponent) elem);
+			else if (elem instanceof DeployableComponent)
+				components.add((DeployableComponent) elem);
 		}
 		
 		
@@ -488,8 +489,8 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			for (ProcessingNode node : processingNodes)
 				node.prepareForDeployment();
 			// Prepare components for deployment
-			for (SystemComponent comp : components)
-				comp.deploy();
+			for (DeployableComponent comp : components)
+				comp.configureDeployment();
 			
 			for (ProcessingNode node: processingNodes) 
 				node.bringBackDeployment();
@@ -676,6 +677,9 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			case PasysPackage.COMPUTATIONAL_SYSTEM___DEPLOY_AND_LAUNCH:
 				deployAndLaunch();
 				return null;
+			case PasysPackage.COMPUTATIONAL_SYSTEM___CLEAN_DEPLOYMENT:
+				cleanDeployment();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -688,7 +692,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", date: ");

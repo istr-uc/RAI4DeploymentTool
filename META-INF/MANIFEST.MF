@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: RAI4DeploymentTool;singleton:=true
-Automatic-Module-Name: P3SYS
+Automatic-Module-Name: RAI4DeploymentTool
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName

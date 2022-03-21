@@ -314,7 +314,7 @@ public class TaskProcessingAmountMeterImpl extends PrometheusMeterImpl implement
 	
 	private List<ProcessingNode> getHosts(){
 	
-		return this.getOwner().getOwner().getScheduler().getHosts();
+		return this.getOwner().getOwner().getScheduler().getHost().getNodes();
 		
 	}
 

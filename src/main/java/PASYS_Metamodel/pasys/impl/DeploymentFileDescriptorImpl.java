@@ -162,6 +162,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProcessingNode getOwner() {
 		if (owner != null && owner.eIsProxy()) {
 			InternalEObject oldOwner = (InternalEObject)owner;
@@ -203,6 +204,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOwner(ProcessingNode newOwner) {
 		if (newOwner != owner) {
 			NotificationChain msgs = null;
@@ -335,7 +337,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (fileContent: ");
 		result.append(fileContent);
 		result.append(", elementType: ");

@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class StreamDataImpl extends SystemComponentImpl implements StreamData {
+public abstract class StreamDataImpl extends DeployableComponentImpl implements StreamData {
 	/**
 	 * The default value of the '{@link #getRetention_ms() <em>Retention ms</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -591,7 +591,7 @@ public abstract class StreamDataImpl extends SystemComponentImpl implements Stre
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (retention_ms: ");
 		result.append(retention_ms);
 		result.append(", retention_bytes: ");

@@ -38,22 +38,63 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getIp <em>Ip</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getOs <em>Os</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConcurrencyLevel <em>Concurrency Level</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getMemorySize <em>Memory Size</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getSpeedFactor <em>Speed Factor</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConnectedTo <em>Connected To</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getPropertyConfigData <em>Property Config Data</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getUserName <em>User Name</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConnectedTo <em>Connected To</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getLaunchingScripts <em>Launching Scripts</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConfigFiles <em>Config Files</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getCodeFiles <em>Code Files</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getOwnedMeters <em>Owned Meters</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getIp <em>Ip</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getUserName <em>User Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProcessingNodeImpl extends PlatformResourceImpl implements ProcessingNode {
+	/**
+	 * The default value of the '{@link #getIp() <em>Ip</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getIp()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IP_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIp() <em>Ip</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getIp()
+	 * @generated
+	 * @ordered
+	 */
+	protected String ip = IP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOs() <em>Os</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOs() <em>Os</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOs()
+	 * @generated
+	 * @ordered
+	 */
+	protected String os = OS_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getConcurrencyLevel() <em>Concurrency Level</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -109,15 +150,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	protected double speedFactor = SPEED_FACTOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConnectedTo() <em>Connected To</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getConnectedTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Network> connectedTo;
-
-	/**
 	 * The default value of the '{@link #getPropertyConfigData() <em>Property
 	 * Config Data</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -138,6 +170,33 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	 * @ordered
 	 */
 	protected Properties propertyConfigData = PROPERTY_CONFIG_DATA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUserName() <em>User Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getUserName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USER_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUserName() <em>User Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getUserName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String userName = USER_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConnectedTo() <em>Connected To</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getConnectedTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Network> connectedTo;
 
 	/**
 	 * The cached value of the '{@link #getLaunchingScripts() <em>Launching
@@ -176,44 +235,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	 * @ordered
 	 */
 	protected EList<NodeHostedMeter> ownedMeters;
-
-	/**
-	 * The default value of the '{@link #getIp() <em>Ip</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getIp()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String IP_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIp() <em>Ip</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getIp()
-	 * @generated
-	 * @ordered
-	 */
-	protected String ip = IP_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getUserName() <em>User Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getUserName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String USER_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUserName() <em>User Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getUserName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String userName = USER_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -326,6 +347,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getIp() {
 		return ip;
 	}
@@ -334,6 +356,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIp(String newIp) {
 		String oldIp = ip;
 		ip = newIp;
@@ -342,9 +365,33 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getOs() {
+		return os;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOs(String newOs) {
+		String oldOs = os;
+		os = newOs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__OS, oldOs, os));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUserName() {
 		return userName;
 	}
@@ -353,6 +400,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUserName(String newUserName) {
 		String oldUserName = userName;
 		userName = newUserName;
@@ -429,7 +477,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 		// 0. Deploy the owned meters
 		for (NodeHostedMeter meter : getOwnedMeters())
-			meter.deploy();
+			meter.configureDeployment();
 
 	}
 
@@ -471,7 +519,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 
 		for (NodeHostedMeter meter : getOwnedMeters()) {
 			try {
-				meter.deploy();
+				meter.configureDeployment();
 			} catch (ConfigurationException e) {
 			}
 		}
@@ -527,16 +575,22 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case PasysPackage.PROCESSING_NODE__IP:
+				return getIp();
+			case PasysPackage.PROCESSING_NODE__OS:
+				return getOs();
 			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
 				return getConcurrencyLevel();
 			case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
 				return getMemorySize();
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				return getSpeedFactor();
-			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-				return getConnectedTo();
 			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
 				return getPropertyConfigData();
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				return getUserName();
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				return getConnectedTo();
 			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
 				return getLaunchingScripts();
 			case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
@@ -545,10 +599,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 				return getCodeFiles();
 			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
 				return getOwnedMeters();
-			case PasysPackage.PROCESSING_NODE__IP:
-				return getIp();
-			case PasysPackage.PROCESSING_NODE__USER_NAME:
-				return getUserName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -561,6 +611,12 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PasysPackage.PROCESSING_NODE__IP:
+				setIp((String)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__OS:
+				setOs((String)newValue);
+				return;
 			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
 				setConcurrencyLevel((Integer)newValue);
 				return;
@@ -570,12 +626,15 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				setSpeedFactor((Double)newValue);
 				return;
+			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
+				setPropertyConfigData((Properties)newValue);
+				return;
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				setUserName((String)newValue);
+				return;
 			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
 				getConnectedTo().clear();
 				getConnectedTo().addAll((Collection<? extends Network>)newValue);
-				return;
-			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-				setPropertyConfigData((Properties)newValue);
 				return;
 			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
 				getLaunchingScripts().clear();
@@ -593,12 +652,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 				getOwnedMeters().clear();
 				getOwnedMeters().addAll((Collection<? extends NodeHostedMeter>)newValue);
 				return;
-			case PasysPackage.PROCESSING_NODE__IP:
-				setIp((String)newValue);
-				return;
-			case PasysPackage.PROCESSING_NODE__USER_NAME:
-				setUserName((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -610,6 +663,12 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case PasysPackage.PROCESSING_NODE__IP:
+				setIp(IP_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__OS:
+				setOs(OS_EDEFAULT);
+				return;
 			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
 				setConcurrencyLevel(CONCURRENCY_LEVEL_EDEFAULT);
 				return;
@@ -619,11 +678,14 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				setSpeedFactor(SPEED_FACTOR_EDEFAULT);
 				return;
-			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-				getConnectedTo().clear();
-				return;
 			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
 				setPropertyConfigData(PROPERTY_CONFIG_DATA_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				setUserName(USER_NAME_EDEFAULT);
+				return;
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				getConnectedTo().clear();
 				return;
 			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
 				getLaunchingScripts().clear();
@@ -637,12 +699,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
 				getOwnedMeters().clear();
 				return;
-			case PasysPackage.PROCESSING_NODE__IP:
-				setIp(IP_EDEFAULT);
-				return;
-			case PasysPackage.PROCESSING_NODE__USER_NAME:
-				setUserName(USER_NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -654,16 +710,22 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case PasysPackage.PROCESSING_NODE__IP:
+				return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
+			case PasysPackage.PROCESSING_NODE__OS:
+				return OS_EDEFAULT == null ? os != null : !OS_EDEFAULT.equals(os);
 			case PasysPackage.PROCESSING_NODE__CONCURRENCY_LEVEL:
 				return concurrencyLevel != CONCURRENCY_LEVEL_EDEFAULT;
 			case PasysPackage.PROCESSING_NODE__MEMORY_SIZE:
 				return memorySize != MEMORY_SIZE_EDEFAULT;
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				return speedFactor != SPEED_FACTOR_EDEFAULT;
-			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
-				return connectedTo != null && !connectedTo.isEmpty();
 			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
 				return PROPERTY_CONFIG_DATA_EDEFAULT == null ? propertyConfigData != null : !PROPERTY_CONFIG_DATA_EDEFAULT.equals(propertyConfigData);
+			case PasysPackage.PROCESSING_NODE__USER_NAME:
+				return USER_NAME_EDEFAULT == null ? userName != null : !USER_NAME_EDEFAULT.equals(userName);
+			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
+				return connectedTo != null && !connectedTo.isEmpty();
 			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
 				return launchingScripts != null && !launchingScripts.isEmpty();
 			case PasysPackage.PROCESSING_NODE__CONFIG_FILES:
@@ -672,10 +734,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 				return codeFiles != null && !codeFiles.isEmpty();
 			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
 				return ownedMeters != null && !ownedMeters.isEmpty();
-			case PasysPackage.PROCESSING_NODE__IP:
-				return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
-			case PasysPackage.PROCESSING_NODE__USER_NAME:
-				return USER_NAME_EDEFAULT == null ? userName != null : !USER_NAME_EDEFAULT.equals(userName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -724,8 +782,12 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (concurrencyLevel: ");
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (ip: ");
+		result.append(ip);
+		result.append(", os: ");
+		result.append(os);
+		result.append(", concurrencyLevel: ");
 		result.append(concurrencyLevel);
 		result.append(", memorySize: ");
 		result.append(memorySize);
@@ -733,8 +795,6 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 		result.append(speedFactor);
 		result.append(", propertyConfigData: ");
 		result.append(propertyConfigData);
-		result.append(", ip: ");
-		result.append(ip);
 		result.append(", userName: ");
 		result.append(userName);
 		result.append(')');
@@ -787,7 +847,7 @@ public class ProcessingNodeImpl extends PlatformResourceImpl implements Processi
 				command += " -i " + authFile;
 			}
 
-			command += " " + fd.getFileLocator() + "/" + fd.getFileName() + " " + getUserName() + "@" + ip + ":"
+			command += " " + fd.getLocalPath() + "/" + fd.getFileName() + " " + getUserName() + "@" + ip + ":"
 					+ fd.getFilePath();
 			// Para prueba
 			System.out.println(command);
