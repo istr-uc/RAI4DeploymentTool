@@ -12,7 +12,6 @@ import PASYS_Metamodel.pasys.ZookeeperService;
 import deploymentTool.DeploymentToolsUtils;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,13 +29,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getServerId <em>Server Id</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getClientPort <em>Client Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getTickTime <em>Tick Time</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#isLeaderServers <em>Leader Servers</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getInitLimit <em>Init Limit</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getSyncLimit <em>Sync Limit</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getClientPort <em>Client Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getPeerPort <em>Peer Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getLeaderPort <em>Leader Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getInitLimit <em>Init Limit</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ZookeeperServiceImpl#getSyncLimit <em>Sync Limit</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +60,26 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	 * @ordered
 	 */
 	protected int serverId = SERVER_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClientPort() <em>Client Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClientPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CLIENT_PORT_EDEFAULT = 2181;
+
+	/**
+	 * The cached value of the '{@link #getClientPort() <em>Client Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClientPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int clientPort = CLIENT_PORT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTickTime() <em>Tick Time</em>}' attribute.
@@ -103,66 +122,6 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	protected boolean leaderServers = LEADER_SERVERS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getInitLimit() <em>Init Limit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitLimit()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int INIT_LIMIT_EDEFAULT = 5;
-
-	/**
-	 * The cached value of the '{@link #getInitLimit() <em>Init Limit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitLimit()
-	 * @generated
-	 * @ordered
-	 */
-	protected int initLimit = INIT_LIMIT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSyncLimit() <em>Sync Limit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSyncLimit()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int SYNC_LIMIT_EDEFAULT = 3;
-
-	/**
-	 * The cached value of the '{@link #getSyncLimit() <em>Sync Limit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSyncLimit()
-	 * @generated
-	 * @ordered
-	 */
-	protected int syncLimit = SYNC_LIMIT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getClientPort() <em>Client Port</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClientPort()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int CLIENT_PORT_EDEFAULT = 2181;
-
-	/**
-	 * The cached value of the '{@link #getClientPort() <em>Client Port</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClientPort()
-	 * @generated
-	 * @ordered
-	 */
-	protected int clientPort = CLIENT_PORT_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPeerPort() <em>Peer Port</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,6 +160,46 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	 * @ordered
 	 */
 	protected int leaderPort = LEADER_PORT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInitLimit() <em>Init Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int INIT_LIMIT_EDEFAULT = 5;
+
+	/**
+	 * The cached value of the '{@link #getInitLimit() <em>Init Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected int initLimit = INIT_LIMIT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSyncLimit() <em>Sync Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSyncLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SYNC_LIMIT_EDEFAULT = 3;
+
+	/**
+	 * The cached value of the '{@link #getSyncLimit() <em>Sync Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSyncLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected int syncLimit = SYNC_LIMIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -415,20 +414,20 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		switch (featureID) {
 			case PasysPackage.ZOOKEEPER_SERVICE__SERVER_ID:
 				return getServerId();
+			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
+				return getClientPort();
 			case PasysPackage.ZOOKEEPER_SERVICE__TICK_TIME:
 				return getTickTime();
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_SERVERS:
 				return isLeaderServers();
-			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
-				return getInitLimit();
-			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
-				return getSyncLimit();
-			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
-				return getClientPort();
 			case PasysPackage.ZOOKEEPER_SERVICE__PEER_PORT:
 				return getPeerPort();
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_PORT:
 				return getLeaderPort();
+			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
+				return getInitLimit();
+			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
+				return getSyncLimit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -444,26 +443,26 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 			case PasysPackage.ZOOKEEPER_SERVICE__SERVER_ID:
 				setServerId((Integer)newValue);
 				return;
+			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
+				setClientPort((Integer)newValue);
+				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__TICK_TIME:
 				setTickTime((Long)newValue);
 				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_SERVERS:
 				setLeaderServers((Boolean)newValue);
 				return;
-			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
-				setInitLimit((Integer)newValue);
-				return;
-			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
-				setSyncLimit((Integer)newValue);
-				return;
-			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
-				setClientPort((Integer)newValue);
-				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__PEER_PORT:
 				setPeerPort((Integer)newValue);
 				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_PORT:
 				setLeaderPort((Integer)newValue);
+				return;
+			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
+				setInitLimit((Integer)newValue);
+				return;
+			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
+				setSyncLimit((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -480,26 +479,26 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 			case PasysPackage.ZOOKEEPER_SERVICE__SERVER_ID:
 				setServerId(SERVER_ID_EDEFAULT);
 				return;
+			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
+				setClientPort(CLIENT_PORT_EDEFAULT);
+				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__TICK_TIME:
 				setTickTime(TICK_TIME_EDEFAULT);
 				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_SERVERS:
 				setLeaderServers(LEADER_SERVERS_EDEFAULT);
 				return;
-			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
-				setInitLimit(INIT_LIMIT_EDEFAULT);
-				return;
-			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
-				setSyncLimit(SYNC_LIMIT_EDEFAULT);
-				return;
-			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
-				setClientPort(CLIENT_PORT_EDEFAULT);
-				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__PEER_PORT:
 				setPeerPort(PEER_PORT_EDEFAULT);
 				return;
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_PORT:
 				setLeaderPort(LEADER_PORT_EDEFAULT);
+				return;
+			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
+				setInitLimit(INIT_LIMIT_EDEFAULT);
+				return;
+			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
+				setSyncLimit(SYNC_LIMIT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -515,20 +514,20 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		switch (featureID) {
 			case PasysPackage.ZOOKEEPER_SERVICE__SERVER_ID:
 				return serverId != SERVER_ID_EDEFAULT;
+			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
+				return clientPort != CLIENT_PORT_EDEFAULT;
 			case PasysPackage.ZOOKEEPER_SERVICE__TICK_TIME:
 				return tickTime != TICK_TIME_EDEFAULT;
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_SERVERS:
 				return leaderServers != LEADER_SERVERS_EDEFAULT;
-			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
-				return initLimit != INIT_LIMIT_EDEFAULT;
-			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
-				return syncLimit != SYNC_LIMIT_EDEFAULT;
-			case PasysPackage.ZOOKEEPER_SERVICE__CLIENT_PORT:
-				return clientPort != CLIENT_PORT_EDEFAULT;
 			case PasysPackage.ZOOKEEPER_SERVICE__PEER_PORT:
 				return peerPort != PEER_PORT_EDEFAULT;
 			case PasysPackage.ZOOKEEPER_SERVICE__LEADER_PORT:
 				return leaderPort != LEADER_PORT_EDEFAULT;
+			case PasysPackage.ZOOKEEPER_SERVICE__INIT_LIMIT:
+				return initLimit != INIT_LIMIT_EDEFAULT;
+			case PasysPackage.ZOOKEEPER_SERVICE__SYNC_LIMIT:
+				return syncLimit != SYNC_LIMIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -545,20 +544,20 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (serverId: ");
 		result.append(serverId);
+		result.append(", clientPort: ");
+		result.append(clientPort);
 		result.append(", tickTime: ");
 		result.append(tickTime);
 		result.append(", leaderServers: ");
 		result.append(leaderServers);
-		result.append(", initLimit: ");
-		result.append(initLimit);
-		result.append(", syncLimit: ");
-		result.append(syncLimit);
-		result.append(", clientPort: ");
-		result.append(clientPort);
 		result.append(", peerPort: ");
 		result.append(peerPort);
 		result.append(", leaderPort: ");
 		result.append(leaderPort);
+		result.append(", initLimit: ");
+		result.append(initLimit);
+		result.append(", syncLimit: ");
+		result.append(syncLimit);
 		result.append(')');
 		return result.toString();
 	}

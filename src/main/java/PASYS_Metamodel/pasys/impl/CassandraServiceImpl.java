@@ -996,12 +996,12 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 		// map.put("listen_address", ((PhysicalProcessingNode)
 		// getListenAddress()).getIp());
-		map.put("listen_address", (getListenAddress()).getIp());
+		map.put("listen_address", (getListenAddress()).getIp());   // TODO A cada fichero de congiuración su ip
 		map.put("native_transport_port", getNativeTransportPort());
 		// map.put("rpc_address", ((PhysicalProcessingNode)
 		// getRpcAddress()).getIp());
-		map.put("rpc_address", (getRpcAddress()).getIp());
-		map.put("endpoint_snitch", getEndpointSnitch());
+		map.put("rpc_address", (getRpcAddress()).getIp());   // A cada fichero de configuración la ip del nodo correspondiente
+		map.put("endpoint_snitch", getEndpointSnitch()); 
 		map.put("auto_bootstrap", isAutoBootstrap());
 
 		// Modify complex properties

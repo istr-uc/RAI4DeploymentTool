@@ -155,13 +155,13 @@
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DistributionService"/>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ZookeeperService">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/serverId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/clientPort"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/tickTime"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/leaderServers"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/initLimit"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/syncLimit"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/clientPort"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/peerPort"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/leaderPort"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/initLimit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/syncLimit"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/CommunicationService"/>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/KafkaService">
@@ -213,10 +213,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/nimbusSeeds"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/supervisorSlotPorts"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/drpcServers"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/supervisors"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/uiPort"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/isNimbus"/>
       </genClasses>
@@ -231,10 +227,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/seeds"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/seedProviderClass"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/listenAddress"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/rpcAddress"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/endpointSnitch"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/dataCenter"/>
@@ -245,6 +237,16 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/autoBootstrap"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/cqlSchemas"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/isSeed"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/dataCenters"/>
+      </genClasses>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/DataCenter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/DataCenter/racks"/>
+      </genClasses>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Rack">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/Rack/nodes"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Neo4JService"/>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/MonitoringService">

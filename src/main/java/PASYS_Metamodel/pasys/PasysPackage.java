@@ -2680,13 +2680,22 @@ public interface PasysPackage extends EPackage {
 	int ZOOKEEPER_SERVICE__SERVER_ID = DISTRIBUTION_SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Client Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZOOKEEPER_SERVICE__CLIENT_PORT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Tick Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZOOKEEPER_SERVICE__TICK_TIME = DISTRIBUTION_SERVICE_FEATURE_COUNT + 1;
+	int ZOOKEEPER_SERVICE__TICK_TIME = DISTRIBUTION_SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Leader Servers</b></em>' attribute.
@@ -2695,34 +2704,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZOOKEEPER_SERVICE__LEADER_SERVERS = DISTRIBUTION_SERVICE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Init Limit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZOOKEEPER_SERVICE__INIT_LIMIT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Sync Limit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZOOKEEPER_SERVICE__SYNC_LIMIT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Client Port</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZOOKEEPER_SERVICE__CLIENT_PORT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 5;
+	int ZOOKEEPER_SERVICE__LEADER_SERVERS = DISTRIBUTION_SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Peer Port</b></em>' attribute.
@@ -2731,7 +2713,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZOOKEEPER_SERVICE__PEER_PORT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 6;
+	int ZOOKEEPER_SERVICE__PEER_PORT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Leader Port</b></em>' attribute.
@@ -2740,7 +2722,25 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZOOKEEPER_SERVICE__LEADER_PORT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 7;
+	int ZOOKEEPER_SERVICE__LEADER_PORT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Init Limit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZOOKEEPER_SERVICE__INIT_LIMIT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Sync Limit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZOOKEEPER_SERVICE__SYNC_LIMIT = DISTRIBUTION_SERVICE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Zookeeper Service</em>' class.
@@ -3621,31 +3621,13 @@ public interface PasysPackage extends EPackage {
 	int STORM_SERVICE__SUPERVISOR_SLOT_PORTS = SCHEDULING_SERVICE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Drpc Servers</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORM_SERVICE__DRPC_SERVERS = SCHEDULING_SERVICE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Supervisors</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORM_SERVICE__SUPERVISORS = SCHEDULING_SERVICE_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Ui Port</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORM_SERVICE__UI_PORT = SCHEDULING_SERVICE_FEATURE_COUNT + 6;
+	int STORM_SERVICE__UI_PORT = SCHEDULING_SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Nimbus</b></em>' attribute.
@@ -3654,7 +3636,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORM_SERVICE__IS_NIMBUS = SCHEDULING_SERVICE_FEATURE_COUNT + 7;
+	int STORM_SERVICE__IS_NIMBUS = SCHEDULING_SERVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Storm Service</em>' class.
@@ -3663,7 +3645,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORM_SERVICE_FEATURE_COUNT = SCHEDULING_SERVICE_FEATURE_COUNT + 8;
+	int STORM_SERVICE_FEATURE_COUNT = SCHEDULING_SERVICE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -9491,28 +9473,6 @@ public interface PasysPackage extends EPackage {
 	EAttribute getStormService_SupervisorSlotPorts();
 
 	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.StormService#getDrpcServers <em>Drpc Servers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Drpc Servers</em>'.
-	 * @see PASYS_Metamodel.pasys.StormService#getDrpcServers()
-	 * @see #getStormService()
-	 * @generated
-	 */
-	EReference getStormService_DrpcServers();
-
-	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.StormService#getSupervisors <em>Supervisors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Supervisors</em>'.
-	 * @see PASYS_Metamodel.pasys.StormService#getSupervisors()
-	 * @see #getStormService()
-	 * @generated
-	 */
-	EReference getStormService_Supervisors();
-
-	/**
 	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.StormService#getUiPort <em>Ui Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12569,22 +12529,6 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STORM_SERVICE__SUPERVISOR_SLOT_PORTS = eINSTANCE.getStormService_SupervisorSlotPorts();
-
-		/**
-		 * The meta object literal for the '<em><b>Drpc Servers</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STORM_SERVICE__DRPC_SERVERS = eINSTANCE.getStormService_DrpcServers();
-
-		/**
-		 * The meta object literal for the '<em><b>Supervisors</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STORM_SERVICE__SUPERVISORS = eINSTANCE.getStormService_Supervisors();
 
 		/**
 		 * The meta object literal for the '<em><b>Ui Port</b></em>' attribute feature.

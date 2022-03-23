@@ -9,7 +9,6 @@ import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.ProcessingNode;
-import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.StormService;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import PASYS_Metamodel.pasys.ZookeeperService;
@@ -44,41 +43,29 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getZookeeperConnect
- * <em>Zookeeper Connect</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getLocalDir <em>Local
- * Dir</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getNimbusSeeds
- * <em>Nimbus Seeds</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getSupervisorSlotPorts
- * <em>Supervisor Slot Ports</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getDrpcServers
- * <em>Drpc Servers</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getSupervisors
- * <em>Supervisors</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getUiPort <em>Ui
- * Port</em>}</li>
- * <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#isIsNimbus <em>Is
- * Nimbus</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getZookeeperConnect <em>Zookeeper Connect</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getLocalDir <em>Local Dir</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getNimbusSeeds <em>Nimbus Seeds</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getSupervisorSlotPorts <em>Supervisor Slot Ports</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getUiPort <em>Ui Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#isIsNimbus <em>Is Nimbus</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class StormServiceImpl extends SchedulingServiceImpl implements StormService {
 	/**
-	 * The cached value of the '{@link #getZookeeperConnect() <em>Zookeeper
-	 * Connect</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getZookeeperConnect() <em>Zookeeper Connect</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getZookeeperConnect()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceCluster zookeeperConnect;
+	protected ZookeeperService zookeeperConnect;
 
 	/**
-	 * The default value of the '{@link #getLocalDir() <em>Local Dir</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getLocalDir() <em>Local Dir</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLocalDir()
 	 * @generated
 	 * @ordered
@@ -86,9 +73,8 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	protected static final String LOCAL_DIR_EDEFAULT = "storm-local";
 
 	/**
-	 * The cached value of the '{@link #getLocalDir() <em>Local Dir</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getLocalDir() <em>Local Dir</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLocalDir()
 	 * @generated
 	 * @ordered
@@ -96,9 +82,8 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	protected String localDir = LOCAL_DIR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getNimbusSeeds() <em>Nimbus Seeds</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getNimbusSeeds() <em>Nimbus Seeds</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNimbusSeeds()
 	 * @generated
 	 * @ordered
@@ -106,9 +91,8 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	protected NodeCluster nimbusSeeds;
 
 	/**
-	 * The cached value of the '{@link #getSupervisorSlotPorts() <em>Supervisor Slot
-	 * Ports</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSupervisorSlotPorts() <em>Supervisor Slot Ports</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSupervisorSlotPorts()
 	 * @generated
 	 * @ordered
@@ -116,29 +100,8 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	protected EList<Integer> supervisorSlotPorts;
 
 	/**
-	 * The cached value of the '{@link #getDrpcServers() <em>Drpc Servers</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDrpcServers()
-	 * @generated
-	 * @ordered
-	 */
-	protected NodeCluster drpcServers;
-
-	/**
-	 * The cached value of the '{@link #getSupervisors() <em>Supervisors</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getSupervisors()
-	 * @generated
-	 * @ordered
-	 */
-	protected NodeCluster supervisors;
-
-	/**
 	 * The default value of the '{@link #getUiPort() <em>Ui Port</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getUiPort()
 	 * @generated
 	 * @ordered
@@ -148,7 +111,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	/**
 	 * The cached value of the '{@link #getUiPort() <em>Ui Port</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getUiPort()
 	 * @generated
 	 * @ordered
@@ -156,9 +118,8 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	protected int uiPort = UI_PORT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsNimbus()
 	 * @generated
 	 * @ordered
@@ -168,7 +129,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	/**
 	 * The cached value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #isIsNimbus()
 	 * @generated
 	 * @ordered
@@ -177,7 +137,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected StormServiceImpl() {
@@ -186,7 +145,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -196,18 +154,16 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
-	public ResourceCluster getZookeeperConnect() {
+	public ZookeeperService getZookeeperConnect() {
 		if (zookeeperConnect != null && zookeeperConnect.eIsProxy()) {
-			InternalEObject oldZookeeperConnect = (InternalEObject) zookeeperConnect;
-			zookeeperConnect = (ResourceCluster) eResolveProxy(oldZookeeperConnect);
+			InternalEObject oldZookeeperConnect = (InternalEObject)zookeeperConnect;
+			zookeeperConnect = (ZookeeperService)eResolveProxy(oldZookeeperConnect);
 			if (zookeeperConnect != oldZookeeperConnect) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT, oldZookeeperConnect, zookeeperConnect));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT, oldZookeeperConnect, zookeeperConnect));
 			}
 		}
 		return zookeeperConnect;
@@ -215,30 +171,27 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public ResourceCluster basicGetZookeeperConnect() {
+	public ZookeeperService basicGetZookeeperConnect() {
 		return zookeeperConnect;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setZookeeperConnect(ResourceCluster newZookeeperConnect) {
-		ResourceCluster oldZookeeperConnect = zookeeperConnect;
+	public void setZookeeperConnect(ZookeeperService newZookeeperConnect) {
+		ZookeeperService oldZookeeperConnect = zookeeperConnect;
 		zookeeperConnect = newZookeeperConnect;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT,
-					oldZookeeperConnect, zookeeperConnect));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT, oldZookeeperConnect, zookeeperConnect));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -248,7 +201,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -256,24 +208,21 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		String oldLocalDir = localDir;
 		localDir = newLocalDir;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__LOCAL_DIR, oldLocalDir,
-					localDir));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__LOCAL_DIR, oldLocalDir, localDir));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NodeCluster getNimbusSeeds() {
 		if (nimbusSeeds != null && nimbusSeeds.eIsProxy()) {
-			InternalEObject oldNimbusSeeds = (InternalEObject) nimbusSeeds;
-			nimbusSeeds = (NodeCluster) eResolveProxy(oldNimbusSeeds);
+			InternalEObject oldNimbusSeeds = (InternalEObject)nimbusSeeds;
+			nimbusSeeds = (NodeCluster)eResolveProxy(oldNimbusSeeds);
 			if (nimbusSeeds != oldNimbusSeeds) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_SERVICE__NIMBUS_SEEDS,
-							oldNimbusSeeds, nimbusSeeds));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_SERVICE__NIMBUS_SEEDS, oldNimbusSeeds, nimbusSeeds));
 			}
 		}
 		return nimbusSeeds;
@@ -281,7 +230,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NodeCluster basicGetNimbusSeeds() {
@@ -290,7 +238,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -298,111 +245,23 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		NodeCluster oldNimbusSeeds = nimbusSeeds;
 		nimbusSeeds = newNimbusSeeds;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__NIMBUS_SEEDS,
-					oldNimbusSeeds, nimbusSeeds));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__NIMBUS_SEEDS, oldNimbusSeeds, nimbusSeeds));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<Integer> getSupervisorSlotPorts() {
 		if (supervisorSlotPorts == null) {
-			supervisorSlotPorts = new EDataTypeUniqueEList<Integer>(Integer.class, this,
-					PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS);
+			supervisorSlotPorts = new EDataTypeUniqueEList<Integer>(Integer.class, this, PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS);
 		}
 		return supervisorSlotPorts;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NodeCluster getDrpcServers() {
-		if (drpcServers != null && drpcServers.eIsProxy()) {
-			InternalEObject oldDrpcServers = (InternalEObject) drpcServers;
-			drpcServers = (NodeCluster) eResolveProxy(oldDrpcServers);
-			if (drpcServers != oldDrpcServers) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_SERVICE__DRPC_SERVERS,
-							oldDrpcServers, drpcServers));
-			}
-		}
-		return drpcServers;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NodeCluster basicGetDrpcServers() {
-		return drpcServers;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setDrpcServers(NodeCluster newDrpcServers) {
-		NodeCluster oldDrpcServers = drpcServers;
-		drpcServers = newDrpcServers;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__DRPC_SERVERS,
-					oldDrpcServers, drpcServers));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NodeCluster getSupervisors() {
-		if (supervisors != null && supervisors.eIsProxy()) {
-			InternalEObject oldSupervisors = (InternalEObject) supervisors;
-			supervisors = (NodeCluster) eResolveProxy(oldSupervisors);
-			if (supervisors != oldSupervisors) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_SERVICE__SUPERVISORS,
-							oldSupervisors, supervisors));
-			}
-		}
-		return supervisors;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NodeCluster basicGetSupervisors() {
-		return supervisors;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setSupervisors(NodeCluster newSupervisors) {
-		NodeCluster oldSupervisors = supervisors;
-		supervisors = newSupervisors;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__SUPERVISORS,
-					oldSupervisors, supervisors));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -412,7 +271,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -420,13 +278,11 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		int oldUiPort = uiPort;
 		uiPort = newUiPort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__UI_PORT, oldUiPort,
-					uiPort));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__UI_PORT, oldUiPort, uiPort));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -436,7 +292,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -444,157 +299,124 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		boolean oldIsNimbus = isNimbus;
 		isNimbus = newIsNimbus;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__IS_NIMBUS, oldIsNimbus,
-					isNimbus));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__IS_NIMBUS, oldIsNimbus, isNimbus));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
-			if (resolve)
-				return getZookeeperConnect();
-			return basicGetZookeeperConnect();
-		case PasysPackage.STORM_SERVICE__LOCAL_DIR:
-			return getLocalDir();
-		case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
-			if (resolve)
-				return getNimbusSeeds();
-			return basicGetNimbusSeeds();
-		case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
-			return getSupervisorSlotPorts();
-		case PasysPackage.STORM_SERVICE__DRPC_SERVERS:
-			if (resolve)
-				return getDrpcServers();
-			return basicGetDrpcServers();
-		case PasysPackage.STORM_SERVICE__SUPERVISORS:
-			if (resolve)
-				return getSupervisors();
-			return basicGetSupervisors();
-		case PasysPackage.STORM_SERVICE__UI_PORT:
-			return getUiPort();
-		case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-			return isIsNimbus();
+			case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
+				if (resolve) return getZookeeperConnect();
+				return basicGetZookeeperConnect();
+			case PasysPackage.STORM_SERVICE__LOCAL_DIR:
+				return getLocalDir();
+			case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
+				if (resolve) return getNimbusSeeds();
+				return basicGetNimbusSeeds();
+			case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
+				return getSupervisorSlotPorts();
+			case PasysPackage.STORM_SERVICE__UI_PORT:
+				return getUiPort();
+			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
+				return isIsNimbus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
-			setZookeeperConnect((ResourceCluster) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__LOCAL_DIR:
-			setLocalDir((String) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
-			setNimbusSeeds((NodeCluster) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
-			getSupervisorSlotPorts().clear();
-			getSupervisorSlotPorts().addAll((Collection<? extends Integer>) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__DRPC_SERVERS:
-			setDrpcServers((NodeCluster) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__SUPERVISORS:
-			setSupervisors((NodeCluster) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__UI_PORT:
-			setUiPort((Integer) newValue);
-			return;
-		case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-			setIsNimbus((Boolean) newValue);
-			return;
+			case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
+				setZookeeperConnect((ZookeeperService)newValue);
+				return;
+			case PasysPackage.STORM_SERVICE__LOCAL_DIR:
+				setLocalDir((String)newValue);
+				return;
+			case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
+				setNimbusSeeds((NodeCluster)newValue);
+				return;
+			case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
+				getSupervisorSlotPorts().clear();
+				getSupervisorSlotPorts().addAll((Collection<? extends Integer>)newValue);
+				return;
+			case PasysPackage.STORM_SERVICE__UI_PORT:
+				setUiPort((Integer)newValue);
+				return;
+			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
+				setIsNimbus((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
-			setZookeeperConnect((ResourceCluster) null);
-			return;
-		case PasysPackage.STORM_SERVICE__LOCAL_DIR:
-			setLocalDir(LOCAL_DIR_EDEFAULT);
-			return;
-		case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
-			setNimbusSeeds((NodeCluster) null);
-			return;
-		case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
-			getSupervisorSlotPorts().clear();
-			return;
-		case PasysPackage.STORM_SERVICE__DRPC_SERVERS:
-			setDrpcServers((NodeCluster) null);
-			return;
-		case PasysPackage.STORM_SERVICE__SUPERVISORS:
-			setSupervisors((NodeCluster) null);
-			return;
-		case PasysPackage.STORM_SERVICE__UI_PORT:
-			setUiPort(UI_PORT_EDEFAULT);
-			return;
-		case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-			setIsNimbus(IS_NIMBUS_EDEFAULT);
-			return;
+			case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
+				setZookeeperConnect((ZookeeperService)null);
+				return;
+			case PasysPackage.STORM_SERVICE__LOCAL_DIR:
+				setLocalDir(LOCAL_DIR_EDEFAULT);
+				return;
+			case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
+				setNimbusSeeds((NodeCluster)null);
+				return;
+			case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
+				getSupervisorSlotPorts().clear();
+				return;
+			case PasysPackage.STORM_SERVICE__UI_PORT:
+				setUiPort(UI_PORT_EDEFAULT);
+				return;
+			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
+				setIsNimbus(IS_NIMBUS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
-			return zookeeperConnect != null;
-		case PasysPackage.STORM_SERVICE__LOCAL_DIR:
-			return LOCAL_DIR_EDEFAULT == null ? localDir != null : !LOCAL_DIR_EDEFAULT.equals(localDir);
-		case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
-			return nimbusSeeds != null;
-		case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
-			return supervisorSlotPorts != null && !supervisorSlotPorts.isEmpty();
-		case PasysPackage.STORM_SERVICE__DRPC_SERVERS:
-			return drpcServers != null;
-		case PasysPackage.STORM_SERVICE__SUPERVISORS:
-			return supervisors != null;
-		case PasysPackage.STORM_SERVICE__UI_PORT:
-			return uiPort != UI_PORT_EDEFAULT;
-		case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-			return isNimbus != IS_NIMBUS_EDEFAULT;
+			case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
+				return zookeeperConnect != null;
+			case PasysPackage.STORM_SERVICE__LOCAL_DIR:
+				return LOCAL_DIR_EDEFAULT == null ? localDir != null : !LOCAL_DIR_EDEFAULT.equals(localDir);
+			case PasysPackage.STORM_SERVICE__NIMBUS_SEEDS:
+				return nimbusSeeds != null;
+			case PasysPackage.STORM_SERVICE__SUPERVISOR_SLOT_PORTS:
+				return supervisorSlotPorts != null && !supervisorSlotPorts.isEmpty();
+			case PasysPackage.STORM_SERVICE__UI_PORT:
+				return uiPort != UI_PORT_EDEFAULT;
+			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
+				return isNimbus != IS_NIMBUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (localDir: ");

@@ -17,8 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getLocalDir <em>Local Dir</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getNimbusSeeds <em>Nimbus Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getSupervisorSlotPorts <em>Supervisor Slot Ports</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.StormService#getDrpcServers <em>Drpc Servers</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.StormService#getSupervisors <em>Supervisors</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getUiPort <em>Ui Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#isIsNimbus <em>Is Nimbus</em>}</li>
  * </ul>
@@ -33,12 +31,12 @@ public interface StormService extends SchedulingService {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Zookeeper Connect</em>' reference.
-	 * @see #setZookeeperConnect(ResourceCluster)
+	 * @see #setZookeeperConnect(ZookeeperService)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_ZookeeperConnect()
 	 * @model required="true"
 	 * @generated
 	 */
-	ResourceCluster getZookeeperConnect();
+	ZookeeperService getZookeeperConnect();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getZookeeperConnect <em>Zookeeper Connect</em>}' reference.
@@ -48,7 +46,7 @@ public interface StormService extends SchedulingService {
 	 * @see #getZookeeperConnect()
 	 * @generated
 	 */
-	void setZookeeperConnect(ResourceCluster value);
+	void setZookeeperConnect(ZookeeperService value);
 
 	/**
 	 * Returns the value of the '<em><b>Local Dir</b></em>' attribute.
@@ -106,50 +104,6 @@ public interface StormService extends SchedulingService {
 	 * @generated
 	 */
 	EList<Integer> getSupervisorSlotPorts();
-
-	/**
-	 * Returns the value of the '<em><b>Drpc Servers</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Drpc Servers</em>' reference.
-	 * @see #setDrpcServers(NodeCluster)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_DrpcServers()
-	 * @model
-	 * @generated
-	 */
-	NodeCluster getDrpcServers();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getDrpcServers <em>Drpc Servers</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Drpc Servers</em>' reference.
-	 * @see #getDrpcServers()
-	 * @generated
-	 */
-	void setDrpcServers(NodeCluster value);
-
-	/**
-	 * Returns the value of the '<em><b>Supervisors</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supervisors</em>' reference.
-	 * @see #setSupervisors(NodeCluster)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_Supervisors()
-	 * @model required="true"
-	 * @generated
-	 */
-	NodeCluster getSupervisors();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getSupervisors <em>Supervisors</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supervisors</em>' reference.
-	 * @see #getSupervisors()
-	 * @generated
-	 */
-	void setSupervisors(NodeCluster value);
 
 	/**
 	 * Returns the value of the '<em><b>Ui Port</b></em>' attribute.

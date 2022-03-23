@@ -138,20 +138,20 @@
     <eClassifiers xsi:type="ecore:EClass" name="ZookeeperService" eSuperTypes="#//pasys/DistributionService">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverId" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="2181"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="tickTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
           defaultValueLiteral="2000"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="leaderServers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="5"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="syncLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="3"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="2181"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="peerPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="2888"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="leaderPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="3888"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="5"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="syncLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="3"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationService" abstract="true"
         eSuperTypes="#//pasys/PlatformService"/>
@@ -231,16 +231,13 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StormService" eSuperTypes="#//pasys/SchedulingService">
       <eStructuralFeatures xsi:type="ecore:EReference" name="zookeeperConnect" lowerBound="1"
-          eType="#//pasys/ResourceCluster"/>
+          eType="#//pasys/ZookeeperService"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="localDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="storm-local"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nimbusSeeds" lowerBound="1"
           eType="#//pasys/NodeCluster"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="supervisorSlotPorts"
           upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="drpcServers" eType="#//pasys/NodeCluster"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="supervisors" lowerBound="1"
-          eType="#//pasys/NodeCluster"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="8080"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNimbus" lowerBound="1"
@@ -262,8 +259,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="seeds" lowerBound="1"
           eType="#//pasys/ResourceCluster"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="seedProviderClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="listenAddress" eType="#//pasys/ProcessingNode"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rpcAddress" eType="#//pasys/ProcessingNode"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointSnitch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="SimpleSnitch"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataCenter" lowerBound="1"
@@ -280,6 +275,16 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="cqlSchemas" upperBound="-1"
           eType="#//pasys/FileDescriptor" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataCenters" lowerBound="1"
+          upperBound="-1" eType="#//pasys/DataCenter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataCenter" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="racks" lowerBound="1"
+          upperBound="-1" eType="#//pasys/Rack"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rack" eSuperTypes="#//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
+          eType="#//pasys/NodeCluster"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Neo4JService" eSuperTypes="#//pasys/PersistenceService"/>
     <eClassifiers xsi:type="ecore:EClass" name="MonitoringService" abstract="true"

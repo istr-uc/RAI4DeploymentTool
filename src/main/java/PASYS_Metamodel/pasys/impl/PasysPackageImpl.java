@@ -1517,16 +1517,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EAttribute getZookeeperService_TickTime() {
-		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getZookeeperService_LeaderServers() {
 		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1536,7 +1526,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getZookeeperService_InitLimit() {
+	public EAttribute getZookeeperService_LeaderServers() {
 		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1546,27 +1536,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getZookeeperService_SyncLimit() {
-		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getZookeeperService_ClientPort() {
-		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getZookeeperService_PeerPort() {
+	public EAttribute getZookeeperService_InitLimit() {
 		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1576,8 +1546,38 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getZookeeperService_LeaderPort() {
+	public EAttribute getZookeeperService_SyncLimit() {
 		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getZookeeperService_ClientPort() {
+		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getZookeeperService_PeerPort() {
+		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getZookeeperService_LeaderPort() {
+		return (EAttribute)zookeeperServiceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1996,28 +1996,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getStormService_DrpcServers() {
-		return (EReference)stormServiceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getStormService_Supervisors() {
-		return (EReference)stormServiceEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getStormService_UiPort() {
-		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2027,7 +2007,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EAttribute getStormService_IsNimbus() {
-		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3985,13 +3965,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		zookeeperServiceEClass = createEClass(ZOOKEEPER_SERVICE);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__SERVER_ID);
+		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__CLIENT_PORT);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__TICK_TIME);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__LEADER_SERVERS);
-		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__INIT_LIMIT);
-		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__SYNC_LIMIT);
-		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__CLIENT_PORT);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__PEER_PORT);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__LEADER_PORT);
+		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__INIT_LIMIT);
+		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__SYNC_LIMIT);
 
 		communicationServiceEClass = createEClass(COMMUNICATION_SERVICE);
 
@@ -4039,8 +4019,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(stormServiceEClass, STORM_SERVICE__LOCAL_DIR);
 		createEReference(stormServiceEClass, STORM_SERVICE__NIMBUS_SEEDS);
 		createEAttribute(stormServiceEClass, STORM_SERVICE__SUPERVISOR_SLOT_PORTS);
-		createEReference(stormServiceEClass, STORM_SERVICE__DRPC_SERVERS);
-		createEReference(stormServiceEClass, STORM_SERVICE__SUPERVISORS);
 		createEAttribute(stormServiceEClass, STORM_SERVICE__UI_PORT);
 		createEAttribute(stormServiceEClass, STORM_SERVICE__IS_NIMBUS);
 
@@ -4490,13 +4468,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(zookeeperServiceEClass, ZookeeperService.class, "ZookeeperService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getZookeeperService_ServerId(), ecorePackage.getEInt(), "serverId", null, 1, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getZookeeperService_ClientPort(), ecorePackage.getEInt(), "clientPort", "2181", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getZookeeperService_TickTime(), ecorePackage.getELong(), "tickTime", "2000", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getZookeeperService_LeaderServers(), ecorePackage.getEBoolean(), "leaderServers", "true", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getZookeeperService_InitLimit(), ecorePackage.getEInt(), "initLimit", "5", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getZookeeperService_SyncLimit(), ecorePackage.getEInt(), "syncLimit", "3", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getZookeeperService_ClientPort(), ecorePackage.getEInt(), "clientPort", "2181", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getZookeeperService_PeerPort(), ecorePackage.getEInt(), "peerPort", "2888", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getZookeeperService_LeaderPort(), ecorePackage.getEInt(), "leaderPort", "3888", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getZookeeperService_InitLimit(), ecorePackage.getEInt(), "initLimit", "5", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getZookeeperService_SyncLimit(), ecorePackage.getEInt(), "syncLimit", "3", 0, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(communicationServiceEClass, CommunicationService.class, "CommunicationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4540,12 +4518,10 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getSparkService_DriverSuperviser(), ecorePackage.getEBoolean(), "driverSuperviser", "false", 0, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stormServiceEClass, StormService.class, "StormService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStormService_ZookeeperConnect(), this.getResourceCluster(), null, "zookeeperConnect", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormService_ZookeeperConnect(), this.getZookeeperService(), null, "zookeeperConnect", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_LocalDir(), ecorePackage.getEString(), "localDir", "storm-local", 0, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormService_NimbusSeeds(), this.getNodeCluster(), null, "nimbusSeeds", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_SupervisorSlotPorts(), ecorePackage.getEInt(), "supervisorSlotPorts", null, 0, -1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormService_DrpcServers(), this.getNodeCluster(), null, "drpcServers", null, 0, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormService_Supervisors(), this.getNodeCluster(), null, "supervisors", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 0, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_IsNimbus(), ecorePackage.getEBoolean(), "isNimbus", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

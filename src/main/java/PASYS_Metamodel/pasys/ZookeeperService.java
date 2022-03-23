@@ -13,13 +13,13 @@ package PASYS_Metamodel.pasys;
  * </p>
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getServerId <em>Server Id</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getClientPort <em>Client Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getTickTime <em>Tick Time</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#isLeaderServers <em>Leader Servers</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getInitLimit <em>Init Limit</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getSyncLimit <em>Sync Limit</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getClientPort <em>Client Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getPeerPort <em>Peer Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getLeaderPort <em>Leader Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getInitLimit <em>Init Limit</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ZookeeperService#getSyncLimit <em>Sync Limit</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService()
