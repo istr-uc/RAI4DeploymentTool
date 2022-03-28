@@ -341,171 +341,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 		return authenticationFiles;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public void deployAndLaunch() {
-
-		List<ProcessingNode> processingNodes = 
-				new LinkedList<ProcessingNode>();
-		List<DeployableComponent> components = 
-				new LinkedList<DeployableComponent>();
-
-		// Get the required elements (processingNodes and components)
-		for (SystemElement elem : getOwnedElements()) {
-			if (elem instanceof ProcessingNode)
-				processingNodes.add((ProcessingNode) elem);
-			else if (elem instanceof DeployableComponent)
-				components.add((DeployableComponent) elem);
-		}
-
-		// Order Processing Nodes
-		// Required for recovering if there is a DeploymentException
-		Collections.sort(processingNodes,new ProcessingNodeComparator());
-		
-		ProcessingNode currentNode = null;
-		try {
-
-			// Prepare nodes for deployment
-			for (ProcessingNode node : processingNodes)
-				node.prepareForDeployment();
-			
-			// Generate deployment files 
-			for (DeployableComponent comp : components)
-				comp.configureDeployment();
-			
-			// Deploy files and generate the global list of scripts
-			List<DeploymentFileDescriptor> globalScriptsList = new LinkedList<DeploymentFileDescriptor>();
-			for (ProcessingNode node : processingNodes) {
-				currentNode=node;
-				node.deployAndLaunch();
-				globalScriptsList.addAll(node.getLaunchingScripts());
-			}
-						
-			// Execute the global list of scripts		
-			sshExecution(globalScriptsList);		
-
-		} catch (ConfigurationException e) {
-			for (PASYS_Metamodel.pasys.ProcessingNode node : processingNodes)
-				node.bringBackConfiguration();
-			System.out.println("Process Aborted: Configuration Error");
-			System.out.println(e.getMessage());
-
-		}catch (DeploymentException e) {
-			// Ordenar los nodos de manera que si sabemos en cual se ha 
-			// producido el problema, solo invoquemos el bringBack en el.
-			Iterator<ProcessingNode> iter = processingNodes.iterator();
-			boolean goOn=true;
-			while (iter.hasNext() && goOn) {
-				ProcessingNode node= iter.next();
-				goOn = !(node.getId().equals(currentNode.getId()));
-				node.bringBackDeployment();
-				
-			}
-			System.out.println("Process Aborted: Deployment Error");
-			System.out.println(e.getMessage());
-		} 
-		catch (LaunchException e) {
-			// TODO No sabemos que hacer aqu�
-			for (PASYS_Metamodel.pasys.ProcessingNode node2 : processingNodes)
-				node2.abortLaunching();
-			System.out.println("Process Aborted: Launching Error");
-			System.out.println(e.getMessage());
-		}
-
-	}
 	
-	private void sshExecution(List<DeploymentFileDescriptor> fileDescriptors) throws LaunchException {
-		int exitValue = 0;
-		// Order files per type of component
-		Collections.sort(fileDescriptors, new DeploymentFileDescriptorImpl.LaunchingFileComparator());
-		for (DeploymentFileDescriptor fd : fileDescriptors) {	
-			String command = "ssh";
-			
-			ProcessingNode node = fd.getOwner();
-			String ip = null;
-			if (node instanceof PhysicalProcessingNode)
-				ip = node.getIp();
-			else if (node instanceof VirtualProcessingNode)
-				ip = ((VirtualProcessingNode) node).getExternalIP();
-			
-			if (getAuthenticationFiles().containsKey(ip)) {
-				String authFile = getAuthenticationFiles().get(ip);
-				command+=" -i "+authFile;	
-			}
-			command += " "+node.getUserName()+"@"+ip+" "+fd.getFilePath()+"/"+fd.getFileName();
-			System.out.println("SSH Command: "+command);
-			
-			/*try {	
-				Process process = Runtime
-						.getRuntime()
-						.exec(command);	
-				exitValue = process.waitFor();
-			
-				if (exitValue!=0) 
-					throw new LaunchException("Error launching script in node "+ip);
-				
-			} catch (IOException | InterruptedException e) {
-				throw new LaunchException("Error launching script in node "+ip);
-			}*/
-		}
-	}
-	
-	
-	public class ProcessingNodeComparator implements Comparator<ProcessingNode> {
-
-		@Override
-		public int compare(ProcessingNode o1, ProcessingNode o2) {
-			return o1.getId().compareTo(o2.getId());
-		}
-
-	}
-	
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public void cleanDeployment() {
-		List<ProcessingNode> processingNodes = 
-				new LinkedList<ProcessingNode>();
-		List<DeployableComponent> components = 
-				new LinkedList<DeployableComponent>();
-
-		// Get the required elements (processingNodes and components)
-		for (SystemElement elem : getOwnedElements()) {
-			if (elem instanceof ProcessingNode)
-				processingNodes.add((ProcessingNode) elem);
-			else if (elem instanceof DeployableComponent)
-				components.add((DeployableComponent) elem);
-		}
-		
-		
-		try {
-
-			// Prepare nodes for deployment
-			for (ProcessingNode node : processingNodes)
-				node.prepareForDeployment();
-			// Prepare components for deployment
-			for (DeployableComponent comp : components)
-				comp.configureDeployment();
-			
-			for (ProcessingNode node: processingNodes) 
-				node.bringBackDeployment();
-
-		} catch (ConfigurationException e) {
-			for (PASYS_Metamodel.pasys.ProcessingNode node : processingNodes)
-				node.bringBackConfiguration();
-			System.out.println(e.getMessage());
-			System.out.println("Process Aborted: Configuration Error");
-			System.out.println(e.getMessage());
-
-		}
-	}
-
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -706,5 +542,172 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 		result.append(')');
 		return result.toString();
 	}
+	
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void deployAndLaunch() {
+
+		List<ProcessingNode> processingNodes = 
+				new LinkedList<ProcessingNode>();
+		List<DeployableComponent> components = 
+				new LinkedList<DeployableComponent>();
+
+		// Get the required elements (processingNodes and components)
+		for (SystemElement elem : getOwnedElements()) {
+			if (elem instanceof ProcessingNode)
+				processingNodes.add((ProcessingNode) elem);
+			else if (elem instanceof DeployableComponent)
+				components.add((DeployableComponent) elem);
+		}
+
+		// Order Processing Nodes
+		// Required for recovering if there is a DeploymentException
+		Collections.sort(processingNodes,new ProcessingNodeComparator());
+		
+		ProcessingNode currentNode = null;
+		try {
+
+			// Prepare nodes for deployment
+			for (ProcessingNode node : processingNodes)
+				node.prepareForDeployment();
+			
+			// Generate deployment files 
+			for (DeployableComponent comp : components)
+				comp.configureDeployment();
+			
+			// Deploy files and generate the global list of scripts
+			List<DeploymentFileDescriptor> globalScriptsList = new LinkedList<DeploymentFileDescriptor>();
+			for (ProcessingNode node : processingNodes) {
+				currentNode=node;
+				node.deployAndLaunch();
+				globalScriptsList.addAll(node.getLaunchingScripts());
+			}
+						
+			// Execute the global list of scripts		
+			sshExecution(globalScriptsList);		
+
+		} catch (ConfigurationException e) {
+			for (PASYS_Metamodel.pasys.ProcessingNode node : processingNodes)
+				node.bringBackConfiguration();
+			System.out.println("Process Aborted: Configuration Error");
+			System.out.println(e.getMessage());
+
+		}catch (DeploymentException e) {
+			// Ordenar los nodos de manera que si sabemos en cual se ha 
+			// producido el problema, solo invoquemos el bringBack en el.
+			Iterator<ProcessingNode> iter = processingNodes.iterator();
+			boolean goOn=true;
+			while (iter.hasNext() && goOn) {
+				ProcessingNode node= iter.next();
+				goOn = !(node.getId().equals(currentNode.getId()));
+				node.bringBackDeployment();
+				
+			}
+			System.out.println("Process Aborted: Deployment Error");
+			System.out.println(e.getMessage());
+		} 
+		catch (LaunchException e) {
+			// TODO No sabemos que hacer aqu�
+			for (PASYS_Metamodel.pasys.ProcessingNode node2 : processingNodes)
+				node2.abortLaunching();
+			System.out.println("Process Aborted: Launching Error");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	private void sshExecution(List<DeploymentFileDescriptor> fileDescriptors) throws LaunchException {
+		int exitValue = 0;
+		// Order files per type of component
+		Collections.sort(fileDescriptors, new DeploymentFileDescriptorImpl.LaunchingFileComparator());
+		for (DeploymentFileDescriptor fd : fileDescriptors) {	
+			String command = "ssh";
+			
+			ProcessingNode node = fd.getOwner();
+			String ip = null;
+			if (node instanceof PhysicalProcessingNode)
+				ip = node.getIp();
+			else if (node instanceof VirtualProcessingNode)
+				ip = ((VirtualProcessingNode) node).getExternalIP();
+			
+			if (getAuthenticationFiles().containsKey(ip)) {
+				String authFile = getAuthenticationFiles().get(ip);
+				command+=" -i "+authFile;	
+			}
+			command += " "+node.getUserName()+"@"+ip+" "+fd.getFilePath()+"/"+fd.getFileName();
+			System.out.println("SSH Command: "+command);
+			
+			/*try {	
+				Process process = Runtime
+						.getRuntime()
+						.exec(command);	
+				exitValue = process.waitFor();
+			
+				if (exitValue!=0) 
+					throw new LaunchException("Error launching script in node "+ip);
+				
+			} catch (IOException | InterruptedException e) {
+				throw new LaunchException("Error launching script in node "+ip);
+			}*/
+		}
+	}
+	
+	
+	public class ProcessingNodeComparator implements Comparator<ProcessingNode> {
+
+		@Override
+		public int compare(ProcessingNode o1, ProcessingNode o2) {
+			return o1.getId().compareTo(o2.getId());
+		}
+
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void cleanDeployment() {
+		List<ProcessingNode> processingNodes = 
+				new LinkedList<ProcessingNode>();
+		List<DeployableComponent> components = 
+				new LinkedList<DeployableComponent>();
+
+		// Get the required elements (processingNodes and components)
+		for (SystemElement elem : getOwnedElements()) {
+			if (elem instanceof ProcessingNode)
+				processingNodes.add((ProcessingNode) elem);
+			else if (elem instanceof DeployableComponent)
+				components.add((DeployableComponent) elem);
+		}
+		
+		
+		try {
+
+			// Prepare nodes for deployment
+			for (ProcessingNode node : processingNodes)
+				node.prepareForDeployment();
+			// Prepare components for deployment
+			for (DeployableComponent comp : components)
+				comp.configureDeployment();
+			
+			for (ProcessingNode node: processingNodes) 
+				node.bringBackDeployment();
+
+		} catch (ConfigurationException e) {
+			for (PASYS_Metamodel.pasys.ProcessingNode node : processingNodes)
+				node.bringBackConfiguration();
+			System.out.println(e.getMessage());
+			System.out.println("Process Aborted: Configuration Error");
+			System.out.println(e.getMessage());
+
+		}
+	}
+
+
 
 } // ComputationalSystemImpl

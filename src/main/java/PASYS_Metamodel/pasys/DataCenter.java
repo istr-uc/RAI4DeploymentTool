@@ -22,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DataCenter extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Racks</b></em>' reference list.
+	 * Returns the value of the '<em><b>Racks</b></em>' containment reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.Rack}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Racks</em>' reference list.
+	 * @return the value of the '<em>Racks</em>' containment reference list.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getDataCenter_Racks()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Rack> getRacks();

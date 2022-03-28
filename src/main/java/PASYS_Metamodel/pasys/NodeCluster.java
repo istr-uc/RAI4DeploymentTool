@@ -2,6 +2,8 @@
  */
 package PASYS_Metamodel.pasys;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 
@@ -13,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getNodeCluster()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='allNodes'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot allNodes='resources-&gt;forAll(r|r.oclIsKindOf(ProcessingNode))'"
  * @generated
  */
 public interface NodeCluster extends ResourceCluster {
@@ -25,6 +26,14 @@ public interface NodeCluster extends ResourceCluster {
 	 * @generated
 	 */
 	EList<ProcessingNode> getNodes();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='resources-&gt;forAll(r|r.oclIsKindOf(ProcessingNode))'"
+	 * @generated
+	 */
+	boolean allNodes(DiagnosticChain diagnostics, Map<Object, Object> context);
 	
 
 } // NodeCluster

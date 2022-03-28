@@ -8,11 +8,14 @@ import PASYS_Metamodel.pasys.Rack;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class DataCenterImpl extends NamedElementImpl implements DataCenter {
 	/**
-	 * The cached value of the '{@link #getRacks() <em>Racks</em>}' reference list.
+	 * The cached value of the '{@link #getRacks() <em>Racks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRacks()
@@ -65,9 +68,23 @@ public class DataCenterImpl extends NamedElementImpl implements DataCenter {
 	@Override
 	public EList<Rack> getRacks() {
 		if (racks == null) {
-			racks = new EObjectResolvingEList<Rack>(Rack.class, this, PasysPackage.DATA_CENTER__RACKS);
+			racks = new EObjectContainmentEList<Rack>(Rack.class, this, PasysPackage.DATA_CENTER__RACKS);
 		}
 		return racks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PasysPackage.DATA_CENTER__RACKS:
+				return ((InternalEList<?>)getRacks()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

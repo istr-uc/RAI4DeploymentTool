@@ -428,12 +428,13 @@ public class TaskExecutorImpl extends NamedElementImpl implements TaskExecutor {
 	@Override
 	public void configureDeployment() throws ConfigurationException {
 		// For each cluster (node + kafka + cassandra) in which the taskExecutor is deployed
-		ResourceCluster resourceCluster = this.getOwner().getScheduler().getTarget();
-		for (PlatformResource c : resourceCluster.getResources()) {
-			ResourceCluster rc = (ResourceCluster) c;
-			deployInNode(rc);
-		} // end for Node
-	}
+		
+		// TODO Comentado para que compile
+		/*
+		 * ResourceCluster resourceCluster = this.getOwner().getScheduler().getTarget();
+		 * for (PlatformResource c : resourceCluster.getResources()) { ResourceCluster
+		 * rc = (ResourceCluster) c; deployInNode(rc); } // end for Node
+		 */	}
 
 	public void deployInNode(ResourceCluster rsrcCluster) throws ConfigurationException {
 

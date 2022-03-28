@@ -128,9 +128,7 @@ public class PrometheusMeterImpl extends MeterImpl implements PrometheusMeter {
 	 */
 	@Override
 	public String getPrometheusServerConfiguration() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException();  // FIXME Unimplemented www.unican.es/ISTR/P3forI4/pasys!PrometheusMeter!getPrometheusServerConfiguration()
 	}
 
 	

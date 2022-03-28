@@ -5,6 +5,8 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.NamedElement;
 import PASYS_Metamodel.pasys.PasysPackage;
 
+import java.util.Objects;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -218,4 +220,24 @@ public abstract class NamedElementImpl extends MinimalEObjectImpl.Container impl
 		return result.toString();
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NamedElementImpl other = (NamedElementImpl) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
+	}
+	
+	
+		
+	
 } //NamedElementImpl

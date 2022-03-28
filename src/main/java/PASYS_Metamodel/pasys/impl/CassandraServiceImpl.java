@@ -8,9 +8,9 @@ import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FileDescriptor;
+import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
-import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.ResourceCluster;
@@ -37,7 +37,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.esotericsoftware.yamlbeans.YamlConfig;
@@ -46,9 +45,8 @@ import com.esotericsoftware.yamlbeans.YamlReader;
 import com.esotericsoftware.yamlbeans.YamlWriter;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Cassandra Service</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Cassandra Service</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -57,7 +55,6 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getSeeds <em>Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getSeedProviderClass <em>Seed Provider Class</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataCenter <em>Data Center</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataFileDir <em>Data File Dir</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getNativeTransportPort <em>Native Transport Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getRack <em>Rack</em>}</li>
@@ -72,8 +69,7 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
 public class CassandraServiceImpl extends PersistenceServiceImpl implements CassandraService {
 	/**
 	 * The default value of the '{@link #getNumTokens() <em>Num Tokens</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNumTokens()
 	 * @generated
 	 * @ordered
@@ -82,8 +78,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #getNumTokens() <em>Num Tokens</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNumTokens()
 	 * @generated
 	 * @ordered
@@ -91,19 +86,18 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected int numTokens = NUM_TOKENS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSeeds() <em>Seeds</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSeeds() <em>Seeds</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getSeeds()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceCluster seeds;
+	protected NodeCluster seeds;
 
 	/**
 	 * The default value of the '{@link #getSeedProviderClass() <em>Seed Provider Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSeedProviderClass()
 	 * @generated
 	 * @ordered
@@ -112,8 +106,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #getSeedProviderClass() <em>Seed Provider Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSeedProviderClass()
 	 * @generated
 	 * @ordered
@@ -122,8 +115,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The default value of the '{@link #getEndpointSnitch() <em>Endpoint Snitch</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndpointSnitch()
 	 * @generated
 	 * @ordered
@@ -132,8 +124,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #getEndpointSnitch() <em>Endpoint Snitch</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getEndpointSnitch()
 	 * @generated
 	 * @ordered
@@ -141,19 +132,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected String endpointSnitch = ENDPOINT_SNITCH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDataCenter() <em>Data Center</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataCenter()
-	 * @generated
-	 * @ordered
-	 */
-	protected ResourceCluster dataCenter;
-
-	/**
 	 * The default value of the '{@link #getDataFileDir() <em>Data File Dir</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFileDir()
 	 * @generated
 	 * @ordered
@@ -162,8 +142,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #getDataFileDir() <em>Data File Dir</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataFileDir()
 	 * @generated
 	 * @ordered
@@ -171,9 +150,10 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected String dataFileDir = DATA_FILE_DIR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNativeTransportPort() <em>Native Transport Port</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getNativeTransportPort() <em>Native
+	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getNativeTransportPort()
 	 * @generated
 	 * @ordered
@@ -181,9 +161,10 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected static final int NATIVE_TRANSPORT_PORT_EDEFAULT = 9042;
 
 	/**
-	 * The cached value of the '{@link #getNativeTransportPort() <em>Native Transport Port</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNativeTransportPort() <em>Native
+	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getNativeTransportPort()
 	 * @generated
 	 * @ordered
@@ -191,9 +172,9 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected int nativeTransportPort = NATIVE_TRANSPORT_PORT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRack() <em>Rack</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRack() <em>Rack</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getRack()
 	 * @generated
 	 * @ordered
@@ -202,8 +183,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The default value of the '{@link #isAutoBootstrap() <em>Auto Bootstrap</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAutoBootstrap()
 	 * @generated
 	 * @ordered
@@ -212,8 +192,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #isAutoBootstrap() <em>Auto Bootstrap</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAutoBootstrap()
 	 * @generated
 	 * @ordered
@@ -222,8 +201,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #getCqlSchemas() <em>Cql Schemas</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCqlSchemas()
 	 * @generated
 	 * @ordered
@@ -232,8 +210,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The default value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsSeed()
 	 * @generated
 	 * @ordered
@@ -242,8 +219,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	/**
 	 * The cached value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsSeed()
 	 * @generated
 	 * @ordered
@@ -251,9 +227,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected boolean isSeed = IS_SEED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDataCenters() <em>Data Centers</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDataCenters() <em>Data Centers</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDataCenters()
 	 * @generated
 	 * @ordered
@@ -261,8 +236,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected EList<DataCenter> dataCenters;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected CassandraServiceImpl() {
@@ -270,8 +244,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -280,8 +253,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -290,8 +262,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -303,15 +274,14 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public ResourceCluster getSeeds() {
+	public NodeCluster getSeeds() {
 		if (seeds != null && seeds.eIsProxy()) {
 			InternalEObject oldSeeds = (InternalEObject)seeds;
-			seeds = (ResourceCluster)eResolveProxy(oldSeeds);
+			seeds = (NodeCluster)eResolveProxy(oldSeeds);
 			if (seeds != oldSeeds) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVICE__SEEDS, oldSeeds, seeds));
@@ -321,30 +291,27 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceCluster basicGetSeeds() {
+	public NodeCluster basicGetSeeds() {
 		return seeds;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setSeeds(ResourceCluster newSeeds) {
-		ResourceCluster oldSeeds = seeds;
+	public void setSeeds(NodeCluster newSeeds) {
+		NodeCluster oldSeeds = seeds;
 		seeds = newSeeds;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__SEEDS, oldSeeds, seeds));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -353,8 +320,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -366,8 +332,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -376,8 +341,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -389,48 +353,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceCluster getDataCenter() {
-		if (dataCenter != null && dataCenter.eIsProxy()) {
-			InternalEObject oldDataCenter = (InternalEObject)dataCenter;
-			dataCenter = (ResourceCluster)eResolveProxy(oldDataCenter);
-			if (dataCenter != oldDataCenter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVICE__DATA_CENTER, oldDataCenter, dataCenter));
-			}
-		}
-		return dataCenter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceCluster basicGetDataCenter() {
-		return dataCenter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDataCenter(ResourceCluster newDataCenter) {
-		ResourceCluster oldDataCenter = dataCenter;
-		dataCenter = newDataCenter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__DATA_CENTER, oldDataCenter, dataCenter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -439,8 +362,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -452,8 +374,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -462,8 +383,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -475,8 +395,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -493,8 +412,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ResourceCluster basicGetRack() {
@@ -502,8 +420,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -515,8 +432,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -525,8 +441,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -538,8 +453,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -551,8 +465,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -561,8 +474,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -574,21 +486,19 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EList<DataCenter> getDataCenters() {
 		if (dataCenters == null) {
-			dataCenters = new EObjectResolvingEList<DataCenter>(DataCenter.class, this, PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS);
+			dataCenters = new EObjectContainmentEList<DataCenter>(DataCenter.class, this, PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS);
 		}
 		return dataCenters;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -596,13 +506,14 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		switch (featureID) {
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				return ((InternalEList<?>)getCqlSchemas()).basicRemove(otherEnd, msgs);
+			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
+				return ((InternalEList<?>)getDataCenters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -617,9 +528,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return getSeedProviderClass();
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				return getEndpointSnitch();
-			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTER:
-				if (resolve) return getDataCenter();
-				return basicGetDataCenter();
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				return getDataFileDir();
 			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
@@ -640,8 +548,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -652,16 +559,13 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				setNumTokens((Integer)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEEDS:
-				setSeeds((ResourceCluster)newValue);
+				setSeeds((NodeCluster)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				setSeedProviderClass((String)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				setEndpointSnitch((String)newValue);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTER:
-				setDataCenter((ResourceCluster)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				setDataFileDir((String)newValue);
@@ -691,8 +595,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -702,16 +605,13 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				setNumTokens(NUM_TOKENS_EDEFAULT);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEEDS:
-				setSeeds((ResourceCluster)null);
+				setSeeds((NodeCluster)null);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				setSeedProviderClass(SEED_PROVIDER_CLASS_EDEFAULT);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				setEndpointSnitch(ENDPOINT_SNITCH_EDEFAULT);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTER:
-				setDataCenter((ResourceCluster)null);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				setDataFileDir(DATA_FILE_DIR_EDEFAULT);
@@ -739,8 +639,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -754,8 +653,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return SEED_PROVIDER_CLASS_EDEFAULT == null ? seedProviderClass != null : !SEED_PROVIDER_CLASS_EDEFAULT.equals(seedProviderClass);
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				return ENDPOINT_SNITCH_EDEFAULT == null ? endpointSnitch != null : !ENDPOINT_SNITCH_EDEFAULT.equals(endpointSnitch);
-			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTER:
-				return dataCenter != null;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				return DATA_FILE_DIR_EDEFAULT == null ? dataFileDir != null : !DATA_FILE_DIR_EDEFAULT.equals(dataFileDir);
 			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
@@ -775,8 +672,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -801,7 +697,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -809,65 +705,71 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 */
 	@Override
 	public void configureDeployment() throws ConfigurationException {
-		if (getHost()!=null)
+		if (getHost() != null)
 			configureDeploymentOnHost();
 		else
 			configureDeploymentOnOrchestrator();
 	}
-	
+
 	private void configureDeploymentOnOrchestrator() {
 		
+		/*} else if (container!=null) {
+		String scriptContent="";
+		for (FileDescriptor cqlSchema : getCqlSchemas()) {
+			int i =0;
+			scriptContent = "docker exec $(docker ps | grep cassandra | awk {print $1}) cqlsh " + (getListenAddress()).getIp() + " -f " + scriptFolderPath + "/"
+					+ cqlSchema.getFileName();						
+			script = new DeploymentFileDescriptorImpl(
+					"cassandraSchema"+i + ".sh", this.getScriptFolderPath(), 
+					scriptContent, SystemComponentType.CASSANDRA_SCHEMA);
+			getHost().getLaunchingScripts().add(script);
+			i++;
+		}*/
+
 	}
-	
+
 	private void configureDeploymentOnHost() throws ConfigurationException {
 		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		String seedsValue= getSeedsValue();
+		Map<String, String> rackConf = rackConfiguration();
 		if (!conf.isIsRunning()) {		
 			try {
-				SystemComponentType type = SystemComponentType.CASSANDRA_SERVER;
-				if (isSeed)
-					type = SystemComponentType.CASSANDRA_SERVER_SEED;
+				//SystemComponentType type = SystemComponentType.CASSANDRA_SERVER;
+				//if (isSeed)
+					//type = SystemComponentType.CASSANDRA_SERVER_SEED;
 
-				// Config file generation
-				String configFileContent = generateConfigFileContent();
-				String configFileName = "cassandra" + id + ".yaml";
-				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(configFileName, 
-						conf.getConfigFolderPath(),configFileContent, type);
-				getHost().getConfigFiles().add(configFile);
-
-				// Rack configuration file generation
-				String rackProps = "dc=" + getDataCenter().getName() + "\n";
-				rackProps += "rack=" + getRack().getName();
-				DeploymentFileDescriptor rackConfFile = new DeploymentFileDescriptorImpl("cassandra-rackcd.properties",
-						conf.getConfigFolderPath(), rackProps, type);
-				getHost().getConfigFiles().add(rackConfFile);
-
-				// Artifacts to move to the corresponding nodes
-				for (FileDescriptor cqlFile : getCqlSchemas()) {
-					ArtifactDescriptor artifact = new ArtifactDescriptorImpl(cqlFile.getFileName(),
-							conf.getScriptFolderPath() + "/" + cqlFile.getFileName(), cqlFile.getFilePath());
-					getHost().getCodeFiles().add(artifact);
-				}
-
-				// Script generation
-				DeploymentFileDescriptor script=null;
-				if (host != null) {
-					script = new DeploymentFileDescriptorImpl(
-							"cassandraServer" + getId() + ".sh", conf.getScriptFolderPath(), 
-							generateScriptContent(configFileName), type);
-					getHost().getLaunchingScripts().add(script);
-				} else if (container!=null) {
-					String scriptContent="";
-					for (FileDescriptor cqlSchema : getCqlSchemas()) {
-						int i =0;
-						scriptContent = "docker exec $(docker ps | grep cassandra | awk {print $1}) cqlsh " + (getListenAddress()).getIp() + " -f " + scriptFolderPath + "/"
-								+ cqlSchema.getFileName();						
-						script = new DeploymentFileDescriptorImpl(
-								"cassandraSchema"+i + ".sh", this.getScriptFolderPath(), 
-								scriptContent, SystemComponentType.CASSANDRA_SCHEMA);
-						getHost().getLaunchingScripts().add(script);
-						i++;
-					}
+				for (ProcessingNode node: getHost().getNodes()) {
+					SystemComponentType type = null;
+					if (getSeeds().getNodes().contains(node))
+						type = SystemComponentType.CASSANDRA_SERVER_SEED;
+					else
+						type = SystemComponentType.CASSANDRA_SERVER;
+					// Config file content generation
+					String configFileContent = generateConfigFileContent(node, seedsValue);
+					String configFileName = "cassandra" + id + ".yaml";
+					DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(configFileName, 
+							conf.getConfigFolderPath(),configFileContent, type);
+					node.getConfigFiles().add(configFile);
+				
+					// Rack configuration file generation
+					// String rackProps = "dc=" + getDataCenter().getName() + "\n";
+					// rackProps += "rack=" + getRack().getName();
+					DeploymentFileDescriptor rackConfFile = new DeploymentFileDescriptorImpl(
+							"cassandra-rackcd.properties", conf.getConfigFolderPath(), rackConf.get(node.getIp()), type);
+					node.getConfigFiles().add(rackConfFile);
 					
+					// Artifacts to move to the corresponding nodes
+					for (FileDescriptor cqlFile : getCqlSchemas()) {
+						ArtifactDescriptor artifact = new ArtifactDescriptorImpl(cqlFile.getFileName(),
+								conf.getScriptFolderPath() + "/" + cqlFile.getFileName(), cqlFile.getFilePath());
+						node.getCodeFiles().add(artifact);
+					}
+				
+                    // Script generation
+				    DeploymentFileDescriptor script= new DeploymentFileDescriptorImpl(
+							"cassandraServer" + getId() + ".sh", conf.getScriptFolderPath(), 
+							generateScriptContent(configFileName, node.getIp()), type);
+					node.getLaunchingScripts().add(script);
 				}
 
 			} catch (IOException e) {
@@ -877,27 +779,29 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		}
 	}
 
-	private String generateScriptContent(String configFileName) {
+	private String generateScriptContent(String configFileName, String ip) {
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
 		String scriptContent = "rm -rf " + getDataFileDir() + "/system/*\n";
-		scriptContent += "rm -f " + getConfigFolderPath() + "/cassandra-topology.properties\n";
-		scriptContent += getArtifactLocator() + "/" + getArtifactName() + " -Dcassandra.config=file:///"
-				+ configFolderPath + "/" + configFileName + "\n";
-		scriptContent = DeploymentToolsUtils.scriptHeaders(getScriptFolderPath()) + scriptContent;
+		scriptContent += "rm -f " + conf.getConfigFolderPath() + "/cassandra-topology.properties\n";
+		scriptContent += conf.getArtifactLocator() + "/" + conf.getArtifactName() + " -Dcassandra.config=file:///"
+				+ conf.getConfigFolderPath() + "/" + configFileName + "\n";
+		scriptContent = DeploymentToolsUtils.scriptHeaders(conf.getScriptFolderPath()) + scriptContent;
 		// String hostIp = ((PhysicalProcessingNode)
 		// getListenAddress()).getIp();
-		String hostIp = (getListenAddress()).getIp();
+		//String hostIp = node.getIp();
 
 		scriptContent += "sleep 60 \n"; // Espera para que cassandra termine de
 										// arrancar antes de crear el schema.
 
 		for (FileDescriptor cqlSchema : getCqlSchemas())
-			scriptContent += getArtifactLocator() + "/cqlsh " + hostIp + " -f " + scriptFolderPath + "/"
+			scriptContent += conf.getArtifactLocator() + "/cqlsh " + ip + " -f " + conf.getScriptFolderPath() + "/"
 					+ cqlSchema.getFileName();
 
 		return scriptContent;
 	}
 
-	private String generateConfigFileContent() throws YamlException, ConfigurationException {
+	private String generateConfigFileContent(ProcessingNode node, String seedsValue)
+			throws YamlException, ConfigurationException {
 		// reader = new YamlReader(new FileReader(new
 		// File(this.getClass().getClassLoader().getResourceAsStream("cassandra.yaml"))));
 		YamlReader reader = new YamlReader(
@@ -906,17 +810,17 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 		// Modify simple properties
 		HashMap map = (HashMap) object;
-		map.put("cluster_name", getTarget().getName());
+		map.put("cluster_name", getHost().getName());
 		map.put("num_tokens", getNumTokens());
 
 		// map.put("listen_address", ((PhysicalProcessingNode)
 		// getListenAddress()).getIp());
-		map.put("listen_address", (getListenAddress()).getIp());   // TODO A cada fichero de congiuración su ip
+		map.put("listen_address", node.getIp());
 		map.put("native_transport_port", getNativeTransportPort());
 		// map.put("rpc_address", ((PhysicalProcessingNode)
 		// getRpcAddress()).getIp());
-		map.put("rpc_address", (getRpcAddress()).getIp());   // A cada fichero de configuración la ip del nodo correspondiente
-		map.put("endpoint_snitch", getEndpointSnitch()); 
+		map.put("rpc_address", node.getIp());
+		map.put("endpoint_snitch", getEndpointSnitch());
 		map.put("auto_bootstrap", isAutoBootstrap());
 
 		// Modify complex properties
@@ -927,10 +831,9 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			map.put("data_file_directories", listaDirs);
 		}
 
-		String seeds = getSeedsValue();
 		ArrayList<HashMap> listSeedProvider = (ArrayList<HashMap>) map.get("seed_provider");
 		ArrayList<HashMap> listSeeds = (ArrayList<HashMap>) listSeedProvider.get(0).get("parameters");
-		listSeeds.get(0).put("seeds", seeds);
+		listSeeds.get(0).put("seeds", seedsValue);
 
 		StringWriter output = new StringWriter();
 		YamlWriter writer = new YamlWriter(output);
@@ -946,35 +849,30 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	private String getSeedsValue() throws ConfigurationException {
 		boolean first = true;
 		String seeds = "";
-		for (PlatformResource resource : getSeeds().getResources()) {
+		for (ProcessingNode node : getSeeds().getNodes()) {
 			if (!first)
 				seeds += ",";
-			if (resource instanceof CassandraService) { 
-				CassandraService csdr = (CassandraService) resource;			
-				seeds += csdr.getHost().getIp(); // No necesito cambiar a container porque el getHost ya me lo da bien
-				first = false;
-			} else {
-				throw new ConfigurationException("One of the seed nodes of a Cassandra Server is not valid");
-			}
+			seeds += node.getIp(); // No necesito cambiar a container porque el getHost ya me lo da bien
+			first = false;
 		}
 		return seeds;
 	}
-	
+
 	private Map<String, String> rackConfiguration() {
 		// Rack configuration file generation
-	//String rackProps = "dc=" + getDataCenter().getName() + "\n";
-	//rackProps += "rack=" + getRack().getName();
+		// String rackProps = "dc=" + getDataCenter().getName() + "\n";
+		// rackProps += "rack=" + getRack().getName();
 		Map<String, String> map = new HashMap<String, String>();
-		List<DataCenter> dcList= getDataCenters();
-		
-		for (DataCenter dc:dcList) {
+		List<DataCenter> dcList = getDataCenters();
+
+		for (DataCenter dc : dcList) {
 			List<Rack> rackList = dc.getRacks();
-			for (Rack rack: rackList) {
-				for (ProcessingNode node:rack.getNodes().getNodes()) {
-					map.put(node.getIp(), "dc="+dc.getName()+"\n"+"rack="+rack.getName());
+			for (Rack rack : rackList) {
+				for (ProcessingNode node : rack.getNodes().getNodes()) {
+					map.put(node.getIp(), "dc=" + dc.getName() + "\n" + "rack=" + rack.getName());
 				}
 			}
 		}
 		return map;
 	}
-} //CassandraServiceImpl
+} // CassandraServiceImpl

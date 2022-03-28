@@ -228,8 +228,6 @@
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/seeds"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/seedProviderClass"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/endpointSnitch"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/dataCenter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/dataFileDir"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/nativeTransportPort"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

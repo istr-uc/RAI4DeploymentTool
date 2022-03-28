@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getSeeds <em>Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getSeedProviderClass <em>Seed Provider Class</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataCenter <em>Data Center</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataFileDir <em>Data File Dir</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getNativeTransportPort <em>Native Transport Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getRack <em>Rack</em>}</li>
@@ -60,12 +59,12 @@ public interface CassandraService extends PersistenceService {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Seeds</em>' reference.
-	 * @see #setSeeds(ResourceCluster)
+	 * @see #setSeeds(NodeCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_Seeds()
 	 * @model required="true"
 	 * @generated
 	 */
-	ResourceCluster getSeeds();
+	NodeCluster getSeeds();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getSeeds <em>Seeds</em>}' reference.
@@ -75,7 +74,7 @@ public interface CassandraService extends PersistenceService {
 	 * @see #getSeeds()
 	 * @generated
 	 */
-	void setSeeds(ResourceCluster value);
+	void setSeeds(NodeCluster value);
 
 	/**
 	 * Returns the value of the '<em><b>Seed Provider Class</b></em>' attribute.
@@ -121,28 +120,6 @@ public interface CassandraService extends PersistenceService {
 	 * @generated
 	 */
 	void setEndpointSnitch(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Data Center</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Center</em>' reference.
-	 * @see #setDataCenter(ResourceCluster)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_DataCenter()
-	 * @model required="true"
-	 * @generated
-	 */
-	ResourceCluster getDataCenter();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getDataCenter <em>Data Center</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Center</em>' reference.
-	 * @see #getDataCenter()
-	 * @generated
-	 */
-	void setDataCenter(ResourceCluster value);
 
 	/**
 	 * Returns the value of the '<em><b>Data File Dir</b></em>' attribute.
@@ -269,13 +246,13 @@ public interface CassandraService extends PersistenceService {
 	void setIsSeed(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Data Centers</b></em>' reference list.
+	 * Returns the value of the '<em><b>Data Centers</b></em>' containment reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.DataCenter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Centers</em>' reference list.
+	 * @return the value of the '<em>Data Centers</em>' containment reference list.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_DataCenters()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<DataCenter> getDataCenters();

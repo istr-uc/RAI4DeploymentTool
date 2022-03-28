@@ -100,6 +100,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1454,6 +1455,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getPlatformService__HostOrOrchestrator__DiagnosticChain_Map() {
+		return platformServiceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOrchestrationService() {
 		return orchestrationServiceEClass;
 	}
@@ -2144,18 +2155,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getCassandraService_DataCenter() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getCassandraService_DataFileDir() {
-		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2165,7 +2166,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EAttribute getCassandraService_NativeTransportPort() {
-		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2175,7 +2176,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EReference getCassandraService_Rack() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(7);
+		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2185,7 +2186,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EAttribute getCassandraService_AutoBootstrap() {
-		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2195,7 +2196,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EReference getCassandraService_CqlSchemas() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(9);
+		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2205,7 +2206,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EAttribute getCassandraService_IsSeed() {
-		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2215,7 +2216,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EReference getCassandraService_DataCenters() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(11);
+		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3794,6 +3795,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getNodeCluster__AllNodes__DiagnosticChain_Map() {
+		return nodeClusterEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPrometheusMeter() {
 		return prometheusMeterEClass;
 	}
@@ -4000,6 +4011,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		nodeClusterEClass = createEClass(NODE_CLUSTER);
 		createEOperation(nodeClusterEClass, NODE_CLUSTER___GET_NODES);
+		createEOperation(nodeClusterEClass, NODE_CLUSTER___ALL_NODES__DIAGNOSTICCHAIN_MAP);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__BANDWITH);
@@ -4007,6 +4019,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServiceEClass = createEClass(PLATFORM_SERVICE);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__HOST);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__ORCHESTRATOR);
+		createEOperation(platformServiceEClass, PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP);
 
 		orchestrationServiceEClass = createEClass(ORCHESTRATION_SERVICE);
 
@@ -4092,7 +4105,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__SEEDS);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__SEED_PROVIDER_CLASS);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__ENDPOINT_SNITCH);
-		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__DATA_CENTER);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__DATA_FILE_DIR);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT);
 		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__RACK);
@@ -4511,12 +4523,30 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEOperation(getNodeCluster__GetNodes(), this.getProcessingNode(), "getNodes", 1, -1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getNodeCluster__AllNodes__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "allNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 1, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformServiceEClass, PlatformService.class, "PlatformService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlatformService_Host(), this.getNodeCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), null, "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hostOrOrchestrator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(orchestrationServiceEClass, OrchestrationService.class, "OrchestrationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4599,20 +4629,19 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(cassandraServiceEClass, CassandraService.class, "CassandraService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCassandraService_NumTokens(), ecorePackage.getEInt(), "numTokens", "256", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCassandraService_Seeds(), this.getResourceCluster(), null, "seeds", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCassandraService_Seeds(), this.getNodeCluster(), null, "seeds", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_SeedProviderClass(), ecorePackage.getEString(), "seedProviderClass", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_EndpointSnitch(), ecorePackage.getEString(), "endpointSnitch", "SimpleSnitch", 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCassandraService_DataCenter(), this.getResourceCluster(), null, "dataCenter", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_DataFileDir(), ecorePackage.getEString(), "dataFileDir", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_NativeTransportPort(), ecorePackage.getEInt(), "nativeTransportPort", "9042", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCassandraService_Rack(), this.getResourceCluster(), null, "rack", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_AutoBootstrap(), ecorePackage.getEBoolean(), "autoBootstrap", "false", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCassandraService_CqlSchemas(), this.getFileDescriptor(), null, "cqlSchemas", null, 0, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_IsSeed(), ecorePackage.getEBoolean(), "isSeed", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCassandraService_DataCenters(), this.getDataCenter(), null, "dataCenters", null, 1, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCassandraService_DataCenters(), this.getDataCenter(), null, "dataCenters", null, 1, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataCenterEClass, DataCenter.class, "DataCenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataCenter_Racks(), this.getRack(), null, "racks", null, 1, -1, DataCenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataCenter_Racks(), this.getRack(), null, "racks", null, 1, -1, DataCenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rackEClass, Rack.class, "Rack", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRack_Nodes(), this.getNodeCluster(), null, "nodes", null, 1, 1, Rack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4899,9 +4928,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		  (this,
 		   source,
 		   new String[] {
-			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
 		   });
 		addAnnotation
 		  (nodeClusterEClass,
@@ -4926,16 +4952,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	protected void createPivotAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
 		addAnnotation
-		  (nodeClusterEClass,
+		  (getNodeCluster__AllNodes__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "allNodes", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
+			   "body", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
 		   });
 		addAnnotation
-		  (platformServiceEClass,
+		  (getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "hostOrOrchestrator", "host<>null xor orchestrator<>null"
+			   "body", "host<>null xor orchestrator<>null"
 		   });
 	}
 
