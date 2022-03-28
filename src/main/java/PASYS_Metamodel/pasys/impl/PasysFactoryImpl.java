@@ -8,6 +8,7 @@ import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.CassandraService;
 import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.ComputationalSystem;
+import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeploymentConstraints;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
@@ -32,15 +33,14 @@ import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
 import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
-import PASYS_Metamodel.pasys.PlatformService;
 import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.PortMode;
-import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.Protocol;
+import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SparkService;
@@ -126,13 +126,11 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.SYSTEM_EXTERNAL_ELEMENT: return createSystemExternalElement();
 			case PasysPackage.SYSTEM_ADAPTER: return createSystemAdapter();
 			case PasysPackage.SYSTEM_ELEMENT_ADAPTER: return createSystemElementAdapter();
-			case PasysPackage.PROCESSING_NODE: return createProcessingNode();
 			case PasysPackage.PHYSICAL_PROCESSING_NODE: return createPhysicalProcessingNode();
 			case PasysPackage.AWS_VIRTUAL_PROCESSING_NODE: return createAWSVirtualProcessingNode();
 			case PasysPackage.RESOURCE_CLUSTER: return createResourceCluster();
 			case PasysPackage.NODE_CLUSTER: return createNodeCluster();
 			case PasysPackage.NETWORK: return createNetwork();
-			case PasysPackage.PLATFORM_SERVICE: return createPlatformService();
 			case PasysPackage.KUBERNETES_SERVICE: return createKubernetesService();
 			case PasysPackage.SWARM_SERVICE: return createSwarmService();
 			case PasysPackage.AVRO_SERVICE: return createAVROService();
@@ -143,6 +141,8 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.STORM_SERVICE: return createStormService();
 			case PasysPackage.MEM_SQL_SERVICE: return createMemSQLService();
 			case PasysPackage.CASSANDRA_SERVICE: return createCassandraService();
+			case PasysPackage.DATA_CENTER: return createDataCenter();
+			case PasysPackage.RACK: return createRack();
 			case PasysPackage.NEO4_JSERVICE: return createNeo4JService();
 			case PasysPackage.PROMETHEUS_SERVICE: return createPrometheusService();
 			case PasysPackage.EXPORTER_DATA: return createExporterData();
@@ -288,17 +288,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public ProcessingNode createProcessingNode() {
-		ProcessingNodeImpl processingNode = new ProcessingNodeImpl();
-		return processingNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public PhysicalProcessingNode createPhysicalProcessingNode() {
 		PhysicalProcessingNodeImpl physicalProcessingNode = new PhysicalProcessingNodeImpl();
 		return physicalProcessingNode;
@@ -346,17 +335,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public Network createNetwork() {
 		NetworkImpl network = new NetworkImpl();
 		return network;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PlatformService createPlatformService() {
-		PlatformServiceImpl platformService = new PlatformServiceImpl();
-		return platformService;
 	}
 
 	/**
@@ -467,6 +445,28 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public CassandraService createCassandraService() {
 		CassandraServiceImpl cassandraService = new CassandraServiceImpl();
 		return cassandraService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DataCenter createDataCenter() {
+		DataCenterImpl dataCenter = new DataCenterImpl();
+		return dataCenter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Rack createRack() {
+		RackImpl rack = new RackImpl();
+		return rack;
 	}
 
 	/**

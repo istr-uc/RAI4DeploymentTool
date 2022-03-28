@@ -10,6 +10,7 @@ import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.CommunicationService;
 import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeployableComponent;
 import PASYS_Metamodel.pasys.DeploymentConfiguration;
 import PASYS_Metamodel.pasys.DeploymentConstraints;
@@ -53,6 +54,7 @@ import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
+import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
@@ -268,6 +270,14 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCassandraService(CassandraService object) {
 				return createCassandraServiceAdapter();
+			}
+			@Override
+			public Adapter caseDataCenter(DataCenter object) {
+				return createDataCenterAdapter();
+			}
+			@Override
+			public Adapter caseRack(Rack object) {
+				return createRackAdapter();
 			}
 			@Override
 			public Adapter caseNeo4JService(Neo4JService object) {
@@ -902,6 +912,34 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCassandraServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.DataCenter <em>Data Center</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.DataCenter
+	 * @generated
+	 */
+	public Adapter createDataCenterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.Rack <em>Rack</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.Rack
+	 * @generated
+	 */
+	public Adapter createRackAdapter() {
 		return null;
 	}
 

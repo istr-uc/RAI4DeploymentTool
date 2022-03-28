@@ -57,7 +57,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Tick Time</em>' attribute.
 	 * @see #setTickTime(long)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_TickTime()
-	 * @model default="2000"
+	 * @model default="2000" required="true"
 	 * @generated
 	 */
 	long getTickTime();
@@ -80,7 +80,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Leader Servers</em>' attribute.
 	 * @see #setLeaderServers(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_LeaderServers()
-	 * @model default="true"
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isLeaderServers();
@@ -103,7 +103,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Init Limit</em>' attribute.
 	 * @see #setInitLimit(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_InitLimit()
-	 * @model default="5"
+	 * @model default="5" required="true"
 	 * @generated
 	 */
 	int getInitLimit();
@@ -126,7 +126,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Sync Limit</em>' attribute.
 	 * @see #setSyncLimit(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_SyncLimit()
-	 * @model default="3"
+	 * @model default="3" required="true"
 	 * @generated
 	 */
 	int getSyncLimit();
@@ -149,7 +149,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Client Port</em>' attribute.
 	 * @see #setClientPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_ClientPort()
-	 * @model default="2181"
+	 * @model default="2181" required="true"
 	 * @generated
 	 */
 	int getClientPort();
@@ -172,7 +172,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Peer Port</em>' attribute.
 	 * @see #setPeerPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_PeerPort()
-	 * @model default="2888"
+	 * @model default="2888" required="true"
 	 * @generated
 	 */
 	int getPeerPort();
@@ -195,7 +195,7 @@ public interface ZookeeperService extends DistributionService {
 	 * @return the value of the '<em>Leader Port</em>' attribute.
 	 * @see #setLeaderPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getZookeeperService_LeaderPort()
-	 * @model default="3888"
+	 * @model default="3888" required="true"
 	 * @generated
 	 */
 	int getLeaderPort();

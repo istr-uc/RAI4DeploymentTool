@@ -481,7 +481,7 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		Object object = reader.read();
 
 		// Modify simple properties
-		HashMap map = (HashMap) object;
+		HashMap<String, Object> map = (HashMap) object;   // PAT Antes ponía "HashMap map" solo
 
 		// storm.local.dir
 		map.put("storm.local.dir", getLocalDir());
@@ -491,17 +491,13 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 		// storm.zookeeper.servers
 		List<String> zkServers = new LinkedList<String>();
-		ZookeeperService zk = null;
-		for (PlatformResource rsrc : getZookeeperConnect().getResources()) {
-			if (!(rsrc instanceof ZookeeperService))
-				throw new ConfigurationException(
-						"ZookeeperConnect atribute of StormServer " + getName() + " is not correct");
-			zk = (ZookeeperService) rsrc;
-			zkServers.add(zk.getHost().getIp());
+		ZookeeperService zk = getZookeeperConnect();
+		for (ProcessingNode node : zk.getHost().getNodes()) {
+			zkServers.add(node.getIp());
 		}
 
 		map.put("storm.zookeeper.servers", zkServers);
-		map.put("storm.zookeeper.port", zk.getClientPort());
+		map.put("storm.zookeeper.port",zk.getClientPort());
 
 		// nimbus.seeds
 		List<ProcessingNode> seeds = new LinkedList<ProcessingNode>();

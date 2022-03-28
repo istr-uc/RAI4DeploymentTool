@@ -54,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ProcessingNodeImpl extends PlatformResourceImpl implements ProcessingNode {
+public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements ProcessingNode {
 	/**
 	 * The default value of the '{@link #getIp() <em>Ip</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->

@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class PlatformServiceImpl extends PlatformResourceImpl implements PlatformService {
+public abstract class PlatformServiceImpl extends PlatformResourceImpl implements PlatformService {
 	/**
 	 * The cached value of the '{@link #getDeploymentConfig() <em>Deployment Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -372,18 +372,17 @@ public class PlatformServiceImpl extends PlatformResourceImpl implements Platfor
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public void configureDeployment() throws ConfigurationException {
-		if ((getHost()!=null & getOrchestrator()!=null) | 
-		(getHost()==null & getOrchestrator()==null))
-			throw new ConfigurationException("Error of configuration in Platform Service "+ id);
-			
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 	
 } //PlatformServiceImpl

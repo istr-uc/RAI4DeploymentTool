@@ -16,8 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getNumTokens <em>Num Tokens</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getSeeds <em>Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getSeedProviderClass <em>Seed Provider Class</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getListenAddress <em>Listen Address</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getRpcAddress <em>Rpc Address</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataCenter <em>Data Center</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataFileDir <em>Data File Dir</em>}</li>
@@ -26,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getCqlSchemas <em>Cql Schemas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#isIsSeed <em>Is Seed</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataCenters <em>Data Centers</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService()
@@ -41,7 +40,7 @@ public interface CassandraService extends PersistenceService {
 	 * @return the value of the '<em>Num Tokens</em>' attribute.
 	 * @see #setNumTokens(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_NumTokens()
-	 * @model default="256"
+	 * @model default="256" required="true"
 	 * @generated
 	 */
 	int getNumTokens();
@@ -99,50 +98,6 @@ public interface CassandraService extends PersistenceService {
 	 * @generated
 	 */
 	void setSeedProviderClass(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Listen Address</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Listen Address</em>' reference.
-	 * @see #setListenAddress(ProcessingNode)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_ListenAddress()
-	 * @model
-	 * @generated
-	 */
-	ProcessingNode getListenAddress();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getListenAddress <em>Listen Address</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Listen Address</em>' reference.
-	 * @see #getListenAddress()
-	 * @generated
-	 */
-	void setListenAddress(ProcessingNode value);
-
-	/**
-	 * Returns the value of the '<em><b>Rpc Address</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rpc Address</em>' reference.
-	 * @see #setRpcAddress(ProcessingNode)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_RpcAddress()
-	 * @model
-	 * @generated
-	 */
-	ProcessingNode getRpcAddress();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getRpcAddress <em>Rpc Address</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rpc Address</em>' reference.
-	 * @see #getRpcAddress()
-	 * @generated
-	 */
-	void setRpcAddress(ProcessingNode value);
 
 	/**
 	 * Returns the value of the '<em><b>Endpoint Snitch</b></em>' attribute.
@@ -219,7 +174,7 @@ public interface CassandraService extends PersistenceService {
 	 * @return the value of the '<em>Native Transport Port</em>' attribute.
 	 * @see #setNativeTransportPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_NativeTransportPort()
-	 * @model default="9042"
+	 * @model default="9042" required="true"
 	 * @generated
 	 */
 	int getNativeTransportPort();
@@ -298,7 +253,7 @@ public interface CassandraService extends PersistenceService {
 	 * @return the value of the '<em>Is Seed</em>' attribute.
 	 * @see #setIsSeed(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_IsSeed()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isIsSeed();
@@ -312,5 +267,17 @@ public interface CassandraService extends PersistenceService {
 	 * @generated
 	 */
 	void setIsSeed(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Data Centers</b></em>' reference list.
+	 * The list contents are of type {@link PASYS_Metamodel.pasys.DataCenter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Centers</em>' reference list.
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_DataCenters()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<DataCenter> getDataCenters();
 
 } // CassandraService

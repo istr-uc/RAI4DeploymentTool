@@ -113,7 +113,7 @@ public interface StormService extends SchedulingService {
 	 * @return the value of the '<em>Ui Port</em>' attribute.
 	 * @see #setUiPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_UiPort()
-	 * @model default="8080"
+	 * @model default="8080" required="true"
 	 * @generated
 	 */
 	int getUiPort();

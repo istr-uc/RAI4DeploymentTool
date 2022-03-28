@@ -32,7 +32,7 @@ public interface PrometheusMeter extends Meter {
 	 * @return the value of the '<em>Monitoring Port</em>' attribute.
 	 * @see #setMonitoringPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getPrometheusMeter_MonitoringPort()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getMonitoringPort();
@@ -58,7 +58,7 @@ public interface PrometheusMeter extends Meter {
 	 * @return the value of the '<em>Monitoring Time</em>' attribute.
 	 * @see #setMonitoringTime(long)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getPrometheusMeter_MonitoringTime()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	long getMonitoringTime();

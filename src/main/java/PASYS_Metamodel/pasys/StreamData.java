@@ -93,7 +93,7 @@ public interface StreamData extends DeployableComponent {
 	 * @return the value of the '<em>Cleanup Policy</em>' attribute.
 	 * @see #setCleanupPolicy(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStreamData_CleanupPolicy()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isCleanupPolicy();
@@ -205,7 +205,7 @@ public interface StreamData extends DeployableComponent {
 	 * @return the value of the '<em>Message Size</em>' attribute.
 	 * @see #setMessageSize(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStreamData_MessageSize()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getMessageSize();

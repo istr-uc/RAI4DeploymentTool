@@ -17,7 +17,9 @@ package PASYS_Metamodel.pasys;
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformService()
- * @model
+ * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hostOrOrchestrator'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hostOrOrchestrator='host&lt;&gt;null xor orchestrator&lt;&gt;null'"
  * @generated
  */
 public interface PlatformService extends PlatformResource, DeployableComponent {

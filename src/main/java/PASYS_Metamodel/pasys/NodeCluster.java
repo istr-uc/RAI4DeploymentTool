@@ -12,7 +12,8 @@ import org.eclipse.emf.common.util.EList;
  *
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getNodeCluster()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='allNodes'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot allNodes='resources-&gt;forAll(r|r.oclIsKindOf(ProcessingNode))'"
  * @generated
  */
 public interface NodeCluster extends ResourceCluster {

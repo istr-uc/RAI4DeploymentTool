@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ProcessingNode extends PlatformResource {
@@ -46,7 +46,7 @@ public interface ProcessingNode extends PlatformResource {
 	 * @return the value of the '<em>Concurrency Level</em>' attribute.
 	 * @see #setConcurrencyLevel(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_ConcurrencyLevel()
-	 * @model default="1"
+	 * @model default="1" required="true"
 	 * @generated
 	 */
 	int getConcurrencyLevel();
@@ -240,7 +240,7 @@ public interface ProcessingNode extends PlatformResource {
 	 * @return the value of the '<em>Memory Size</em>' attribute.
 	 * @see #setMemorySize(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_MemorySize()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getMemorySize();
@@ -267,7 +267,7 @@ public interface ProcessingNode extends PlatformResource {
 	 * @return the value of the '<em>Speed Factor</em>' attribute.
 	 * @see #setSpeedFactor(double)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_SpeedFactor()
-	 * @model default="1.0"
+	 * @model default="1.0" required="true"
 	 * @generated
 	 */
 	double getSpeedFactor();

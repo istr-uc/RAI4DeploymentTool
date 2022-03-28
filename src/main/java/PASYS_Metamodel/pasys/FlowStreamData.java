@@ -112,7 +112,7 @@ public interface FlowStreamData extends WorkflowStreamData {
 	 * @return the value of the '<em>Is Implemented</em>' attribute.
 	 * @see #setIsImplemented(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getFlowStreamData_IsImplemented()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isIsImplemented();

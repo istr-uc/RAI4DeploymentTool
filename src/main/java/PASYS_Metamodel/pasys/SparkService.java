@@ -62,7 +62,7 @@ public interface SparkService extends SchedulingService {
 	 * @return the value of the '<em>Driver Cores</em>' attribute.
 	 * @see #setDriverCores(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getSparkService_DriverCores()
-	 * @model default="1"
+	 * @model default="1" required="true"
 	 * @generated
 	 */
 	int getDriverCores();
@@ -108,7 +108,7 @@ public interface SparkService extends SchedulingService {
 	 * @return the value of the '<em>Driver Memory</em>' attribute.
 	 * @see #setDriverMemory(long)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getSparkService_DriverMemory()
-	 * @model default="1000000000"
+	 * @model default="1000000000" required="true"
 	 * @generated
 	 */
 	long getDriverMemory();
@@ -198,7 +198,7 @@ public interface SparkService extends SchedulingService {
 	 * @return the value of the '<em>Executor Memory</em>' attribute.
 	 * @see #setExecutorMemory(long)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getSparkService_ExecutorMemory()
-	 * @model default="1000000000"
+	 * @model default="1000000000" required="true"
 	 * @generated
 	 */
 	long getExecutorMemory();
@@ -243,7 +243,7 @@ public interface SparkService extends SchedulingService {
 	 * @return the value of the '<em>Log Conf</em>' attribute.
 	 * @see #setLogConf(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getSparkService_LogConf()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isLogConf();
@@ -310,7 +310,7 @@ public interface SparkService extends SchedulingService {
 	 * @return the value of the '<em>Driver Superviser</em>' attribute.
 	 * @see #setDriverSuperviser(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getSparkService_DriverSuperviser()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isDriverSuperviser();

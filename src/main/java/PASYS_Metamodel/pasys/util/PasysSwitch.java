@@ -10,6 +10,7 @@ import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.CommunicationService;
 import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeployableComponent;
 import PASYS_Metamodel.pasys.DeploymentConfiguration;
 import PASYS_Metamodel.pasys.DeploymentConstraints;
@@ -53,6 +54,7 @@ import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
+import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
@@ -452,6 +454,20 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDeployableComponent(cassandraService);
 				if (result == null) result = caseSystemElement(cassandraService);
 				if (result == null) result = caseNamedElement(cassandraService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.DATA_CENTER: {
+				DataCenter dataCenter = (DataCenter)theEObject;
+				T result = caseDataCenter(dataCenter);
+				if (result == null) result = caseNamedElement(dataCenter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.RACK: {
+				Rack rack = (Rack)theEObject;
+				T result = caseRack(rack);
+				if (result == null) result = caseNamedElement(rack);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1313,6 +1329,36 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCassandraService(CassandraService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Center</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Center</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataCenter(DataCenter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rack</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rack</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRack(Rack object) {
 		return null;
 	}
 

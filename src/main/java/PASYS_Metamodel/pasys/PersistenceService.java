@@ -74,7 +74,7 @@ public interface PersistenceService extends PlatformService {
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getPersistenceService_Port()
-	 * @model default="9098"
+	 * @model default="9098" required="true"
 	 * @generated
 	 */
 	int getPort();

@@ -66,7 +66,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Auto Create Topic Enable</em>' attribute.
 	 * @see #setAutoCreateTopicEnable(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_AutoCreateTopicEnable()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isAutoCreateTopicEnable();
@@ -89,7 +89,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Delete Topic Enable</em>' attribute.
 	 * @see #setDeleteTopicEnable(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_DeleteTopicEnable()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isDeleteTopicEnable();
@@ -134,7 +134,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Zookeeper Connection Timeout</em>' attribute.
 	 * @see #setZookeeperConnectionTimeout(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_ZookeeperConnectionTimeout()
-	 * @model default="6000"
+	 * @model default="6000" required="true"
 	 * @generated
 	 */
 	int getZookeeperConnectionTimeout();
@@ -157,7 +157,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Num Partitions</em>' attribute.
 	 * @see #setNumPartitions(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_NumPartitions()
-	 * @model default="1"
+	 * @model default="1" required="true"
 	 * @generated
 	 */
 	int getNumPartitions();
@@ -180,7 +180,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Num Recovery Threads Per Data Dir</em>' attribute.
 	 * @see #setNumRecoveryThreadsPerDataDir(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_NumRecoveryThreadsPerDataDir()
-	 * @model default="1"
+	 * @model default="1" required="true"
 	 * @generated
 	 */
 	int getNumRecoveryThreadsPerDataDir();
@@ -203,7 +203,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Log Flush Interval Messages</em>' attribute.
 	 * @see #setLogFlushIntervalMessages(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_LogFlushIntervalMessages()
-	 * @model default="10000"
+	 * @model default="10000" required="true"
 	 * @generated
 	 */
 	int getLogFlushIntervalMessages();
@@ -226,7 +226,7 @@ public interface KafkaService extends CommunicationService {
 	 * @return the value of the '<em>Log Flush Interval</em>' attribute.
 	 * @see #setLogFlushInterval(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_LogFlushInterval()
-	 * @model default="1000"
+	 * @model default="1000" required="true"
 	 * @generated
 	 */
 	int getLogFlushInterval();

@@ -57,7 +57,7 @@ public interface OrchestrationServiceDeploymentConf extends PlatformServiceDeplo
 	 * @return the value of the '<em>Replicas</em>' attribute.
 	 * @see #setReplicas(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_Replicas()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getReplicas();

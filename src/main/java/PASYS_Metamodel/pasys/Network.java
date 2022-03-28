@@ -31,7 +31,7 @@ public interface Network extends PlatformResource {
 	 * @return the value of the '<em>Bandwith</em>' attribute.
 	 * @see #setBandwith(double)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getNetwork_Bandwith()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getBandwith();

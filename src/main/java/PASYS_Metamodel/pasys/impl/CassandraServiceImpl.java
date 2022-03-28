@@ -5,12 +5,12 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.CassandraService;
 import PASYS_Metamodel.pasys.ConfigurationException;
+import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PlatformResource;
-import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.esotericsoftware.yamlbeans.YamlConfig;
@@ -51,8 +52,6 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getNumTokens <em>Num Tokens</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getSeeds <em>Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getSeedProviderClass <em>Seed Provider Class</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getListenAddress <em>Listen Address</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getRpcAddress <em>Rpc Address</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataCenter <em>Data Center</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataFileDir <em>Data File Dir</em>}</li>
@@ -61,6 +60,7 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getCqlSchemas <em>Cql Schemas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#isIsSeed <em>Is Seed</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataCenters <em>Data Centers</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,26 +115,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @ordered
 	 */
 	protected String seedProviderClass = SEED_PROVIDER_CLASS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getListenAddress() <em>Listen Address</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getListenAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProcessingNode listenAddress;
-
-	/**
-	 * The cached value of the '{@link #getRpcAddress() <em>Rpc Address</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRpcAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProcessingNode rpcAddress;
 
 	/**
 	 * The default value of the '{@link #getEndpointSnitch() <em>Endpoint Snitch</em>}' attribute.
@@ -267,6 +247,16 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected boolean isSeed = IS_SEED_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getDataCenters() <em>Data Centers</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataCenters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataCenter> dataCenters;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -369,86 +359,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		seedProviderClass = newSeedProviderClass;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS, oldSeedProviderClass, seedProviderClass));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ProcessingNode getListenAddress() {
-		if (listenAddress != null && listenAddress.eIsProxy()) {
-			InternalEObject oldListenAddress = (InternalEObject)listenAddress;
-			listenAddress = (ProcessingNode)eResolveProxy(oldListenAddress);
-			if (listenAddress != oldListenAddress) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVICE__LISTEN_ADDRESS, oldListenAddress, listenAddress));
-			}
-		}
-		return listenAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessingNode basicGetListenAddress() {
-		return listenAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setListenAddress(ProcessingNode newListenAddress) {
-		ProcessingNode oldListenAddress = listenAddress;
-		listenAddress = newListenAddress;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__LISTEN_ADDRESS, oldListenAddress, listenAddress));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ProcessingNode getRpcAddress() {
-		if (rpcAddress != null && rpcAddress.eIsProxy()) {
-			InternalEObject oldRpcAddress = (InternalEObject)rpcAddress;
-			rpcAddress = (ProcessingNode)eResolveProxy(oldRpcAddress);
-			if (rpcAddress != oldRpcAddress) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVICE__RPC_ADDRESS, oldRpcAddress, rpcAddress));
-			}
-		}
-		return rpcAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessingNode basicGetRpcAddress() {
-		return rpcAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRpcAddress(ProcessingNode newRpcAddress) {
-		ProcessingNode oldRpcAddress = rpcAddress;
-		rpcAddress = newRpcAddress;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__RPC_ADDRESS, oldRpcAddress, rpcAddress));
 	}
 
 	/**
@@ -665,6 +575,19 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @generated
 	 */
 	@Override
+	public EList<DataCenter> getDataCenters() {
+		if (dataCenters == null) {
+			dataCenters = new EObjectResolvingEList<DataCenter>(DataCenter.class, this, PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS);
+		}
+		return dataCenters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
@@ -688,12 +611,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return basicGetSeeds();
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				return getSeedProviderClass();
-			case PasysPackage.CASSANDRA_SERVICE__LISTEN_ADDRESS:
-				if (resolve) return getListenAddress();
-				return basicGetListenAddress();
-			case PasysPackage.CASSANDRA_SERVICE__RPC_ADDRESS:
-				if (resolve) return getRpcAddress();
-				return basicGetRpcAddress();
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				return getEndpointSnitch();
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTER:
@@ -712,6 +629,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return getCqlSchemas();
 			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
 				return isIsSeed();
+			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
+				return getDataCenters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -733,12 +652,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				setSeedProviderClass((String)newValue);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__LISTEN_ADDRESS:
-				setListenAddress((ProcessingNode)newValue);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__RPC_ADDRESS:
-				setRpcAddress((ProcessingNode)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				setEndpointSnitch((String)newValue);
@@ -765,6 +678,10 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
 				setIsSeed((Boolean)newValue);
 				return;
+			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
+				getDataCenters().clear();
+				getDataCenters().addAll((Collection<? extends DataCenter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -785,12 +702,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				setSeedProviderClass(SEED_PROVIDER_CLASS_EDEFAULT);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__LISTEN_ADDRESS:
-				setListenAddress((ProcessingNode)null);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__RPC_ADDRESS:
-				setRpcAddress((ProcessingNode)null);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				setEndpointSnitch(ENDPOINT_SNITCH_EDEFAULT);
@@ -816,6 +727,9 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
 				setIsSeed(IS_SEED_EDEFAULT);
 				return;
+			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
+				getDataCenters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -834,10 +748,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return seeds != null;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				return SEED_PROVIDER_CLASS_EDEFAULT == null ? seedProviderClass != null : !SEED_PROVIDER_CLASS_EDEFAULT.equals(seedProviderClass);
-			case PasysPackage.CASSANDRA_SERVICE__LISTEN_ADDRESS:
-				return listenAddress != null;
-			case PasysPackage.CASSANDRA_SERVICE__RPC_ADDRESS:
-				return rpcAddress != null;
 			case PasysPackage.CASSANDRA_SERVICE__ENDPOINT_SNITCH:
 				return ENDPOINT_SNITCH_EDEFAULT == null ? endpointSnitch != null : !ENDPOINT_SNITCH_EDEFAULT.equals(endpointSnitch);
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTER:
@@ -854,6 +764,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return cqlSchemas != null && !cqlSchemas.isEmpty();
 			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
 				return isSeed != IS_SEED_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
+				return dataCenters != null && !dataCenters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

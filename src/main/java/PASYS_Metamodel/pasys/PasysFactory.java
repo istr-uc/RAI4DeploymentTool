@@ -58,15 +58,6 @@ public interface PasysFactory extends EFactory {
 	SystemElementAdapter createSystemElementAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Processing Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Processing Node</em>'.
-	 * @generated
-	 */
-	ProcessingNode createProcessingNode();
-
-	/**
 	 * Returns a new object of class '<em>Physical Processing Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,15 +101,6 @@ public interface PasysFactory extends EFactory {
 	 * @generated
 	 */
 	Network createNetwork();
-
-	/**
-	 * Returns a new object of class '<em>Platform Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Platform Service</em>'.
-	 * @generated
-	 */
-	PlatformService createPlatformService();
 
 	/**
 	 * Returns a new object of class '<em>Kubernetes Service</em>'.
@@ -209,6 +191,24 @@ public interface PasysFactory extends EFactory {
 	 * @generated
 	 */
 	CassandraService createCassandraService();
+
+	/**
+	 * Returns a new object of class '<em>Data Center</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Center</em>'.
+	 * @generated
+	 */
+	DataCenter createDataCenter();
+
+	/**
+	 * Returns a new object of class '<em>Rack</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rack</em>'.
+	 * @generated
+	 */
+	Rack createRack();
 
 	/**
 	 * Returns a new object of class '<em>Neo4 JService</em>'.

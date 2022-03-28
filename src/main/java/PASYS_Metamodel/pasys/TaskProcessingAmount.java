@@ -91,7 +91,7 @@ public interface TaskProcessingAmount extends Metric {
 	 * @return the value of the '<em>Histogram Buckect Num</em>' attribute.
 	 * @see #setHistogramBuckectNum(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getTaskProcessingAmount_HistogramBuckectNum()
-	 * @model default="11"
+	 * @model default="11" required="true"
 	 * @generated
 	 */
 	int getHistogramBuckectNum();
@@ -170,7 +170,7 @@ public interface TaskProcessingAmount extends Metric {
 	 * @return the value of the '<em>Linear Bucket Distribution</em>' attribute.
 	 * @see #setLinearBucketDistribution(boolean)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getTaskProcessingAmount_LinearBucketDistribution()
-	 * @model default="true"
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isLinearBucketDistribution();
