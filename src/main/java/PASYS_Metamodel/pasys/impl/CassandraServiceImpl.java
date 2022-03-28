@@ -11,6 +11,8 @@ import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PlatformResource;
+import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
@@ -21,6 +23,8 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -805,7 +809,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 */
 	@Override
 	public void configureDeployment() throws ConfigurationException {
-		super.configureDeployment();
 		if (getHost()!=null)
 			configureDeploymentOnHost();
 		else
@@ -957,4 +960,21 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		return seeds;
 	}
 	
+	private Map<String, String> rackConfiguration() {
+		// Rack configuration file generation
+	//String rackProps = "dc=" + getDataCenter().getName() + "\n";
+	//rackProps += "rack=" + getRack().getName();
+		Map<String, String> map = new HashMap<String, String>();
+		List<DataCenter> dcList= getDataCenters();
+		
+		for (DataCenter dc:dcList) {
+			List<Rack> rackList = dc.getRacks();
+			for (Rack rack: rackList) {
+				for (ProcessingNode node:rack.getNodes().getNodes()) {
+					map.put(node.getIp(), "dc="+dc.getName()+"\n"+"rack="+rack.getName());
+				}
+			}
+		}
+		return map;
+	}
 } //CassandraServiceImpl

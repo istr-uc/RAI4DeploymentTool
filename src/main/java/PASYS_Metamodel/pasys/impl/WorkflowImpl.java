@@ -582,6 +582,11 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 			te.configureDeployment();
 		} // end for TaskExecutor
 
+		
+		if (getScheduler().getHost()!=null) 
+			configureDeploymentOnHost();
+		else 
+			configureDeploymentOnOrchestrator();
 		// ownedMeters configuration
 		// for lm:LatencyMeter in this.ownedMeters (Este no se si es as�)
 		// for node:ProcessingNode in lm.getHosts()
@@ -592,50 +597,65 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 		// del workflow los que no est�n referenciados como predecessor de
 		// nadie)
 		//
-
-		// Script generation
-		SchedulingService server = getScheduler();
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
-		if (server instanceof StormService) {
-			String scriptName = "Workflow" + this.getId() + ".sh";
-			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(),
-					generateScriptContent(), SystemComponentType.WORKFLOW);
-			server.getHost().getLaunchingScripts().add(script);
-
-			// Artifact to move to the corresponding nodes
-			ArtifactDescriptor artifact = new ArtifactDescriptorImpl(conf.getArtifactName(), conf.getScriptFolderPath(),
-					conf.getArtifactLocator());
-			server.getHost().getCodeFiles().add(artifact);
-		}
-
+		
 		// // Instanciaci�n del workflow y del latencyMeter
-		// scriptFile.add(java +
-		// for lm: ownedMeter
-		// +
-		// "-javaagent:/home/apache/prometheus/latencyAgent/latencyAgent.jar="+
-		// lm.id + ";" + this.configFolder+"/"+<node.id>+"config.cfg"+
-		// -jar artifactID + this.arguments)
-		// }
+				// scriptFile.add(java +
+				// for lm: ownedMeter
+				// +
+				// "-javaagent:/home/apache/prometheus/latencyAgent/latencyAgent.jar="+
+				// lm.id + ";" + this.configFolder+"/"+<node.id>+"config.cfg"+
+				// -jar artifactID + this.arguments)
+				// }
 
-		// Configuraci�n del propio Workflow �Hace falta? o de los
-		// StreamData
+				// Configuraci�n del propio Workflow �Hace falta? o de los
+				// StreamData
 
 	}
 	
-	private String generateScriptContent() {
-		String scriptContent;
+	private void configureDeploymentOnHost() {
+		// Script generation
 		SchedulingService server = getScheduler();
-		if (server.getContainer()!=null) {
-			DockerContainer container = (DockerContainer)server.getContainer();
-			String serviceName= container.getService().getName();
-			scriptContent= "docker exec $(docker ps | grep "+serviceName+ " | awk {print $1}) storm";
-		} else {
-			scriptContent = server.getArtifactLocator() + "/" + server.getArtifactName(); 
-		}
-		scriptContent+=" jar " + scriptFolderPath
-				+ "/" + getArtifactName() + " " + rootTask.getImplementingClassName();
-		 if (getArguments().size() > 0)
-			scriptContent += " " + DeploymentToolsUtils.argumentsToString(arguments);
-		return scriptContent;
+		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeClusterDeploymentConf serverConf = (NodeClusterDeploymentConf) server.getDeploymentConfig();
+		if (server instanceof StormService) {
+			String scriptName = "Workflow" + this.getId() + ".sh";
+			
+			String scriptContent = serverConf.getArtifactLocator()+ "/"+serverConf.getArtifactName();
+			scriptContent+=" jar " + conf.getScriptFolderPath()
+					+ "/" + conf.getArtifactName() + " " + rootTask.getImplementingClassName();
+			 if (conf.getArguments().size() > 0)
+				scriptContent += " " + DeploymentToolsUtils.argumentsToString(conf.getArguments());
+			
+			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(),
+					scriptContent, SystemComponentType.WORKFLOW);
+			// It is enough with deploying the workflow in only one of the nodes
+			server.getHost().getNodes().get(0).getLaunchingScripts().add(script);
+			// Artifact to move to the corresponding nodes
+			ArtifactDescriptor artifact = new ArtifactDescriptorImpl(conf.getArtifactName(), conf.getScriptFolderPath(),
+					conf.getArtifactLocator());
+			server.getHost().getNodes().get(0).getCodeFiles().add(artifact); 
+		}		
+
 	}
+	
+	private void configureDeploymentOnOrchestrator() {
+		
+	}
+	
+	//private String generateScriptContent() {
+		//String scriptContent;
+		//SchedulingService server = getScheduler();
+		//if (server.getOrchestrator()!=null) {
+			//DockerContainer container = (DockerContainer)server.getContainer();
+			//String serviceName= container.getService().getName();
+			//scriptContent= "docker exec $(docker ps | grep "+serviceName+ " | awk {print $1}) storm";
+	//	} else {
+			//scriptContent = server.getArtifactLocator() + "/" + server.getArtifactName(); 
+		//}
+		//scriptContent+=" jar " + scriptFolderPath
+			//	+ "/" + getArtifactName() + " " + rootTask.getImplementingClassName();
+		 //if (getArguments().size() > 0)
+			//scriptContent += " " + DeploymentToolsUtils.argumentsToString(arguments);
+		//return scriptContent;
+	//}
 } // WorkflowImpl

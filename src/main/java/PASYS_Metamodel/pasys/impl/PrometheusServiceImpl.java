@@ -169,12 +169,10 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 			configureDeploymentOnHost();
 		else
 			configureDeploymentOnOrchestrator();
-		
 	}
 	
 	private void configureDeploymentOnOrchestrator() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	private void configureDeploymentOnHost() throws ConfigurationException {
