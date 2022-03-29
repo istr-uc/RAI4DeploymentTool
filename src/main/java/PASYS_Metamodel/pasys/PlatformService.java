@@ -2,10 +2,6 @@
  */
 package PASYS_Metamodel.pasys;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Platform Service</b></em>'.
@@ -22,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformService()
  * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hostOrOrchestrator'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hostOrOrchestrator='host&lt;&gt;null xor orchestrator&lt;&gt;null'"
  * @generated
  */
 public interface PlatformService extends PlatformResource, DeployableComponent {
@@ -68,13 +65,5 @@ public interface PlatformService extends PlatformResource, DeployableComponent {
 	 * @generated
 	 */
 	void setOrchestrator(OrchestrationService value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='host&lt;&gt;null xor orchestrator&lt;&gt;null'"
-	 * @generated
-	 */
-	boolean hostOrOrchestrator(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // PlatformService

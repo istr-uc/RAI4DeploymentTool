@@ -100,7 +100,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1455,16 +1454,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getPlatformService__HostOrOrchestrator__DiagnosticChain_Map() {
-		return platformServiceEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getOrchestrationService() {
 		return orchestrationServiceEClass;
 	}
@@ -2045,16 +2034,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStormService_IsNimbus() {
-		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPersistenceService() {
 		return persistenceServiceEClass;
 	}
@@ -2175,18 +2154,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getCassandraService_Rack() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getCassandraService_AutoBootstrap() {
-		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2196,17 +2165,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EReference getCassandraService_CqlSchemas() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCassandraService_IsSeed() {
-		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(9);
+		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2216,7 +2175,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 */
 	@Override
 	public EReference getCassandraService_DataCenters() {
-		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(10);
+		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3795,16 +3754,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getNodeCluster__AllNodes__DiagnosticChain_Map() {
-		return nodeClusterEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPrometheusMeter() {
 		return prometheusMeterEClass;
 	}
@@ -4011,7 +3960,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		nodeClusterEClass = createEClass(NODE_CLUSTER);
 		createEOperation(nodeClusterEClass, NODE_CLUSTER___GET_NODES);
-		createEOperation(nodeClusterEClass, NODE_CLUSTER___ALL_NODES__DIAGNOSTICCHAIN_MAP);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__BANDWITH);
@@ -4019,7 +3967,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServiceEClass = createEClass(PLATFORM_SERVICE);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__HOST);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__ORCHESTRATOR);
-		createEOperation(platformServiceEClass, PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP);
 
 		orchestrationServiceEClass = createEClass(ORCHESTRATION_SERVICE);
 
@@ -4091,7 +4038,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEReference(stormServiceEClass, STORM_SERVICE__NIMBUS_SEEDS);
 		createEAttribute(stormServiceEClass, STORM_SERVICE__SUPERVISOR_SLOT_PORTS);
 		createEAttribute(stormServiceEClass, STORM_SERVICE__UI_PORT);
-		createEAttribute(stormServiceEClass, STORM_SERVICE__IS_NIMBUS);
 
 		persistenceServiceEClass = createEClass(PERSISTENCE_SERVICE);
 		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__LOGGING);
@@ -4107,10 +4053,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__ENDPOINT_SNITCH);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__DATA_FILE_DIR);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT);
-		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__RACK);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__AUTO_BOOTSTRAP);
 		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__CQL_SCHEMAS);
-		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__IS_SEED);
 		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__DATA_CENTERS);
 
 		dataCenterEClass = createEClass(DATA_CENTER);
@@ -4523,30 +4467,12 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEOperation(getNodeCluster__GetNodes(), this.getProcessingNode(), "getNodes", 1, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNodeCluster__AllNodes__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "allNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 1, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformServiceEClass, PlatformService.class, "PlatformService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlatformService_Host(), this.getNodeCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), null, "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hostOrOrchestrator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(orchestrationServiceEClass, OrchestrationService.class, "OrchestrationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4618,7 +4544,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEReference(getStormService_NimbusSeeds(), this.getNodeCluster(), null, "nimbusSeeds", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_SupervisorSlotPorts(), ecorePackage.getEInt(), "supervisorSlotPorts", null, 0, -1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStormService_IsNimbus(), ecorePackage.getEBoolean(), "isNimbus", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistenceServiceEClass, PersistenceService.class, "PersistenceService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistenceService_Logging(), ecorePackage.getEString(), "logging", null, 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4634,10 +4559,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getCassandraService_EndpointSnitch(), ecorePackage.getEString(), "endpointSnitch", "SimpleSnitch", 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_DataFileDir(), ecorePackage.getEString(), "dataFileDir", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_NativeTransportPort(), ecorePackage.getEInt(), "nativeTransportPort", "9042", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCassandraService_Rack(), this.getResourceCluster(), null, "rack", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_AutoBootstrap(), ecorePackage.getEBoolean(), "autoBootstrap", "false", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCassandraService_CqlSchemas(), this.getFileDescriptor(), null, "cqlSchemas", null, 0, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCassandraService_IsSeed(), ecorePackage.getEBoolean(), "isSeed", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCassandraService_DataCenters(), this.getDataCenter(), null, "dataCenters", null, 1, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataCenterEClass, DataCenter.class, "DataCenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4928,6 +4851,9 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		  (this,
 		   source,
 		   new String[] {
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
 		   });
 		addAnnotation
 		  (nodeClusterEClass,
@@ -4952,16 +4878,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	protected void createPivotAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
 		addAnnotation
-		  (getNodeCluster__AllNodes__DiagnosticChain_Map(),
+		  (nodeClusterEClass,
 		   source,
 		   new String[] {
-			   "body", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
+			   "allNodes", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
 		   });
 		addAnnotation
-		  (getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(),
+		  (platformServiceEClass,
 		   source,
 		   new String[] {
-			   "body", "host<>null xor orchestrator<>null"
+			   "hostOrOrchestrator", "host<>null xor orchestrator<>null"
 		   });
 	}
 

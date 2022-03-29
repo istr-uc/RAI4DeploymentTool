@@ -270,8 +270,6 @@
           upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiPort" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="8080"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNimbus" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PersistenceService" abstract="true"
         eSuperTypes="#//pasys/PlatformService">
@@ -296,15 +294,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativeTransportPort"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="9042"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rack" lowerBound="1"
-          eType="#//pasys/ResourceCluster"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoBootstrap" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="cqlSchemas" upperBound="-1"
           eType="#//pasys/FileDescriptor" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSeed" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataCenters" lowerBound="1"
           upperBound="-1" eType="#//pasys/DataCenter" containment="true"/>
     </eClassifiers>

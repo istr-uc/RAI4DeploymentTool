@@ -81,8 +81,7 @@
       passwd="root"
       seeds="//@ownedElements.1"
       seedProviderClass="SimpleSeedProvider"
-      dataFileDir="/home/gestor/apache/Services/cassandra/data/data"
-      rack="//@ownedElements.1">
+      dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/services/cassandra/bin"
@@ -110,8 +109,7 @@
       host="//@ownedElements.1"
       workflows="//@ownedElements.7"
       zookeeperConnect="2"
-      nimbusSeeds="//@ownedElements.1"
-      isNimbus="true">
+      nimbusSeeds="//@ownedElements.1">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/services/storm/bin"

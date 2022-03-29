@@ -13,7 +13,6 @@ import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.Rack;
-import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
@@ -57,10 +56,8 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataFileDir <em>Data File Dir</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getNativeTransportPort <em>Native Transport Port</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getRack <em>Rack</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getCqlSchemas <em>Cql Schemas</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#isIsSeed <em>Is Seed</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataCenters <em>Data Centers</em>}</li>
  * </ul>
  *
@@ -172,16 +169,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected int nativeTransportPort = NATIVE_TRANSPORT_PORT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRack() <em>Rack</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getRack()
-	 * @generated
-	 * @ordered
-	 */
-	protected ResourceCluster rack;
-
-	/**
 	 * The default value of the '{@link #isAutoBootstrap() <em>Auto Bootstrap</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAutoBootstrap()
@@ -207,24 +194,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @ordered
 	 */
 	protected EList<FileDescriptor> cqlSchemas;
-
-	/**
-	 * The default value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsSeed()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_SEED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsSeed() <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsSeed()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isSeed = IS_SEED_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDataCenters() <em>Data Centers</em>}' containment reference list.
@@ -399,43 +368,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @generated
 	 */
 	@Override
-	public ResourceCluster getRack() {
-		if (rack != null && rack.eIsProxy()) {
-			InternalEObject oldRack = (InternalEObject)rack;
-			rack = (ResourceCluster)eResolveProxy(oldRack);
-			if (rack != oldRack) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVICE__RACK, oldRack, rack));
-			}
-		}
-		return rack;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceCluster basicGetRack() {
-		return rack;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRack(ResourceCluster newRack) {
-		ResourceCluster oldRack = rack;
-		rack = newRack;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__RACK, oldRack, rack));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean isAutoBootstrap() {
 		return autoBootstrap;
 	}
@@ -462,27 +394,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			cqlSchemas = new EObjectContainmentEList<FileDescriptor>(FileDescriptor.class, this, PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS);
 		}
 		return cqlSchemas;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isIsSeed() {
-		return isSeed;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsSeed(boolean newIsSeed) {
-		boolean oldIsSeed = isSeed;
-		isSeed = newIsSeed;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__IS_SEED, oldIsSeed, isSeed));
 	}
 
 	/**
@@ -532,15 +443,10 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return getDataFileDir();
 			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
 				return getNativeTransportPort();
-			case PasysPackage.CASSANDRA_SERVICE__RACK:
-				if (resolve) return getRack();
-				return basicGetRack();
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				return isAutoBootstrap();
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				return getCqlSchemas();
-			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
-				return isIsSeed();
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				return getDataCenters();
 		}
@@ -573,18 +479,12 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
 				setNativeTransportPort((Integer)newValue);
 				return;
-			case PasysPackage.CASSANDRA_SERVICE__RACK:
-				setRack((ResourceCluster)newValue);
-				return;
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				setAutoBootstrap((Boolean)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				getCqlSchemas().clear();
 				getCqlSchemas().addAll((Collection<? extends FileDescriptor>)newValue);
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
-				setIsSeed((Boolean)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				getDataCenters().clear();
@@ -619,17 +519,11 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
 				setNativeTransportPort(NATIVE_TRANSPORT_PORT_EDEFAULT);
 				return;
-			case PasysPackage.CASSANDRA_SERVICE__RACK:
-				setRack((ResourceCluster)null);
-				return;
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				setAutoBootstrap(AUTO_BOOTSTRAP_EDEFAULT);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				getCqlSchemas().clear();
-				return;
-			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
-				setIsSeed(IS_SEED_EDEFAULT);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				getDataCenters().clear();
@@ -657,14 +551,10 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return DATA_FILE_DIR_EDEFAULT == null ? dataFileDir != null : !DATA_FILE_DIR_EDEFAULT.equals(dataFileDir);
 			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
 				return nativeTransportPort != NATIVE_TRANSPORT_PORT_EDEFAULT;
-			case PasysPackage.CASSANDRA_SERVICE__RACK:
-				return rack != null;
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				return autoBootstrap != AUTO_BOOTSTRAP_EDEFAULT;
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				return cqlSchemas != null && !cqlSchemas.isEmpty();
-			case PasysPackage.CASSANDRA_SERVICE__IS_SEED:
-				return isSeed != IS_SEED_EDEFAULT;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				return dataCenters != null && !dataCenters.isEmpty();
 		}
@@ -692,8 +582,6 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		result.append(nativeTransportPort);
 		result.append(", autoBootstrap: ");
 		result.append(autoBootstrap);
-		result.append(", isSeed: ");
-		result.append(isSeed);
 		result.append(')');
 		return result.toString();
 	}

@@ -214,7 +214,6 @@
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/nimbusSeeds"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/supervisorSlotPorts"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/uiPort"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/isNimbus"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PersistenceService">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceService/logging"/>
@@ -230,11 +229,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/endpointSnitch"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/dataFileDir"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/nativeTransportPort"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/rack"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/autoBootstrap"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/cqlSchemas"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/isSeed"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/dataCenters"/>
       </genClasses>

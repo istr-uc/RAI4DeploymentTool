@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getNimbusSeeds <em>Nimbus Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getSupervisorSlotPorts <em>Supervisor Slot Ports</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getUiPort <em>Ui Port</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.StormService#isIsNimbus <em>Is Nimbus</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getStormService()
@@ -127,27 +126,5 @@ public interface StormService extends SchedulingService {
 	 * @generated
 	 */
 	void setUiPort(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Nimbus</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Nimbus</em>' attribute.
-	 * @see #setIsNimbus(boolean)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_IsNimbus()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isIsNimbus();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#isIsNimbus <em>Is Nimbus</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Nimbus</em>' attribute.
-	 * @see #isIsNimbus()
-	 * @generated
-	 */
-	void setIsNimbus(boolean value);
 
 } // StormService

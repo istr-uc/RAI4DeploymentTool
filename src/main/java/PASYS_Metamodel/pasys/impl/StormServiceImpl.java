@@ -48,7 +48,6 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getNimbusSeeds <em>Nimbus Seeds</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getSupervisorSlotPorts <em>Supervisor Slot Ports</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#getUiPort <em>Ui Port</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.StormServiceImpl#isIsNimbus <em>Is Nimbus</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,24 +115,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	 * @ordered
 	 */
 	protected int uiPort = UI_PORT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsNimbus()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_NIMBUS_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsNimbus() <em>Is Nimbus</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsNimbus()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isNimbus = IS_NIMBUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -286,27 +267,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	 * @generated
 	 */
 	@Override
-	public boolean isIsNimbus() {
-		return isNimbus;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsNimbus(boolean newIsNimbus) {
-		boolean oldIsNimbus = isNimbus;
-		isNimbus = newIsNimbus;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SERVICE__IS_NIMBUS, oldIsNimbus, isNimbus));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PasysPackage.STORM_SERVICE__ZOOKEEPER_CONNECT:
@@ -321,8 +281,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 				return getSupervisorSlotPorts();
 			case PasysPackage.STORM_SERVICE__UI_PORT:
 				return getUiPort();
-			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-				return isIsNimbus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -351,9 +309,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 			case PasysPackage.STORM_SERVICE__UI_PORT:
 				setUiPort((Integer)newValue);
 				return;
-			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-				setIsNimbus((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -380,9 +335,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 			case PasysPackage.STORM_SERVICE__UI_PORT:
 				setUiPort(UI_PORT_EDEFAULT);
 				return;
-			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-				setIsNimbus(IS_NIMBUS_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,8 +356,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 				return supervisorSlotPorts != null && !supervisorSlotPorts.isEmpty();
 			case PasysPackage.STORM_SERVICE__UI_PORT:
 				return uiPort != UI_PORT_EDEFAULT;
-			case PasysPackage.STORM_SERVICE__IS_NIMBUS:
-				return isNimbus != IS_NIMBUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -425,8 +375,6 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		result.append(supervisorSlotPorts);
 		result.append(", uiPort: ");
 		result.append(uiPort);
-		result.append(", isNimbus: ");
-		result.append(isNimbus);
 		result.append(')');
 		return result.toString();
 	}
@@ -458,7 +406,7 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("storm.yaml",
 					conf.getConfigFolderPath(), generateConfigFileContent(), SystemComponentType.STORM_NIMBUS);
 			// Script generation
-			DeploymentFileDescriptor script = generateScript(this.isNimbus);
+			DeploymentFileDescriptor script = generateScript(true); // TODO 
 			
 			for (ProcessingNode node: getHost().getNodes()) {
 				node.getLaunchingScripts().add(script);

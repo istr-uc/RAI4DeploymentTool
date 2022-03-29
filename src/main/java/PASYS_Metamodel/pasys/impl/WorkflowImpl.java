@@ -617,6 +617,7 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 		SchedulingService server = getScheduler();
 		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
 		NodeClusterDeploymentConf serverConf = (NodeClusterDeploymentConf) server.getDeploymentConfig();
+		
 		if (server instanceof StormService) {
 			String scriptName = "Workflow" + this.getId() + ".sh";
 			

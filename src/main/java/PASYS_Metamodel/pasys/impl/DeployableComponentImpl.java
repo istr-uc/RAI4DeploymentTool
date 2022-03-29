@@ -115,7 +115,9 @@ public abstract class DeployableComponentImpl extends MinimalEObjectImpl.Contain
 	 */
 	@Override
 	public void configureDeployment() throws ConfigurationException {
-		throw new UnsupportedOperationException();  // FIXME Unimplemented www.unican.es/ISTR/P3forI4/pasys!DeployableComponent!configureDeployment()
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

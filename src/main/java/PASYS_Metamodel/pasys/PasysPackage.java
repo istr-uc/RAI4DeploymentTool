@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see PASYS_Metamodel.pasys.PasysFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface PasysPackage extends EPackage {
@@ -1899,22 +1899,13 @@ public interface PasysPackage extends EPackage {
 	int NODE_CLUSTER___GET_NODES = RESOURCE_CLUSTER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>All Nodes</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER___ALL_NODES__DIAGNOSTICCHAIN_MAP = RESOURCE_CLUSTER_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Node Cluster</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_CLUSTER_OPERATION_COUNT = RESOURCE_CLUSTER_OPERATION_COUNT + 2;
+	int NODE_CLUSTER_OPERATION_COUNT = RESOURCE_CLUSTER_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2053,22 +2044,13 @@ public interface PasysPackage extends EPackage {
 	int PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_RESOURCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_RESOURCE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Platform Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLATFORM_SERVICE_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 2;
+	int PLATFORM_SERVICE_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl <em>Orchestration Service</em>}' class.
@@ -2151,15 +2133,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int ORCHESTRATION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Orchestration Service</em>' class.
@@ -2262,15 +2235,6 @@ public interface PasysPackage extends EPackage {
 	int KUBERNETES_SERVICE___CONFIGURE_DEPLOYMENT = ORCHESTRATION_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = ORCHESTRATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Kubernetes Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2360,15 +2324,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int SWARM_SERVICE___CONFIGURE_DEPLOYMENT = ORCHESTRATION_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = ORCHESTRATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Swarm Service</em>' class.
@@ -2462,15 +2417,6 @@ public interface PasysPackage extends EPackage {
 	int SERIALIZATION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERIALIZATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Serialization Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2562,15 +2508,6 @@ public interface PasysPackage extends EPackage {
 	int AVRO_SERVICE___CONFIGURE_DEPLOYMENT = SERIALIZATION_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = SERIALIZATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>AVRO Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2660,15 +2597,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int DISTRIBUTION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Distribution Service</em>' class.
@@ -2834,15 +2762,6 @@ public interface PasysPackage extends EPackage {
 	int ZOOKEEPER_SERVICE___CONFIGURE_DEPLOYMENT = DISTRIBUTION_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZOOKEEPER_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = DISTRIBUTION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Zookeeper Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2932,15 +2851,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMUNICATION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Communication Service</em>' class.
@@ -3187,15 +3097,6 @@ public interface PasysPackage extends EPackage {
 	int KAFKA_SERVICE___CONFIGURE_DEPLOYMENT = COMMUNICATION_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KAFKA_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = COMMUNICATION_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Kafka Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3296,15 +3197,6 @@ public interface PasysPackage extends EPackage {
 	int SCHEDULING_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Scheduling Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3393,15 +3285,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_SCHEDULER___CONFIGURE_DEPLOYMENT = SCHEDULING_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_SCHEDULER___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = SCHEDULING_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Node Scheduler</em>' class.
@@ -3621,15 +3504,6 @@ public interface PasysPackage extends EPackage {
 	int SPARK_SERVICE___CONFIGURE_DEPLOYMENT = SCHEDULING_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPARK_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = SCHEDULING_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Spark Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3757,22 +3631,13 @@ public interface PasysPackage extends EPackage {
 	int STORM_SERVICE__UI_PORT = SCHEDULING_SERVICE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Is Nimbus</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORM_SERVICE__IS_NIMBUS = SCHEDULING_SERVICE_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Storm Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORM_SERVICE_FEATURE_COUNT = SCHEDULING_SERVICE_FEATURE_COUNT + 6;
+	int STORM_SERVICE_FEATURE_COUNT = SCHEDULING_SERVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -3782,15 +3647,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int STORM_SERVICE___CONFIGURE_DEPLOYMENT = SCHEDULING_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = SCHEDULING_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Storm Service</em>' class.
@@ -3911,15 +3767,6 @@ public interface PasysPackage extends EPackage {
 	int PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSISTENCE_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Persistence Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4036,15 +3883,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEM_SQL_SERVICE___CONFIGURE_DEPLOYMENT = PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEM_SQL_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PERSISTENCE_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Mem SQL Service</em>' class.
@@ -4201,22 +4039,13 @@ public interface PasysPackage extends EPackage {
 	int CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT = PERSISTENCE_SERVICE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Rack</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CASSANDRA_SERVICE__RACK = PERSISTENCE_SERVICE_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Auto Bootstrap</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASSANDRA_SERVICE__AUTO_BOOTSTRAP = PERSISTENCE_SERVICE_FEATURE_COUNT + 7;
+	int CASSANDRA_SERVICE__AUTO_BOOTSTRAP = PERSISTENCE_SERVICE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Cql Schemas</b></em>' containment reference list.
@@ -4225,16 +4054,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CASSANDRA_SERVICE__CQL_SCHEMAS = PERSISTENCE_SERVICE_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Is Seed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CASSANDRA_SERVICE__IS_SEED = PERSISTENCE_SERVICE_FEATURE_COUNT + 9;
+	int CASSANDRA_SERVICE__CQL_SCHEMAS = PERSISTENCE_SERVICE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Data Centers</b></em>' containment reference list.
@@ -4243,7 +4063,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CASSANDRA_SERVICE__DATA_CENTERS = PERSISTENCE_SERVICE_FEATURE_COUNT + 10;
+	int CASSANDRA_SERVICE__DATA_CENTERS = PERSISTENCE_SERVICE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Cassandra Service</em>' class.
@@ -4252,7 +4072,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CASSANDRA_SERVICE_FEATURE_COUNT = PERSISTENCE_SERVICE_FEATURE_COUNT + 11;
+	int CASSANDRA_SERVICE_FEATURE_COUNT = PERSISTENCE_SERVICE_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -4262,15 +4082,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int CASSANDRA_SERVICE___CONFIGURE_DEPLOYMENT = PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CASSANDRA_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PERSISTENCE_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Cassandra Service</em>' class.
@@ -4501,15 +4312,6 @@ public interface PasysPackage extends EPackage {
 	int NEO4_JSERVICE___CONFIGURE_DEPLOYMENT = PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PERSISTENCE_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Neo4 JService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4608,15 +4410,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int MONITORING_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Monitoring Service</em>' class.
@@ -4726,15 +4519,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROMETHEUS_SERVICE___CONFIGURE_DEPLOYMENT = MONITORING_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The operation id for the '<em>Host Or Orchestrator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROMETHEUS_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = MONITORING_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Prometheus Service</em>' class.
@@ -9141,16 +8925,6 @@ public interface PasysPackage extends EPackage {
 	EReference getPlatformService_Orchestrator();
 
 	/**
-	 * Returns the meta object for the '{@link PASYS_Metamodel.pasys.PlatformService#hostOrOrchestrator(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Host Or Orchestrator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Host Or Orchestrator</em>' operation.
-	 * @see PASYS_Metamodel.pasys.PlatformService#hostOrOrchestrator(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getPlatformService__HostOrOrchestrator__DiagnosticChain_Map();
-
-	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.OrchestrationService <em>Orchestration Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9776,17 +9550,6 @@ public interface PasysPackage extends EPackage {
 	EAttribute getStormService_UiPort();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.StormService#isIsNimbus <em>Is Nimbus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Nimbus</em>'.
-	 * @see PASYS_Metamodel.pasys.StormService#isIsNimbus()
-	 * @see #getStormService()
-	 * @generated
-	 */
-	EAttribute getStormService_IsNimbus();
-
-	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.PersistenceService <em>Persistence Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9916,17 +9679,6 @@ public interface PasysPackage extends EPackage {
 	EAttribute getCassandraService_NativeTransportPort();
 
 	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.CassandraService#getRack <em>Rack</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Rack</em>'.
-	 * @see PASYS_Metamodel.pasys.CassandraService#getRack()
-	 * @see #getCassandraService()
-	 * @generated
-	 */
-	EReference getCassandraService_Rack();
-
-	/**
 	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#isAutoBootstrap <em>Auto Bootstrap</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9947,17 +9699,6 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCassandraService_CqlSchemas();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#isIsSeed <em>Is Seed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Seed</em>'.
-	 * @see PASYS_Metamodel.pasys.CassandraService#isIsSeed()
-	 * @see #getCassandraService()
-	 * @generated
-	 */
-	EAttribute getCassandraService_IsSeed();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.CassandraService#getDataCenters <em>Data Centers</em>}'.
@@ -11685,16 +11426,6 @@ public interface PasysPackage extends EPackage {
 	EOperation getNodeCluster__GetNodes();
 
 	/**
-	 * Returns the meta object for the '{@link PASYS_Metamodel.pasys.NodeCluster#allNodes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>All Nodes</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>All Nodes</em>' operation.
-	 * @see PASYS_Metamodel.pasys.NodeCluster#allNodes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getNodeCluster__AllNodes__DiagnosticChain_Map();
-
-	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.PrometheusMeter <em>Prometheus Meter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12371,14 +12102,6 @@ public interface PasysPackage extends EPackage {
 		EReference PLATFORM_SERVICE__ORCHESTRATOR = eINSTANCE.getPlatformService_Orchestrator();
 
 		/**
-		 * The meta object literal for the '<em><b>Host Or Orchestrator</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPlatformService__HostOrOrchestrator__DiagnosticChain_Map();
-
-		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl <em>Orchestration Service</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12869,14 +12592,6 @@ public interface PasysPackage extends EPackage {
 		EAttribute STORM_SERVICE__UI_PORT = eINSTANCE.getStormService_UiPort();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Nimbus</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STORM_SERVICE__IS_NIMBUS = eINSTANCE.getStormService_IsNimbus();
-
-		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PersistenceServiceImpl <em>Persistence Service</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12979,14 +12694,6 @@ public interface PasysPackage extends EPackage {
 		EAttribute CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT = eINSTANCE.getCassandraService_NativeTransportPort();
 
 		/**
-		 * The meta object literal for the '<em><b>Rack</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CASSANDRA_SERVICE__RACK = eINSTANCE.getCassandraService_Rack();
-
-		/**
 		 * The meta object literal for the '<em><b>Auto Bootstrap</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -13001,14 +12708,6 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CASSANDRA_SERVICE__CQL_SCHEMAS = eINSTANCE.getCassandraService_CqlSchemas();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Seed</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CASSANDRA_SERVICE__IS_SEED = eINSTANCE.getCassandraService_IsSeed();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Centers</b></em>' containment reference list feature.
@@ -14402,14 +14101,6 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE_CLUSTER___GET_NODES = eINSTANCE.getNodeCluster__GetNodes();
-
-		/**
-		 * The meta object literal for the '<em><b>All Nodes</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE_CLUSTER___ALL_NODES__DIAGNOSTICCHAIN_MAP = eINSTANCE.getNodeCluster__AllNodes__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PrometheusMeterImpl <em>Prometheus Meter</em>}' class.

@@ -19,10 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataFileDir <em>Data File Dir</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getNativeTransportPort <em>Native Transport Port</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getRack <em>Rack</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getCqlSchemas <em>Cql Schemas</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.CassandraService#isIsSeed <em>Is Seed</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataCenters <em>Data Centers</em>}</li>
  * </ul>
  *
@@ -167,28 +165,6 @@ public interface CassandraService extends PersistenceService {
 	void setNativeTransportPort(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Rack</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rack</em>' reference.
-	 * @see #setRack(ResourceCluster)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_Rack()
-	 * @model required="true"
-	 * @generated
-	 */
-	ResourceCluster getRack();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getRack <em>Rack</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rack</em>' reference.
-	 * @see #getRack()
-	 * @generated
-	 */
-	void setRack(ResourceCluster value);
-
-	/**
 	 * Returns the value of the '<em><b>Auto Bootstrap</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
@@ -222,28 +198,6 @@ public interface CassandraService extends PersistenceService {
 	 * @generated
 	 */
 	EList<FileDescriptor> getCqlSchemas();
-
-	/**
-	 * Returns the value of the '<em><b>Is Seed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Seed</em>' attribute.
-	 * @see #setIsSeed(boolean)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_IsSeed()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isIsSeed();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#isIsSeed <em>Is Seed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Seed</em>' attribute.
-	 * @see #isIsSeed()
-	 * @generated
-	 */
-	void setIsSeed(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Data Centers</b></em>' containment reference list.
