@@ -405,12 +405,15 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 			// Config file generation
 			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("storm.yaml",
 					conf.getConfigFolderPath(), generateConfigFileContent(), SystemComponentType.STORM_NIMBUS);
-			// Script generation
-			DeploymentFileDescriptor script = generateScript(true); // TODO 
-			
 			for (ProcessingNode node: getHost().getNodes()) {
+				
+				DeploymentFileDescriptor script = null;
+				if (getNimbusSeeds().getNodes().contains(node))
+					script = generateScript(true);
+				else 
+					script = generateScript(false);
 				node.getLaunchingScripts().add(script);
-				node.getConfigFiles().add(configFile);
+				node.getConfigFiles().add(configFile);				
 			}
 
 		} catch (YamlException e) {
@@ -447,15 +450,9 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		map.put("storm.zookeeper.servers", zkServers);
 		map.put("storm.zookeeper.port",zk.getClientPort());
 
-		// nimbus.seeds
-		List<ProcessingNode> seeds = new LinkedList<ProcessingNode>();
-
-		for (PlatformResource rsrc : getNimbusSeeds().getResources()) {
-			ProcessingNode node = (ProcessingNode) rsrc;
-			seeds.add(node);
-		}
+		// nimbus.seeds		
 		List<String> nimbusSeeds = new LinkedList<String>();
-		for (ProcessingNode seed : seeds) {
+		for (ProcessingNode seed : getNimbusSeeds().getNodes()) {
 			nimbusSeeds.add(seed.getIp());
 		}
 
@@ -479,9 +476,9 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 		// Creando nimbus.seed manualmente
 		String nseeds = "nimbus.seeds: [";
-		for (int i = 0; i < seeds.size(); i++) {
-			nseeds += "\"" + seeds.get(i).getIp() + "\"";
-			if (i < (seeds.size() - 1)) {
+		for (int i = 0; i < nimbusSeeds.size(); i++) {
+			nseeds += "\"" + nimbusSeeds.get(i) + "\"";
+			if (i < (nimbusSeeds.size() - 1)) {
 				nseeds += ",";
 			}
 		}
