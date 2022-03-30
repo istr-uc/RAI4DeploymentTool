@@ -139,46 +139,46 @@ public interface OrchestrationServiceDeploymentConf extends PlatformServiceDeplo
 	void setImagePullPolicy(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Volumes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Volumes</b></em>' containment reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.Volume}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Volumes</em>' reference list.
+	 * @return the value of the '<em>Volumes</em>' containment reference list.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_Volumes()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Volume> getVolumes();
 
 	/**
-	 * Returns the value of the '<em><b>Ports</b></em>' reference list.
+	 * Returns the value of the '<em><b>Ports</b></em>' containment reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.Port}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ports</em>' reference list.
+	 * @return the value of the '<em>Ports</em>' containment reference list.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_Ports()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Port> getPorts();
 
 	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' reference.
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' reference.
+	 * @return the value of the '<em>Constraints</em>' containment reference.
 	 * @see #setConstraints(DeploymentConstraints)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_Constraints()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	DeploymentConstraints getConstraints();
 
 	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getConstraints <em>Constraints</em>}' reference.
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getConstraints <em>Constraints</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Constraints</em>' reference.
+	 * @param value the new value of the '<em>Constraints</em>' containment reference.
 	 * @see #getConstraints()
 	 * @generated
 	 */

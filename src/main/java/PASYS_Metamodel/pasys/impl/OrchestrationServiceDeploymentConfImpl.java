@@ -12,6 +12,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -19,7 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -143,7 +145,7 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	protected String imagePullPolicy = IMAGE_PULL_POLICY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVolumes() <em>Volumes</em>}' reference list.
+	 * The cached value of the '{@link #getVolumes() <em>Volumes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVolumes()
@@ -153,7 +155,7 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	protected EList<Volume> volumes;
 
 	/**
-	 * The cached value of the '{@link #getPorts() <em>Ports</em>}' reference list.
+	 * The cached value of the '{@link #getPorts() <em>Ports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPorts()
@@ -163,7 +165,7 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	protected EList<Port> ports;
 
 	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' reference.
+	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConstraints()
@@ -314,7 +316,7 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	@Override
 	public EList<Volume> getVolumes() {
 		if (volumes == null) {
-			volumes = new EObjectResolvingEList<Volume>(Volume.class, this, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES);
+			volumes = new EObjectContainmentEList<Volume>(Volume.class, this, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES);
 		}
 		return volumes;
 	}
@@ -327,7 +329,7 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	@Override
 	public EList<Port> getPorts() {
 		if (ports == null) {
-			ports = new EObjectResolvingEList<Port>(Port.class, this, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS);
+			ports = new EObjectContainmentEList<Port>(Port.class, this, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS);
 		}
 		return ports;
 	}
@@ -339,14 +341,6 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	 */
 	@Override
 	public DeploymentConstraints getConstraints() {
-		if (constraints != null && constraints.eIsProxy()) {
-			InternalEObject oldConstraints = (InternalEObject)constraints;
-			constraints = (DeploymentConstraints)eResolveProxy(oldConstraints);
-			if (constraints != oldConstraints) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS, oldConstraints, constraints));
-			}
-		}
 		return constraints;
 	}
 
@@ -355,8 +349,14 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeploymentConstraints basicGetConstraints() {
-		return constraints;
+	public NotificationChain basicSetConstraints(DeploymentConstraints newConstraints, NotificationChain msgs) {
+		DeploymentConstraints oldConstraints = constraints;
+		constraints = newConstraints;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS, oldConstraints, newConstraints);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -366,10 +366,35 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	 */
 	@Override
 	public void setConstraints(DeploymentConstraints newConstraints) {
-		DeploymentConstraints oldConstraints = constraints;
-		constraints = newConstraints;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS, oldConstraints, constraints));
+		if (newConstraints != constraints) {
+			NotificationChain msgs = null;
+			if (constraints != null)
+				msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS, null, msgs);
+			if (newConstraints != null)
+				msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS, null, msgs);
+			msgs = basicSetConstraints(newConstraints, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS, newConstraints, newConstraints));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES:
+				return ((InternalEList<?>)getVolumes()).basicRemove(otherEnd, msgs);
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS:
+				return ((InternalEList<?>)getPorts()).basicRemove(otherEnd, msgs);
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS:
+				return basicSetConstraints(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -395,8 +420,7 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS:
 				return getPorts();
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS:
-				if (resolve) return getConstraints();
-				return basicGetConstraints();
+				return getConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

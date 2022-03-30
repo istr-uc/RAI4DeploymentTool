@@ -38,21 +38,17 @@
       externalIP="54.194.37.254"/>
   <ownedElements
       xsi:type="pasys:AWSVirtualProcessingNode"
-      name="SupervisorVNode"
-      id="SupervisorVNode"
+      name="SwarmVNode"
+      id="SwarmVNode"
       ip="172.31.26.169"
+      memorySize="2048"
       userName="gestor"
-      externalIP="34.248.160.67"/>
-  <ownedElements
-      xsi:type="pasys:NodeCluster"
-      name="StormCluster"
-      id="StormCluster"
-      resources="//@ownedElements.3 //@ownedElements.4"/>
-  <ownedElements
-      xsi:type="pasys:NodeCluster"
-      name="CassandraCluster"
-      id="CassandraCluster"
-      resources="//@ownedElements.2"/>
+      externalIP="34.248.160.67"
+      vpc="default"
+      subNet="eu-west-a"
+      securityGroup="IAP_SecurityGroup"
+      AMI="IAP4.0_AMI"
+      instanceType="t2.small"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="KafkaCluster"
@@ -65,14 +61,19 @@
       resources="//@ownedElements.1"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
-      name="NimbusCluster"
-      id="NimbusCluster"
-      resources="//@ownedElements.3"/>
+      name="SwarmCluster"
+      id="SwarmCluster"
+      resources="//@ownedElements.4"/>
+  <ownedElements
+      xsi:type="pasys:SwarmService"
+      name="PollutionSwarm"
+      id="PollutionSwarm"
+      host="//@ownedElements.7"/>
   <ownedElements
       xsi:type="pasys:ZookeeperService"
       name="PollutionZkpr"
       id="PollutionZkpr"
-      host="//@ownedElements.8">
+      host="//@ownedElements.6">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/Services/zookeeper/bin"
@@ -86,10 +87,10 @@
       xsi:type="pasys:KafkaService"
       name="PollutionKafka"
       id="PollutionKafka"
-      host="//@ownedElements.7"
+      host="//@ownedElements.5"
       commId="1"
       clientPort="9092"
-      zookeeperConnect="//@ownedElements.10"
+      zookeeperConnect="//@ownedElements.9"
       listeners="PLAINTEXT://172.31.21.96:9092"
       advertisedListeners="PLAINTEXT://172.31.21.96:9092"
       autoCreateTopicEnable="true">
@@ -106,20 +107,13 @@
       xsi:type="pasys:CassandraService"
       name="PollutionCassandra"
       id="PollutionCassandra"
-      host="//@ownedElements.6"
+      orchestrator="//@ownedElements.8"
       logging="root"
       passwd="root"
-      seeds="//@ownedElements.6"
       seedProviderClass="SimpleSeedProvider"
       dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
     <deploymentConfig
-        xsi:type="pasys:NodeClusterDeploymentConf"
-        artifactLocator="/home/gestor/apache/services/cassandra/bin"
-        artifactName="cassandra"
-        configFolderPath="/home/gestor/apache/services/cassandra/config"
-        scriptFolderPath="/home/gestor/apache/services/cassandra/scripts"
-        dataFolderPath="/home/gestor/apache/services/cassandra/data"
-        logFolderPath="/home/gestor/apache/services/cassandra/logs"/>
+        xsi:type="pasys:OrchestrationServiceDeploymentConf"/>
     <cqlSchemas
         filePath="/home/algorrim/Escritorio/Ricardo/git/PASYSDeploymentTool"
         fileName="cassandra_schema.sql"/>
@@ -128,26 +122,32 @@
         id="pollutionCluster">
       <racks
           name="PollutionCluster"
-          id="PollutionClusterRack"
-          nodes="//@ownedElements.6"/>
+          id="PollutionClusterRack"/>
     </dataCenters>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:StormService"
       name="PollutionStorm"
       id="PollutionStorm"
-      host="//@ownedElements.5"
-      workflows="//@ownedElements.15"
-      zookeeperConnect="//@ownedElements.10"
-      nimbusSeeds="//@ownedElements.9">
+      orchestrator="//@ownedElements.8"
+      workflows="//@ownedElements.14"
+      zookeeperConnect="//@ownedElements.9">
     <deploymentConfig
-        xsi:type="pasys:NodeClusterDeploymentConf"
-        artifactLocator="/home/gestor/apache/services/storm/bin"
-        artifactName="storm"
-        configFolderPath="/home/gestor/apache/services/storm/config"
-        scriptFolderPath="/home/gestor/apache/services/storm/scripts"
-        dataFolderPath="/home/gestor/apache/services/storm/data"
-        logFolderPath="/home/gestor/apache/services/storm/logs"/>
+        xsi:type="pasys:OrchestrationServiceDeploymentConf"
+        replicas="1">
+      <volumes
+          source="/home/gestor/apache/servers/storm/conf"
+          target="/home/gestor/apache/servers/storm/conf"
+          type="BIND"/>
+      <volumes
+          source="/home/gestor/apache/servers/storm/logs"
+          target="/home/gestor/apache/servers/storm/logs"
+          type="BIND"/>
+      <ports
+          xsi:type="pasys:SwarmPort"
+          target="6627"
+          published="6627"/>
+    </deploymentConfig>
     <supervisorSlotPorts>6700</supervisorSlotPorts>
     <supervisorSlotPorts>6701</supervisorSlotPorts>
     <supervisorSlotPorts>6702</supervisorSlotPorts>
@@ -173,8 +173,8 @@
       xsi:type="pasys:Workflow"
       name="PollutionProcess"
       id="PollutionProcess"
-      rootTask="//@ownedElements.15/@ownedTasks.0"
-      scheduler="//@ownedElements.13">
+      rootTask="//@ownedElements.14/@ownedTasks.0"
+      scheduler="//@ownedElements.12">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
@@ -187,8 +187,8 @@
         name="MainTask"
         id="MainTask"
         implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
-        triggerStreamData="//@ownedElements.14"
-        inputStreamData="//@ownedElements.14"/>
+        triggerStreamData="//@ownedElements.13"
+        inputStreamData="//@ownedElements.13"/>
   </ownedElements>
   <authenticationFiles
       key="34.255.137.20"
