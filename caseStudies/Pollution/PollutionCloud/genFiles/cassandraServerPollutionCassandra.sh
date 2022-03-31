@@ -1,7 +1,7 @@
 #!/bin/bash
-cd /home/gestor/apache/servers/cassandra/scripts
-rm -rf /home/gestor/apache/servers/cassandra/data/data/system/*
-rm -f /home/gestor/apache/servers/cassandra/conf/cassandra-topology.properties
-/home/gestor/apache/servers/cassandra/bin/cassandra -Dcassandra.config=file:////home/gestor/apache/servers/cassandra/conf/cassandraPollutionCassandra.yaml
+cd /home/gestor/apache/services/cassandra/scripts
+rm -rf /home/gestor/apache/Services/cassandra/data/data/system/*
+rm -f /home/gestor/apache/services/cassandra/config/cassandra-topology.properties
+/home/gestor/apache/services/cassandra/bin/cassandra -Dcassandra.config=file:////home/gestor/apache/services/cassandra/config/cassandraPollutionCassandra.yaml
 sleep 60 
-/home/gestor/apache/servers/cassandra/bin/cqlsh 172.31.25.7 -f /home/gestor/apache/servers/cassandra/scripts/cassandra_schema.sql
+/home/gestor/apache/services/cassandra/bin/cqlsh 172.31.25.7 -f /home/gestor/apache/services/cassandra/scripts/cassandra_schema.sql

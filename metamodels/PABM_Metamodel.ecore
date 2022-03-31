@@ -145,10 +145,14 @@
         <details key="hostOrOrchestrator" value="host&lt;>null xor orchestrator&lt;>null"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/NodeCluster"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="orchestrator" eType="#//pasys/OrchestrationService"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="orchestrator" eType="#//pasys/OrchestrationService"
+          eOpposite="#//pasys/OrchestrationService/services"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OrchestrationService" abstract="true"
-        eSuperTypes="#//pasys/PlatformService"/>
+        eSuperTypes="#//pasys/PlatformService">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+          eType="#//pasys/PlatformService" eOpposite="#//pasys/PlatformService/orchestrator"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="KubernetesService" eSuperTypes="#//pasys/OrchestrationService">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>

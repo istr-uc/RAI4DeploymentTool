@@ -120,5 +120,5 @@ back_pressure_strategy:
       flow: FAST
 auto_bootstrap: false
 data_file_directories: 
-- /home/gestor/apache/servers/cassandra/data/data
+- /home/gestor/apache/Services/cassandra/data/data
 

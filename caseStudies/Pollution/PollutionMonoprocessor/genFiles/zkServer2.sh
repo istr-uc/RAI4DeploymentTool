@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/gestor/apache/servers/zookeeper/scripts
-/home/gestor/apache/servers/zookeeper/bin/zkServer.sh start /home/gestor/apache/servers/zookeeper/conf/zoo2.cfg
+cd /home/gestor/apache/Services/zookeeper/scripts
+/home/gestor/apache/Services/zookeeper/bin/zkService.sh start /home/gestor/apache/Services/zookeeper/config/zoo2.cfg
 sleep 30
