@@ -92,7 +92,6 @@ import PASYS_Metamodel.pasys.ZookeeperService;
 
 import java.util.Map;
 import java.util.Properties;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -128,12 +127,28 @@ public class PasysValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "PASYS_Metamodel.pasys";
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Nodes' of 'Node Cluster'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int NODE_CLUSTER__ALL_NODES = 1;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Host Or Orchestrator' of 'Platform Service'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR = 2;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -484,32 +499,13 @@ public class PasysValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the allNodes constraint of '<em>Node Cluster</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String NODE_CLUSTER__ALL_NODES__EEXPRESSION = "resources->forAll(r|r.oclIsKindOf(ProcessingNode))";
-
-	/**
 	 * Validates the allNodes constraint of '<em>Node Cluster</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateNodeCluster_allNodes(NodeCluster nodeCluster, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PasysPackage.Literals.NODE_CLUSTER,
-				 nodeCluster,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "allNodes",
-				 NODE_CLUSTER__ALL_NODES__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
+		return nodeCluster.allNodes(diagnostics, context);
 	}
 
 	/**
@@ -541,32 +537,13 @@ public class PasysValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the hostOrOrchestrator constraint of '<em>Platform Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR__EEXPRESSION = "host<>null xor orchestrator<>null";
-
-	/**
 	 * Validates the hostOrOrchestrator constraint of '<em>Platform Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validatePlatformService_hostOrOrchestrator(PlatformService platformService, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PasysPackage.Literals.PLATFORM_SERVICE,
-				 platformService,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "hostOrOrchestrator",
-				 PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
+		return platformService.hostOrOrchestrator(diagnostics, context);
 	}
 
 	/**

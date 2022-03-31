@@ -100,6 +100,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1446,6 +1447,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EReference getPlatformService_Orchestrator() {
 		return (EReference)platformServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPlatformService__HostOrOrchestrator__DiagnosticChain_Map() {
+		return platformServiceEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -3754,6 +3765,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getNodeCluster__AllNodes__DiagnosticChain_Map() {
+		return nodeClusterEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPrometheusMeter() {
 		return prometheusMeterEClass;
 	}
@@ -3960,6 +3981,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		nodeClusterEClass = createEClass(NODE_CLUSTER);
 		createEOperation(nodeClusterEClass, NODE_CLUSTER___GET_NODES);
+		createEOperation(nodeClusterEClass, NODE_CLUSTER___ALL_NODES__DIAGNOSTICCHAIN_MAP);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__BANDWITH);
@@ -3967,6 +3989,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServiceEClass = createEClass(PLATFORM_SERVICE);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__HOST);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__ORCHESTRATOR);
+		createEOperation(platformServiceEClass, PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP);
 
 		orchestrationServiceEClass = createEClass(ORCHESTRATION_SERVICE);
 
@@ -4467,12 +4490,30 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEOperation(getNodeCluster__GetNodes(), this.getProcessingNode(), "getNodes", 1, -1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getNodeCluster__AllNodes__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "allNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 1, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformServiceEClass, PlatformService.class, "PlatformService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlatformService_Host(), this.getNodeCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), null, "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hostOrOrchestrator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(orchestrationServiceEClass, OrchestrationService.class, "OrchestrationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4717,9 +4758,9 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getOrchestrationServiceDeploymentConf_Command(), ecorePackage.getEString(), "command", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_RestartPolicy(), ecorePackage.getEString(), "restartPolicy", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_ImagePullPolicy(), ecorePackage.getEString(), "imagePullPolicy", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Ports(), this.getPort(), null, "ports", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Constraints(), this.getDeploymentConstraints(), null, "constraints", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestrationServiceDeploymentConf_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestrationServiceDeploymentConf_Ports(), this.getPort(), null, "ports", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestrationServiceDeploymentConf_Constraints(), this.getDeploymentConstraints(), null, "constraints", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeClusterDeploymentConfEClass, NodeClusterDeploymentConf.class, "NodeClusterDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNodeClusterDeploymentConf_ArtifactLocator(), ecorePackage.getEString(), "artifactLocator", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4851,9 +4892,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		  (this,
 		   source,
 		   new String[] {
-			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
 		   });
 		addAnnotation
 		  (nodeClusterEClass,
@@ -4878,16 +4916,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	protected void createPivotAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
 		addAnnotation
-		  (nodeClusterEClass,
+		  (getNodeCluster__AllNodes__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "allNodes", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
+			   "body", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
 		   });
 		addAnnotation
-		  (platformServiceEClass,
+		  (getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "hostOrOrchestrator", "host<>null xor orchestrator<>null"
+			   "body", "host<>null xor orchestrator<>null"
 		   });
 	}
 
