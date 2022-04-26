@@ -175,6 +175,33 @@ public interface PasysFactory extends EFactory {
 	StormService createStormService();
 
 	/**
+	 * Returns a new object of class '<em>Storm UI</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Storm UI</em>'.
+	 * @generated
+	 */
+	StormUI createStormUI();
+
+	/**
+	 * Returns a new object of class '<em>Storm Nimbus</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Storm Nimbus</em>'.
+	 * @generated
+	 */
+	StormNimbus createStormNimbus();
+
+	/**
+	 * Returns a new object of class '<em>Storm Supervisor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Storm Supervisor</em>'.
+	 * @generated
+	 */
+	StormSupervisor createStormSupervisor();
+
+	/**
 	 * Returns a new object of class '<em>Mem SQL Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

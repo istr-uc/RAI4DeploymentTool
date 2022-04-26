@@ -44,7 +44,10 @@ import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SparkService;
+import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
+import PASYS_Metamodel.pasys.StormSupervisor;
+import PASYS_Metamodel.pasys.StormUI;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
@@ -139,6 +142,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.NODE_SCHEDULER: return createNodeScheduler();
 			case PasysPackage.SPARK_SERVICE: return createSparkService();
 			case PasysPackage.STORM_SERVICE: return createStormService();
+			case PasysPackage.STORM_UI: return createStormUI();
+			case PasysPackage.STORM_NIMBUS: return createStormNimbus();
+			case PasysPackage.STORM_SUPERVISOR: return createStormSupervisor();
 			case PasysPackage.MEM_SQL_SERVICE: return createMemSQLService();
 			case PasysPackage.CASSANDRA_SERVICE: return createCassandraService();
 			case PasysPackage.DATA_CENTER: return createDataCenter();
@@ -423,6 +429,39 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public StormService createStormService() {
 		StormServiceImpl stormService = new StormServiceImpl();
 		return stormService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StormUI createStormUI() {
+		StormUIImpl stormUI = new StormUIImpl();
+		return stormUI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StormNimbus createStormNimbus() {
+		StormNimbusImpl stormNimbus = new StormNimbusImpl();
+		return stormNimbus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StormSupervisor createStormSupervisor() {
+		StormSupervisorImpl stormSupervisor = new StormSupervisorImpl();
+		return stormSupervisor;
 	}
 
 	/**

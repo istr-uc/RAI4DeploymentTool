@@ -1228,7 +1228,6 @@ public class PasysTables extends AbstractTables
 		public static final ExecutorProperty _NodeCluster__CassandraService__seeds = new ExecutorPropertyWithImplementation("CassandraService", Types._NodeCluster, 0, new EcoreLibraryOppositeProperty(PasysPackage.Literals.CASSANDRA_SERVICE__SEEDS));
 		public static final ExecutorProperty _NodeCluster__PlatformService__host = new ExecutorPropertyWithImplementation("PlatformService", Types._NodeCluster, 1, new EcoreLibraryOppositeProperty(PasysPackage.Literals.PLATFORM_SERVICE__HOST));
 		public static final ExecutorProperty _NodeCluster__Rack__nodes = new ExecutorPropertyWithImplementation("Rack", Types._NodeCluster, 2, new EcoreLibraryOppositeProperty(PasysPackage.Literals.RACK__NODES));
-		public static final ExecutorProperty _NodeCluster__StormService__nimbusSeeds = new ExecutorPropertyWithImplementation("StormService", Types._NodeCluster, 3, new EcoreLibraryOppositeProperty(PasysPackage.Literals.STORM_SERVICE__NIMBUS_SEEDS));
 
 		public static final ExecutorProperty _NodeClusterDeploymentConf__arguments = new EcoreExecutorProperty(PasysPackage.Literals.NODE_CLUSTER_DEPLOYMENT_CONF__ARGUMENTS, Types._NodeClusterDeploymentConf, 0);
 		public static final ExecutorProperty _NodeClusterDeploymentConf__artifactLocator = new EcoreExecutorProperty(PasysPackage.Literals.NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_LOCATOR, Types._NodeClusterDeploymentConf, 1);
@@ -1321,9 +1320,6 @@ public class PasysTables extends AbstractTables
 		public static final ExecutorProperty _SparkService__windowSize = new EcoreExecutorProperty(PasysPackage.Literals.SPARK_SERVICE__WINDOW_SIZE, Types._SparkService, 12);
 
 		public static final ExecutorProperty _StormService__localDir = new EcoreExecutorProperty(PasysPackage.Literals.STORM_SERVICE__LOCAL_DIR, Types._StormService, 0);
-		public static final ExecutorProperty _StormService__nimbusSeeds = new EcoreExecutorProperty(PasysPackage.Literals.STORM_SERVICE__NIMBUS_SEEDS, Types._StormService, 1);
-		public static final ExecutorProperty _StormService__supervisorSlotPorts = new EcoreExecutorProperty(PasysPackage.Literals.STORM_SERVICE__SUPERVISOR_SLOT_PORTS, Types._StormService, 2);
-		public static final ExecutorProperty _StormService__uiPort = new EcoreExecutorProperty(PasysPackage.Literals.STORM_SERVICE__UI_PORT, Types._StormService, 3);
 		public static final ExecutorProperty _StormService__zookeeperConnect = new EcoreExecutorProperty(PasysPackage.Literals.STORM_SERVICE__ZOOKEEPER_CONNECT, Types._StormService, 4);
 
 		public static final ExecutorProperty _StreamData__assignedPartition = new EcoreExecutorProperty(PasysPackage.Literals.STREAM_DATA__ASSIGNED_PARTITION, Types._StreamData, 0);
@@ -6748,13 +6744,10 @@ public class PasysTables extends AbstractTables
 			PasysTables.Properties._NamedElement__id,
 			PasysTables.Properties._StormService__localDir,
 			PasysTables.Properties._NamedElement__name,
-			PasysTables.Properties._StormService__nimbusSeeds,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			PasysTables.Properties._PlatformService__orchestrator,
 			PasysTables.Properties._SystemElement__owner,
-			PasysTables.Properties._StormService__supervisorSlotPorts,
-			PasysTables.Properties._StormService__uiPort,
 			PasysTables.Properties._SchedulingService__workflows,
 			PasysTables.Properties._StormService__zookeeperConnect
 		};

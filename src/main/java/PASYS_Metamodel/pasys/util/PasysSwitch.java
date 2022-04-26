@@ -60,7 +60,10 @@ import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.SerializationService;
 import PASYS_Metamodel.pasys.SparkService;
+import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
+import PASYS_Metamodel.pasys.StormSupervisor;
+import PASYS_Metamodel.pasys.StormUI;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
@@ -419,6 +422,30 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDeployableComponent(stormService);
 				if (result == null) result = caseSystemElement(stormService);
 				if (result == null) result = caseNamedElement(stormService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.STORM_UI: {
+				StormUI stormUI = (StormUI)theEObject;
+				T result = caseStormUI(stormUI);
+				if (result == null) result = caseDeployableComponent(stormUI);
+				if (result == null) result = caseNamedElement(stormUI);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.STORM_NIMBUS: {
+				StormNimbus stormNimbus = (StormNimbus)theEObject;
+				T result = caseStormNimbus(stormNimbus);
+				if (result == null) result = caseDeployableComponent(stormNimbus);
+				if (result == null) result = caseNamedElement(stormNimbus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.STORM_SUPERVISOR: {
+				StormSupervisor stormSupervisor = (StormSupervisor)theEObject;
+				T result = caseStormSupervisor(stormSupervisor);
+				if (result == null) result = caseDeployableComponent(stormSupervisor);
+				if (result == null) result = caseNamedElement(stormSupervisor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1284,6 +1311,51 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStormService(StormService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Storm UI</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Storm UI</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStormUI(StormUI object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Storm Nimbus</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Storm Nimbus</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStormNimbus(StormNimbus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Storm Supervisor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Storm Supervisor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStormSupervisor(StormSupervisor object) {
 		return null;
 	}
 

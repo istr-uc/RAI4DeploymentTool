@@ -268,12 +268,31 @@
           eType="#//pasys/ZookeeperService"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="localDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="storm-local"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nimbusSeeds" lowerBound="1"
-          eType="#//pasys/NodeCluster"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="supervisorSlotPorts"
-          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nimbus" lowerBound="1"
+          eType="#//pasys/StormNimbus" containment="true" eOpposite="#//pasys/StormNimbus/owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="supervisor" lowerBound="1"
+          eType="#//pasys/StormSupervisor" containment="true" eOpposite="#//pasys/StormSupervisor/owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ui" eType="#//pasys/StormUI"
+          containment="true" eOpposite="#//pasys/StormUI/owner"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StormUI" eSuperTypes="#//pasys/DeployableComponent #//pasys/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiPort" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="8080"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
+          eType="#//pasys/StormService" eOpposite="#//pasys/StormService/ui"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/NodeCluster"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StormNimbus" eSuperTypes="#//pasys/DeployableComponent #//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
+          eType="#//pasys/StormService" eOpposite="#//pasys/StormService/nimbus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/NodeCluster"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StormSupervisor" eSuperTypes="#//pasys/DeployableComponent #//pasys/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="supervisorSlotPorts"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//pasys/StormService"
+          eOpposite="#//pasys/StormService/supervisor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/NodeCluster"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PersistenceService" abstract="true"
         eSuperTypes="#//pasys/PlatformService">
@@ -632,16 +651,17 @@
       <eLiterals name="CASSANDRA_SERVER" value="4"/>
       <eLiterals name="STORM_NIMBUS" value="5" literal="STORM_NIMBUS"/>
       <eLiterals name="STORM_SUPERVISOR" value="6"/>
-      <eLiterals name="SPARK_SERVER" value="7"/>
-      <eLiterals name="KAFKA_WORKLOAD_STREAM" value="8"/>
-      <eLiterals name="KAFKA_FLOW_STREAM" value="9"/>
-      <eLiterals name="AVRO_SERVER" value="10"/>
-      <eLiterals name="NODE_RESOURCE_METER" value="11"/>
-      <eLiterals name="TASK_EXECUTOR" value="12"/>
-      <eLiterals name="TASK_AMOUNT_METER" value="13"/>
-      <eLiterals name="DOCKER_STACK" value="14"/>
-      <eLiterals name="WORKFLOW" value="16"/>
-      <eLiterals name="CASSANDRA_SCHEMA" value="15"/>
+      <eLiterals name="STORM_UI" value="7"/>
+      <eLiterals name="SPARK_SERVER" value="8"/>
+      <eLiterals name="KAFKA_WORKLOAD_STREAM" value="9"/>
+      <eLiterals name="KAFKA_FLOW_STREAM" value="10"/>
+      <eLiterals name="AVRO_SERVER" value="11"/>
+      <eLiterals name="NODE_RESOURCE_METER" value="12"/>
+      <eLiterals name="TASK_EXECUTOR" value="13"/>
+      <eLiterals name="TASK_AMOUNT_METER" value="14"/>
+      <eLiterals name="DOCKER_STACK" value="15"/>
+      <eLiterals name="CASSANDRA_SCHEMA" value="16"/>
+      <eLiterals name="WORKFLOW" value="17"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

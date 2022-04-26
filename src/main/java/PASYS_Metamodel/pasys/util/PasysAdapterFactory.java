@@ -60,7 +60,10 @@ import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.SerializationService;
 import PASYS_Metamodel.pasys.SparkService;
+import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
+import PASYS_Metamodel.pasys.StormSupervisor;
+import PASYS_Metamodel.pasys.StormUI;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
@@ -258,6 +261,18 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStormService(StormService object) {
 				return createStormServiceAdapter();
+			}
+			@Override
+			public Adapter caseStormUI(StormUI object) {
+				return createStormUIAdapter();
+			}
+			@Override
+			public Adapter caseStormNimbus(StormNimbus object) {
+				return createStormNimbusAdapter();
+			}
+			@Override
+			public Adapter caseStormSupervisor(StormSupervisor object) {
+				return createStormSupervisorAdapter();
 			}
 			@Override
 			public Adapter casePersistenceService(PersistenceService object) {
@@ -870,6 +885,48 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStormServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.StormUI <em>Storm UI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.StormUI
+	 * @generated
+	 */
+	public Adapter createStormUIAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.StormNimbus <em>Storm Nimbus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.StormNimbus
+	 * @generated
+	 */
+	public Adapter createStormNimbusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.StormSupervisor <em>Storm Supervisor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.StormSupervisor
+	 * @generated
+	 */
+	public Adapter createStormSupervisorAdapter() {
 		return null;
 	}
 

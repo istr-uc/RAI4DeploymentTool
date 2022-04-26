@@ -69,6 +69,11 @@
       id="NimbusCluster"
       resources="//@ownedElements.3"/>
   <ownedElements
+      xsi:type="pasys:NodeCluster"
+      name="SupervisorCluster"
+      id="SupervisorCluster"
+      resources="//@ownedElements.4"/>
+  <ownedElements
       xsi:type="pasys:ZookeeperService"
       name="PollutionZkpr"
       id="PollutionZkpr"
@@ -89,7 +94,7 @@
       host="//@ownedElements.7"
       commId="1"
       clientPort="9092"
-      zookeeperConnect="//@ownedElements.10"
+      zookeeperConnect="//@ownedElements.11"
       listeners="PLAINTEXT://172.31.21.96:9092"
       advertisedListeners="PLAINTEXT://172.31.21.96:9092"
       autoCreateTopicEnable="true">
@@ -137,9 +142,8 @@
       name="PollutionStorm"
       id="PollutionStorm"
       host="//@ownedElements.5"
-      workflows="//@ownedElements.15"
-      zookeeperConnect="//@ownedElements.10"
-      nimbusSeeds="//@ownedElements.9">
+      workflows="//@ownedElements.16"
+      zookeeperConnect="//@ownedElements.11">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/services/storm/bin"
@@ -148,10 +152,48 @@
         scriptFolderPath="/home/gestor/apache/services/storm/scripts"
         dataFolderPath="/home/gestor/apache/services/storm/data"
         logFolderPath="/home/gestor/apache/services/storm/logs"/>
-    <supervisorSlotPorts>6700</supervisorSlotPorts>
-    <supervisorSlotPorts>6701</supervisorSlotPorts>
-    <supervisorSlotPorts>6702</supervisorSlotPorts>
-    <supervisorSlotPorts>6703</supervisorSlotPorts>
+    <nimbus
+        name="PolllutionStormNimbus"
+        id="PolllutionStormNimbus"
+        host="//@ownedElements.9">
+      <deploymentConfig
+          xsi:type="pasys:NodeClusterDeploymentConf"
+          artifactLocator="/home/gestor/apache/services/storm/bin"
+          artifactName="storm"
+          configFolderPath="/home/gestor/apache/services/storm/config"
+          scriptFolderPath="/home/gestor/apache/services/storm/scripts"
+          dataFolderPath="/home/gestor/apache/services/storm/data"
+          logFolderPath="/home/gestor/apache/services/storm/logs"/>
+    </nimbus>
+    <supervisor
+        name="PollutionStormSupervisor"
+        id="PollutionStormSupervisor"
+        host="//@ownedElements.10">
+      <deploymentConfig
+          xsi:type="pasys:NodeClusterDeploymentConf"
+          artifactLocator="/home/gestor/apache/services/storm/bin"
+          artifactName="storm"
+          configFolderPath="/home/gestor/apache/services/storm/config"
+          scriptFolderPath="/home/gestor/apache/services/storm/scripts"
+          dataFolderPath="/home/gestor/apache/services/storm/data"
+          logFolderPath="/home/gestor/apache/services/storm/logs"/>
+      <supervisorSlotPorts>6700</supervisorSlotPorts>
+      <supervisorSlotPorts>6701</supervisorSlotPorts>
+      <supervisorSlotPorts>6702</supervisorSlotPorts>
+      <supervisorSlotPorts>6703</supervisorSlotPorts>
+    </supervisor>
+    <ui name="PollutionStormUI"
+        id="PollutionStormUI"
+        host="//@ownedElements.9">
+      <deploymentConfig
+          xsi:type="pasys:NodeClusterDeploymentConf"
+          artifactLocator="/home/gestor/apache/services/storm/bin"
+          artifactName="storm"
+          configFolderPath="/home/gestor/apache/services/storm/config"
+          scriptFolderPath="/home/gestor/apache/services/storm/scripts"
+          dataFolderPath="/home/gestor/apache/services/storm/data"
+          logFolderPath="/home/gestor/apache/services/storm/logs"/>
+    </ui>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:KafkaWorkloadStreamData"
@@ -173,8 +215,8 @@
       xsi:type="pasys:Workflow"
       name="PollutionProcess"
       id="PollutionProcess"
-      rootTask="//@ownedElements.15/@ownedTasks.0"
-      scheduler="//@ownedElements.13">
+      rootTask="//@ownedElements.16/@ownedTasks.0"
+      scheduler="//@ownedElements.14">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
@@ -187,8 +229,8 @@
         name="MainTask"
         id="MainTask"
         implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
-        triggerStreamData="//@ownedElements.14"
-        inputStreamData="//@ownedElements.14"/>
+        triggerStreamData="//@ownedElements.15"
+        inputStreamData="//@ownedElements.15"/>
   </ownedElements>
   <authenticationFiles
       key="34.255.137.20"

@@ -2,8 +2,6 @@
  */
 package PASYS_Metamodel.pasys;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Storm Service</b></em>'.
@@ -15,9 +13,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getZookeeperConnect <em>Zookeeper Connect</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.StormService#getLocalDir <em>Local Dir</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.StormService#getNimbusSeeds <em>Nimbus Seeds</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.StormService#getSupervisorSlotPorts <em>Supervisor Slot Ports</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.StormService#getUiPort <em>Ui Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.StormService#getNimbus <em>Nimbus</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.StormService#getSupervisor <em>Supervisor</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.StormService#getUi <em>Ui</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getStormService()
@@ -71,60 +69,75 @@ public interface StormService extends SchedulingService {
 	void setLocalDir(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Nimbus Seeds</b></em>' reference.
+	 * Returns the value of the '<em><b>Nimbus</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.StormNimbus#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nimbus Seeds</em>' reference.
-	 * @see #setNimbusSeeds(NodeCluster)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_NimbusSeeds()
-	 * @model required="true"
+	 * @return the value of the '<em>Nimbus</em>' containment reference.
+	 * @see #setNimbus(StormNimbus)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_Nimbus()
+	 * @see PASYS_Metamodel.pasys.StormNimbus#getOwner
+	 * @model opposite="owner" containment="true" required="true"
 	 * @generated
 	 */
-	NodeCluster getNimbusSeeds();
+	StormNimbus getNimbus();
 
 	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getNimbusSeeds <em>Nimbus Seeds</em>}' reference.
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getNimbus <em>Nimbus</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nimbus Seeds</em>' reference.
-	 * @see #getNimbusSeeds()
+	 * @param value the new value of the '<em>Nimbus</em>' containment reference.
+	 * @see #getNimbus()
 	 * @generated
 	 */
-	void setNimbusSeeds(NodeCluster value);
+	void setNimbus(StormNimbus value);
 
 	/**
-	 * Returns the value of the '<em><b>Supervisor Slot Ports</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Returns the value of the '<em><b>Supervisor</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.StormSupervisor#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supervisor Slot Ports</em>' attribute list.
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_SupervisorSlotPorts()
-	 * @model
+	 * @return the value of the '<em>Supervisor</em>' containment reference.
+	 * @see #setSupervisor(StormSupervisor)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_Supervisor()
+	 * @see PASYS_Metamodel.pasys.StormSupervisor#getOwner
+	 * @model opposite="owner" containment="true" required="true"
 	 * @generated
 	 */
-	EList<Integer> getSupervisorSlotPorts();
+	StormSupervisor getSupervisor();
 
 	/**
-	 * Returns the value of the '<em><b>Ui Port</b></em>' attribute.
-	 * The default value is <code>"8080"</code>.
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getSupervisor <em>Supervisor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ui Port</em>' attribute.
-	 * @see #setUiPort(int)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_UiPort()
-	 * @model default="8080" required="true"
+	 * @param value the new value of the '<em>Supervisor</em>' containment reference.
+	 * @see #getSupervisor()
 	 * @generated
 	 */
-	int getUiPort();
+	void setSupervisor(StormSupervisor value);
 
 	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getUiPort <em>Ui Port</em>}' attribute.
+	 * Returns the value of the '<em><b>Ui</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.StormUI#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ui Port</em>' attribute.
-	 * @see #getUiPort()
+	 * @return the value of the '<em>Ui</em>' containment reference.
+	 * @see #setUi(StormUI)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormService_Ui()
+	 * @see PASYS_Metamodel.pasys.StormUI#getOwner
+	 * @model opposite="owner" containment="true"
 	 * @generated
 	 */
-	void setUiPort(int value);
+	StormUI getUi();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormService#getUi <em>Ui</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ui</em>' containment reference.
+	 * @see #getUi()
+	 * @generated
+	 */
+	void setUi(StormUI value);
 
 } // StormService

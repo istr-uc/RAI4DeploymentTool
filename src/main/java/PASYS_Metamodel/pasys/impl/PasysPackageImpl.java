@@ -64,7 +64,10 @@ import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.SerializationService;
 import PASYS_Metamodel.pasys.SparkService;
+import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
+import PASYS_Metamodel.pasys.StormSupervisor;
+import PASYS_Metamodel.pasys.StormUI;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
@@ -100,7 +103,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -303,6 +305,27 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EClass stormServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stormUIEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stormNimbusEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stormSupervisorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1455,8 +1478,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getPlatformService__HostOrOrchestrator__DiagnosticChain_Map() {
-		return platformServiceEClass.getEOperations().get(0);
+	public EClass getOrchestrationService() {
+		return orchestrationServiceEClass;
 	}
 
 	/**
@@ -1465,8 +1488,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getOrchestrationService() {
-		return orchestrationServiceEClass;
+	public EReference getOrchestrationService_Services() {
+		return (EReference)orchestrationServiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2015,7 +2038,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getStormService_NimbusSeeds() {
+	public EReference getStormService_Nimbus() {
 		return (EReference)stormServiceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2025,8 +2048,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStormService_SupervisorSlotPorts() {
-		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(3);
+	public EReference getStormService_Supervisor() {
+		return (EReference)stormServiceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2035,8 +2058,118 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStormService_UiPort() {
-		return (EAttribute)stormServiceEClass.getEStructuralFeatures().get(4);
+	public EReference getStormService_Ui() {
+		return (EReference)stormServiceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStormUI() {
+		return stormUIEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStormUI_UiPort() {
+		return (EAttribute)stormUIEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStormUI_Owner() {
+		return (EReference)stormUIEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStormUI_Host() {
+		return (EReference)stormUIEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStormNimbus() {
+		return stormNimbusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStormNimbus_Owner() {
+		return (EReference)stormNimbusEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStormNimbus_Host() {
+		return (EReference)stormNimbusEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStormSupervisor() {
+		return stormSupervisorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStormSupervisor_SupervisorSlotPorts() {
+		return (EAttribute)stormSupervisorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStormSupervisor_Owner() {
+		return (EReference)stormSupervisorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStormSupervisor_Host() {
+		return (EReference)stormSupervisorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3765,16 +3898,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getNodeCluster__AllNodes__DiagnosticChain_Map() {
-		return nodeClusterEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPrometheusMeter() {
 		return prometheusMeterEClass;
 	}
@@ -3981,7 +4104,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		nodeClusterEClass = createEClass(NODE_CLUSTER);
 		createEOperation(nodeClusterEClass, NODE_CLUSTER___GET_NODES);
-		createEOperation(nodeClusterEClass, NODE_CLUSTER___ALL_NODES__DIAGNOSTICCHAIN_MAP);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__BANDWITH);
@@ -3989,9 +4111,9 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServiceEClass = createEClass(PLATFORM_SERVICE);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__HOST);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__ORCHESTRATOR);
-		createEOperation(platformServiceEClass, PLATFORM_SERVICE___HOST_OR_ORCHESTRATOR__DIAGNOSTICCHAIN_MAP);
 
 		orchestrationServiceEClass = createEClass(ORCHESTRATION_SERVICE);
+		createEReference(orchestrationServiceEClass, ORCHESTRATION_SERVICE__SERVICES);
 
 		kubernetesServiceEClass = createEClass(KUBERNETES_SERVICE);
 		createEAttribute(kubernetesServiceEClass, KUBERNETES_SERVICE__API_VERSION);
@@ -4058,9 +4180,23 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		stormServiceEClass = createEClass(STORM_SERVICE);
 		createEReference(stormServiceEClass, STORM_SERVICE__ZOOKEEPER_CONNECT);
 		createEAttribute(stormServiceEClass, STORM_SERVICE__LOCAL_DIR);
-		createEReference(stormServiceEClass, STORM_SERVICE__NIMBUS_SEEDS);
-		createEAttribute(stormServiceEClass, STORM_SERVICE__SUPERVISOR_SLOT_PORTS);
-		createEAttribute(stormServiceEClass, STORM_SERVICE__UI_PORT);
+		createEReference(stormServiceEClass, STORM_SERVICE__NIMBUS);
+		createEReference(stormServiceEClass, STORM_SERVICE__SUPERVISOR);
+		createEReference(stormServiceEClass, STORM_SERVICE__UI);
+
+		stormUIEClass = createEClass(STORM_UI);
+		createEAttribute(stormUIEClass, STORM_UI__UI_PORT);
+		createEReference(stormUIEClass, STORM_UI__OWNER);
+		createEReference(stormUIEClass, STORM_UI__HOST);
+
+		stormNimbusEClass = createEClass(STORM_NIMBUS);
+		createEReference(stormNimbusEClass, STORM_NIMBUS__OWNER);
+		createEReference(stormNimbusEClass, STORM_NIMBUS__HOST);
+
+		stormSupervisorEClass = createEClass(STORM_SUPERVISOR);
+		createEAttribute(stormSupervisorEClass, STORM_SUPERVISOR__SUPERVISOR_SLOT_PORTS);
+		createEReference(stormSupervisorEClass, STORM_SUPERVISOR__OWNER);
+		createEReference(stormSupervisorEClass, STORM_SUPERVISOR__HOST);
 
 		persistenceServiceEClass = createEClass(PERSISTENCE_SERVICE);
 		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__LOGGING);
@@ -4355,6 +4491,12 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		nodeSchedulerEClass.getESuperTypes().add(this.getSchedulingService());
 		sparkServiceEClass.getESuperTypes().add(this.getSchedulingService());
 		stormServiceEClass.getESuperTypes().add(this.getSchedulingService());
+		stormUIEClass.getESuperTypes().add(this.getDeployableComponent());
+		stormUIEClass.getESuperTypes().add(this.getNamedElement());
+		stormNimbusEClass.getESuperTypes().add(this.getDeployableComponent());
+		stormNimbusEClass.getESuperTypes().add(this.getNamedElement());
+		stormSupervisorEClass.getESuperTypes().add(this.getDeployableComponent());
+		stormSupervisorEClass.getESuperTypes().add(this.getNamedElement());
 		persistenceServiceEClass.getESuperTypes().add(this.getPlatformService());
 		memSQLServiceEClass.getESuperTypes().add(this.getPersistenceService());
 		cassandraServiceEClass.getESuperTypes().add(this.getPersistenceService());
@@ -4490,32 +4632,15 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEOperation(getNodeCluster__GetNodes(), this.getProcessingNode(), "getNodes", 1, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNodeCluster__AllNodes__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "allNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 1, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformServiceEClass, PlatformService.class, "PlatformService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlatformService_Host(), this.getNodeCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), null, "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hostOrOrchestrator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), this.getOrchestrationService_Services(), "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orchestrationServiceEClass, OrchestrationService.class, "OrchestrationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOrchestrationService_Services(), this.getPlatformService(), this.getPlatformService_Orchestrator(), "services", null, 0, -1, OrchestrationService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(kubernetesServiceEClass, KubernetesService.class, "KubernetesService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKubernetesService_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, KubernetesService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4582,9 +4707,23 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(stormServiceEClass, StormService.class, "StormService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStormService_ZookeeperConnect(), this.getZookeeperService(), null, "zookeeperConnect", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStormService_LocalDir(), ecorePackage.getEString(), "localDir", "storm-local", 0, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormService_NimbusSeeds(), this.getNodeCluster(), null, "nimbusSeeds", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStormService_SupervisorSlotPorts(), ecorePackage.getEInt(), "supervisorSlotPorts", null, 0, -1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStormService_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormService_Nimbus(), this.getStormNimbus(), this.getStormNimbus_Owner(), "nimbus", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormService_Supervisor(), this.getStormSupervisor(), this.getStormSupervisor_Owner(), "supervisor", null, 1, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormService_Ui(), this.getStormUI(), this.getStormUI_Owner(), "ui", null, 0, 1, StormService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stormUIEClass, StormUI.class, "StormUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStormUI_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 1, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormUI_Owner(), this.getStormService(), this.getStormService_Ui(), "owner", null, 1, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormUI_Host(), this.getNodeCluster(), null, "host", null, 0, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stormNimbusEClass, StormNimbus.class, "StormNimbus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStormNimbus_Owner(), this.getStormService(), this.getStormService_Nimbus(), "owner", null, 1, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormNimbus_Host(), this.getNodeCluster(), null, "host", null, 0, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stormSupervisorEClass, StormSupervisor.class, "StormSupervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStormSupervisor_SupervisorSlotPorts(), ecorePackage.getEInt(), "supervisorSlotPorts", null, 0, -1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormSupervisor_Owner(), this.getStormService(), this.getStormService_Supervisor(), "owner", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormSupervisor_Host(), this.getNodeCluster(), null, "host", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistenceServiceEClass, PersistenceService.class, "PersistenceService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistenceService_Logging(), ecorePackage.getEString(), "logging", null, 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4856,6 +4995,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.CASSANDRA_SERVER);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.STORM_NIMBUS);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.STORM_SUPERVISOR);
+		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.STORM_UI);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.SPARK_SERVER);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.KAFKA_WORKLOAD_STREAM);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.KAFKA_FLOW_STREAM);
@@ -4864,8 +5004,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_EXECUTOR);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_AMOUNT_METER);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.DOCKER_STACK);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.WORKFLOW);
 		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.CASSANDRA_SCHEMA);
+		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.WORKFLOW);
 
 		// Initialize data types
 		initEDataType(propertiesEDataType, Properties.class, "Properties", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -4892,6 +5032,9 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		  (this,
 		   source,
 		   new String[] {
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
 		   });
 		addAnnotation
 		  (nodeClusterEClass,
@@ -4916,16 +5059,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	protected void createPivotAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
 		addAnnotation
-		  (getNodeCluster__AllNodes__DiagnosticChain_Map(),
+		  (nodeClusterEClass,
 		   source,
 		   new String[] {
-			   "body", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
+			   "allNodes", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
 		   });
 		addAnnotation
-		  (getPlatformService__HostOrOrchestrator__DiagnosticChain_Map(),
+		  (platformServiceEClass,
 		   source,
 		   new String[] {
-			   "body", "host<>null xor orchestrator<>null"
+			   "hostOrOrchestrator", "host<>null xor orchestrator<>null"
 		   });
 	}
 

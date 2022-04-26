@@ -2,9 +2,6 @@
  */
 package PASYS_Metamodel.pasys;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Platform Service</b></em>'.
@@ -21,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformService()
  * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hostOrOrchestrator'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hostOrOrchestrator='host&lt;&gt;null xor orchestrator&lt;&gt;null'"
  * @generated
  */
 public interface PlatformService extends PlatformResource, DeployableComponent {
@@ -48,12 +46,14 @@ public interface PlatformService extends PlatformResource, DeployableComponent {
 
 	/**
 	 * Returns the value of the '<em><b>Orchestrator</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.OrchestrationService#getServices <em>Services</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Orchestrator</em>' reference.
 	 * @see #setOrchestrator(OrchestrationService)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformService_Orchestrator()
-	 * @model
+	 * @see PASYS_Metamodel.pasys.OrchestrationService#getServices
+	 * @model opposite="services"
 	 * @generated
 	 */
 	OrchestrationService getOrchestrator();
@@ -67,13 +67,5 @@ public interface PlatformService extends PlatformResource, DeployableComponent {
 	 * @generated
 	 */
 	void setOrchestrator(OrchestrationService value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='host&lt;&gt;null xor orchestrator&lt;&gt;null'"
-	 * @generated
-	 */
-	boolean hostOrOrchestrator(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // PlatformService

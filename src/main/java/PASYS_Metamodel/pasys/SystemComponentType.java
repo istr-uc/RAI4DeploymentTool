@@ -78,6 +78,14 @@ public enum SystemComponentType implements Enumerator {
 	 * @ordered
 	 */
 	STORM_SUPERVISOR(6, "STORM_SUPERVISOR", "STORM_SUPERVISOR"), /**
+	 * The '<em><b>STORM UI</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STORM_UI_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STORM_UI(7, "STORM_UI", "STORM_UI"), /**
 	 * The '<em><b>SPARK SERVER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,7 +93,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPARK_SERVER(7, "SPARK_SERVER", "SPARK_SERVER"), /**
+	SPARK_SERVER(8, "SPARK_SERVER", "SPARK_SERVER"), /**
 	 * The '<em><b>KAFKA WORKLOAD STREAM</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,7 +101,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	KAFKA_WORKLOAD_STREAM(8, "KAFKA_WORKLOAD_STREAM", "KAFKA_WORKLOAD_STREAM"), /**
+	KAFKA_WORKLOAD_STREAM(9, "KAFKA_WORKLOAD_STREAM", "KAFKA_WORKLOAD_STREAM"), /**
 	 * The '<em><b>KAFKA FLOW STREAM</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,7 +109,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	KAFKA_FLOW_STREAM(9, "KAFKA_FLOW_STREAM", "KAFKA_FLOW_STREAM"), /**
+	KAFKA_FLOW_STREAM(10, "KAFKA_FLOW_STREAM", "KAFKA_FLOW_STREAM"), /**
 	 * The '<em><b>AVRO SERVER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,7 +117,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AVRO_SERVER(10, "AVRO_SERVER", "AVRO_SERVER"), /**
+	AVRO_SERVER(11, "AVRO_SERVER", "AVRO_SERVER"), /**
 	 * The '<em><b>NODE RESOURCE METER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,7 +125,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NODE_RESOURCE_METER(11, "NODE_RESOURCE_METER", "NODE_RESOURCE_METER"), /**
+	NODE_RESOURCE_METER(12, "NODE_RESOURCE_METER", "NODE_RESOURCE_METER"), /**
 	 * The '<em><b>TASK EXECUTOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,7 +133,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TASK_EXECUTOR(12, "TASK_EXECUTOR", "TASK_EXECUTOR"), /**
+	TASK_EXECUTOR(13, "TASK_EXECUTOR", "TASK_EXECUTOR"), /**
 	 * The '<em><b>TASK AMOUNT METER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,7 +141,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TASK_AMOUNT_METER(13, "TASK_AMOUNT_METER", "TASK_AMOUNT_METER"), /**
+	TASK_AMOUNT_METER(14, "TASK_AMOUNT_METER", "TASK_AMOUNT_METER"), /**
 	 * The '<em><b>DOCKER STACK</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,15 +149,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DOCKER_STACK(14, "DOCKER_STACK", "DOCKER_STACK"), /**
-	 * The '<em><b>WORKFLOW</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #WORKFLOW_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	WORKFLOW(16, "WORKFLOW", "WORKFLOW"), /**
+	DOCKER_STACK(15, "DOCKER_STACK", "DOCKER_STACK"), /**
 	 * The '<em><b>CASSANDRA SCHEMA</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,7 +157,15 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CASSANDRA_SCHEMA(15, "CASSANDRA_SCHEMA", "CASSANDRA_SCHEMA");
+	CASSANDRA_SCHEMA(16, "CASSANDRA_SCHEMA", "CASSANDRA_SCHEMA"), /**
+	 * The '<em><b>WORKFLOW</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WORKFLOW_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WORKFLOW(17, "WORKFLOW", "WORKFLOW");
 
 	/**
 	 * The '<em><b>PROMETHEUS SERVER</b></em>' literal value.
@@ -265,6 +273,17 @@ public enum SystemComponentType implements Enumerator {
 	public static final int STORM_SUPERVISOR_VALUE = 6;
 
 	/**
+	 * The '<em><b>STORM UI</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STORM_UI
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STORM_UI_VALUE = 7;
+
+	/**
 	 * The '<em><b>SPARK SERVER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -277,7 +296,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SPARK_SERVER_VALUE = 7;
+	public static final int SPARK_SERVER_VALUE = 8;
 
 	/**
 	 * The '<em><b>KAFKA WORKLOAD STREAM</b></em>' literal value.
@@ -292,7 +311,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int KAFKA_WORKLOAD_STREAM_VALUE = 8;
+	public static final int KAFKA_WORKLOAD_STREAM_VALUE = 9;
 
 	/**
 	 * The '<em><b>KAFKA FLOW STREAM</b></em>' literal value.
@@ -307,7 +326,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int KAFKA_FLOW_STREAM_VALUE = 9;
+	public static final int KAFKA_FLOW_STREAM_VALUE = 10;
 
 	/**
 	 * The '<em><b>AVRO SERVER</b></em>' literal value.
@@ -322,7 +341,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int AVRO_SERVER_VALUE = 10;
+	public static final int AVRO_SERVER_VALUE = 11;
 
 	/**
 	 * The '<em><b>NODE RESOURCE METER</b></em>' literal value.
@@ -337,7 +356,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NODE_RESOURCE_METER_VALUE = 11;
+	public static final int NODE_RESOURCE_METER_VALUE = 12;
 
 	/**
 	 * The '<em><b>TASK EXECUTOR</b></em>' literal value.
@@ -352,7 +371,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_EXECUTOR_VALUE = 12;
+	public static final int TASK_EXECUTOR_VALUE = 13;
 
 	/**
 	 * The '<em><b>TASK AMOUNT METER</b></em>' literal value.
@@ -367,7 +386,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_AMOUNT_METER_VALUE = 13;
+	public static final int TASK_AMOUNT_METER_VALUE = 14;
 
 	/**
 	 * The '<em><b>DOCKER STACK</b></em>' literal value.
@@ -382,22 +401,7 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOCKER_STACK_VALUE = 14;
-
-	/**
-	 * The '<em><b>WORKFLOW</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>WORKFLOW</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #WORKFLOW
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int WORKFLOW_VALUE = 16;
+	public static final int DOCKER_STACK_VALUE = 15;
 
 	/**
 	 * The '<em><b>CASSANDRA SCHEMA</b></em>' literal value.
@@ -412,7 +416,22 @@ public enum SystemComponentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CASSANDRA_SCHEMA_VALUE = 15;
+	public static final int CASSANDRA_SCHEMA_VALUE = 16;
+
+	/**
+	 * The '<em><b>WORKFLOW</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>WORKFLOW</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #WORKFLOW
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WORKFLOW_VALUE = 17;
 
 	/**
 	 * An array of all the '<em><b>System Component Type</b></em>' enumerators.
@@ -429,6 +448,7 @@ public enum SystemComponentType implements Enumerator {
 			CASSANDRA_SERVER,
 			STORM_NIMBUS,
 			STORM_SUPERVISOR,
+			STORM_UI,
 			SPARK_SERVER,
 			KAFKA_WORKLOAD_STREAM,
 			KAFKA_FLOW_STREAM,
@@ -437,8 +457,8 @@ public enum SystemComponentType implements Enumerator {
 			TASK_EXECUTOR,
 			TASK_AMOUNT_METER,
 			DOCKER_STACK,
-			WORKFLOW,
 			CASSANDRA_SCHEMA,
+			WORKFLOW,
 		};
 
 	/**
@@ -502,6 +522,7 @@ public enum SystemComponentType implements Enumerator {
 			case CASSANDRA_SERVER_VALUE: return CASSANDRA_SERVER;
 			case STORM_NIMBUS_VALUE: return STORM_NIMBUS;
 			case STORM_SUPERVISOR_VALUE: return STORM_SUPERVISOR;
+			case STORM_UI_VALUE: return STORM_UI;
 			case SPARK_SERVER_VALUE: return SPARK_SERVER;
 			case KAFKA_WORKLOAD_STREAM_VALUE: return KAFKA_WORKLOAD_STREAM;
 			case KAFKA_FLOW_STREAM_VALUE: return KAFKA_FLOW_STREAM;
@@ -510,8 +531,8 @@ public enum SystemComponentType implements Enumerator {
 			case TASK_EXECUTOR_VALUE: return TASK_EXECUTOR;
 			case TASK_AMOUNT_METER_VALUE: return TASK_AMOUNT_METER;
 			case DOCKER_STACK_VALUE: return DOCKER_STACK;
-			case WORKFLOW_VALUE: return WORKFLOW;
 			case CASSANDRA_SCHEMA_VALUE: return CASSANDRA_SCHEMA;
+			case WORKFLOW_VALUE: return WORKFLOW;
 		}
 		return null;
 	}

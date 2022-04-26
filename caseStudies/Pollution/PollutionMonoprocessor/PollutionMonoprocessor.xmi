@@ -108,8 +108,7 @@
       id="PollutionStorm"
       host="//@ownedElements.1"
       workflows="//@ownedElements.7"
-      zookeeperConnect="2"
-      nimbusSeeds="//@ownedElements.1">
+      zookeeperConnect="2">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/services/storm/bin"
@@ -118,10 +117,48 @@
         scriptFolderPath="/home/gestor/apache/services/storm/scripts"
         dataFolderPath="/home/gestor/apache/services/storm/data"
         logFolderPath="/home/gestor/apache/services/storm/logs"/>
-    <supervisorSlotPorts>6700</supervisorSlotPorts>
-    <supervisorSlotPorts>6701</supervisorSlotPorts>
-    <supervisorSlotPorts>6702</supervisorSlotPorts>
-    <supervisorSlotPorts>6703</supervisorSlotPorts>
+    <nimbus
+        name="PolllutionStormNimbus"
+        id="PolllutionStormNimbus"
+        host="//@ownedElements.1">
+      <deploymentConfig
+          xsi:type="pasys:NodeClusterDeploymentConf"
+          artifactLocator="/home/gestor/apache/services/storm/bin"
+          artifactName="storm"
+          configFolderPath="/home/gestor/apache/services/storm/config"
+          scriptFolderPath="/home/gestor/apache/services/storm/scripts"
+          dataFolderPath="/home/gestor/apache/services/storm/data"
+          logFolderPath="/home/gestor/apache/services/storm/logs"/>
+    </nimbus>
+    <supervisor
+        name="PollutionStormSupervisor"
+        id="PollutionStormSupervisor"
+        host="//@ownedElements.1">
+      <deploymentConfig
+          xsi:type="pasys:NodeClusterDeploymentConf"
+          artifactLocator="/home/gestor/apache/services/storm/bin"
+          artifactName="storm"
+          configFolderPath="/home/gestor/apache/services/storm/config"
+          scriptFolderPath="/home/gestor/apache/services/storm/scripts"
+          dataFolderPath="/home/gestor/apache/services/storm/data"
+          logFolderPath="/home/gestor/apache/services/storm/logs"/>
+      <supervisorSlotPorts>6700</supervisorSlotPorts>
+      <supervisorSlotPorts>6701</supervisorSlotPorts>
+      <supervisorSlotPorts>6702</supervisorSlotPorts>
+      <supervisorSlotPorts>6703</supervisorSlotPorts>
+    </supervisor>
+    <ui name="PollutionStormUI"
+        id="PollutionStormUI"
+        host="//@ownedElements.1">
+      <deploymentConfig
+          xsi:type="pasys:NodeClusterDeploymentConf"
+          artifactLocator="/home/gestor/apache/services/storm/bin"
+          artifactName="storm"
+          configFolderPath="/home/gestor/apache/services/storm/config"
+          scriptFolderPath="/home/gestor/apache/services/storm/scripts"
+          dataFolderPath="/home/gestor/apache/services/storm/data"
+          logFolderPath="/home/gestor/apache/services/storm/logs"/>
+    </ui>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:Workflow"

@@ -63,7 +63,10 @@ import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.SerializationService;
 import PASYS_Metamodel.pasys.SparkService;
+import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
+import PASYS_Metamodel.pasys.StormSupervisor;
+import PASYS_Metamodel.pasys.StormUI;
 import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
@@ -92,6 +95,7 @@ import PASYS_Metamodel.pasys.ZookeeperService;
 
 import java.util.Map;
 import java.util.Properties;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -127,28 +131,12 @@ public class PasysValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "PASYS_Metamodel.pasys";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Nodes' of 'Node Cluster'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int NODE_CLUSTER__ALL_NODES = 1;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Host Or Orchestrator' of 'Platform Service'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR = 2;
-
-	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -244,6 +232,12 @@ public class PasysValidator extends EObjectValidator {
 				return validateSparkService((SparkService)value, diagnostics, context);
 			case PasysPackage.STORM_SERVICE:
 				return validateStormService((StormService)value, diagnostics, context);
+			case PasysPackage.STORM_UI:
+				return validateStormUI((StormUI)value, diagnostics, context);
+			case PasysPackage.STORM_NIMBUS:
+				return validateStormNimbus((StormNimbus)value, diagnostics, context);
+			case PasysPackage.STORM_SUPERVISOR:
+				return validateStormSupervisor((StormSupervisor)value, diagnostics, context);
 			case PasysPackage.PERSISTENCE_SERVICE:
 				return validatePersistenceService((PersistenceService)value, diagnostics, context);
 			case PasysPackage.MEM_SQL_SERVICE:
@@ -499,13 +493,32 @@ public class PasysValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the allNodes constraint of '<em>Node Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String NODE_CLUSTER__ALL_NODES__EEXPRESSION = "resources->forAll(r|r.oclIsKindOf(ProcessingNode))";
+
+	/**
 	 * Validates the allNodes constraint of '<em>Node Cluster</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateNodeCluster_allNodes(NodeCluster nodeCluster, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return nodeCluster.allNodes(diagnostics, context);
+		return
+			validate
+				(PasysPackage.Literals.NODE_CLUSTER,
+				 nodeCluster,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "allNodes",
+				 NODE_CLUSTER__ALL_NODES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -537,13 +550,32 @@ public class PasysValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the hostOrOrchestrator constraint of '<em>Platform Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR__EEXPRESSION = "host<>null xor orchestrator<>null";
+
+	/**
 	 * Validates the hostOrOrchestrator constraint of '<em>Platform Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validatePlatformService_hostOrOrchestrator(PlatformService platformService, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return platformService.hostOrOrchestrator(diagnostics, context);
+		return
+			validate
+				(PasysPackage.Literals.PLATFORM_SERVICE,
+				 platformService,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "hostOrOrchestrator",
+				 PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -791,6 +823,33 @@ public class PasysValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(stormService, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePlatformService_hostOrOrchestrator(stormService, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStormUI(StormUI stormUI, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stormUI, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStormNimbus(StormNimbus stormNimbus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stormNimbus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStormSupervisor(StormSupervisor stormSupervisor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stormSupervisor, diagnostics, context);
 	}
 
 	/**
