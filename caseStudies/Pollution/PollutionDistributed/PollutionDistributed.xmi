@@ -48,7 +48,7 @@
       xsi:type="pasys:NodeCluster"
       name="StormCluster"
       id="StormCluster"
-      resources="//@ownedElements.3 //@ownedElements.0"/>
+      resources="//@ownedElements.0 //@ownedElements.3"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="CassandraCluster"

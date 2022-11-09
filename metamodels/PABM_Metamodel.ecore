@@ -94,7 +94,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
           eType="#//pasys/Network"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="launchingScripts" upperBound="-1"
-          eType="#//pasys/DeploymentFileDescriptor" eOpposite="#//pasys/DeploymentFileDescriptor/owner"/>
+          eType="#//pasys/DeploymentFileDescriptor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="configFiles" upperBound="-1"
           eType="#//pasys/DeploymentFileDescriptor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="codeFiles" upperBound="-1"
@@ -632,8 +632,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileContent" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementType" eType="#//pasys/SystemComponentType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//pasys/ProcessingNode"
-          eOpposite="#//pasys/ProcessingNode/launchingScripts"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//pasys/ProcessingNode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArtifactDescriptor" eSuperTypes="#//pasys/FileDescriptor">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="localPath" lowerBound="1"
