@@ -5,21 +5,22 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.emf.common.util.EList;
-
-import PASYS_Metamodel.pasys.ArtifactDescriptor;
-import PASYS_Metamodel.pasys.DeploymentException;
-import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 
 public class DeploymentToolsUtils {
 	// Windows
 	// public static final String TEMP_DIR = System.getProperty("user.dir")+"\\temp";
 	
 	// Linux
-	public static final String TEMP_DIR = System.getProperty("user.dir")+"/tempPRECON";
+	//public static final String TEMP_DIR = System.getProperty("user.dir")+"/tempPRECON";
+	
+	public static String GEN_DIR;
+	
+	public static void setGenDir(String dir) {
+		GEN_DIR = dir;
+	}
 
 	public static void createFile(String fileContent, String fileName) {
 		File file = new File(fileName);

@@ -7,6 +7,10 @@ import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
+import deploymentTool.DeploymentToolsUtils;
+
+import java.io.File;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
@@ -165,6 +169,8 @@ public abstract class VirtualProcessingNodeImpl extends ProcessingNodeImpl imple
 	
 	public void deployAndLaunch() throws LaunchException, DeploymentException, ConfigurationException {
 		int exitValue = 0;
+		File tempDir= new File(DeploymentToolsUtils.GEN_DIR+"/"+getId());
+		tempDir.mkdir();
 		//System.out.println("deployAndLaunch() in "+this.id);
 		
 			// 1. Create <processorID>.cfg (seg�n la informaci�n almacenada en

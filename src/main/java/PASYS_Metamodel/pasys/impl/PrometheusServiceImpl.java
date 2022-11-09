@@ -172,7 +172,7 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 	}
 	
 	private void configureDeploymentOnOrchestrator() {
-		// TODO Auto-generated method stub
+		// TODO 
 	}
 
 	private void configureDeploymentOnHost() throws ConfigurationException {

@@ -805,7 +805,7 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 		int exitValue = 0;
 		System.out.println("Transfer files to node " + ip);
 		for (DeploymentFileDescriptor fd : fileDescriptors) {
-			String filePath = fd.createFileFromDescriptor(DeploymentToolsUtils.TEMP_DIR);
+			String filePath = fd.createFileFromDescriptor(DeploymentToolsUtils.GEN_DIR+"/"+getId());
 			String authFile = this.getOwner().getAuthenticationFiles().get(ip);
 
 			String command = "scp";

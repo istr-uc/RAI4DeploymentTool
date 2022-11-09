@@ -9,75 +9,71 @@
     date="20/11/2019"
     authors="P. López y R. Dintén">
   <ownedElements
-      xsi:type="pasys:AWSVirtualProcessingNode"
-      name="KafkaVNode"
-      id="KafkaVNode"
-      ip="172.31.21.96"
-      userName="gestor"
-      externalIP="34.255.137.20"
-      keyPair="keyFile"/>
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="NimbusNode1"
+      id="NimbusNode1"
+      ip="172.31.16.48"
+      os="Ubuntu"
+      concurrencyLevel="8"
+      userName="gestor"/>
   <ownedElements
-      xsi:type="pasys:AWSVirtualProcessingNode"
-      name="ZookeeperVNode"
-      id="ZookeeperVNode"
-      ip="172.31.24.124"
-      userName="gestor"
-      externalIP="3.248.207.185"
-      keyPair="keyFile"/>
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="CassandraNode1"
+      id="CassandraNode1"
+      ip="172.31.16.51"
+      os="Ubuntu"
+      userName="gestor"/>
   <ownedElements
-      xsi:type="pasys:AWSVirtualProcessingNode"
-      name="CassandraVNode"
-      id="CassandraVNode"
-      ip="172.31.25.7"
-      userName="gestor"
-      externalIP="54.194.247.222"
-      keyPair="keyFile"/>
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="KafkaNode1"
+      id="KafkaNode1"
+      ip="172.31.16.47"
+      os="Ubuntu"
+      userName="gestor"/>
   <ownedElements
-      xsi:type="pasys:AWSVirtualProcessingNode"
-      name="NimbusVNode"
-      id="NimbusVNode"
-      ip="172.31.25.72"
-      userName="gestor"
-      externalIP="54.194.37.254"
-      keyPair="keyFile"/>
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="SupervisorNode1"
+      id="SupervisorNode1"
+      ip="172.31.17.52"
+      os="Ubuntu"
+      userName="gestor"/>
   <ownedElements
-      xsi:type="pasys:AWSVirtualProcessingNode"
-      name="SupervisorVNode"
-      id="SupervisorVNode"
-      ip="172.31.26.169"
-      userName="gestor"
-      externalIP="34.248.160.67"
-      keyPair="keyFile"/>
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="ZkNode1"
+      id="ZkNode1"
+      ip="172.31.16.49"
+      os="Ubuntu"
+      userName="gestor"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="StormCluster"
       id="StormCluster"
-      resources="//@ownedElements.3 //@ownedElements.4"/>
+      resources="//@ownedElements.3 //@ownedElements.0 //@ownedElements.20 //@ownedElements.17"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="CassandraCluster"
       id="CassandraCluster"
-      resources="//@ownedElements.2"/>
+      resources="//@ownedElements.1 //@ownedElements.18"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="KafkaCluster"
       id="KafkaCluster"
-      resources="//@ownedElements.0"/>
+      resources="//@ownedElements.2 //@ownedElements.19"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="ZookeeperCluster"
       id="ZookeeperCluster"
-      resources="//@ownedElements.1"/>
+      resources="//@ownedElements.4 //@ownedElements.21"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="NimbusCluster"
       id="NimbusCluster"
-      resources="//@ownedElements.3"/>
+      resources="//@ownedElements.0 //@ownedElements.17"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
       name="SupervisorCluster"
       id="SupervisorCluster"
-      resources="//@ownedElements.4"/>
+      resources="//@ownedElements.3 //@ownedElements.20"/>
   <ownedElements
       xsi:type="pasys:ZookeeperService"
       name="PollutionZkpr"
@@ -100,8 +96,8 @@
       commId="1"
       clientPort="9092"
       zookeeperConnect="//@ownedElements.11"
-      listeners="PLAINTEXT://172.31.21.96:9092"
-      advertisedListeners="PLAINTEXT://172.31.21.96:9092"
+      listeners="PLAINTEXT://172.31.16.47:9092"
+      advertisedListeners="PLAINTEXT://172.31.16.47:9092"
       autoCreateTopicEnable="true">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
@@ -131,7 +127,7 @@
         dataFolderPath="/home/gestor/apache/services/cassandra/data"
         logFolderPath="/home/gestor/apache/services/cassandra/logs"/>
     <cqlSchemas
-        filePath="/home/algorrim/Escritorio/Ricardo/git/PASYSDeploymentTool"
+        filePath="/home/gestor/herramientaDespliegue/workspaceEclipse/PASYSDeploymentToolGlobal"
         fileName="cassandra_schema.sql"/>
     <dataCenters
         name="pollutionCluster"
@@ -237,19 +233,40 @@
         triggerStreamData="//@ownedElements.15"
         inputStreamData="//@ownedElements.15"/>
   </ownedElements>
-  <authenticationFiles
-      key="34.255.137.20"
-      value="/home/algorrim/ISTR_keypair.pem"/>
-  <authenticationFiles
-      key="3.248.207.185"
-      value="/home/algorrim/ISTR_keypair.pem"/>
-  <authenticationFiles
-      key="54.194.37.254"
-      value="/home/algorrim/ISTR_keypair.pem"/>
-  <authenticationFiles
-      key="54.194.247.222"
-      value="/home/algorrim/ISTR_keypair.pem"/>
-  <authenticationFiles
-      key="34.248.160.67"
-      value="/home/algorrim/ISTR_keypair.pem"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="NimbusNode2"
+      id="NimbusNode2"
+      ip="172.31.17.48"
+      os="Ubuntu"
+      concurrencyLevel="8"
+      userName="gestor"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="CassandraNode2"
+      id="CassandraNode2"
+      ip="172.31.17.51"
+      os="Ubuntu"
+      userName="gestor"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="KafkaNode2"
+      id="KafkaNode2"
+      ip="172.31.17.47"
+      os="Ubuntu"
+      userName="gestor"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="SupervisorNode2"
+      id="SupervisorNode2"
+      ip="172.31.16.52"
+      os="Ubuntu"
+      userName="gestor"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="ZkNode2"
+      id="ZkNode2"
+      ip="172.31.17.49"
+      os="Ubuntu"
+      userName="gestor"/>
 </pasys:ComputationalSystem>

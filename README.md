@@ -7,5 +7,5 @@ This is a Deployment tool that aims to configure and deploy industrial applicati
 The tool can be executed as an standard java aplication via `java -jar` command.
 
 ```
-java -jar RAI4-0_DeploymentTool.jar [model]
+java -jar RAI4-0_DeploymentTool.jar [modelDir] [modelFile]
 ```

@@ -53,7 +53,8 @@
       xsi:type="pasys:SwarmService"
       name="PollutionSwarm"
       id="PollutionSwarm"
-      host="//@ownedElements.5">
+      host="//@ownedElements.5"
+      services="//@ownedElements.9 //@ownedElements.10">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"/>
   </ownedElements>
@@ -135,6 +136,7 @@
       zookeeperConnect="//@ownedElements.7">
     <deploymentConfig
         xsi:type="pasys:OrchestrationServiceDeploymentConf"
+        image=""
         replicas="1">
       <volumes
           source="/home/gestor/apache/servers/storm/conf"
@@ -149,10 +151,14 @@
           target="6627"
           published="6627"/>
     </deploymentConfig>
-    <supervisorSlotPorts>6700</supervisorSlotPorts>
-    <supervisorSlotPorts>6701</supervisorSlotPorts>
-    <supervisorSlotPorts>6702</supervisorSlotPorts>
-    <supervisorSlotPorts>6703</supervisorSlotPorts>
+    <nimbus
+        name="PolllutionStormNimbus"
+        id="PolllutionStormNimbus"/>
+    <supervisor
+        name="PolllutionStormSupervisor"
+        id="PolllutionStormSupervisor"/>
+    <ui name="PollutionStormUI"
+        id="PollutionStormUI"/>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:KafkaWorkloadStreamData"

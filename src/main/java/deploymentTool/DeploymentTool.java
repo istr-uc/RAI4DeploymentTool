@@ -25,8 +25,12 @@ import PASYS_Metamodel.pasys.PasysPackage;
 public class DeploymentTool {
 
 	public static void main(String[] args) {
+		
+		String modelDir = args[0];
+		String modelFile = args[1];
 
-		String pabmPath = args[0];
+		String modelPath = modelDir+"\\"+modelFile;
+		DeploymentToolsUtils.setGenDir(modelDir+"/gen");
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -36,7 +40,7 @@ public class DeploymentTool {
 		Map<String, Object> extensionFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 		extensionFactoryMap.put("xmi", new XMIResourceFactoryImpl());
 
-		URI pabmUri = URI.createFileURI(pabmPath);
+		URI pabmUri = URI.createFileURI(modelPath);
 		Resource pabmResource = (Resource) resourceSet.createResource(pabmUri);
 		try {
 			pabmResource.load(null);
@@ -54,7 +58,7 @@ public class DeploymentTool {
 
 			// Create temp Directory
 			// Creamos el fichero
-			File tempDir= new File(DeploymentToolsUtils.TEMP_DIR);
+			File tempDir= new File(DeploymentToolsUtils.GEN_DIR);
 			tempDir.mkdir();
 			
 			// Triggers the deployment and launching process
