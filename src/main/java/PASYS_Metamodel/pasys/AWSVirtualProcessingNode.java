@@ -36,7 +36,7 @@ public interface AWSVirtualProcessingNode extends VirtualProcessingNode {
 	 * @return the value of the '<em>Vpc</em>' attribute.
 	 * @see #setVpc(String)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getAWSVirtualProcessingNode_Vpc()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getVpc();
@@ -62,7 +62,7 @@ public interface AWSVirtualProcessingNode extends VirtualProcessingNode {
 	 * @return the value of the '<em>Sub Net</em>' attribute.
 	 * @see #setSubNet(String)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getAWSVirtualProcessingNode_SubNet()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getSubNet();
@@ -114,7 +114,7 @@ public interface AWSVirtualProcessingNode extends VirtualProcessingNode {
 	 * @return the value of the '<em>Security Group</em>' attribute.
 	 * @see #setSecurityGroup(String)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getAWSVirtualProcessingNode_SecurityGroup()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getSecurityGroup();
@@ -140,7 +140,7 @@ public interface AWSVirtualProcessingNode extends VirtualProcessingNode {
 	 * @return the value of the '<em>AMI</em>' attribute.
 	 * @see #setAMI(String)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getAWSVirtualProcessingNode_AMI()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getAMI();
@@ -166,7 +166,7 @@ public interface AWSVirtualProcessingNode extends VirtualProcessingNode {
 	 * @return the value of the '<em>Instance Type</em>' attribute.
 	 * @see #setInstanceType(String)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getAWSVirtualProcessingNode_InstanceType()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getInstanceType();

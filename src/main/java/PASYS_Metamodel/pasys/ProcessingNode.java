@@ -80,7 +80,6 @@ public interface ProcessingNode extends PlatformResource {
 	/**
 	 * Returns the value of the '<em><b>Launching Scripts</b></em>' reference list.
 	 * The list contents are of type {@link PASYS_Metamodel.pasys.DeploymentFileDescriptor}.
-	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.DeploymentFileDescriptor#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Launching Scripts</em>' containment reference list isn't clear,
@@ -89,8 +88,7 @@ public interface ProcessingNode extends PlatformResource {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Launching Scripts</em>' reference list.
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_LaunchingScripts()
-	 * @see PASYS_Metamodel.pasys.DeploymentFileDescriptor#getOwner
-	 * @model opposite="owner"
+	 * @model
 	 * @generated
 	 */
 	EList<DeploymentFileDescriptor> getLaunchingScripts();
@@ -337,5 +335,21 @@ public interface ProcessingNode extends PlatformResource {
 	 * @generated
 	 */
 	void abortLaunching();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model scriptRequired="true"
+	 * @generated
+	 */
+	void addLaunchingScript(DeploymentFileDescriptor script);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model configFileRequired="true"
+	 * @generated
+	 */
+	void addConfigFile(DeploymentFileDescriptor configFile);
 
 } // ProcessingNode

@@ -456,7 +456,7 @@ public class TaskExecutorImpl extends NamedElementImpl implements TaskExecutor {
 		String configFileContent = generateConfigFileContent(pNode);
 		DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("TaskExecutor"+this.getId()+".cfg", 
 				conf.getConfigFolderPath(), configFileContent, SystemComponentType.TASK_EXECUTOR );
-		pNode.getConfigFiles().add(configFile);
+		pNode.addConfigFile(configFile);
 		
 		
 		//Script generation
@@ -464,7 +464,7 @@ public class TaskExecutorImpl extends NamedElementImpl implements TaskExecutor {
 		String scriptName = "TaskExecutor"+this.getId() + ".sh";	
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
 				scriptContent, SystemComponentType.TASK_EXECUTOR);
-		pNode.getLaunchingScripts().add(script);
+		pNode.addLaunchingScript(script);
 		
 		// Artifact to move to the corresponding nodes
 		ArtifactDescriptor artifact = new ArtifactDescriptorImpl(conf.getArtifactName(), conf.getScriptFolderPath(), conf.getArtifactLocator());

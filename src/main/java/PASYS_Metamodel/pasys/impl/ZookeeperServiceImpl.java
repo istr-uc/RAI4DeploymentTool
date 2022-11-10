@@ -585,11 +585,9 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + ".cfg",
 						conf.getConfigFolderPath(), generateConfigFileContent(conf), SystemComponentType.ZOOKEEPER_SERVER);
 				
-				
 				//myid file generation
 				DeploymentFileDescriptor idFile = new DeploymentFileDescriptorImpl("myid",
-						conf.getDataFolderPath(), Integer.toString(serverId), SystemComponentType.ZOOKEEPER_SERVER);
-				
+						conf.getDataFolderPath(), Integer.toString(serverId), SystemComponentType.ZOOKEEPER_SERVER);			
 				
 				// Script generation
 				String scriptContent = conf.getArtifactLocator()+ "/"+conf.getArtifactName()+ " start "+conf.getConfigFolderPath()+"/zoo"+serverId+".cfg";
@@ -598,11 +596,10 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+getServerId()+".sh",
 					conf.getScriptFolderPath(), scriptContent, SystemComponentType.ZOOKEEPER_SERVER);
 				
-				
 				for (ProcessingNode node: getHost().getNodes()) {
-					node.getLaunchingScripts().add(script);
-					node.getConfigFiles().add(configFile);
-					node.getConfigFiles().add(idFile);
+					node.addLaunchingScript(script);
+					node.addConfigFile(configFile);
+					node.addConfigFile(idFile);
 				}
 				
 				

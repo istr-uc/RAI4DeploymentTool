@@ -19,7 +19,7 @@ public class DeploymentToolsUtils {
 	public static String GEN_DIR;
 	
 	public static void setGenDir(String dir) {
-		GEN_DIR = dir;
+		GEN_DIR = System.getProperty("user.dir")+"\\"+dir;
 	}
 
 	public static void createFile(String fileContent, String fileName) {

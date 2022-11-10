@@ -726,13 +726,31 @@ public interface PasysPackage extends EPackage {
 	int PROCESSING_NODE___ABORT_LAUNCHING = PLATFORM_RESOURCE_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Add Launching Script</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR = PLATFORM_RESOURCE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Add Config File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR = PLATFORM_RESOURCE_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Processing Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_NODE_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 5;
+	int PROCESSING_NODE_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PhysicalProcessingNodeImpl <em>Physical Processing Node</em>}' class.
@@ -932,6 +950,24 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_PROCESSING_NODE___ABORT_LAUNCHING = PROCESSING_NODE___ABORT_LAUNCHING;
+
+	/**
+	 * The operation id for the '<em>Add Launching Script</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR = PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR;
+
+	/**
+	 * The operation id for the '<em>Add Config File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR = PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR;
 
 	/**
 	 * The number of operations of the '<em>Physical Processing Node</em>' class.
@@ -1149,6 +1185,24 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIRTUAL_PROCESSING_NODE___ABORT_LAUNCHING = PROCESSING_NODE___ABORT_LAUNCHING;
+
+	/**
+	 * The operation id for the '<em>Add Launching Script</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIRTUAL_PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR = PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR;
+
+	/**
+	 * The operation id for the '<em>Add Config File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIRTUAL_PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR = PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR;
 
 	/**
 	 * The number of operations of the '<em>Virtual Processing Node</em>' class.
@@ -1420,6 +1474,24 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int AWS_VIRTUAL_PROCESSING_NODE___ABORT_LAUNCHING = VIRTUAL_PROCESSING_NODE___ABORT_LAUNCHING;
+
+	/**
+	 * The operation id for the '<em>Add Launching Script</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AWS_VIRTUAL_PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR = VIRTUAL_PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR;
+
+	/**
+	 * The operation id for the '<em>Add Config File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AWS_VIRTUAL_PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR = VIRTUAL_PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR;
 
 	/**
 	 * The number of operations of the '<em>AWS Virtual Processing Node</em>' class.
@@ -9035,6 +9107,26 @@ public interface PasysPackage extends EPackage {
 	EOperation getProcessingNode__AbortLaunching();
 
 	/**
+	 * Returns the meta object for the '{@link PASYS_Metamodel.pasys.ProcessingNode#addLaunchingScript(PASYS_Metamodel.pasys.DeploymentFileDescriptor) <em>Add Launching Script</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Launching Script</em>' operation.
+	 * @see PASYS_Metamodel.pasys.ProcessingNode#addLaunchingScript(PASYS_Metamodel.pasys.DeploymentFileDescriptor)
+	 * @generated
+	 */
+	EOperation getProcessingNode__AddLaunchingScript__DeploymentFileDescriptor();
+
+	/**
+	 * Returns the meta object for the '{@link PASYS_Metamodel.pasys.ProcessingNode#addConfigFile(PASYS_Metamodel.pasys.DeploymentFileDescriptor) <em>Add Config File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Config File</em>' operation.
+	 * @see PASYS_Metamodel.pasys.ProcessingNode#addConfigFile(PASYS_Metamodel.pasys.DeploymentFileDescriptor)
+	 * @generated
+	 */
+	EOperation getProcessingNode__AddConfigFile__DeploymentFileDescriptor();
+
+	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.PhysicalProcessingNode <em>Physical Processing Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12372,6 +12464,22 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROCESSING_NODE___ABORT_LAUNCHING = eINSTANCE.getProcessingNode__AbortLaunching();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Launching Script</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR = eINSTANCE.getProcessingNode__AddLaunchingScript__DeploymentFileDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Config File</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR = eINSTANCE.getProcessingNode__AddConfigFile__DeploymentFileDescriptor();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PhysicalProcessingNodeImpl <em>Physical Processing Node</em>}' class.

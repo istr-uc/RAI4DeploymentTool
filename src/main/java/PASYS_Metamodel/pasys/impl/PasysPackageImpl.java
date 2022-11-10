@@ -1308,6 +1308,26 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getProcessingNode__AddLaunchingScript__DeploymentFileDescriptor() {
+		return processingNodeEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProcessingNode__AddConfigFile__DeploymentFileDescriptor() {
+		return processingNodeEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPhysicalProcessingNode() {
 		return physicalProcessingNodeEClass;
 	}
@@ -4085,6 +4105,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEOperation(processingNodeEClass, PROCESSING_NODE___BRING_BACK_CONFIGURATION);
 		createEOperation(processingNodeEClass, PROCESSING_NODE___BRING_BACK_DEPLOYMENT);
 		createEOperation(processingNodeEClass, PROCESSING_NODE___ABORT_LAUNCHING);
+		createEOperation(processingNodeEClass, PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR);
+		createEOperation(processingNodeEClass, PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR);
 
 		physicalProcessingNodeEClass = createEClass(PHYSICAL_PROCESSING_NODE);
 
@@ -4594,7 +4616,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getProcessingNode_PropertyConfigData(), this.getProperties(), "propertyConfigData", null, 0, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessingNode_UserName(), ecorePackage.getEString(), "userName", null, 1, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingNode_ConnectedTo(), this.getNetwork(), null, "connectedTo", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProcessingNode_LaunchingScripts(), this.getDeploymentFileDescriptor(), this.getDeploymentFileDescriptor_Owner(), "launchingScripts", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcessingNode_LaunchingScripts(), this.getDeploymentFileDescriptor(), null, "launchingScripts", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingNode_ConfigFiles(), this.getDeploymentFileDescriptor(), null, "configFiles", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingNode_CodeFiles(), this.getArtifactDescriptor(), null, "codeFiles", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingNode_OwnedMeters(), this.getNodeHostedMeter(), this.getNodeHostedMeter_Owner(), "ownedMeters", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4612,18 +4634,24 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEOperation(getProcessingNode__AbortLaunching(), null, "abortLaunching", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getProcessingNode__AddLaunchingScript__DeploymentFileDescriptor(), null, "addLaunchingScript", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDeploymentFileDescriptor(), "script", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getProcessingNode__AddConfigFile__DeploymentFileDescriptor(), null, "addConfigFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDeploymentFileDescriptor(), "configFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(physicalProcessingNodeEClass, PhysicalProcessingNode.class, "PhysicalProcessingNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(virtualProcessingNodeEClass, VirtualProcessingNode.class, "VirtualProcessingNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVirtualProcessingNode_ExternalIP(), ecorePackage.getEString(), "externalIP", null, 1, 1, VirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(awsVirtualProcessingNodeEClass, AWSVirtualProcessingNode.class, "AWSVirtualProcessingNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAWSVirtualProcessingNode_Vpc(), ecorePackage.getEString(), "vpc", null, 1, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAWSVirtualProcessingNode_SubNet(), ecorePackage.getEString(), "subNet", null, 1, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAWSVirtualProcessingNode_Vpc(), ecorePackage.getEString(), "vpc", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAWSVirtualProcessingNode_SubNet(), ecorePackage.getEString(), "subNet", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAWSVirtualProcessingNode_KeyPair(), ecorePackage.getEString(), "keyPair", null, 1, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAWSVirtualProcessingNode_SecurityGroup(), ecorePackage.getEString(), "securityGroup", null, 1, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAWSVirtualProcessingNode_AMI(), ecorePackage.getEString(), "AMI", null, 1, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAWSVirtualProcessingNode_InstanceType(), ecorePackage.getEString(), "instanceType", null, 1, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAWSVirtualProcessingNode_SecurityGroup(), ecorePackage.getEString(), "securityGroup", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAWSVirtualProcessingNode_AMI(), ecorePackage.getEString(), "AMI", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAWSVirtualProcessingNode_InstanceType(), ecorePackage.getEString(), "instanceType", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceClusterEClass, ResourceCluster.class, "ResourceCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceCluster_Resources(), this.getPlatformResource(), null, "resources", null, 1, -1, ResourceCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4734,7 +4762,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(cassandraServiceEClass, CassandraService.class, "CassandraService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCassandraService_NumTokens(), ecorePackage.getEInt(), "numTokens", "256", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCassandraService_Seeds(), this.getNodeCluster(), null, "seeds", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCassandraService_Seeds(), this.getNodeCluster(), null, "seeds", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_SeedProviderClass(), ecorePackage.getEString(), "seedProviderClass", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_EndpointSnitch(), ecorePackage.getEString(), "endpointSnitch", "SimpleSnitch", 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_DataFileDir(), ecorePackage.getEString(), "dataFileDir", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4951,7 +4979,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(deploymentFileDescriptorEClass, DeploymentFileDescriptor.class, "DeploymentFileDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploymentFileDescriptor_FileContent(), ecorePackage.getEString(), "fileContent", null, 1, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeploymentFileDescriptor_ElementType(), this.getSystemComponentType(), "elementType", null, 0, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeploymentFileDescriptor_Owner(), this.getProcessingNode(), this.getProcessingNode_LaunchingScripts(), "owner", null, 0, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeploymentFileDescriptor_Owner(), this.getProcessingNode(), null, "owner", null, 0, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactDescriptorEClass, ArtifactDescriptor.class, "ArtifactDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifactDescriptor_LocalPath(), ecorePackage.getEString(), "localPath", null, 1, 1, ArtifactDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

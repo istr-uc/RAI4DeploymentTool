@@ -9,6 +9,7 @@ import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
+import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
@@ -64,7 +65,8 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 				getScriptContent(getName(), server), SystemComponentType.KAFKA_FLOW_STREAM);
 		
 		// If Kakfa is deployed in a cluster, the topic must be created in only one of the instances
-		server.getHost().getNodes().get(0).getLaunchingScripts().add(script);
+		ProcessingNode node = server.getHost().getNodes().get(0);
+		node.addLaunchingScript(script);
 	}
 	
 	private String getScriptContent(String topicName, CommunicationService server) {

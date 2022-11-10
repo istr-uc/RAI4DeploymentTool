@@ -202,8 +202,8 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 				conf.getScriptFolderPath(), scriptContent, SystemComponentType.PROMETHEUS_SERVER);
 
 		for (ProcessingNode node: getHost().getNodes()) {
-			node.getLaunchingScripts().add(script);
-			node.getConfigFiles().add(configFile);
+			node.addLaunchingScript(script);
+			node.addConfigFile(configFile);
 		}
 	}
 	

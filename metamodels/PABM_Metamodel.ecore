@@ -79,6 +79,12 @@
       <eOperations name="bringBackConfiguration"/>
       <eOperations name="bringBackDeployment"/>
       <eOperations name="abortLaunching"/>
+      <eOperations name="addLaunchingScript">
+        <eParameters name="script" lowerBound="1" eType="#//pasys/DeploymentFileDescriptor"/>
+      </eOperations>
+      <eOperations name="addConfigFile">
+        <eParameters name="configFile" lowerBound="1" eType="#//pasys/DeploymentFileDescriptor"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="os" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="concurrencyLevel" lowerBound="1"

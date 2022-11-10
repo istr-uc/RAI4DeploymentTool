@@ -637,14 +637,14 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 					String configFileName = "cassandra" + id + ".yaml";
 					DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(configFileName, 
 							conf.getConfigFolderPath(),configFileContent, type);
-					node.getConfigFiles().add(configFile);
+					node.addConfigFile(configFile);
 				
 					// Rack configuration file generation
 					// String rackProps = "dc=" + getDataCenter().getName() + "\n";
 					// rackProps += "rack=" + getRack().getName();
 					DeploymentFileDescriptor rackConfFile = new DeploymentFileDescriptorImpl(
 							"cassandra-rackcd.properties", conf.getConfigFolderPath(), rackConf.get(node.getIp()), type);
-					node.getConfigFiles().add(rackConfFile);
+					node.addConfigFile(rackConfFile);
 					
 					// Artifacts to move to the corresponding nodes
 					for (FileDescriptor cqlFile : getCqlSchemas()) {
@@ -657,7 +657,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				    DeploymentFileDescriptor script= new DeploymentFileDescriptorImpl(
 							"cassandraServer" + getId() + ".sh", conf.getScriptFolderPath(), 
 							generateScriptContent(configFileName, node.getIp()), type);
-					node.getLaunchingScripts().add(script);
+				    node.addLaunchingScript(script);
 				}
 
 			} catch (IOException e) {

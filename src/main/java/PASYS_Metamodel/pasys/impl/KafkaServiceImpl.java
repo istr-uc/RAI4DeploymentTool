@@ -1108,8 +1108,8 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 		
 			List<ProcessingNode> nodes = getHost().getNodes();
 			for (ProcessingNode node: nodes) {
-				node.getLaunchingScripts().add(script);
-				node.getConfigFiles().add(configFile);
+				node.addLaunchingScript(script);
+				node.addConfigFile(configFile);
 			}
 		}
 	}

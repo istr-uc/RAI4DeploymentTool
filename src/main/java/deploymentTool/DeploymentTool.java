@@ -30,7 +30,7 @@ public class DeploymentTool {
 		String modelFile = args[1];
 
 		String modelPath = modelDir+"\\"+modelFile;
-		DeploymentToolsUtils.setGenDir(modelDir+"/gen");
+		DeploymentToolsUtils.setGenDir(modelDir+"\\gen");
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -59,6 +59,8 @@ public class DeploymentTool {
 			// Create temp Directory
 			// Creamos el fichero
 			File tempDir= new File(DeploymentToolsUtils.GEN_DIR);
+			if (tempDir.exists())
+				DeploymentToolsUtils.deleteFile(tempDir);
 			tempDir.mkdir();
 			
 			// Triggers the deployment and launching process

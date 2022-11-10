@@ -117,6 +117,12 @@
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/bringBackConfiguration"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/bringBackDeployment"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/abortLaunching"/>
+        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/addLaunchingScript">
+          <genParameters ecoreParameter="PABM_Metamodel.ecore#//pasys/ProcessingNode/addLaunchingScript/script"/>
+        </genOperations>
+        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/addConfigFile">
+          <genParameters ecoreParameter="PABM_Metamodel.ecore#//pasys/ProcessingNode/addConfigFile/configFile"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/PhysicalProcessingNode"/>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/VirtualProcessingNode">

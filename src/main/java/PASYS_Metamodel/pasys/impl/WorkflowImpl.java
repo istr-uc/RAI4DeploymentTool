@@ -10,6 +10,7 @@ import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
+import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.StormService;
 import PASYS_Metamodel.pasys.SystemComponentType;
@@ -619,8 +620,7 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 		NodeClusterDeploymentConf serverConf = (NodeClusterDeploymentConf) server.getDeploymentConfig();
 		
 		if (server instanceof StormService) {
-			String scriptName = "Workflow" + this.getId() + ".sh";
-			
+			String scriptName = "Workflow" + this.getId() + ".sh";	
 			String scriptContent = serverConf.getArtifactLocator()+ "/"+serverConf.getArtifactName();
 			scriptContent+=" jar " + conf.getScriptFolderPath()
 					+ "/" + conf.getArtifactName() + " " + rootTask.getImplementingClassName();
@@ -629,12 +629,15 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 			
 			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(),
 					scriptContent, SystemComponentType.WORKFLOW);
-			// It is enough with deploying the workflow in only one of the nodes
-			server.getHost().getNodes().get(0).getLaunchingScripts().add(script);
+			
+			// It is enough with deploying the workflow in only one of the nodes but it must be Nimbus
+			ProcessingNode node = ((StormService) server).getNimbus().getHost().getNodes().get(0);
+			node.addLaunchingScript(script);
+
 			// Artifact to move to the corresponding nodes
 			ArtifactDescriptor artifact = new ArtifactDescriptorImpl(conf.getArtifactName(), conf.getScriptFolderPath(),
 					conf.getArtifactLocator());
-			server.getHost().getNodes().get(0).getCodeFiles().add(artifact); 
+			node.getCodeFiles().add(artifact); 
 		}		
 
 	}

@@ -500,19 +500,19 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 			DeploymentFileDescriptor script = null;
 			for (ProcessingNode node:nimbus.getHost().getNodes()) {
 				script = generateScript(SystemComponentType.STORM_NIMBUS);
-				node.getLaunchingScripts().add(script);
-				node.getConfigFiles().add(configFile);		
+				node.addLaunchingScript(script);
+				node.addConfigFile(configFile);		
 			}
 			
 			for (ProcessingNode node:supervisor.getHost().getNodes()) {
 				script = generateScript(SystemComponentType.STORM_SUPERVISOR);
-				node.getLaunchingScripts().add(script);
-				node.getConfigFiles().add(configFile);		
+				node.addLaunchingScript(script);
+				node.addConfigFile(configFile);		
 			}
 			
 			for (ProcessingNode node:ui.getHost().getNodes()) {
 				script = generateScript(SystemComponentType.STORM_UI);
-				node.getLaunchingScripts().add(script);
+				node.addLaunchingScript(script);			
 				//node.getConfigFiles().add(configFile);		
 			}
 			

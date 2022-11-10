@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -293,7 +292,7 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	@Override
 	public EList<DeploymentFileDescriptor> getLaunchingScripts() {
 		if (launchingScripts == null) {
-			launchingScripts = new EObjectWithInverseResolvingEList<DeploymentFileDescriptor>(DeploymentFileDescriptor.class, this, PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS, PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR__OWNER);
+			launchingScripts = new EObjectResolvingEList<DeploymentFileDescriptor>(DeploymentFileDescriptor.class, this, PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS);
 		}
 		return launchingScripts;
 	}
@@ -538,6 +537,29 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addLaunchingScript(DeploymentFileDescriptor script) {
+		script.setOwner(this);
+		getLaunchingScripts().add(script);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addConfigFile(DeploymentFileDescriptor configFile) {
+		configFile.setOwner(this);
+		getConfigFiles().add(configFile);
+		
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -545,8 +567,6 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLaunchingScripts()).basicAdd(otherEnd, msgs);
 			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedMeters()).basicAdd(otherEnd, msgs);
 		}
@@ -560,8 +580,6 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PasysPackage.PROCESSING_NODE__LAUNCHING_SCRIPTS:
-				return ((InternalEList<?>)getLaunchingScripts()).basicRemove(otherEnd, msgs);
 			case PasysPackage.PROCESSING_NODE__OWNED_METERS:
 				return ((InternalEList<?>)getOwnedMeters()).basicRemove(otherEnd, msgs);
 		}
@@ -769,6 +787,12 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 				return null;
 			case PasysPackage.PROCESSING_NODE___ABORT_LAUNCHING:
 				abortLaunching();
+				return null;
+			case PasysPackage.PROCESSING_NODE___ADD_LAUNCHING_SCRIPT__DEPLOYMENTFILEDESCRIPTOR:
+				addLaunchingScript((DeploymentFileDescriptor)arguments.get(0));
+				return null;
+			case PasysPackage.PROCESSING_NODE___ADD_CONFIG_FILE__DEPLOYMENTFILEDESCRIPTOR:
+				addConfigFile((DeploymentFileDescriptor)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

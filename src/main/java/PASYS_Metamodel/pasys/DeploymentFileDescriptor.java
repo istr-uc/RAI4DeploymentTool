@@ -78,7 +78,6 @@ public interface DeploymentFileDescriptor extends FileDescriptor {
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.ProcessingNode#getLaunchingScripts <em>Launching Scripts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owner</em>' reference isn't clear,
@@ -88,8 +87,7 @@ public interface DeploymentFileDescriptor extends FileDescriptor {
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(ProcessingNode)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getDeploymentFileDescriptor_Owner()
-	 * @see PASYS_Metamodel.pasys.ProcessingNode#getLaunchingScripts
-	 * @model opposite="launchingScripts"
+	 * @model
 	 * @generated
 	 */
 	ProcessingNode getOwner();
