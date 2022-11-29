@@ -18,10 +18,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getSeedProviderClass <em>Seed Provider Class</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataFileDir <em>Data File Dir</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getNativeTransportPort <em>Native Transport Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getStoragePort <em>Storage Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getCqlSchemas <em>Cql Schemas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getDataCenters <em>Data Centers</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getSslStoragePort <em>Ssl Storage Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.CassandraService#getRpcPort <em>Rpc Port</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService()
@@ -142,27 +144,27 @@ public interface CassandraService extends PersistenceService {
 	void setDataFileDir(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Native Transport Port</b></em>' attribute.
-	 * The default value is <code>"9042"</code>.
+	 * Returns the value of the '<em><b>Storage Port</b></em>' attribute.
+	 * The default value is <code>"7000"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Native Transport Port</em>' attribute.
-	 * @see #setNativeTransportPort(int)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_NativeTransportPort()
-	 * @model default="9042" required="true"
+	 * @return the value of the '<em>Storage Port</em>' attribute.
+	 * @see #setStoragePort(int)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_StoragePort()
+	 * @model default="7000" required="true"
 	 * @generated
 	 */
-	int getNativeTransportPort();
+	int getStoragePort();
 
 	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getNativeTransportPort <em>Native Transport Port</em>}' attribute.
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getStoragePort <em>Storage Port</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Native Transport Port</em>' attribute.
-	 * @see #getNativeTransportPort()
+	 * @param value the new value of the '<em>Storage Port</em>' attribute.
+	 * @see #getStoragePort()
 	 * @generated
 	 */
-	void setNativeTransportPort(int value);
+	void setStoragePort(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Auto Bootstrap</b></em>' attribute.
@@ -210,5 +212,51 @@ public interface CassandraService extends PersistenceService {
 	 * @generated
 	 */
 	EList<DataCenter> getDataCenters();
+
+	/**
+	 * Returns the value of the '<em><b>Ssl Storage Port</b></em>' attribute.
+	 * The default value is <code>"7001"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ssl Storage Port</em>' attribute.
+	 * @see #setSslStoragePort(int)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_SslStoragePort()
+	 * @model default="7001" required="true"
+	 * @generated
+	 */
+	int getSslStoragePort();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getSslStoragePort <em>Ssl Storage Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ssl Storage Port</em>' attribute.
+	 * @see #getSslStoragePort()
+	 * @generated
+	 */
+	void setSslStoragePort(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Rpc Port</b></em>' attribute.
+	 * The default value is <code>"9160"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rpc Port</em>' attribute.
+	 * @see #setRpcPort(int)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_RpcPort()
+	 * @model default="9160" required="true"
+	 * @generated
+	 */
+	int getRpcPort();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getRpcPort <em>Rpc Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rpc Port</em>' attribute.
+	 * @see #getRpcPort()
+	 * @generated
+	 */
+	void setRpcPort(int value);
 
 } // CassandraService

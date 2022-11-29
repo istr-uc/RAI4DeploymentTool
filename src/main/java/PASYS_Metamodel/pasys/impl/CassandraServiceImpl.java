@@ -55,10 +55,12 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getSeedProviderClass <em>Seed Provider Class</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getEndpointSnitch <em>Endpoint Snitch</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataFileDir <em>Data File Dir</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getNativeTransportPort <em>Native Transport Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getStoragePort <em>Storage Port</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#isAutoBootstrap <em>Auto Bootstrap</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getCqlSchemas <em>Cql Schemas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getDataCenters <em>Data Centers</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getSslStoragePort <em>Ssl Storage Port</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl#getRpcPort <em>Rpc Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -147,26 +149,24 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	protected String dataFileDir = DATA_FILE_DIR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNativeTransportPort() <em>Native
-	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getNativeTransportPort()
+	 * The default value of the '{@link #getStoragePort() <em>Storage Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStoragePort()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NATIVE_TRANSPORT_PORT_EDEFAULT = 9042;
+	protected static final int STORAGE_PORT_EDEFAULT = 7000;
 
 	/**
-	 * The cached value of the '{@link #getNativeTransportPort() <em>Native
-	 * Transport Port</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getNativeTransportPort()
+	 * The cached value of the '{@link #getStoragePort() <em>Storage Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStoragePort()
 	 * @generated
 	 * @ordered
 	 */
-	protected int nativeTransportPort = NATIVE_TRANSPORT_PORT_EDEFAULT;
+	protected int storagePort = STORAGE_PORT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isAutoBootstrap() <em>Auto Bootstrap</em>}' attribute.
@@ -203,6 +203,46 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @ordered
 	 */
 	protected EList<DataCenter> dataCenters;
+
+	/**
+	 * The default value of the '{@link #getSslStoragePort() <em>Ssl Storage Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSslStoragePort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SSL_STORAGE_PORT_EDEFAULT = 7001;
+
+	/**
+	 * The cached value of the '{@link #getSslStoragePort() <em>Ssl Storage Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSslStoragePort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int sslStoragePort = SSL_STORAGE_PORT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRpcPort() <em>Rpc Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRpcPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RPC_PORT_EDEFAULT = 9160;
+
+	/**
+	 * The cached value of the '{@link #getRpcPort() <em>Rpc Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRpcPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int rpcPort = RPC_PORT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -343,24 +383,26 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public int getNativeTransportPort() {
-		return nativeTransportPort;
+	public int getStoragePort() {
+		return storagePort;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setNativeTransportPort(int newNativeTransportPort) {
-		int oldNativeTransportPort = nativeTransportPort;
-		nativeTransportPort = newNativeTransportPort;
+	public void setStoragePort(int newStoragePort) {
+		int oldStoragePort = storagePort;
+		storagePort = newStoragePort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT, oldNativeTransportPort, nativeTransportPort));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__STORAGE_PORT, oldStoragePort, storagePort));
 	}
 
 	/**
@@ -409,6 +451,52 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getSslStoragePort() {
+		return sslStoragePort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSslStoragePort(int newSslStoragePort) {
+		int oldSslStoragePort = sslStoragePort;
+		sslStoragePort = newSslStoragePort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__SSL_STORAGE_PORT, oldSslStoragePort, sslStoragePort));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getRpcPort() {
+		return rpcPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRpcPort(int newRpcPort) {
+		int oldRpcPort = rpcPort;
+		rpcPort = newRpcPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__RPC_PORT, oldRpcPort, rpcPort));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -441,14 +529,18 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return getEndpointSnitch();
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				return getDataFileDir();
-			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
-				return getNativeTransportPort();
+			case PasysPackage.CASSANDRA_SERVICE__STORAGE_PORT:
+				return getStoragePort();
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				return isAutoBootstrap();
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				return getCqlSchemas();
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				return getDataCenters();
+			case PasysPackage.CASSANDRA_SERVICE__SSL_STORAGE_PORT:
+				return getSslStoragePort();
+			case PasysPackage.CASSANDRA_SERVICE__RPC_PORT:
+				return getRpcPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -476,8 +568,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				setDataFileDir((String)newValue);
 				return;
-			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
-				setNativeTransportPort((Integer)newValue);
+			case PasysPackage.CASSANDRA_SERVICE__STORAGE_PORT:
+				setStoragePort((Integer)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				setAutoBootstrap((Boolean)newValue);
@@ -489,6 +581,12 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				getDataCenters().clear();
 				getDataCenters().addAll((Collection<? extends DataCenter>)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVICE__SSL_STORAGE_PORT:
+				setSslStoragePort((Integer)newValue);
+				return;
+			case PasysPackage.CASSANDRA_SERVICE__RPC_PORT:
+				setRpcPort((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -516,8 +614,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				setDataFileDir(DATA_FILE_DIR_EDEFAULT);
 				return;
-			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
-				setNativeTransportPort(NATIVE_TRANSPORT_PORT_EDEFAULT);
+			case PasysPackage.CASSANDRA_SERVICE__STORAGE_PORT:
+				setStoragePort(STORAGE_PORT_EDEFAULT);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				setAutoBootstrap(AUTO_BOOTSTRAP_EDEFAULT);
@@ -527,6 +625,12 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				getDataCenters().clear();
+				return;
+			case PasysPackage.CASSANDRA_SERVICE__SSL_STORAGE_PORT:
+				setSslStoragePort(SSL_STORAGE_PORT_EDEFAULT);
+				return;
+			case PasysPackage.CASSANDRA_SERVICE__RPC_PORT:
+				setRpcPort(RPC_PORT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -549,14 +653,18 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				return ENDPOINT_SNITCH_EDEFAULT == null ? endpointSnitch != null : !ENDPOINT_SNITCH_EDEFAULT.equals(endpointSnitch);
 			case PasysPackage.CASSANDRA_SERVICE__DATA_FILE_DIR:
 				return DATA_FILE_DIR_EDEFAULT == null ? dataFileDir != null : !DATA_FILE_DIR_EDEFAULT.equals(dataFileDir);
-			case PasysPackage.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT:
-				return nativeTransportPort != NATIVE_TRANSPORT_PORT_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVICE__STORAGE_PORT:
+				return storagePort != STORAGE_PORT_EDEFAULT;
 			case PasysPackage.CASSANDRA_SERVICE__AUTO_BOOTSTRAP:
 				return autoBootstrap != AUTO_BOOTSTRAP_EDEFAULT;
 			case PasysPackage.CASSANDRA_SERVICE__CQL_SCHEMAS:
 				return cqlSchemas != null && !cqlSchemas.isEmpty();
 			case PasysPackage.CASSANDRA_SERVICE__DATA_CENTERS:
 				return dataCenters != null && !dataCenters.isEmpty();
+			case PasysPackage.CASSANDRA_SERVICE__SSL_STORAGE_PORT:
+				return sslStoragePort != SSL_STORAGE_PORT_EDEFAULT;
+			case PasysPackage.CASSANDRA_SERVICE__RPC_PORT:
+				return rpcPort != RPC_PORT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -578,10 +686,14 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		result.append(endpointSnitch);
 		result.append(", dataFileDir: ");
 		result.append(dataFileDir);
-		result.append(", nativeTransportPort: ");
-		result.append(nativeTransportPort);
+		result.append(", storagePort: ");
+		result.append(storagePort);
 		result.append(", autoBootstrap: ");
 		result.append(autoBootstrap);
+		result.append(", sslStoragePort: ");
+		result.append(sslStoragePort);
+		result.append(", rpcPort: ");
+		result.append(rpcPort);
 		result.append(')');
 		return result.toString();
 	}
@@ -704,7 +816,11 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		// map.put("listen_address", ((PhysicalProcessingNode)
 		// getListenAddress()).getIp());
 		map.put("listen_address", node.getIp());
-		map.put("native_transport_port", getNativeTransportPort());
+		map.put("native_transport_port", getPort());
+		map.put("storage_port", getStoragePort());
+		map.put("ssl_storage_port", getSslStoragePort());
+		map.put("rpc_port", getRpcPort());
+		
 		// map.put("rpc_address", ((PhysicalProcessingNode)
 		// getRpcAddress()).getIp());
 		map.put("rpc_address", node.getIp());

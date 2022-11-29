@@ -22,8 +22,8 @@
       userName="gestor"/>
   <ownedElements
       xsi:type="pasys:AWSVirtualProcessingNode"
-      name="SwarmVNode"
-      id="SwarmVNode"
+      name="KubernetesNode"
+      id="KubernetesNode"
       ip="172.31.26.169"
       memorySize="2048"
       userName="gestor"
@@ -46,18 +46,9 @@
       resources="//@ownedElements.1"/>
   <ownedElements
       xsi:type="pasys:NodeCluster"
-      name="SwarmCluster"
-      id="SwarmCluster"
+      name="KubernetesCluster"
+      id="KubernetesCluster"
       resources="//@ownedElements.2"/>
-  <ownedElements
-      xsi:type="pasys:SwarmService"
-      name="PollutionSwarm"
-      id="PollutionSwarm"
-      host="//@ownedElements.5"
-      services="//@ownedElements.9 //@ownedElements.10">
-    <deploymentConfig
-        xsi:type="pasys:NodeClusterDeploymentConf"/>
-  </ownedElements>
   <ownedElements
       xsi:type="pasys:ZookeeperService"
       name="PollutionZkpr"
@@ -79,7 +70,7 @@
       host="//@ownedElements.3"
       commId="1"
       clientPort="9092"
-      zookeeperConnect="//@ownedElements.7"
+      zookeeperConnect="//@ownedElements.6"
       listeners="PLAINTEXT://172.31.21.96:9092"
       advertisedListeners="PLAINTEXT://172.31.21.96:9092"
       autoCreateTopicEnable="true">
@@ -96,13 +87,18 @@
       xsi:type="pasys:CassandraService"
       name="PollutionCassandra"
       id="PollutionCassandra"
-      orchestrator="//@ownedElements.6"
+      orchestrator="//@ownedElements.12"
       logging="root"
       passwd="root"
+      port="9042"
       seedProviderClass="SimpleSeedProvider"
       dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
     <deploymentConfig
-        xsi:type="pasys:OrchestrationServiceDeploymentConf">
+        xsi:type="pasys:OrchestrationServiceDeploymentConf"
+        image="cassandra-rai:3.0"
+        replicas="2"
+        command="/bin/sh"
+        imagePullPolicy="IFNOTPRESENT">
       <volumes
           source="/home/gestor/apache/cassandra/conf"
           target="/home/gestor/apache/cassandra/conf"
@@ -111,10 +107,6 @@
           source="/home/gestor/apache/cassandra/logs"
           target="&quot;/var/log/cassandra&quot;"
           type="BIND"/>
-      <ports
-          xsi:type="pasys:SwarmPort"
-          target="9042"
-          published="9042"/>
     </deploymentConfig>
     <cqlSchemas
         filePath="/home/algorrim/Escritorio/Ricardo/git/PASYSDeploymentTool"
@@ -131,9 +123,9 @@
       xsi:type="pasys:StormService"
       name="PollutionStorm"
       id="PollutionStorm"
-      orchestrator="//@ownedElements.6"
-      workflows="//@ownedElements.12"
-      zookeeperConnect="//@ownedElements.7">
+      orchestrator="//@ownedElements.12"
+      workflows="//@ownedElements.11"
+      zookeeperConnect="//@ownedElements.6">
     <deploymentConfig
         xsi:type="pasys:OrchestrationServiceDeploymentConf"
         image=""
@@ -153,12 +145,21 @@
     </deploymentConfig>
     <nimbus
         name="PolllutionStormNimbus"
-        id="PolllutionStormNimbus"/>
+        id="PolllutionStormNimbus">
+      <deploymentConfig
+          xsi:type="pasys:OrchestrationServiceDeploymentConf"/>
+    </nimbus>
     <supervisor
         name="PolllutionStormSupervisor"
-        id="PolllutionStormSupervisor"/>
+        id="PolllutionStormSupervisor">
+      <deploymentConfig
+          xsi:type="pasys:OrchestrationServiceDeploymentConf"/>
+    </supervisor>
     <ui name="PollutionStormUI"
-        id="PollutionStormUI"/>
+        id="PollutionStormUI">
+      <deploymentConfig
+          xsi:type="pasys:OrchestrationServiceDeploymentConf"/>
+    </ui>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:KafkaWorkloadStreamData"
@@ -180,8 +181,8 @@
       xsi:type="pasys:Workflow"
       name="PollutionProcess"
       id="PollutionProcess"
-      rootTask="//@ownedElements.12/@ownedTasks.0"
-      scheduler="//@ownedElements.10">
+      rootTask="//@ownedElements.11/@ownedTasks.0"
+      scheduler="//@ownedElements.9">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
@@ -194,8 +195,17 @@
         name="MainTask"
         id="MainTask"
         implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
-        triggerStreamData="//@ownedElements.11"
-        inputStreamData="//@ownedElements.11"/>
+        triggerStreamData="//@ownedElements.10"
+        inputStreamData="//@ownedElements.10"/>
+  </ownedElements>
+  <ownedElements
+      xsi:type="pasys:KubernetesService"
+      name="PollutionKubernetes"
+      id="PollutionKubernetes"
+      host="//@ownedElements.5"
+      services="//@ownedElements.8 //@ownedElements.9">
+    <deploymentConfig
+        xsi:type="pasys:NodeClusterDeploymentConf"/>
   </ownedElements>
   <authenticationFiles
       key="34.255.137.20"

@@ -2308,7 +2308,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCassandraService_NativeTransportPort() {
+	public EAttribute getCassandraService_StoragePort() {
 		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2340,6 +2340,26 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EReference getCassandraService_DataCenters() {
 		return (EReference)cassandraServiceEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCassandraService_SslStoragePort() {
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCassandraService_RpcPort() {
+		return (EAttribute)cassandraServiceEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -4233,10 +4253,12 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__SEED_PROVIDER_CLASS);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__ENDPOINT_SNITCH);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__DATA_FILE_DIR);
-		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT);
+		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__STORAGE_PORT);
 		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__AUTO_BOOTSTRAP);
 		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__CQL_SCHEMAS);
 		createEReference(cassandraServiceEClass, CASSANDRA_SERVICE__DATA_CENTERS);
+		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__SSL_STORAGE_PORT);
+		createEAttribute(cassandraServiceEClass, CASSANDRA_SERVICE__RPC_PORT);
 
 		dataCenterEClass = createEClass(DATA_CENTER);
 		createEReference(dataCenterEClass, DATA_CENTER__RACKS);
@@ -4562,6 +4584,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		orchestrationServiceDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
 		nodeClusterDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
 		swarmPortEClass.getESuperTypes().add(this.getPort());
+		kubernetesPortEClass.getESuperTypes().add(this.getPort());
 		configurationExceptionEClass.getESuperTypes().add(this.getException());
 		deploymentExceptionEClass.getESuperTypes().add(this.getException());
 		launchExceptionEClass.getESuperTypes().add(this.getException());
@@ -4766,10 +4789,12 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getCassandraService_SeedProviderClass(), ecorePackage.getEString(), "seedProviderClass", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_EndpointSnitch(), ecorePackage.getEString(), "endpointSnitch", "SimpleSnitch", 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_DataFileDir(), ecorePackage.getEString(), "dataFileDir", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCassandraService_NativeTransportPort(), ecorePackage.getEInt(), "nativeTransportPort", "9042", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCassandraService_StoragePort(), ecorePackage.getEInt(), "storagePort", "7000", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_AutoBootstrap(), ecorePackage.getEBoolean(), "autoBootstrap", "false", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCassandraService_CqlSchemas(), this.getFileDescriptor(), null, "cqlSchemas", null, 0, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCassandraService_DataCenters(), this.getDataCenter(), null, "dataCenters", null, 1, -1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCassandraService_SslStoragePort(), ecorePackage.getEInt(), "sslStoragePort", "7001", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCassandraService_RpcPort(), ecorePackage.getEInt(), "rpcPort", "9160", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataCenterEClass, DataCenter.class, "DataCenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataCenter_Racks(), this.getRack(), null, "racks", null, 1, -1, DataCenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -4559,13 +4559,13 @@ public interface PasysPackage extends EPackage {
 	int CASSANDRA_SERVICE__DATA_FILE_DIR = PERSISTENCE_SERVICE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Native Transport Port</b></em>' attribute.
+	 * The feature id for the '<em><b>Storage Port</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT = PERSISTENCE_SERVICE_FEATURE_COUNT + 5;
+	int CASSANDRA_SERVICE__STORAGE_PORT = PERSISTENCE_SERVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Auto Bootstrap</b></em>' attribute.
@@ -4595,13 +4595,31 @@ public interface PasysPackage extends EPackage {
 	int CASSANDRA_SERVICE__DATA_CENTERS = PERSISTENCE_SERVICE_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Ssl Storage Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASSANDRA_SERVICE__SSL_STORAGE_PORT = PERSISTENCE_SERVICE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Rpc Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASSANDRA_SERVICE__RPC_PORT = PERSISTENCE_SERVICE_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Cassandra Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CASSANDRA_SERVICE_FEATURE_COUNT = PERSISTENCE_SERVICE_FEATURE_COUNT + 9;
+	int CASSANDRA_SERVICE_FEATURE_COUNT = PERSISTENCE_SERVICE_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -8219,13 +8237,31 @@ public interface PasysPackage extends EPackage {
 	int SWARM_PORT_OPERATION_COUNT = PORT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_PORT__TARGET = PORT__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Published</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_PORT__PUBLISHED = PORT__PUBLISHED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KUBERNETES_PORT__NAME = 0;
+	int KUBERNETES_PORT__NAME = PORT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Kubernetes Port</em>' class.
@@ -8234,7 +8270,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KUBERNETES_PORT_FEATURE_COUNT = 1;
+	int KUBERNETES_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Kubernetes Port</em>' class.
@@ -8243,7 +8279,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KUBERNETES_PORT_OPERATION_COUNT = 0;
+	int KUBERNETES_PORT_OPERATION_COUNT = PORT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Labels</b></em>' attribute.
@@ -10180,15 +10216,15 @@ public interface PasysPackage extends EPackage {
 	EAttribute getCassandraService_DataFileDir();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#getNativeTransportPort <em>Native Transport Port</em>}'.
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#getStoragePort <em>Storage Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Native Transport Port</em>'.
-	 * @see PASYS_Metamodel.pasys.CassandraService#getNativeTransportPort()
+	 * @return the meta object for the attribute '<em>Storage Port</em>'.
+	 * @see PASYS_Metamodel.pasys.CassandraService#getStoragePort()
 	 * @see #getCassandraService()
 	 * @generated
 	 */
-	EAttribute getCassandraService_NativeTransportPort();
+	EAttribute getCassandraService_StoragePort();
 
 	/**
 	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#isAutoBootstrap <em>Auto Bootstrap</em>}'.
@@ -10222,6 +10258,28 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCassandraService_DataCenters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#getSslStoragePort <em>Ssl Storage Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ssl Storage Port</em>'.
+	 * @see PASYS_Metamodel.pasys.CassandraService#getSslStoragePort()
+	 * @see #getCassandraService()
+	 * @generated
+	 */
+	EAttribute getCassandraService_SslStoragePort();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.CassandraService#getRpcPort <em>Rpc Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rpc Port</em>'.
+	 * @see PASYS_Metamodel.pasys.CassandraService#getRpcPort()
+	 * @see #getCassandraService()
+	 * @generated
+	 */
+	EAttribute getCassandraService_RpcPort();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.DataCenter <em>Data Center</em>}'.
@@ -13316,12 +13374,12 @@ public interface PasysPackage extends EPackage {
 		EAttribute CASSANDRA_SERVICE__DATA_FILE_DIR = eINSTANCE.getCassandraService_DataFileDir();
 
 		/**
-		 * The meta object literal for the '<em><b>Native Transport Port</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Storage Port</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT = eINSTANCE.getCassandraService_NativeTransportPort();
+		EAttribute CASSANDRA_SERVICE__STORAGE_PORT = eINSTANCE.getCassandraService_StoragePort();
 
 		/**
 		 * The meta object literal for the '<em><b>Auto Bootstrap</b></em>' attribute feature.
@@ -13346,6 +13404,22 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CASSANDRA_SERVICE__DATA_CENTERS = eINSTANCE.getCassandraService_DataCenters();
+
+		/**
+		 * The meta object literal for the '<em><b>Ssl Storage Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CASSANDRA_SERVICE__SSL_STORAGE_PORT = eINSTANCE.getCassandraService_SslStoragePort();
+
+		/**
+		 * The meta object literal for the '<em><b>Rpc Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CASSANDRA_SERVICE__RPC_PORT = eINSTANCE.getCassandraService_RpcPort();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.DataCenterImpl <em>Data Center</em>}' class.

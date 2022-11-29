@@ -843,6 +843,7 @@ public class PasysSwitch<T> extends Switch<T> {
 			case PasysPackage.KUBERNETES_PORT: {
 				KubernetesPort kubernetesPort = (KubernetesPort)theEObject;
 				T result = caseKubernetesPort(kubernetesPort);
+				if (result == null) result = casePort(kubernetesPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

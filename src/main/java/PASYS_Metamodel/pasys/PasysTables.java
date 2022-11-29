@@ -1138,7 +1138,6 @@ public class PasysTables extends AbstractTables
 		public static final ExecutorProperty _CassandraService__dataCenters = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__DATA_CENTERS, Types._CassandraService, 2);
 		public static final ExecutorProperty _CassandraService__dataFileDir = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__DATA_FILE_DIR, Types._CassandraService, 3);
 		public static final ExecutorProperty _CassandraService__endpointSnitch = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__ENDPOINT_SNITCH, Types._CassandraService, 4);
-		public static final ExecutorProperty _CassandraService__nativeTransportPort = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__NATIVE_TRANSPORT_PORT, Types._CassandraService, 5);
 		public static final ExecutorProperty _CassandraService__numTokens = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__NUM_TOKENS, Types._CassandraService, 6);
 		public static final ExecutorProperty _CassandraService__seedProviderClass = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS, Types._CassandraService, 7);
 		public static final ExecutorProperty _CassandraService__seeds = new EcoreExecutorProperty(PasysPackage.Literals.CASSANDRA_SERVICE__SEEDS, Types._CassandraService, 8);
@@ -6089,7 +6088,6 @@ public class PasysTables extends AbstractTables
 			PasysTables.Properties._NamedElement__id,
 			PasysTables.Properties._PersistenceService__logging,
 			PasysTables.Properties._NamedElement__name,
-			PasysTables.Properties._CassandraService__nativeTransportPort,
 			PasysTables.Properties._CassandraService__numTokens,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,

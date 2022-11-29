@@ -109,41 +109,11 @@
         logFolderPath="/home/gestor/apache/Services/kafka/logs"/>
   </ownedElements>
   <ownedElements
-      xsi:type="pasys:CassandraService"
-      name="PollutionCassandra"
-      id="PollutionCassandra"
-      host="//@ownedElements.6"
-      logging="root"
-      passwd="root"
-      seeds="//@ownedElements.6"
-      seedProviderClass="SimpleSeedProvider"
-      dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
-    <deploymentConfig
-        xsi:type="pasys:NodeClusterDeploymentConf"
-        artifactLocator="/home/gestor/apache/services/cassandra/bin"
-        artifactName="cassandra"
-        configFolderPath="/home/gestor/apache/services/cassandra/config"
-        scriptFolderPath="/home/gestor/apache/services/cassandra/scripts"
-        dataFolderPath="/home/gestor/apache/services/cassandra/data"
-        logFolderPath="/home/gestor/apache/services/cassandra/logs"/>
-    <cqlSchemas
-        filePath="/home/gestor/herramientaDespliegue/workspaceEclipse/PASYSDeploymentToolGlobal"
-        fileName="cassandra_schema.sql"/>
-    <dataCenters
-        name="pollutionCluster"
-        id="pollutionCluster">
-      <racks
-          name="PollutionCluster"
-          id="PollutionClusterRack"
-          nodes="//@ownedElements.6"/>
-    </dataCenters>
-  </ownedElements>
-  <ownedElements
       xsi:type="pasys:StormService"
       name="PollutionStorm"
       id="PollutionStorm"
       host="//@ownedElements.5"
-      workflows="//@ownedElements.16"
+      workflows="//@ownedElements.15"
       zookeeperConnect="//@ownedElements.11">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
@@ -216,8 +186,8 @@
       xsi:type="pasys:Workflow"
       name="PollutionProcess"
       id="PollutionProcess"
-      rootTask="//@ownedElements.16/@ownedTasks.0"
-      scheduler="//@ownedElements.14">
+      rootTask="//@ownedElements.15/@ownedTasks.0"
+      scheduler="//@ownedElements.13">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"
         artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
@@ -230,7 +200,7 @@
         name="MainTask"
         id="MainTask"
         implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
-        triggerStreamData="//@ownedElements.15"
-        inputStreamData="//@ownedElements.15"/>
+        triggerStreamData="//@ownedElements.14"
+        inputStreamData="//@ownedElements.14"/>
   </ownedElements>
 </pasys:ComputationalSystem>

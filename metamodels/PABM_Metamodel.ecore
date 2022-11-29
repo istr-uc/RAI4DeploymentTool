@@ -316,9 +316,8 @@
           defaultValueLiteral="SimpleSnitch"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataFileDir" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativeTransportPort"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="9042"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="storagePort" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="7000"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoBootstrap" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
@@ -326,6 +325,10 @@
           eType="#//pasys/FileDescriptor" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataCenters" lowerBound="1"
           upperBound="-1" eType="#//pasys/DataCenter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sslStoragePort" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="7001"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rpcPort" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="9160"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataCenter" eSuperTypes="#//pasys/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="racks" lowerBound="1"
@@ -607,7 +610,7 @@
       <eLiterals name="TCP"/>
       <eLiterals name="UDP" value="1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="KubernetesPort">
+    <eClassifiers xsi:type="ecore:EClass" name="KubernetesPort" eSuperTypes="#//pasys/Port">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentConstraints">
