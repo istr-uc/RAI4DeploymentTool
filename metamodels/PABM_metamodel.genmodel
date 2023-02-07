@@ -444,6 +444,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/image"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/replicas"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/command"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/args"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/restartPolicy"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/imagePullPolicy"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/volumes"/>
@@ -476,6 +477,7 @@
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/KubernetesPort">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KubernetesPort/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KubernetesPort/internal"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/DeploymentConstraints">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/DeploymentConstraints/labels"/>

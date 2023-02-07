@@ -549,14 +549,15 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicas" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="restartPolicy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagePullPolicy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="volumes" upperBound="-1"
           eType="#//pasys/Volume" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
           eType="#//pasys/Port" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" lowerBound="1"
-          eType="#//pasys/DeploymentConstraints" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" eType="#//pasys/DeploymentConstraints"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NodeClusterDeploymentConf" eSuperTypes="#//pasys/PlatformServiceDeploymentConf">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactLocator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -612,6 +613,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="KubernetesPort" eSuperTypes="#//pasys/Port">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="internal" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentConstraints">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="labels" eType="#//pasys/Properties"/>

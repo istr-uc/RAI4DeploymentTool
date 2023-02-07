@@ -203,4 +203,35 @@
         triggerStreamData="//@ownedElements.14"
         inputStreamData="//@ownedElements.14"/>
   </ownedElements>
+  <ownedElements
+      xsi:type="pasys:CassandraService"
+      name="PollutionCassandra"
+      id="PollutionCassandra"
+      host="//@ownedElements.6"
+      logging="root"
+      passwd="root"
+      port="9042"
+      seeds="//@ownedElements.6"
+      seedProviderClass="SimpleProvider"
+      dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
+    <deploymentConfig
+        xsi:type="pasys:NodeClusterDeploymentConf"
+        artifactLocator="/home/gestor/apache/services/cassandra/bin"
+        artifactName="cassandra"
+        configFolderPath="/home/gestor/apache/services/cassandra/config"
+        scriptFolderPath="/home/gestor/apache/services/cassandra/scripts"
+        dataFolderPath="/home/gestor/apache/services/cassandra/data"
+        logFolderPath="/home/gestor/apache/services/cassandra/logs"/>
+    <cqlSchemas
+        filePath="/home/gestor/apache/apps/pollution/workflows/data"
+        fileName="cassandra_schema.sql"/>
+    <dataCenters
+        name="PollutionCluster"
+        id="PollutionCluster">
+      <racks
+          name="PollutionCluster"
+          id="PollutionCluster"
+          nodes="//@ownedElements.6"/>
+    </dataCenters>
+  </ownedElements>
 </pasys:ComputationalSystem>

@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getImage <em>Image</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getReplicas <em>Replicas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getRestartPolicy <em>Restart Policy</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getImagePullPolicy <em>Image Pull Policy</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getVolumes <em>Volumes</em>}</li>
@@ -103,6 +104,26 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	 * @ordered
 	 */
 	protected String command = COMMAND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArgs() <em>Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ARGS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected String args = ARGS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRestartPolicy() <em>Restart Policy</em>}' attribute.
@@ -268,6 +289,29 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	 * @generated
 	 */
 	@Override
+	public String getArgs() {
+		return args;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setArgs(String newArgs) {
+		String oldArgs = args;
+		args = newArgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS, oldArgs, args));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getRestartPolicy() {
 		return restartPolicy;
 	}
@@ -411,6 +455,8 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 				return getReplicas();
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND:
 				return getCommand();
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS:
+				return getArgs();
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY:
 				return getRestartPolicy();
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY:
@@ -442,6 +488,9 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 				return;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND:
 				setCommand((String)newValue);
+				return;
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS:
+				setArgs((String)newValue);
 				return;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY:
 				setRestartPolicy((String)newValue);
@@ -481,6 +530,9 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND:
 				setCommand(COMMAND_EDEFAULT);
 				return;
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS:
+				setArgs(ARGS_EDEFAULT);
+				return;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY:
 				setRestartPolicy(RESTART_POLICY_EDEFAULT);
 				return;
@@ -514,6 +566,8 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 				return replicas != REPLICAS_EDEFAULT;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND:
 				return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS:
+				return ARGS_EDEFAULT == null ? args != null : !ARGS_EDEFAULT.equals(args);
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY:
 				return RESTART_POLICY_EDEFAULT == null ? restartPolicy != null : !RESTART_POLICY_EDEFAULT.equals(restartPolicy);
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY:
@@ -544,6 +598,8 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 		result.append(replicas);
 		result.append(", command: ");
 		result.append(command);
+		result.append(", args: ");
+		result.append(args);
 		result.append(", restartPolicy: ");
 		result.append(restartPolicy);
 		result.append(", imagePullPolicy: ");

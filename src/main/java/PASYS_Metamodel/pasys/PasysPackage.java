@@ -7880,13 +7880,22 @@ public interface PasysPackage extends EPackage {
 	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Restart Policy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Image Pull Policy</b></em>' attribute.
@@ -7895,7 +7904,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Volumes</b></em>' containment reference list.
@@ -7904,7 +7913,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -7913,7 +7922,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference.
@@ -7922,7 +7931,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Orchestration Service Deployment Conf</em>' class.
@@ -7931,7 +7940,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Orchestration Service Deployment Conf</em>' class.
@@ -8264,13 +8273,22 @@ public interface PasysPackage extends EPackage {
 	int KUBERNETES_PORT__NAME = PORT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Internal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_PORT__INTERNAL = PORT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Kubernetes Port</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KUBERNETES_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 1;
+	int KUBERNETES_PORT_FEATURE_COUNT = PORT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Kubernetes Port</em>' class.
@@ -11412,6 +11430,17 @@ public interface PasysPackage extends EPackage {
 	EAttribute getOrchestrationServiceDeploymentConf_Command();
 
 	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs <em>Args</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Args</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs()
+	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestrationServiceDeploymentConf_Args();
+
+	/**
 	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getRestartPolicy <em>Restart Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11851,6 +11880,17 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getKubernetesPort_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.KubernetesPort#isInternal <em>Internal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Internal</em>'.
+	 * @see PASYS_Metamodel.pasys.KubernetesPort#isInternal()
+	 * @see #getKubernetesPort()
+	 * @generated
+	 */
+	EAttribute getKubernetesPort_Internal();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.DeploymentConstraints <em>Deployment Constraints</em>}'.
@@ -14340,6 +14380,14 @@ public interface PasysPackage extends EPackage {
 		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND = eINSTANCE.getOrchestrationServiceDeploymentConf_Command();
 
 		/**
+		 * The meta object literal for the '<em><b>Args</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS = eINSTANCE.getOrchestrationServiceDeploymentConf_Args();
+
+		/**
 		 * The meta object literal for the '<em><b>Restart Policy</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14692,6 +14740,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute KUBERNETES_PORT__NAME = eINSTANCE.getKubernetesPort_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Internal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KUBERNETES_PORT__INTERNAL = eINSTANCE.getKubernetesPort_Internal();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.DeploymentConstraintsImpl <em>Deployment Constraints</em>}' class.

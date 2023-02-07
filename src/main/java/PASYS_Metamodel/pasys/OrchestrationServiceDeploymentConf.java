@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImage <em>Image</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getReplicas <em>Replicas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getCommand <em>Command</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs <em>Args</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getRestartPolicy <em>Restart Policy</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImagePullPolicy <em>Image Pull Policy</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getVolumes <em>Volumes</em>}</li>
@@ -95,6 +96,28 @@ public interface OrchestrationServiceDeploymentConf extends PlatformServiceDeplo
 	void setCommand(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Args</em>' attribute.
+	 * @see #setArgs(String)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_Args()
+	 * @model
+	 * @generated
+	 */
+	String getArgs();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs <em>Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Args</em>' attribute.
+	 * @see #getArgs()
+	 * @generated
+	 */
+	void setArgs(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Restart Policy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,7 +192,7 @@ public interface OrchestrationServiceDeploymentConf extends PlatformServiceDeplo
 	 * @return the value of the '<em>Constraints</em>' containment reference.
 	 * @see #setConstraints(DeploymentConstraints)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_Constraints()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	DeploymentConstraints getConstraints();

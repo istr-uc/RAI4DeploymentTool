@@ -3428,7 +3428,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_RestartPolicy() {
+	public EAttribute getOrchestrationServiceDeploymentConf_Args() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3438,7 +3438,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_ImagePullPolicy() {
+	public EAttribute getOrchestrationServiceDeploymentConf_RestartPolicy() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3448,8 +3448,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Volumes() {
-		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(5);
+	public EAttribute getOrchestrationServiceDeploymentConf_ImagePullPolicy() {
+		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3458,7 +3458,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Ports() {
+	public EReference getOrchestrationServiceDeploymentConf_Volumes() {
 		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -3468,8 +3468,18 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Constraints() {
+	public EReference getOrchestrationServiceDeploymentConf_Ports() {
 		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOrchestrationServiceDeploymentConf_Constraints() {
+		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3830,6 +3840,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EAttribute getKubernetesPort_Name() {
 		return (EAttribute)kubernetesPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKubernetesPort_Internal() {
+		return (EAttribute)kubernetesPortEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4409,6 +4429,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND);
+		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY);
 		createEReference(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES);
@@ -4441,6 +4462,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		kubernetesPortEClass = createEClass(KUBERNETES_PORT);
 		createEAttribute(kubernetesPortEClass, KUBERNETES_PORT__NAME);
+		createEAttribute(kubernetesPortEClass, KUBERNETES_PORT__INTERNAL);
 
 		deploymentConstraintsEClass = createEClass(DEPLOYMENT_CONSTRAINTS);
 		createEAttribute(deploymentConstraintsEClass, DEPLOYMENT_CONSTRAINTS__LABELS);
@@ -4948,11 +4970,12 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getOrchestrationServiceDeploymentConf_Image(), ecorePackage.getEString(), "image", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_Replicas(), ecorePackage.getEInt(), "replicas", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_Command(), ecorePackage.getEString(), "command", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestrationServiceDeploymentConf_Args(), ecorePackage.getEString(), "args", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_RestartPolicy(), ecorePackage.getEString(), "restartPolicy", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_ImagePullPolicy(), ecorePackage.getEString(), "imagePullPolicy", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrchestrationServiceDeploymentConf_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrchestrationServiceDeploymentConf_Ports(), this.getPort(), null, "ports", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Constraints(), this.getDeploymentConstraints(), null, "constraints", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestrationServiceDeploymentConf_Constraints(), this.getDeploymentConstraints(), null, "constraints", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeClusterDeploymentConfEClass, NodeClusterDeploymentConf.class, "NodeClusterDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNodeClusterDeploymentConf_ArtifactLocator(), ecorePackage.getEString(), "artifactLocator", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4980,6 +5003,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(kubernetesPortEClass, KubernetesPort.class, "KubernetesPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKubernetesPort_Name(), ecorePackage.getEString(), "name", null, 0, 1, KubernetesPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKubernetesPort_Internal(), ecorePackage.getEBoolean(), "internal", "false", 1, 1, KubernetesPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentConstraintsEClass, DeploymentConstraints.class, "DeploymentConstraints", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploymentConstraints_Labels(), this.getProperties(), "labels", null, 0, 1, DeploymentConstraints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

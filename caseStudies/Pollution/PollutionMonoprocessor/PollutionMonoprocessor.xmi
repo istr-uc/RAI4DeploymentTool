@@ -82,6 +82,7 @@
       port="9042"
       seeds="//@ownedElements.1"
       seedProviderClass="SimpleSeedProvider"
+      endpointSnitch="GossipingPropertyFileSnitch"
       dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
     <deploymentConfig
         xsi:type="pasys:NodeClusterDeploymentConf"

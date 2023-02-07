@@ -713,6 +713,14 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	private void configureDeploymentOnOrchestrator() {
 		
+		// En Kubernetes
+			// 1. Generar el fichero de configuración (sin seeds y con listenAddress y rpcAddress sin asignar)
+				  // Hay que mirar si vale el mismo fichero plantilla
+			// 2. Generar el .svc
+			// enviar al host del Kubernetes
+		
+			
+		
 		/*} else if (container!=null) {
 		String scriptContent="";
 		for (FileDescriptor cqlSchema : getCqlSchemas()) {
