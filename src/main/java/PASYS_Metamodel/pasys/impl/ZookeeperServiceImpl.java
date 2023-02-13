@@ -5,6 +5,7 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.SystemComponentType;
@@ -571,10 +572,12 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	@Override
 	public void configureDeployment() throws ConfigurationException {
 		super.configureDeployment();
-		if (getHost()!=null)
-			configureDeploymentOnHost();
-		else
-			configureDeploymentOnOrchestrator();
+		if (!isManaged()) {
+			if (getHost()!=null)
+				configureDeploymentOnHost();
+			else
+				configureDeploymentOnOrchestrator();
+		}
 	}
 	
 	private void configureDeploymentOnHost() throws ConfigurationException {
@@ -609,10 +612,6 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 
 		}
 	}
-	
-	private void configureDeploymentOnOrchestrator() {
-		//TODO
-	}
 
 	private String generateConfigFileContent(NodeClusterDeploymentConf conf) throws IOException, ConfigurationException {
 		Properties props = new Properties();
@@ -641,6 +640,37 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		String configFileContent = DeploymentToolsUtils.propertiesToString(props);
 		return configFileContent;
 	}
+	
+	
+	private void configureDeploymentOnOrchestrator() {
+		// Values File generation
+		//DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + "values.yaml",
+			//	conf.getConfigFolderPath(), generateValuesFileContent(conf), SystemComponentType.ZOOKEEPER_SERVER);
+		
+		// Los ficheros y el script se deberían guardar en el nodo local en que se esté ejecutando
+		// la herramienta, en la que debería estar instalado HELM
+	}
+	
+	private String generateValuesFileContent(OrchestrationServiceDeploymentConf conf)   throws IOException, ConfigurationException {
+		
+		Properties props = new Properties();
+		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper-values.yaml"));
+		
+		props.put("name", getName()+"-helm");
+		props.put("replicaCount", conf.getReplicas());
+		props.put("image.repository", conf.getImage());
+		props.put("image.tag", conf.getImageTag());
+		props.put("image.pullPolicy", conf.getImagePullPolicy());
+		
+		props.put("clientPort", Integer.toString(clientPort));
+		props.put("leaderPort", Integer.toString(leaderPort));
+		props.put("serverPort", Integer.toString(peerPort));
+		
+		
+		String configFileContent = DeploymentToolsUtils.propertiesToString(props);
+		return configFileContent;
+	}
+
 		
 
 } //ZookeeperServiceImpl

@@ -1084,16 +1084,17 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 		
 		super.configureDeployment();
 		
-		if (getHost()!=null)
-			configureDeploymentOnHost();
-		else
-			configureDeploymentOnOrchestrator();
+		if (!isManaged()) {
+			if (getHost()!=null)
+				configureDeploymentOnHost();
+			else
+				configureDeploymentOnOrchestrator();
+		}
 	}
 	
 	private void configureDeploymentOnHost() throws ConfigurationException {
 		NodeClusterDeploymentConfImpl conf = (NodeClusterDeploymentConfImpl) getDeploymentConfig();
 		if (!conf.isIsRunning()) {
-
 			// Config File generation
 			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(
 					"kafka" + getCommId() + ".properties", conf.getConfigFolderPath(), generateConfigFileContent(),
@@ -1194,5 +1195,8 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 	private void configureDeploymentOnOrchestrator() throws ConfigurationException {
 	// TODO
 		}
+	
+	
+	
 
 } //KafkaServiceImpl

@@ -151,6 +151,7 @@
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PlatformService/host"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PlatformService/orchestrator"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PlatformService/managed"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/OrchestrationService">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -442,6 +443,7 @@
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PlatformServiceDeploymentConf"/>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/image"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/imageTag"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/replicas"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/command"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/args"/>

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getImageTag <em>Image Tag</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getReplicas <em>Replicas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getCommand <em>Command</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl#getArgs <em>Args</em>}</li>
@@ -64,6 +65,26 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 	 * @ordered
 	 */
 	protected String image = IMAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getImageTag() <em>Image Tag</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImageTag()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IMAGE_TAG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getImageTag() <em>Image Tag</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImageTag()
+	 * @generated
+	 * @ordered
+	 */
+	protected String imageTag = IMAGE_TAG_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getReplicas() <em>Replicas</em>}' attribute.
@@ -235,6 +256,29 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 		image = newImage;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE, oldImage, image));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getImageTag() {
+		return imageTag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setImageTag(String newImageTag) {
+		String oldImageTag = imageTag;
+		imageTag = newImageTag;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG, oldImageTag, imageTag));
 	}
 
 	/**
@@ -451,6 +495,8 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 		switch (featureID) {
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE:
 				return getImage();
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG:
+				return getImageTag();
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS:
 				return getReplicas();
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND:
@@ -482,6 +528,9 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 		switch (featureID) {
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE:
 				setImage((String)newValue);
+				return;
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG:
+				setImageTag((String)newValue);
 				return;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS:
 				setReplicas((Integer)newValue);
@@ -524,6 +573,9 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE:
 				setImage(IMAGE_EDEFAULT);
 				return;
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG:
+				setImageTag(IMAGE_TAG_EDEFAULT);
+				return;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS:
 				setReplicas(REPLICAS_EDEFAULT);
 				return;
@@ -562,6 +614,8 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 		switch (featureID) {
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE:
 				return IMAGE_EDEFAULT == null ? image != null : !IMAGE_EDEFAULT.equals(image);
+			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG:
+				return IMAGE_TAG_EDEFAULT == null ? imageTag != null : !IMAGE_TAG_EDEFAULT.equals(imageTag);
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS:
 				return replicas != REPLICAS_EDEFAULT;
 			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND:
@@ -594,6 +648,8 @@ public class OrchestrationServiceDeploymentConfImpl extends PlatformServiceDeplo
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (image: ");
 		result.append(image);
+		result.append(", imageTag: ");
+		result.append(imageTag);
 		result.append(", replicas: ");
 		result.append(replicas);
 		result.append(", command: ");

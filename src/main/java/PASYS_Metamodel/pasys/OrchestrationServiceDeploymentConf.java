@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImage <em>Image</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImageTag <em>Image Tag</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getReplicas <em>Replicas</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getCommand <em>Command</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs <em>Args</em>}</li>
@@ -50,6 +51,28 @@ public interface OrchestrationServiceDeploymentConf extends PlatformServiceDeplo
 	 * @generated
 	 */
 	void setImage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Image Tag</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Image Tag</em>' attribute.
+	 * @see #setImageTag(String)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestrationServiceDeploymentConf_ImageTag()
+	 * @model
+	 * @generated
+	 */
+	String getImageTag();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImageTag <em>Image Tag</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Image Tag</em>' attribute.
+	 * @see #getImageTag()
+	 * @generated
+	 */
+	void setImageTag(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Replicas</b></em>' attribute.

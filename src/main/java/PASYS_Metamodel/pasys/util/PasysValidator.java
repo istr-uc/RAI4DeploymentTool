@@ -555,7 +555,11 @@ public class PasysValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR__EEXPRESSION = "host<>null xor orchestrator<>null";
+	protected static final String PLATFORM_SERVICE__HOST_OR_ORCHESTRATOR__EEXPRESSION = "if managed then \n" +
+		"\t\t\t\thost=null and orchestrator = null\n" +
+		"\t\t\telse\n" +
+		"\t\t\t\thost<>null xor orchestrator<>null\n" +
+		"\t\t\tendif";
 
 	/**
 	 * Validates the hostOrOrchestrator constraint of '<em>Platform Service</em>'.

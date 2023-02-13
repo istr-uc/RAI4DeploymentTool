@@ -1498,6 +1498,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPlatformService_Managed() {
+		return (EAttribute)platformServiceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOrchestrationService() {
 		return orchestrationServiceEClass;
 	}
@@ -3408,7 +3418,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Replicas() {
+	public EAttribute getOrchestrationServiceDeploymentConf_ImageTag() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3418,7 +3428,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Command() {
+	public EAttribute getOrchestrationServiceDeploymentConf_Replicas() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -3428,7 +3438,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Args() {
+	public EAttribute getOrchestrationServiceDeploymentConf_Command() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3438,7 +3448,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_RestartPolicy() {
+	public EAttribute getOrchestrationServiceDeploymentConf_Args() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3448,7 +3458,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_ImagePullPolicy() {
+	public EAttribute getOrchestrationServiceDeploymentConf_RestartPolicy() {
 		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -3458,8 +3468,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Volumes() {
-		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(6);
+	public EAttribute getOrchestrationServiceDeploymentConf_ImagePullPolicy() {
+		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3468,7 +3478,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Ports() {
+	public EReference getOrchestrationServiceDeploymentConf_Volumes() {
 		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -3478,8 +3488,18 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Constraints() {
+	public EReference getOrchestrationServiceDeploymentConf_Ports() {
 		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOrchestrationServiceDeploymentConf_Constraints() {
+		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -4173,6 +4193,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServiceEClass = createEClass(PLATFORM_SERVICE);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__HOST);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__ORCHESTRATOR);
+		createEAttribute(platformServiceEClass, PLATFORM_SERVICE__MANAGED);
 
 		orchestrationServiceEClass = createEClass(ORCHESTRATION_SERVICE);
 		createEReference(orchestrationServiceEClass, ORCHESTRATION_SERVICE__SERVICES);
@@ -4427,6 +4448,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		orchestrationServiceDeploymentConfEClass = createEClass(ORCHESTRATION_SERVICE_DEPLOYMENT_CONF);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE);
+		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND);
 		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS);
@@ -4711,6 +4733,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(platformServiceEClass, PlatformService.class, "PlatformService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlatformService_Host(), this.getNodeCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), this.getOrchestrationService_Services(), "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlatformService_Managed(), ecorePackage.getEBoolean(), "managed", "false", 1, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orchestrationServiceEClass, OrchestrationService.class, "OrchestrationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOrchestrationService_Services(), this.getPlatformService(), this.getPlatformService_Orchestrator(), "services", null, 0, -1, OrchestrationService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4968,6 +4991,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(orchestrationServiceDeploymentConfEClass, OrchestrationServiceDeploymentConf.class, "OrchestrationServiceDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrchestrationServiceDeploymentConf_Image(), ecorePackage.getEString(), "image", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestrationServiceDeploymentConf_ImageTag(), ecorePackage.getEString(), "imageTag", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_Replicas(), ecorePackage.getEInt(), "replicas", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_Command(), ecorePackage.getEString(), "command", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestrationServiceDeploymentConf_Args(), ecorePackage.getEString(), "args", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5145,7 +5169,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		  (platformServiceEClass,
 		   source,
 		   new String[] {
-			   "hostOrOrchestrator", "host<>null xor orchestrator<>null"
+			   "hostOrOrchestrator", "if managed then \n\t\t\t\thost=null and orchestrator = null\n\t\t\telse\n\t\t\t\thost<>null xor orchestrator<>null\n\t\t\tendif"
 		   });
 	}
 

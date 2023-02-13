@@ -2098,13 +2098,22 @@ public interface PasysPackage extends EPackage {
 	int PLATFORM_SERVICE__ORCHESTRATOR = PLATFORM_RESOURCE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLATFORM_SERVICE__MANAGED = PLATFORM_RESOURCE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Platform Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLATFORM_SERVICE_FEATURE_COUNT = PLATFORM_RESOURCE_FEATURE_COUNT + 3;
+	int PLATFORM_SERVICE_FEATURE_COUNT = PLATFORM_RESOURCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -2187,6 +2196,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int ORCHESTRATION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' reference list.
@@ -2287,6 +2305,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int KUBERNETES_SERVICE__ORCHESTRATOR = ORCHESTRATION_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_SERVICE__MANAGED = ORCHESTRATION_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' reference list.
@@ -2398,6 +2425,15 @@ public interface PasysPackage extends EPackage {
 	int SWARM_SERVICE__ORCHESTRATOR = ORCHESTRATION_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWARM_SERVICE__MANAGED = ORCHESTRATION_SERVICE__MANAGED;
+
+	/**
 	 * The feature id for the '<em><b>Services</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2498,6 +2534,15 @@ public interface PasysPackage extends EPackage {
 	int SERIALIZATION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZATION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+
+	/**
 	 * The number of structural features of the '<em>Serialization Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2587,6 +2632,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int AVRO_SERVICE__ORCHESTRATOR = SERIALIZATION_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE__MANAGED = SERIALIZATION_SERVICE__MANAGED;
 
 	/**
 	 * The number of structural features of the '<em>AVRO Service</em>' class.
@@ -2680,6 +2734,15 @@ public interface PasysPackage extends EPackage {
 	int DISTRIBUTION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+
+	/**
 	 * The number of structural features of the '<em>Distribution Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2769,6 +2832,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZOOKEEPER_SERVICE__ORCHESTRATOR = DISTRIBUTION_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZOOKEEPER_SERVICE__MANAGED = DISTRIBUTION_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Server Id</b></em>' attribute.
@@ -2934,6 +3006,15 @@ public interface PasysPackage extends EPackage {
 	int COMMUNICATION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+
+	/**
 	 * The number of structural features of the '<em>Communication Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3023,6 +3104,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int KAFKA_SERVICE__ORCHESTRATOR = COMMUNICATION_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KAFKA_SERVICE__MANAGED = COMMUNICATION_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Comm Id</b></em>' attribute.
@@ -3269,6 +3359,15 @@ public interface PasysPackage extends EPackage {
 	int SCHEDULING_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+
+	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3357,6 +3456,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_SCHEDULER__ORCHESTRATOR = SCHEDULING_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_SCHEDULER__MANAGED = SCHEDULING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
@@ -3457,6 +3565,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPARK_SERVICE__ORCHESTRATOR = SCHEDULING_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPARK_SERVICE__MANAGED = SCHEDULING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
@@ -3674,6 +3791,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int STORM_SERVICE__ORCHESTRATOR = SCHEDULING_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORM_SERVICE__MANAGED = SCHEDULING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
@@ -4271,6 +4397,15 @@ public interface PasysPackage extends EPackage {
 	int PERSISTENCE_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+
+	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4379,6 +4514,15 @@ public interface PasysPackage extends EPackage {
 	int MEM_SQL_SERVICE__ORCHESTRATOR = PERSISTENCE_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEM_SQL_SERVICE__MANAGED = PERSISTENCE_SERVICE__MANAGED;
+
+	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4485,6 +4629,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int CASSANDRA_SERVICE__ORCHESTRATOR = PERSISTENCE_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASSANDRA_SERVICE__MANAGED = PERSISTENCE_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
@@ -4784,6 +4937,15 @@ public interface PasysPackage extends EPackage {
 	int NEO4_JSERVICE__ORCHESTRATOR = PERSISTENCE_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO4_JSERVICE__MANAGED = PERSISTENCE_SERVICE__MANAGED;
+
+	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4892,6 +5054,15 @@ public interface PasysPackage extends EPackage {
 	int MONITORING_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
 
 	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+
+	/**
 	 * The feature id for the '<em><b>Monitorized Meters</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4980,6 +5151,15 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROMETHEUS_SERVICE__ORCHESTRATOR = MONITORING_SERVICE__ORCHESTRATOR;
+
+	/**
+	 * The feature id for the '<em><b>Managed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROMETHEUS_SERVICE__MANAGED = MONITORING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Monitorized Meters</b></em>' reference list.
@@ -7862,13 +8042,22 @@ public interface PasysPackage extends EPackage {
 	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Image Tag</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Replicas</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 1;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -7877,7 +8066,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Args</b></em>' attribute.
@@ -7886,7 +8075,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Restart Policy</b></em>' attribute.
@@ -7895,7 +8084,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Image Pull Policy</b></em>' attribute.
@@ -7904,7 +8093,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Volumes</b></em>' containment reference list.
@@ -7913,7 +8102,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -7922,7 +8111,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference.
@@ -7931,7 +8120,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Orchestration Service Deployment Conf</em>' class.
@@ -7940,7 +8129,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 9;
+	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Orchestration Service Deployment Conf</em>' class.
@@ -9360,6 +9549,17 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPlatformService_Orchestrator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.PlatformService#isManaged <em>Managed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Managed</em>'.
+	 * @see PASYS_Metamodel.pasys.PlatformService#isManaged()
+	 * @see #getPlatformService()
+	 * @generated
+	 */
+	EAttribute getPlatformService_Managed();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.OrchestrationService <em>Orchestration Service</em>}'.
@@ -11408,6 +11608,17 @@ public interface PasysPackage extends EPackage {
 	EAttribute getOrchestrationServiceDeploymentConf_Image();
 
 	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImageTag <em>Image Tag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Image Tag</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImageTag()
+	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestrationServiceDeploymentConf_ImageTag();
+
+	/**
 	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getReplicas <em>Replicas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12726,6 +12937,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLATFORM_SERVICE__ORCHESTRATOR = eINSTANCE.getPlatformService_Orchestrator();
+
+		/**
+		 * The meta object literal for the '<em><b>Managed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLATFORM_SERVICE__MANAGED = eINSTANCE.getPlatformService_Managed();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl <em>Orchestration Service</em>}' class.
@@ -14362,6 +14581,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE = eINSTANCE.getOrchestrationServiceDeploymentConf_Image();
+
+		/**
+		 * The meta object literal for the '<em><b>Image Tag</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG = eINSTANCE.getOrchestrationServiceDeploymentConf_ImageTag();
 
 		/**
 		 * The meta object literal for the '<em><b>Replicas</b></em>' attribute feature.

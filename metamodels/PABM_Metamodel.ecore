@@ -145,11 +145,14 @@
         <details key="constraints" value="hostOrOrchestrator"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="hostOrOrchestrator" value="host&lt;>null xor orchestrator&lt;>null"/>
+        <details key="hostOrOrchestrator" value="if managed then &#xA;&#x9;&#x9;&#x9;&#x9;host=null and orchestrator = null&#xA;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;host&lt;>null xor orchestrator&lt;>null&#xA;&#x9;&#x9;&#x9;endif"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/NodeCluster"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="orchestrator" eType="#//pasys/OrchestrationService"
           eOpposite="#//pasys/OrchestrationService/services"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="managed" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OrchestrationService" abstract="true"
         eSuperTypes="#//pasys/PlatformService">
@@ -546,6 +549,7 @@
         eSuperTypes="#//pasys/PlatformServiceDeploymentConf">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicas" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

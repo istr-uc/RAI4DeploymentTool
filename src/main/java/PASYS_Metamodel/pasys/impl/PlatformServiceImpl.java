@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#getDeploymentConfig <em>Deployment Config</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#getHost <em>Host</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#getOrchestrator <em>Orchestrator</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#isManaged <em>Managed</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +65,26 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	 * @ordered
 	 */
 	protected OrchestrationService orchestrator;
+
+	/**
+	 * The default value of the '{@link #isManaged() <em>Managed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isManaged()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MANAGED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isManaged() <em>Managed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isManaged()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean managed = MANAGED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -237,6 +258,29 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	 * @generated
 	 */
 	@Override
+	public boolean isManaged() {
+		return managed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setManaged(boolean newManaged) {
+		boolean oldManaged = managed;
+		managed = newManaged;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVICE__MANAGED, oldManaged, managed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PasysPackage.PLATFORM_SERVICE__DEPLOYMENT_CONFIG:
@@ -263,6 +307,8 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
 				if (resolve) return getOrchestrator();
 				return basicGetOrchestrator();
+			case PasysPackage.PLATFORM_SERVICE__MANAGED:
+				return isManaged();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,6 +329,9 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 				return;
 			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
 				setOrchestrator((OrchestrationService)newValue);
+				return;
+			case PasysPackage.PLATFORM_SERVICE__MANAGED:
+				setManaged((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,6 +354,9 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
 				setOrchestrator((OrchestrationService)null);
 				return;
+			case PasysPackage.PLATFORM_SERVICE__MANAGED:
+				setManaged(MANAGED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -323,6 +375,8 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 				return host != null;
 			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
 				return orchestrator != null;
+			case PasysPackage.PLATFORM_SERVICE__MANAGED:
+				return managed != MANAGED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -394,6 +448,22 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (managed: ");
+		result.append(managed);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
