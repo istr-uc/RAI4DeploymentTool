@@ -9,27 +9,96 @@
     date="20/11/2019"
     authors="P. López y R. Dintén">
   <ownedElements
+      xsi:type="pasys:ProcessingNodeCluster"
+      name="StormCluster"
+      id="StormCluster"
+      nodes="//@ownedElements.1 //@ownedElements.3"/>
+  <ownedElements
       xsi:type="pasys:PhysicalProcessingNode"
-      name="MainNode"
-      id="MainNode"
-      ip="127.0.0.1"
+      name="NimbusNode"
+      id="NimbusNode"
+      ip="172.31.16.48"
       os="Ubuntu"
       concurrencyLevel="8"
       userName="gestor"/>
   <ownedElements
       xsi:type="pasys:ProcessingNodeCluster"
-      name="MainCluster"
-      id="MainCluster"
-      nodes="//@ownedElements.0"/>
+      name="NimbusCluster"
+      id="NimbusCluster"
+      nodes="//@ownedElements.1"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="SupervisorNode"
+      id="SupervisorNode"
+      ip="172.31.16.52"
+      os="Ubuntu"
+      userName="gestor"/>
+  <ownedElements
+      xsi:type="pasys:ProcessingNodeCluster"
+      name="SupervisorCluster"
+      id="SupervisorCluster"
+      nodes="//@ownedElements.3"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"
+      name="CassandraNode"
+      id="CassandraNode"
+      ip="172.31.16.51"
+      os="Ubuntu"
+      userName="gestor"/>
+  <ownedElements
+      xsi:type="pasys:ProcessingNodeCluster"
+      name="CassandraCluster"
+      id="CassandraCluster"
+      nodes="//@ownedElements.5"/>
+  <ownedElements
+      xsi:type="pasys:AWSVirtualProcessingNode"
+      name="KafkaVNode"
+      id="KafkaVNode"
+      ip="172.31.21.96"
+      userName="gestor"
+      externalIP="34.255.137.20"
+      keyPair="keyFile"/>
+  <ownedElements
+      xsi:type="pasys:ProcessingNodeCluster"
+      name="KafkaCluster"
+      id="KafkaCluster"
+      nodes="//@ownedElements.7"/>
+  <ownedElements
+      xsi:type="pasys:AWSVirtualProcessingNode"
+      name="ZookeeperVNode"
+      id="ZookeeperVNode"
+      ip="172.31.24.124"
+      userName="gestor"
+      externalIP="3.248.207.185"
+      keyPair="keyFile"/>
+  <ownedElements
+      xsi:type="pasys:ProcessingNodeCluster"
+      name="ZkCluster"
+      id="ZkCluster"
+      nodes="//@ownedElements.9"/>
+  <ownedElements
+      xsi:type="pasys:ZookeeperService"
+      name="PollutionZkpr"
+      id="PollutionZkpr"
+      host="//@ownedElements.10">
+    <deploymentConfig
+        xsi:type="pasys:NodeDeploymentConf"
+        artifactLocator="/home/gestor/apache/Services/zookeeper/bin"
+        artifactName="zkService.sh"
+        configFolderPath="/home/gestor/apache/Services/zookeeper/config"
+        scriptFolderPath="/home/gestor/apache/Services/zookeeper/scripts"
+        dataFolderPath="/home/gestor/apache/Services/zookeeper/data"
+        logFolderPath="/home/gestor/apache/Services/zookeeper/logs"/>
+  </ownedElements>
   <ownedElements
       xsi:type="pasys:KafkaService"
       name="PollutionKafka"
       id="PollutionKafka"
-      host="//@ownedElements.1"
+      host="//@ownedElements.8"
       commId="1"
-      zookeeperConnect="2"
-      listeners="PLAINTEXT://127.0.0.1:9092"
-      advertisedListeners="PLAINTEXT://127.0.0.1:9092"
+      zookeeperConnect="//@ownedElements.11"
+      listeners="PLAINTEXT://172.31.16.47:9092"
+      advertisedListeners="PLAINTEXT://172.31.16.47:9092"
       autoCreateTopicEnable="true">
     <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
@@ -57,30 +126,34 @@
         logFolderPath="/home/gestor/apache/apps/pollution/topics/log"/>
   </ownedElements>
   <ownedElements
-      xsi:type="pasys:ZookeeperService"
-      name="PollutionZkpr"
-      id="PollutionZkpr"
-      host="//@ownedElements.1"
-      serverId="2">
+      xsi:type="pasys:Workflow"
+      name="PollutionProcess"
+      id="PollutionProcess"
+      rootTask="//@ownedElements.14/@ownedTasks.0"
+      scheduler="//@ownedElements.16">
     <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
-        artifactLocator="/home/gestor/apache/Services/zookeeper/bin"
-        artifactName="zkService.sh"
-        configFolderPath="/home/gestor/apache/Services/zookeeper/config"
-        scriptFolderPath="/home/gestor/apache/Services/zookeeper/scripts"
-        dataFolderPath="/home/gestor/apache/Services/zookeeper/data"
-        logFolderPath="/home/gestor/apache/Services/zookeeper/logs"/>
+        artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
+        artifactName="SantanderPollution.jar"
+        configFolderPath="/home/gestor/apache/apps/pollution/workflows/config"
+        scriptFolderPath="/home/gestor/apache/apps/pollution/workflows/scripts"
+        dataFolderPath="/home/gestor/apache/apps/pollution/workflows/data"
+        logFolderPath="/home/gestor/apache/apps/pollution/workflows/logs"/>
+    <ownedTasks
+        name="MainTask"
+        id="MainTask"
+        implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
+        triggerStreamData="//@ownedElements.13"/>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:CassandraService"
       name="PollutionCassandra"
       id="PollutionCassandra"
-      host="//@ownedElements.1"
+      host="//@ownedElements.4"
       logging="root"
       passwd="root"
       port="9042"
-      seedProviderClass="SimpleSeedProvider"
-      endpointSnitch="GossipingPropertyFileSnitch"
+      seedProviderClass="SimpleProvider"
       dataFileDir="/home/gestor/apache/Services/cassandra/data/data">
     <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
@@ -98,17 +171,17 @@
         id="PollutionCluster">
       <racks
           name="PollutionCluster"
-          id="PollutionClusterRack"
-          nodes="//@ownedElements.1"/>
+          id="PollutionCluster"
+          nodes="//@ownedElements.4"/>
     </dataCenters>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:StormService"
       name="PollutionStorm"
       id="PollutionStorm"
-      host="//@ownedElements.1"
-      workflows="//@ownedElements.7"
-      zookeeperConnect="2">
+      host="//@ownedElements.0"
+      workflows="//@ownedElements.14"
+      zookeeperConnect="//@ownedElements.11">
     <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
         artifactLocator="/home/gestor/apache/services/storm/bin"
@@ -119,7 +192,8 @@
         logFolderPath="/home/gestor/apache/services/storm/logs"/>
     <nimbus
         name="PolllutionStormNimbus"
-        id="PolllutionStormNimbus">
+        id="PolllutionStormNimbus"
+        host="//@ownedElements.2">
       <deploymentConfig
           xsi:type="pasys:NodeDeploymentConf"
           artifactLocator="/home/gestor/apache/services/storm/bin"
@@ -131,7 +205,8 @@
     </nimbus>
     <supervisor
         name="PollutionStormSupervisor"
-        id="PollutionStormSupervisor">
+        id="PollutionStormSupervisor"
+        host="//@ownedElements.4">
       <deploymentConfig
           xsi:type="pasys:NodeDeploymentConf"
           artifactLocator="/home/gestor/apache/services/storm/bin"
@@ -146,7 +221,8 @@
       <supervisorSlotPorts>6703</supervisorSlotPorts>
     </supervisor>
     <ui name="PollutionStormUI"
-        id="PollutionStormUI">
+        id="PollutionStormUI"
+        host="//@ownedElements.2">
       <deploymentConfig
           xsi:type="pasys:NodeDeploymentConf"
           artifactLocator="/home/gestor/apache/services/storm/bin"
@@ -157,25 +233,19 @@
           logFolderPath="/home/gestor/apache/services/storm/logs"/>
     </ui>
   </ownedElements>
-  <ownedElements
-      xsi:type="pasys:Workflow"
-      name="PollutionProcess"
-      id="PollutionProcess"
-      rootTask="//@ownedElements.7/@ownedTasks.0"
-      scheduler="//@ownedElements.6">
-    <deploymentConfig
-        xsi:type="pasys:NodeDeploymentConf"
-        artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
-        artifactName="SantanderPollution.jar"
-        configFolderPath="/home/gestor/apache/apps/pollution/workflows/config"
-        scriptFolderPath="/home/gestor/apache/apps/pollution/workflows/scripts"
-        dataFolderPath="/home/gestor/apache/apps/pollution/workflows/data"
-        logFolderPath="/home/gestor/apache/apps/pollution/workflows/logs"/>
-    <ownedTasks
-        name="MainTask"
-        id="MainTask"
-        implementingClassName="es.unican.dintenr.santanderPollution.SantanderPollutionTopology"
-        triggerStreamData="//@ownedElements.3"
-        inputStreamData="2"/>
-  </ownedElements>
+  <authenticationFiles
+      key="34.255.137.20"
+      value="/home/algorrim/ISTR_keypair.pem"/>
+  <authenticationFiles
+      key="3.248.207.185"
+      value="/home/algorrim/ISTR_keypair.pem"/>
+  <authenticationFiles
+      key="54.194.37.254"
+      value="/home/algorrim/ISTR_keypair.pem"/>
+  <authenticationFiles
+      key="54.194.247.222"
+      value="/home/algorrim/ISTR_keypair.pem"/>
+  <authenticationFiles
+      key="34.248.160.67"
+      value="/home/algorrim/ISTR_keypair.pem"/>
 </pasys:ComputationalSystem>

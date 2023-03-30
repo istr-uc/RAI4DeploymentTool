@@ -609,13 +609,13 @@ public interface PasysPackage extends EPackage {
 	int PROCESSING_NODE__SPEED_FACTOR = PLATFORM_RESOURCE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Property Config Data</b></em>' attribute.
+	 * The feature id for the '<em><b>Config Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_NODE__PROPERTY_CONFIG_DATA = PLATFORM_RESOURCE_FEATURE_COUNT + 5;
+	int PROCESSING_NODE__CONFIG_DATA = PLATFORM_RESOURCE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>User Name</b></em>' attribute.
@@ -835,13 +835,13 @@ public interface PasysPackage extends EPackage {
 	int PHYSICAL_PROCESSING_NODE__SPEED_FACTOR = PROCESSING_NODE__SPEED_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Property Config Data</b></em>' attribute.
+	 * The feature id for the '<em><b>Config Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHYSICAL_PROCESSING_NODE__PROPERTY_CONFIG_DATA = PROCESSING_NODE__PROPERTY_CONFIG_DATA;
+	int PHYSICAL_PROCESSING_NODE__CONFIG_DATA = PROCESSING_NODE__CONFIG_DATA;
 
 	/**
 	 * The feature id for the '<em><b>User Name</b></em>' attribute.
@@ -1061,13 +1061,13 @@ public interface PasysPackage extends EPackage {
 	int VIRTUAL_PROCESSING_NODE__SPEED_FACTOR = PROCESSING_NODE__SPEED_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Property Config Data</b></em>' attribute.
+	 * The feature id for the '<em><b>Config Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIRTUAL_PROCESSING_NODE__PROPERTY_CONFIG_DATA = PROCESSING_NODE__PROPERTY_CONFIG_DATA;
+	int VIRTUAL_PROCESSING_NODE__CONFIG_DATA = PROCESSING_NODE__CONFIG_DATA;
 
 	/**
 	 * The feature id for the '<em><b>User Name</b></em>' attribute.
@@ -1296,13 +1296,13 @@ public interface PasysPackage extends EPackage {
 	int AWS_VIRTUAL_PROCESSING_NODE__SPEED_FACTOR = VIRTUAL_PROCESSING_NODE__SPEED_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Property Config Data</b></em>' attribute.
+	 * The feature id for the '<em><b>Config Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AWS_VIRTUAL_PROCESSING_NODE__PROPERTY_CONFIG_DATA = VIRTUAL_PROCESSING_NODE__PROPERTY_CONFIG_DATA;
+	int AWS_VIRTUAL_PROCESSING_NODE__CONFIG_DATA = VIRTUAL_PROCESSING_NODE__CONFIG_DATA;
 
 	/**
 	 * The feature id for the '<em><b>User Name</b></em>' attribute.
@@ -1503,14 +1503,14 @@ public interface PasysPackage extends EPackage {
 	int AWS_VIRTUAL_PROCESSING_NODE_OPERATION_COUNT = VIRTUAL_PROCESSING_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ResourceClusterImpl <em>Resource Cluster</em>}' class.
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ProcessingResourceClusterImpl <em>Processing Resource Cluster</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.ResourceClusterImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getResourceCluster()
+	 * @see PASYS_Metamodel.pasys.impl.ProcessingResourceClusterImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingResourceCluster()
 	 * @generated
 	 */
-	int RESOURCE_CLUSTER = 11;
+	int PROCESSING_RESOURCE_CLUSTER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1519,7 +1519,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CLUSTER__NAME = PLATFORM_RESOURCE__NAME;
+	int PROCESSING_RESOURCE_CLUSTER__NAME = PLATFORM_RESOURCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1528,7 +1528,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CLUSTER__ID = PLATFORM_RESOURCE__ID;
+	int PROCESSING_RESOURCE_CLUSTER__ID = PLATFORM_RESOURCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -1537,34 +1537,263 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CLUSTER__OWNER = PLATFORM_RESOURCE__OWNER;
+	int PROCESSING_RESOURCE_CLUSTER__OWNER = PLATFORM_RESOURCE__OWNER;
 
 	/**
-	 * The feature id for the '<em><b>Resources</b></em>' reference list.
+	 * The number of structural features of the '<em>Processing Resource Cluster</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CLUSTER__RESOURCES = PLATFORM_RESOURCE_FEATURE_COUNT + 0;
+	int PROCESSING_RESOURCE_CLUSTER_FEATURE_COUNT = PLATFORM_RESOURCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Resource Cluster</em>' class.
+	 * The number of operations of the '<em>Processing Resource Cluster</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CLUSTER_FEATURE_COUNT = PLATFORM_RESOURCE_FEATURE_COUNT + 1;
+	int PROCESSING_RESOURCE_CLUSTER_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Resource Cluster</em>' class.
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ProcessingNodeClusterImpl <em>Processing Node Cluster</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.ProcessingNodeClusterImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeCluster()
+	 * @generated
+	 */
+	int PROCESSING_NODE_CLUSTER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CLUSTER_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 0;
+	int PROCESSING_NODE_CLUSTER__NAME = PROCESSING_RESOURCE_CLUSTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE_CLUSTER__ID = PROCESSING_RESOURCE_CLUSTER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE_CLUSTER__OWNER = PROCESSING_RESOURCE_CLUSTER__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE_CLUSTER__NODES = PROCESSING_RESOURCE_CLUSTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Processing Node Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE_CLUSTER_FEATURE_COUNT = PROCESSING_RESOURCE_CLUSTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Processing Node Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_NODE_CLUSTER_OPERATION_COUNT = PROCESSING_RESOURCE_CLUSTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationClusterImpl <em>Orchestration Cluster</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.OrchestrationClusterImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationCluster()
+	 * @generated
+	 */
+	int ORCHESTRATION_CLUSTER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_CLUSTER__NAME = PROCESSING_RESOURCE_CLUSTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_CLUSTER__ID = PROCESSING_RESOURCE_CLUSTER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_CLUSTER__OWNER = PROCESSING_RESOURCE_CLUSTER__OWNER;
+
+	/**
+	 * The number of structural features of the '<em>Orchestration Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_CLUSTER_FEATURE_COUNT = PROCESSING_RESOURCE_CLUSTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Orchestration Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATION_CLUSTER_OPERATION_COUNT = PROCESSING_RESOURCE_CLUSTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KubernetesClusterImpl <em>Kubernetes Cluster</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.KubernetesClusterImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesCluster()
+	 * @generated
+	 */
+	int KUBERNETES_CLUSTER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER__NAME = ORCHESTRATION_CLUSTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER__ID = ORCHESTRATION_CLUSTER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER__OWNER = ORCHESTRATION_CLUSTER__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Api Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER__API_VERSION = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Kubernetes Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER_FEATURE_COUNT = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Kubernetes Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER_OPERATION_COUNT = ORCHESTRATION_CLUSTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SwarmClusterImpl <em>Swarm Cluster</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.SwarmClusterImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmCluster()
+	 * @generated
+	 */
+	int SWARM_CLUSTER = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWARM_CLUSTER__NAME = ORCHESTRATION_CLUSTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWARM_CLUSTER__ID = ORCHESTRATION_CLUSTER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWARM_CLUSTER__OWNER = ORCHESTRATION_CLUSTER__OWNER;
+
+	/**
+	 * The number of structural features of the '<em>Swarm Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWARM_CLUSTER_FEATURE_COUNT = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Swarm Cluster</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWARM_CLUSTER_OPERATION_COUNT = ORCHESTRATION_CLUSTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NetworkImpl <em>Network</em>}' class.
@@ -1574,7 +1803,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNetwork()
 	 * @generated
 	 */
-	int NETWORK = 13;
+	int NETWORK = 16;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeSchedulerImpl <em>Node Scheduler</em>}' class.
@@ -1584,7 +1813,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeScheduler()
 	 * @generated
 	 */
-	int NODE_SCHEDULER = 25;
+	int NODE_SCHEDULER = 28;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamDataImpl <em>Stream Data</em>}' class.
@@ -1594,7 +1823,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamData()
 	 * @generated
 	 */
-	int STREAM_DATA = 40;
+	int STREAM_DATA = 41;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamDataPartitionImpl <em>Stream Data Partition</em>}' class.
@@ -1604,7 +1833,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamDataPartition()
 	 * @generated
 	 */
-	int STREAM_DATA_PARTITION = 41;
+	int STREAM_DATA_PARTITION = 42;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowStreamDataImpl <em>Workflow Stream Data</em>}' class.
@@ -1614,7 +1843,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflowStreamData()
 	 * @generated
 	 */
-	int WORKFLOW_STREAM_DATA = 42;
+	int WORKFLOW_STREAM_DATA = 43;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.FlowStreamDataImpl <em>Flow Stream Data</em>}' class.
@@ -1624,7 +1853,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getFlowStreamData()
 	 * @generated
 	 */
-	int FLOW_STREAM_DATA = 43;
+	int FLOW_STREAM_DATA = 44;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KafkaFlowStreamDataImpl <em>Kafka Flow Stream Data</em>}' class.
@@ -1634,7 +1863,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaFlowStreamData()
 	 * @generated
 	 */
-	int KAFKA_FLOW_STREAM_DATA = 44;
+	int KAFKA_FLOW_STREAM_DATA = 45;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DerivedStreamDataImpl <em>Derived Stream Data</em>}' class.
@@ -1644,7 +1873,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDerivedStreamData()
 	 * @generated
 	 */
-	int DERIVED_STREAM_DATA = 45;
+	int DERIVED_STREAM_DATA = 46;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkloadStreamDataImpl <em>Workload Stream Data</em>}' class.
@@ -1654,7 +1883,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkloadStreamData()
 	 * @generated
 	 */
-	int WORKLOAD_STREAM_DATA = 46;
+	int WORKLOAD_STREAM_DATA = 47;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KafkaWorkloadStreamDataImpl <em>Kafka Workload Stream Data</em>}' class.
@@ -1664,7 +1893,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaWorkloadStreamData()
 	 * @generated
 	 */
-	int KAFKA_WORKLOAD_STREAM_DATA = 47;
+	int KAFKA_WORKLOAD_STREAM_DATA = 48;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowImpl <em>Workflow</em>}' class.
@@ -1674,7 +1903,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflow()
 	 * @generated
 	 */
-	int WORKFLOW = 48;
+	int WORKFLOW = 49;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SchedulableSetImpl <em>Schedulable Set</em>}' class.
@@ -1684,7 +1913,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSchedulableSet()
 	 * @generated
 	 */
-	int SCHEDULABLE_SET = 49;
+	int SCHEDULABLE_SET = 50;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskImpl <em>Task</em>}' class.
@@ -1694,7 +1923,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 50;
+	int TASK = 51;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskExecutorImpl <em>Task Executor</em>}' class.
@@ -1704,7 +1933,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTaskExecutor()
 	 * @generated
 	 */
-	int TASK_EXECUTOR = 51;
+	int TASK_EXECUTOR = 52;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MetricImpl <em>Metric</em>}' class.
@@ -1714,7 +1943,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMetric()
 	 * @generated
 	 */
-	int METRIC = 52;
+	int METRIC = 53;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ProcessingNodeUtilizationImpl <em>Processing Node Utilization</em>}' class.
@@ -1724,7 +1953,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeUtilization()
 	 * @generated
 	 */
-	int PROCESSING_NODE_UTILIZATION = 53;
+	int PROCESSING_NODE_UTILIZATION = 54;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ProcessingNodeMemoryImpl <em>Processing Node Memory</em>}' class.
@@ -1734,7 +1963,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeMemory()
 	 * @generated
 	 */
-	int PROCESSING_NODE_MEMORY = 54;
+	int PROCESSING_NODE_MEMORY = 55;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NetworkUtilizationImpl <em>Network Utilization</em>}' class.
@@ -1744,7 +1973,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNetworkUtilization()
 	 * @generated
 	 */
-	int NETWORK_UTILIZATION = 55;
+	int NETWORK_UTILIZATION = 56;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowLatencyImpl <em>Workflow Latency</em>}' class.
@@ -1754,7 +1983,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflowLatency()
 	 * @generated
 	 */
-	int WORKFLOW_LATENCY = 56;
+	int WORKFLOW_LATENCY = 57;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskProcessingAmountImpl <em>Task Processing Amount</em>}' class.
@@ -1764,7 +1993,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTaskProcessingAmount()
 	 * @generated
 	 */
-	int TASK_PROCESSING_AMOUNT = 57;
+	int TASK_PROCESSING_AMOUNT = 58;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamDataRateImpl <em>Stream Data Rate</em>}' class.
@@ -1774,7 +2003,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamDataRate()
 	 * @generated
 	 */
-	int STREAM_DATA_RATE = 58;
+	int STREAM_DATA_RATE = 59;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MeterImpl <em>Meter</em>}' class.
@@ -1784,7 +2013,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMeter()
 	 * @generated
 	 */
-	int METER = 59;
+	int METER = 60;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeHostedMeterImpl <em>Node Hosted Meter</em>}' class.
@@ -1794,7 +2023,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeHostedMeter()
 	 * @generated
 	 */
-	int NODE_HOSTED_METER = 61;
+	int NODE_HOSTED_METER = 62;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeResourceMeterImpl <em>Node Resource Meter</em>}' class.
@@ -1804,7 +2033,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeResourceMeter()
 	 * @generated
 	 */
-	int NODE_RESOURCE_METER = 62;
+	int NODE_RESOURCE_METER = 63;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CommunicationMeterImpl <em>Communication Meter</em>}' class.
@@ -1814,7 +2043,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCommunicationMeter()
 	 * @generated
 	 */
-	int COMMUNICATION_METER = 63;
+	int COMMUNICATION_METER = 64;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamRateMeterImpl <em>Stream Rate Meter</em>}' class.
@@ -1824,7 +2053,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamRateMeter()
 	 * @generated
 	 */
-	int STREAM_RATE_METER = 64;
+	int STREAM_RATE_METER = 65;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowLatencyMeterImpl <em>Workflow Latency Meter</em>}' class.
@@ -1834,7 +2063,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflowLatencyMeter()
 	 * @generated
 	 */
-	int WORKFLOW_LATENCY_METER = 65;
+	int WORKFLOW_LATENCY_METER = 66;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskProcessingAmountMeterImpl <em>Task Processing Amount Meter</em>}' class.
@@ -1844,7 +2073,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTaskProcessingAmountMeter()
 	 * @generated
 	 */
-	int TASK_PROCESSING_AMOUNT_METER = 66;
+	int TASK_PROCESSING_AMOUNT_METER = 67;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentFileDescriptorImpl <em>Deployment File Descriptor</em>}' class.
@@ -1854,7 +2083,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentFileDescriptor()
 	 * @generated
 	 */
-	int DEPLOYMENT_FILE_DESCRIPTOR = 83;
+	int DEPLOYMENT_FILE_DESCRIPTOR = 84;
 
 	/**
 	 * The meta object id for the '{@link java.lang.Exception <em>Exception</em>}' class.
@@ -1864,7 +2093,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 77;
+	int EXCEPTION = 78;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.ConfigurationException <em>Configuration Exception</em>}' class.
@@ -1874,7 +2103,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getConfigurationException()
 	 * @generated
 	 */
-	int CONFIGURATION_EXCEPTION = 78;
+	int CONFIGURATION_EXCEPTION = 79;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.DeploymentException <em>Deployment Exception</em>}' class.
@@ -1884,7 +2113,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentException()
 	 * @generated
 	 */
-	int DEPLOYMENT_EXCEPTION = 79;
+	int DEPLOYMENT_EXCEPTION = 80;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.LaunchException <em>Launch Exception</em>}' class.
@@ -1894,17 +2123,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getLaunchException()
 	 * @generated
 	 */
-	int LAUNCH_EXCEPTION = 80;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeClusterImpl <em>Node Cluster</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.NodeClusterImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeCluster()
-	 * @generated
-	 */
-	int NODE_CLUSTER = 12;
+	int LAUNCH_EXCEPTION = 81;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PrometheusMeterImpl <em>Prometheus Meter</em>}' class.
@@ -1914,70 +2133,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPrometheusMeter()
 	 * @generated
 	 */
-	int PROMETHEUS_METER = 60;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER__NAME = RESOURCE_CLUSTER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER__ID = RESOURCE_CLUSTER__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER__OWNER = RESOURCE_CLUSTER__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Resources</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER__RESOURCES = RESOURCE_CLUSTER__RESOURCES;
-
-	/**
-	 * The number of structural features of the '<em>Node Cluster</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_FEATURE_COUNT = RESOURCE_CLUSTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Nodes</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER___GET_NODES = RESOURCE_CLUSTER_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Node Cluster</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_OPERATION_COUNT = RESOURCE_CLUSTER_OPERATION_COUNT + 1;
+	int PROMETHEUS_METER = 61;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2041,7 +2197,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPlatformService()
 	 * @generated
 	 */
-	int PLATFORM_SERVICE = 14;
+	int PLATFORM_SERVICE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2089,31 +2245,13 @@ public interface PasysPackage extends EPackage {
 	int PLATFORM_SERVICE__HOST = PLATFORM_RESOURCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLATFORM_SERVICE__ORCHESTRATOR = PLATFORM_RESOURCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLATFORM_SERVICE__MANAGED = PLATFORM_RESOURCE_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Platform Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLATFORM_SERVICE_FEATURE_COUNT = PLATFORM_RESOURCE_FEATURE_COUNT + 4;
+	int PLATFORM_SERVICE_FEATURE_COUNT = PLATFORM_RESOURCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -2132,342 +2270,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLATFORM_SERVICE_OPERATION_COUNT = PLATFORM_RESOURCE_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl <em>Orchestration Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationService()
-	 * @generated
-	 */
-	int ORCHESTRATION_SERVICE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__NAME = PLATFORM_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__ID = PLATFORM_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__HOST = PLATFORM_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE__SERVICES = PLATFORM_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Orchestration Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Orchestration Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KubernetesServiceImpl <em>Kubernetes Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.KubernetesServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesService()
-	 * @generated
-	 */
-	int KUBERNETES_SERVICE = 16;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__NAME = ORCHESTRATION_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__ID = ORCHESTRATION_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__OWNER = ORCHESTRATION_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__DEPLOYMENT_CONFIG = ORCHESTRATION_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__HOST = ORCHESTRATION_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__ORCHESTRATOR = ORCHESTRATION_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__MANAGED = ORCHESTRATION_SERVICE__MANAGED;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__SERVICES = ORCHESTRATION_SERVICE__SERVICES;
-
-	/**
-	 * The feature id for the '<em><b>Api Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE__API_VERSION = ORCHESTRATION_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Kubernetes Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE_FEATURE_COUNT = ORCHESTRATION_SERVICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE___CONFIGURE_DEPLOYMENT = ORCHESTRATION_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Kubernetes Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KUBERNETES_SERVICE_OPERATION_COUNT = ORCHESTRATION_SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SwarmServiceImpl <em>Swarm Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.SwarmServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmService()
-	 * @generated
-	 */
-	int SWARM_SERVICE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__NAME = ORCHESTRATION_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__ID = ORCHESTRATION_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__OWNER = ORCHESTRATION_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__DEPLOYMENT_CONFIG = ORCHESTRATION_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__HOST = ORCHESTRATION_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__ORCHESTRATOR = ORCHESTRATION_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__MANAGED = ORCHESTRATION_SERVICE__MANAGED;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE__SERVICES = ORCHESTRATION_SERVICE__SERVICES;
-
-	/**
-	 * The number of structural features of the '<em>Swarm Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE_FEATURE_COUNT = ORCHESTRATION_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE___CONFIGURE_DEPLOYMENT = ORCHESTRATION_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Swarm Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWARM_SERVICE_OPERATION_COUNT = ORCHESTRATION_SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SerializationServiceImpl <em>Serialization Service</em>}' class.
@@ -2525,24 +2327,6 @@ public interface PasysPackage extends EPackage {
 	int SERIALIZATION_SERVICE__HOST = PLATFORM_SERVICE__HOST;
 
 	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERIALIZATION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERIALIZATION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
-
-	/**
 	 * The number of structural features of the '<em>Serialization Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2577,97 +2361,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getAVROService()
 	 * @generated
 	 */
-	int AVRO_SERVICE = 19;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__NAME = SERIALIZATION_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__ID = SERIALIZATION_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__OWNER = SERIALIZATION_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__DEPLOYMENT_CONFIG = SERIALIZATION_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__HOST = SERIALIZATION_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__ORCHESTRATOR = SERIALIZATION_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE__MANAGED = SERIALIZATION_SERVICE__MANAGED;
-
-	/**
-	 * The number of structural features of the '<em>AVRO Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE_FEATURE_COUNT = SERIALIZATION_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE___CONFIGURE_DEPLOYMENT = SERIALIZATION_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>AVRO Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVRO_SERVICE_OPERATION_COUNT = SERIALIZATION_SERVICE_OPERATION_COUNT + 0;
+	int AVRO_SERVICE = 25;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DistributionServiceImpl <em>Distribution Service</em>}' class.
@@ -2677,7 +2371,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDistributionService()
 	 * @generated
 	 */
-	int DISTRIBUTION_SERVICE = 20;
+	int DISTRIBUTION_SERVICE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2725,24 +2419,6 @@ public interface PasysPackage extends EPackage {
 	int DISTRIBUTION_SERVICE__HOST = PLATFORM_SERVICE__HOST;
 
 	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
-
-	/**
 	 * The number of structural features of the '<em>Distribution Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2777,7 +2453,714 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getZookeeperService()
 	 * @generated
 	 */
-	int ZOOKEEPER_SERVICE = 21;
+	int ZOOKEEPER_SERVICE = 26;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CommunicationServiceImpl <em>Communication Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.CommunicationServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCommunicationService()
+	 * @generated
+	 */
+	int COMMUNICATION_SERVICE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE__NAME = PLATFORM_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE__ID = PLATFORM_SERVICE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE__HOST = PLATFORM_SERVICE__HOST;
+
+	/**
+	 * The number of structural features of the '<em>Communication Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Configure Deployment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
+
+	/**
+	 * The number of operations of the '<em>Communication Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KafkaServiceImpl <em>Kafka Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.KafkaServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaService()
+	 * @generated
+	 */
+	int KAFKA_SERVICE = 27;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SchedulingServiceImpl <em>Scheduling Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.SchedulingServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSchedulingService()
+	 * @generated
+	 */
+	int SCHEDULING_SERVICE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__NAME = PLATFORM_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__ID = PLATFORM_SERVICE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__HOST = PLATFORM_SERVICE__HOST;
+
+	/**
+	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE__WORKFLOWS = PLATFORM_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scheduling Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Configure Deployment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
+
+	/**
+	 * The number of operations of the '<em>Scheduling Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SecurityServiceImpl <em>Security Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.SecurityServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSecurityService()
+	 * @generated
+	 */
+	int SECURITY_SERVICE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE__NAME = PLATFORM_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE__ID = PLATFORM_SERVICE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE__HOST = PLATFORM_SERVICE__HOST;
+
+	/**
+	 * The number of structural features of the '<em>Security Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Configure Deployment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
+
+	/**
+	 * The number of operations of the '<em>Security Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SparkServiceImpl <em>Spark Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.SparkServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSparkService()
+	 * @generated
+	 */
+	int SPARK_SERVICE = 29;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormServiceImpl <em>Storm Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.StormServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormService()
+	 * @generated
+	 */
+	int STORM_SERVICE = 30;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PersistenceServiceImpl <em>Persistence Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.PersistenceServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPersistenceService()
+	 * @generated
+	 */
+	int PERSISTENCE_SERVICE = 23;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MemSQLServiceImpl <em>Mem SQL Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.MemSQLServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMemSQLService()
+	 * @generated
+	 */
+	int MEM_SQL_SERVICE = 35;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl <em>Cassandra Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.CassandraServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCassandraService()
+	 * @generated
+	 */
+	int CASSANDRA_SERVICE = 36;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DataCenterImpl <em>Data Center</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.DataCenterImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDataCenter()
+	 * @generated
+	 */
+	int DATA_CENTER = 37;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.RackImpl <em>Rack</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.RackImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getRack()
+	 * @generated
+	 */
+	int RACK = 38;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.Neo4JServiceImpl <em>Neo4 JService</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.Neo4JServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNeo4JService()
+	 * @generated
+	 */
+	int NEO4_JSERVICE = 34;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MonitoringServiceImpl <em>Monitoring Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.MonitoringServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMonitoringService()
+	 * @generated
+	 */
+	int MONITORING_SERVICE = 24;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PrometheusServiceImpl <em>Prometheus Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.PrometheusServiceImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPrometheusService()
+	 * @generated
+	 */
+	int PROMETHEUS_SERVICE = 39;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentConfigurationImpl <em>Deployment Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.DeploymentConfigurationImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentConfiguration()
+	 * @generated
+	 */
+	int DEPLOYMENT_CONFIGURATION = 69;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PlatformServiceDeploymentConfImpl <em>Platform Service Deployment Conf</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.PlatformServiceDeploymentConfImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPlatformServiceDeploymentConf()
+	 * @generated
+	 */
+	int PLATFORM_SERVICE_DEPLOYMENT_CONF = 70;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.FileDescriptorImpl <em>File Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.FileDescriptorImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getFileDescriptor()
+	 * @generated
+	 */
+	int FILE_DESCRIPTOR = 83;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl <em>Artifact Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getArtifactDescriptor()
+	 * @generated
+	 */
+	int ARTIFACT_DESCRIPTOR = 85;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ExporterDataImpl <em>Exporter Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.ExporterDataImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getExporterData()
+	 * @generated
+	 */
+	int EXPORTER_DATA = 40;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeployableComponentImpl <em>Deployable Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.DeployableComponentImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeployableComponent()
+	 * @generated
+	 */
+	int DEPLOYABLE_COMPONENT = 68;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormUIImpl <em>Storm UI</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.StormUIImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormUI()
+	 * @generated
+	 */
+	int STORM_UI = 31;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.StormNimbusImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormNimbus()
+	 * @generated
+	 */
+	int STORM_NIMBUS = 32;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.StormSupervisorImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormSupervisor()
+	 * @generated
+	 */
+	int STORM_SUPERVISOR = 33;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__NAME = PLATFORM_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__ID = PLATFORM_SERVICE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__HOST = PLATFORM_SERVICE__HOST;
+
+	/**
+	 * The feature id for the '<em><b>Logging</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__LOGGING = PLATFORM_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Passwd</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__PASSWD = PLATFORM_SERVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE__PORT = PLATFORM_SERVICE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Persistence Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Configure Deployment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
+
+	/**
+	 * The number of operations of the '<em>Persistence Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__NAME = PLATFORM_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__ID = PLATFORM_SERVICE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__HOST = PLATFORM_SERVICE__HOST;
+
+	/**
+	 * The feature id for the '<em><b>Monitorized Meters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE__MONITORIZED_METERS = PLATFORM_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Monitoring Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Configure Deployment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
+
+	/**
+	 * The number of operations of the '<em>Monitoring Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITORING_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE__NAME = SERIALIZATION_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE__ID = SERIALIZATION_SERVICE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE__OWNER = SERIALIZATION_SERVICE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE__DEPLOYMENT_CONFIG = SERIALIZATION_SERVICE__DEPLOYMENT_CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE__HOST = SERIALIZATION_SERVICE__HOST;
+
+	/**
+	 * The number of structural features of the '<em>AVRO Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE_FEATURE_COUNT = SERIALIZATION_SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Configure Deployment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE___CONFIGURE_DEPLOYMENT = SERIALIZATION_SERVICE___CONFIGURE_DEPLOYMENT;
+
+	/**
+	 * The number of operations of the '<em>AVRO Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVRO_SERVICE_OPERATION_COUNT = SERIALIZATION_SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2823,24 +3206,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZOOKEEPER_SERVICE__HOST = DISTRIBUTION_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZOOKEEPER_SERVICE__ORCHESTRATOR = DISTRIBUTION_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZOOKEEPER_SERVICE__MANAGED = DISTRIBUTION_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Server Id</b></em>' attribute.
@@ -2942,116 +3307,6 @@ public interface PasysPackage extends EPackage {
 	int ZOOKEEPER_SERVICE_OPERATION_COUNT = DISTRIBUTION_SERVICE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CommunicationServiceImpl <em>Communication Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.CommunicationServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCommunicationService()
-	 * @generated
-	 */
-	int COMMUNICATION_SERVICE = 22;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__NAME = PLATFORM_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__ID = PLATFORM_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__HOST = PLATFORM_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
-
-	/**
-	 * The number of structural features of the '<em>Communication Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Communication Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KafkaServiceImpl <em>Kafka Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.KafkaServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaService()
-	 * @generated
-	 */
-	int KAFKA_SERVICE = 23;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3095,24 +3350,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int KAFKA_SERVICE__HOST = COMMUNICATION_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KAFKA_SERVICE__ORCHESTRATOR = COMMUNICATION_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KAFKA_SERVICE__MANAGED = COMMUNICATION_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Comm Id</b></em>' attribute.
@@ -3295,115 +3532,6 @@ public interface PasysPackage extends EPackage {
 	int KAFKA_SERVICE_OPERATION_COUNT = COMMUNICATION_SERVICE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SchedulingServiceImpl <em>Scheduling Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.SchedulingServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSchedulingService()
-	 * @generated
-	 */
-	int SCHEDULING_SERVICE = 24;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__NAME = PLATFORM_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__ID = PLATFORM_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__HOST = PLATFORM_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
-
-	/**
-	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE__WORKFLOWS = PLATFORM_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Scheduling Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Scheduling Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3449,24 +3577,6 @@ public interface PasysPackage extends EPackage {
 	int NODE_SCHEDULER__HOST = SCHEDULING_SERVICE__HOST;
 
 	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_SCHEDULER__ORCHESTRATOR = SCHEDULING_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_SCHEDULER__MANAGED = SCHEDULING_SERVICE__MANAGED;
-
-	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3501,16 +3611,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_SCHEDULER_OPERATION_COUNT = SCHEDULING_SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SparkServiceImpl <em>Spark Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.SparkServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSparkService()
-	 * @generated
-	 */
-	int SPARK_SERVICE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3556,24 +3656,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPARK_SERVICE__HOST = SCHEDULING_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPARK_SERVICE__ORCHESTRATOR = SCHEDULING_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPARK_SERVICE__MANAGED = SCHEDULING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
@@ -3729,16 +3811,6 @@ public interface PasysPackage extends EPackage {
 	int SPARK_SERVICE_OPERATION_COUNT = SCHEDULING_SERVICE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormServiceImpl <em>Storm Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.StormServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormService()
-	 * @generated
-	 */
-	int STORM_SERVICE = 27;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3782,24 +3854,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int STORM_SERVICE__HOST = SCHEDULING_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORM_SERVICE__ORCHESTRATOR = SCHEDULING_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORM_SERVICE__MANAGED = SCHEDULING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Workflows</b></em>' reference list.
@@ -3883,166 +3937,6 @@ public interface PasysPackage extends EPackage {
 	int STORM_SERVICE_OPERATION_COUNT = SCHEDULING_SERVICE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PersistenceServiceImpl <em>Persistence Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.PersistenceServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPersistenceService()
-	 * @generated
-	 */
-	int PERSISTENCE_SERVICE = 31;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MemSQLServiceImpl <em>Mem SQL Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.MemSQLServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMemSQLService()
-	 * @generated
-	 */
-	int MEM_SQL_SERVICE = 32;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl <em>Cassandra Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.CassandraServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCassandraService()
-	 * @generated
-	 */
-	int CASSANDRA_SERVICE = 33;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DataCenterImpl <em>Data Center</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.DataCenterImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDataCenter()
-	 * @generated
-	 */
-	int DATA_CENTER = 34;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.RackImpl <em>Rack</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.RackImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getRack()
-	 * @generated
-	 */
-	int RACK = 35;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.Neo4JServiceImpl <em>Neo4 JService</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.Neo4JServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNeo4JService()
-	 * @generated
-	 */
-	int NEO4_JSERVICE = 36;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MonitoringServiceImpl <em>Monitoring Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.MonitoringServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMonitoringService()
-	 * @generated
-	 */
-	int MONITORING_SERVICE = 37;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PrometheusServiceImpl <em>Prometheus Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.PrometheusServiceImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPrometheusService()
-	 * @generated
-	 */
-	int PROMETHEUS_SERVICE = 38;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentConfigurationImpl <em>Deployment Configuration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.DeploymentConfigurationImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentConfiguration()
-	 * @generated
-	 */
-	int DEPLOYMENT_CONFIGURATION = 68;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PlatformServiceDeploymentConfImpl <em>Platform Service Deployment Conf</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.PlatformServiceDeploymentConfImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPlatformServiceDeploymentConf()
-	 * @generated
-	 */
-	int PLATFORM_SERVICE_DEPLOYMENT_CONF = 69;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl <em>Orchestration Service Deployment Conf</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationServiceDeploymentConf()
-	 * @generated
-	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF = 70;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeClusterDeploymentConfImpl <em>Node Cluster Deployment Conf</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.NodeClusterDeploymentConfImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF = 71;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.FileDescriptorImpl <em>File Descriptor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.FileDescriptorImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getFileDescriptor()
-	 * @generated
-	 */
-	int FILE_DESCRIPTOR = 82;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl <em>Artifact Descriptor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getArtifactDescriptor()
-	 * @generated
-	 */
-	int ARTIFACT_DESCRIPTOR = 84;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ExporterDataImpl <em>Exporter Data</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.ExporterDataImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getExporterData()
-	 * @generated
-	 */
-	int EXPORTER_DATA = 39;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeployableComponentImpl <em>Deployable Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.DeployableComponentImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeployableComponent()
-	 * @generated
-	 */
-	int DEPLOYABLE_COMPONENT = 67;
-
-	/**
 	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4077,16 +3971,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEPLOYABLE_COMPONENT_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormUIImpl <em>Storm UI</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.StormUIImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormUI()
-	 * @generated
-	 */
-	int STORM_UI = 28;
 
 	/**
 	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
@@ -4170,16 +4054,6 @@ public interface PasysPackage extends EPackage {
 	int STORM_UI_OPERATION_COUNT = DEPLOYABLE_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.StormNimbusImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormNimbus()
-	 * @generated
-	 */
-	int STORM_NIMBUS = 29;
-
-	/**
 	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4250,16 +4124,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int STORM_NIMBUS_OPERATION_COUNT = DEPLOYABLE_COMPONENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.StormSupervisorImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormSupervisor()
-	 * @generated
-	 */
-	int STORM_SUPERVISOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
@@ -4349,7 +4213,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__NAME = PLATFORM_SERVICE__NAME;
+	int NEO4_JSERVICE__NAME = PERSISTENCE_SERVICE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4358,7 +4222,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__ID = PLATFORM_SERVICE__ID;
+	int NEO4_JSERVICE__ID = PERSISTENCE_SERVICE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -4367,7 +4231,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
+	int NEO4_JSERVICE__OWNER = PERSISTENCE_SERVICE__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
@@ -4376,7 +4240,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
+	int NEO4_JSERVICE__DEPLOYMENT_CONFIG = PERSISTENCE_SERVICE__DEPLOYMENT_CONFIG;
 
 	/**
 	 * The feature id for the '<em><b>Host</b></em>' reference.
@@ -4385,25 +4249,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__HOST = PLATFORM_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSISTENCE_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSISTENCE_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
+	int NEO4_JSERVICE__HOST = PERSISTENCE_SERVICE__HOST;
 
 	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
@@ -4412,7 +4258,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__LOGGING = PLATFORM_SERVICE_FEATURE_COUNT + 0;
+	int NEO4_JSERVICE__LOGGING = PERSISTENCE_SERVICE__LOGGING;
 
 	/**
 	 * The feature id for the '<em><b>Passwd</b></em>' attribute.
@@ -4421,7 +4267,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__PASSWD = PLATFORM_SERVICE_FEATURE_COUNT + 1;
+	int NEO4_JSERVICE__PASSWD = PERSISTENCE_SERVICE__PASSWD;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -4430,16 +4276,16 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE__PORT = PLATFORM_SERVICE_FEATURE_COUNT + 2;
+	int NEO4_JSERVICE__PORT = PERSISTENCE_SERVICE__PORT;
 
 	/**
-	 * The number of structural features of the '<em>Persistence Service</em>' class.
+	 * The number of structural features of the '<em>Neo4 JService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 3;
+	int NEO4_JSERVICE_FEATURE_COUNT = PERSISTENCE_SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Configure Deployment</em>' operation.
@@ -4448,16 +4294,16 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
+	int NEO4_JSERVICE___CONFIGURE_DEPLOYMENT = PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT;
 
 	/**
-	 * The number of operations of the '<em>Persistence Service</em>' class.
+	 * The number of operations of the '<em>Neo4 JService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
+	int NEO4_JSERVICE_OPERATION_COUNT = PERSISTENCE_SERVICE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4503,24 +4349,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEM_SQL_SERVICE__HOST = PERSISTENCE_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEM_SQL_SERVICE__ORCHESTRATOR = PERSISTENCE_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEM_SQL_SERVICE__MANAGED = PERSISTENCE_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
@@ -4620,24 +4448,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int CASSANDRA_SERVICE__HOST = PERSISTENCE_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CASSANDRA_SERVICE__ORCHESTRATOR = PERSISTENCE_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CASSANDRA_SERVICE__MANAGED = PERSISTENCE_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Logging</b></em>' attribute.
@@ -4889,222 +4699,6 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO4_JSERVICE__NAME = PERSISTENCE_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__ID = PERSISTENCE_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__OWNER = PERSISTENCE_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__DEPLOYMENT_CONFIG = PERSISTENCE_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__HOST = PERSISTENCE_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__ORCHESTRATOR = PERSISTENCE_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__MANAGED = PERSISTENCE_SERVICE__MANAGED;
-
-	/**
-	 * The feature id for the '<em><b>Logging</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__LOGGING = PERSISTENCE_SERVICE__LOGGING;
-
-	/**
-	 * The feature id for the '<em><b>Passwd</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__PASSWD = PERSISTENCE_SERVICE__PASSWD;
-
-	/**
-	 * The feature id for the '<em><b>Port</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE__PORT = PERSISTENCE_SERVICE__PORT;
-
-	/**
-	 * The number of structural features of the '<em>Neo4 JService</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE_FEATURE_COUNT = PERSISTENCE_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE___CONFIGURE_DEPLOYMENT = PERSISTENCE_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Neo4 JService</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO4_JSERVICE_OPERATION_COUNT = PERSISTENCE_SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__NAME = PLATFORM_SERVICE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__ID = PLATFORM_SERVICE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__OWNER = PLATFORM_SERVICE__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__DEPLOYMENT_CONFIG = PLATFORM_SERVICE__DEPLOYMENT_CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Host</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__HOST = PLATFORM_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__ORCHESTRATOR = PLATFORM_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__MANAGED = PLATFORM_SERVICE__MANAGED;
-
-	/**
-	 * The feature id for the '<em><b>Monitorized Meters</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE__MONITORIZED_METERS = PLATFORM_SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Monitoring Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE_FEATURE_COUNT = PLATFORM_SERVICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Configure Deployment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE___CONFIGURE_DEPLOYMENT = PLATFORM_SERVICE___CONFIGURE_DEPLOYMENT;
-
-	/**
-	 * The number of operations of the '<em>Monitoring Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONITORING_SERVICE_OPERATION_COUNT = PLATFORM_SERVICE_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int PROMETHEUS_SERVICE__NAME = MONITORING_SERVICE__NAME;
 
 	/**
@@ -5142,24 +4736,6 @@ public interface PasysPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROMETHEUS_SERVICE__HOST = MONITORING_SERVICE__HOST;
-
-	/**
-	 * The feature id for the '<em><b>Orchestrator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROMETHEUS_SERVICE__ORCHESTRATOR = MONITORING_SERVICE__ORCHESTRATOR;
-
-	/**
-	 * The feature id for the '<em><b>Managed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROMETHEUS_SERVICE__MANAGED = MONITORING_SERVICE__MANAGED;
 
 	/**
 	 * The feature id for the '<em><b>Monitorized Meters</b></em>' reference list.
@@ -8033,13 +7609,23 @@ public interface PasysPackage extends EPackage {
 	int PLATFORM_SERVICE_DEPLOYMENT_CONF_OPERATION_COUNT = DEPLOYMENT_CONFIGURATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.OrchestratorDeploymentConfImpl <em>Orchestrator Deployment Conf</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.OrchestratorDeploymentConfImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestratorDeploymentConf()
+	 * @generated
+	 */
+	int ORCHESTRATOR_DEPLOYMENT_CONF = 71;
+
+	/**
 	 * The feature id for the '<em><b>Image</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 0;
+	int ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Image Tag</b></em>' attribute.
@@ -8048,43 +7634,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Replicas</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Command</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Args</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Restart Policy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
+	int ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE_TAG = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Image Pull Policy</b></em>' attribute.
@@ -8093,7 +7643,52 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
+	int ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Replicas</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATOR_DEPLOYMENT_CONF__REPLICAS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATOR_DEPLOYMENT_CONF__COMMAND = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATOR_DEPLOYMENT_CONF__ARGS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Restart Policy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATOR_DEPLOYMENT_CONF__RESTART_POLICY = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Env</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORCHESTRATOR_DEPLOYMENT_CONF__ENV = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Volumes</b></em>' containment reference list.
@@ -8102,7 +7697,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
+	int ORCHESTRATOR_DEPLOYMENT_CONF__VOLUMES = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -8111,7 +7706,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
+	int ORCHESTRATOR_DEPLOYMENT_CONF__PORTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference.
@@ -8120,79 +7715,35 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 9;
+	int ORCHESTRATOR_DEPLOYMENT_CONF__CONSTRAINTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 10;
 
 	/**
-	 * The number of structural features of the '<em>Orchestration Service Deployment Conf</em>' class.
+	 * The number of structural features of the '<em>Orchestrator Deployment Conf</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 10;
+	int ORCHESTRATOR_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 11;
 
 	/**
-	 * The number of operations of the '<em>Orchestration Service Deployment Conf</em>' class.
+	 * The number of operations of the '<em>Orchestrator Deployment Conf</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORCHESTRATION_SERVICE_DEPLOYMENT_CONF_OPERATION_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_OPERATION_COUNT + 0;
+	int ORCHESTRATOR_DEPLOYMENT_CONF_OPERATION_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Locator</b></em>' attribute.
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeDeploymentConfImpl <em>Node Deployment Conf</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.impl.NodeDeploymentConfImpl
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeDeploymentConf()
 	 * @generated
-	 * @ordered
 	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_LOCATOR = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Artifact Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_NAME = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Config Folder Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__CONFIG_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Script Folder Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__SCRIPT_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Data Folder Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__DATA_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Log Folder Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__LOG_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
+	int NODE_DEPLOYMENT_CONF = 72;
 
 	/**
 	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
@@ -8201,7 +7752,70 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__ARGUMENTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
+	int NODE_DEPLOYMENT_CONF__ARGUMENTS = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Locator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__ARTIFACT_LOCATOR = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__ARTIFACT_NAME = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Config Folder Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__CONFIG_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Script Folder Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__SCRIPT_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Data Folder Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__DATA_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Log Folder Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__LOG_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Code Folder Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_DEPLOYMENT_CONF__CODE_FOLDER_PATH = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Is Running</b></em>' attribute.
@@ -8210,25 +7824,25 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF__IS_RUNNING = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 7;
+	int NODE_DEPLOYMENT_CONF__IS_RUNNING = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of structural features of the '<em>Node Cluster Deployment Conf</em>' class.
+	 * The number of structural features of the '<em>Node Deployment Conf</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 8;
+	int NODE_DEPLOYMENT_CONF_FEATURE_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of operations of the '<em>Node Cluster Deployment Conf</em>' class.
+	 * The number of operations of the '<em>Node Deployment Conf</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_CLUSTER_DEPLOYMENT_CONF_OPERATION_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_OPERATION_COUNT + 0;
+	int NODE_DEPLOYMENT_CONF_OPERATION_COUNT = PLATFORM_SERVICE_DEPLOYMENT_CONF_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StringToStringMapImpl <em>String To String Map</em>}' class.
@@ -8238,7 +7852,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStringToStringMap()
 	 * @generated
 	 */
-	int STRING_TO_STRING_MAP = 81;
+	int STRING_TO_STRING_MAP = 82;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PortImpl <em>Port</em>}' class.
@@ -8248,7 +7862,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPort()
 	 * @generated
 	 */
-	int PORT = 73;
+	int PORT = 74;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SwarmPortImpl <em>Swarm Port</em>}' class.
@@ -8258,7 +7872,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmPort()
 	 * @generated
 	 */
-	int SWARM_PORT = 74;
+	int SWARM_PORT = 75;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KubernetesPortImpl <em>Kubernetes Port</em>}' class.
@@ -8268,7 +7882,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesPort()
 	 * @generated
 	 */
-	int KUBERNETES_PORT = 75;
+	int KUBERNETES_PORT = 76;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentConstraintsImpl <em>Deployment Constraints</em>}' class.
@@ -8278,7 +7892,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentConstraints()
 	 * @generated
 	 */
-	int DEPLOYMENT_CONSTRAINTS = 76;
+	int DEPLOYMENT_CONSTRAINTS = 77;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.VolumeImpl <em>Volume</em>}' class.
@@ -8288,7 +7902,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVolume()
 	 * @generated
 	 */
-	int VOLUME = 72;
+	int VOLUME = 73;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -8784,17 +8398,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getExternalElementType()
 	 * @generated
 	 */
-	int EXTERNAL_ELEMENT_TYPE = 85;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.SystemComponentType <em>System Component Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.SystemComponentType
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemComponentType()
-	 * @generated
-	 */
-	int SYSTEM_COMPONENT_TYPE = 90;
+	int EXTERNAL_ELEMENT_TYPE = 86;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.PortMode <em>Port Mode</em>}' enum.
@@ -8804,7 +8408,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPortMode()
 	 * @generated
 	 */
-	int PORT_MODE = 88;
+	int PORT_MODE = 89;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.Protocol <em>Protocol</em>}' enum.
@@ -8814,7 +8418,17 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 89;
+	int PROTOCOL = 90;
+
+	/**
+	 * The meta object id for the '{@link PASYS_Metamodel.pasys.DeployableComponentType <em>Deployable Component Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see PASYS_Metamodel.pasys.DeployableComponentType
+	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeployableComponentType()
+	 * @generated
+	 */
+	int DEPLOYABLE_COMPONENT_TYPE = 91;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.VolumeType <em>Volume Type</em>}' enum.
@@ -8824,7 +8438,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVolumeType()
 	 * @generated
 	 */
-	int VOLUME_TYPE = 86;
+	int VOLUME_TYPE = 87;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.VolumeAccessMode <em>Volume Access Mode</em>}' enum.
@@ -8834,7 +8448,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVolumeAccessMode()
 	 * @generated
 	 */
-	int VOLUME_ACCESS_MODE = 87;
+	int VOLUME_ACCESS_MODE = 88;
 
 	/**
 	 * The meta object id for the '<em>Properties</em>' data type.
@@ -8844,7 +8458,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProperties()
 	 * @generated
 	 */
-	int PROPERTIES = 91;
+	int PROPERTIES = 92;
 
 
 	/**
@@ -9212,17 +8826,6 @@ public interface PasysPackage extends EPackage {
 	EReference getProcessingNode_ConfigFiles();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.ProcessingNode#getPropertyConfigData <em>Property Config Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Property Config Data</em>'.
-	 * @see PASYS_Metamodel.pasys.ProcessingNode#getPropertyConfigData()
-	 * @see #getProcessingNode()
-	 * @generated
-	 */
-	EAttribute getProcessingNode_PropertyConfigData();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.ProcessingNode#getOwnedMeters <em>Owned Meters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9287,6 +8890,17 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProcessingNode_SpeedFactor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.ProcessingNode#getConfigData <em>Config Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Data</em>'.
+	 * @see PASYS_Metamodel.pasys.ProcessingNode#getConfigData()
+	 * @see #getProcessingNode()
+	 * @generated
+	 */
+	EAttribute getProcessingNode_ConfigData();
 
 	/**
 	 * Returns the meta object for the reference list '{@link PASYS_Metamodel.pasys.ProcessingNode#getCodeFiles <em>Code Files</em>}'.
@@ -9477,25 +9091,76 @@ public interface PasysPackage extends EPackage {
 	EAttribute getAWSVirtualProcessingNode_InstanceType();
 
 	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.ResourceCluster <em>Resource Cluster</em>}'.
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.ProcessingResourceCluster <em>Processing Resource Cluster</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Cluster</em>'.
-	 * @see PASYS_Metamodel.pasys.ResourceCluster
+	 * @return the meta object for class '<em>Processing Resource Cluster</em>'.
+	 * @see PASYS_Metamodel.pasys.ProcessingResourceCluster
 	 * @generated
 	 */
-	EClass getResourceCluster();
+	EClass getProcessingResourceCluster();
 
 	/**
-	 * Returns the meta object for the reference list '{@link PASYS_Metamodel.pasys.ResourceCluster#getResources <em>Resources</em>}'.
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.ProcessingNodeCluster <em>Processing Node Cluster</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resources</em>'.
-	 * @see PASYS_Metamodel.pasys.ResourceCluster#getResources()
-	 * @see #getResourceCluster()
+	 * @return the meta object for class '<em>Processing Node Cluster</em>'.
+	 * @see PASYS_Metamodel.pasys.ProcessingNodeCluster
 	 * @generated
 	 */
-	EReference getResourceCluster_Resources();
+	EClass getProcessingNodeCluster();
+
+	/**
+	 * Returns the meta object for the reference list '{@link PASYS_Metamodel.pasys.ProcessingNodeCluster#getNodes <em>Nodes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Nodes</em>'.
+	 * @see PASYS_Metamodel.pasys.ProcessingNodeCluster#getNodes()
+	 * @see #getProcessingNodeCluster()
+	 * @generated
+	 */
+	EReference getProcessingNodeCluster_Nodes();
+
+	/**
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.OrchestrationCluster <em>Orchestration Cluster</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Orchestration Cluster</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestrationCluster
+	 * @generated
+	 */
+	EClass getOrchestrationCluster();
+
+	/**
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.KubernetesCluster <em>Kubernetes Cluster</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Kubernetes Cluster</em>'.
+	 * @see PASYS_Metamodel.pasys.KubernetesCluster
+	 * @generated
+	 */
+	EClass getKubernetesCluster();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.KubernetesCluster#getApiVersion <em>Api Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Api Version</em>'.
+	 * @see PASYS_Metamodel.pasys.KubernetesCluster#getApiVersion()
+	 * @see #getKubernetesCluster()
+	 * @generated
+	 */
+	EAttribute getKubernetesCluster_ApiVersion();
+
+	/**
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SwarmCluster <em>Swarm Cluster</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Swarm Cluster</em>'.
+	 * @see PASYS_Metamodel.pasys.SwarmCluster
+	 * @generated
+	 */
+	EClass getSwarmCluster();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.Network <em>Network</em>}'.
@@ -9538,80 +9203,6 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPlatformService_Host();
-
-	/**
-	 * Returns the meta object for the reference '{@link PASYS_Metamodel.pasys.PlatformService#getOrchestrator <em>Orchestrator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Orchestrator</em>'.
-	 * @see PASYS_Metamodel.pasys.PlatformService#getOrchestrator()
-	 * @see #getPlatformService()
-	 * @generated
-	 */
-	EReference getPlatformService_Orchestrator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.PlatformService#isManaged <em>Managed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Managed</em>'.
-	 * @see PASYS_Metamodel.pasys.PlatformService#isManaged()
-	 * @see #getPlatformService()
-	 * @generated
-	 */
-	EAttribute getPlatformService_Managed();
-
-	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.OrchestrationService <em>Orchestration Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Orchestration Service</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationService
-	 * @generated
-	 */
-	EClass getOrchestrationService();
-
-	/**
-	 * Returns the meta object for the reference list '{@link PASYS_Metamodel.pasys.OrchestrationService#getServices <em>Services</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Services</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationService#getServices()
-	 * @see #getOrchestrationService()
-	 * @generated
-	 */
-	EReference getOrchestrationService_Services();
-
-	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.KubernetesService <em>Kubernetes Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Kubernetes Service</em>'.
-	 * @see PASYS_Metamodel.pasys.KubernetesService
-	 * @generated
-	 */
-	EClass getKubernetesService();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.KubernetesService#getApiVersion <em>Api Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Api Version</em>'.
-	 * @see PASYS_Metamodel.pasys.KubernetesService#getApiVersion()
-	 * @see #getKubernetesService()
-	 * @generated
-	 */
-	EAttribute getKubernetesService_ApiVersion();
-
-	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SwarmService <em>Swarm Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Swarm Service</em>'.
-	 * @see PASYS_Metamodel.pasys.SwarmService
-	 * @generated
-	 */
-	EClass getSwarmService();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SerializationService <em>Serialization Service</em>}'.
@@ -9968,6 +9559,16 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSchedulingService_Workflows();
+
+	/**
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SecurityService <em>Security Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Service</em>'.
+	 * @see PASYS_Metamodel.pasys.SecurityService
+	 * @generated
+	 */
+	EClass getSecurityService();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.NodeScheduler <em>Node Scheduler</em>}'.
@@ -11587,222 +11188,244 @@ public interface PasysPackage extends EPackage {
 	EClass getPlatformServiceDeploymentConf();
 
 	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf <em>Orchestration Service Deployment Conf</em>}'.
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf <em>Orchestrator Deployment Conf</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Orchestration Service Deployment Conf</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf
+	 * @return the meta object for class '<em>Orchestrator Deployment Conf</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf
 	 * @generated
 	 */
-	EClass getOrchestrationServiceDeploymentConf();
+	EClass getOrchestratorDeploymentConf();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImage <em>Image</em>}'.
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getImage <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Image</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImage()
-	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getImage()
+	 * @see #getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	EAttribute getOrchestrationServiceDeploymentConf_Image();
+	EAttribute getOrchestratorDeploymentConf_Image();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImageTag <em>Image Tag</em>}'.
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getImageTag <em>Image Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Image Tag</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImageTag()
-	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getImageTag()
+	 * @see #getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	EAttribute getOrchestrationServiceDeploymentConf_ImageTag();
+	EAttribute getOrchestratorDeploymentConf_ImageTag();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getReplicas <em>Replicas</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Replicas</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getReplicas()
-	 * @see #getOrchestrationServiceDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getOrchestrationServiceDeploymentConf_Replicas();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getCommand <em>Command</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Command</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getCommand()
-	 * @see #getOrchestrationServiceDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getOrchestrationServiceDeploymentConf_Command();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs <em>Args</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Args</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getArgs()
-	 * @see #getOrchestrationServiceDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getOrchestrationServiceDeploymentConf_Args();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getRestartPolicy <em>Restart Policy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Restart Policy</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getRestartPolicy()
-	 * @see #getOrchestrationServiceDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getOrchestrationServiceDeploymentConf_RestartPolicy();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImagePullPolicy <em>Image Pull Policy</em>}'.
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getImagePullPolicy <em>Image Pull Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Image Pull Policy</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getImagePullPolicy()
-	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getImagePullPolicy()
+	 * @see #getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	EAttribute getOrchestrationServiceDeploymentConf_ImagePullPolicy();
+	EAttribute getOrchestratorDeploymentConf_ImagePullPolicy();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getVolumes <em>Volumes</em>}'.
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getReplicas <em>Replicas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Replicas</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getReplicas()
+	 * @see #getOrchestratorDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestratorDeploymentConf_Replicas();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getCommand <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Command</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getCommand()
+	 * @see #getOrchestratorDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestratorDeploymentConf_Command();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getArgs <em>Args</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Args</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getArgs()
+	 * @see #getOrchestratorDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestratorDeploymentConf_Args();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getRestartPolicy <em>Restart Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Restart Policy</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getRestartPolicy()
+	 * @see #getOrchestratorDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestratorDeploymentConf_RestartPolicy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getEnv <em>Env</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Env</em>'.
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getEnv()
+	 * @see #getOrchestratorDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getOrchestratorDeploymentConf_Env();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getVolumes <em>Volumes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Volumes</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getVolumes()
-	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getVolumes()
+	 * @see #getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	EReference getOrchestrationServiceDeploymentConf_Volumes();
+	EReference getOrchestratorDeploymentConf_Volumes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getPorts <em>Ports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getPorts <em>Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Ports</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getPorts()
-	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getPorts()
+	 * @see #getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	EReference getOrchestrationServiceDeploymentConf_Ports();
+	EReference getOrchestratorDeploymentConf_Ports();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getConstraints <em>Constraints</em>}'.
+	 * Returns the meta object for the containment reference '{@link PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getConstraints <em>Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Constraints</em>'.
-	 * @see PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf#getConstraints()
-	 * @see #getOrchestrationServiceDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.OrchestratorDeploymentConf#getConstraints()
+	 * @see #getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	EReference getOrchestrationServiceDeploymentConf_Constraints();
+	EReference getOrchestratorDeploymentConf_Constraints();
 
 	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf <em>Node Cluster Deployment Conf</em>}'.
+	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.NodeDeploymentConf <em>Node Deployment Conf</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Node Cluster Deployment Conf</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf
+	 * @return the meta object for class '<em>Node Deployment Conf</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf
 	 * @generated
 	 */
-	EClass getNodeClusterDeploymentConf();
+	EClass getNodeDeploymentConf();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getArtifactLocator <em>Artifact Locator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Artifact Locator</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getArtifactLocator()
-	 * @see #getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getNodeClusterDeploymentConf_ArtifactLocator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getArtifactName <em>Artifact Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Artifact Name</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getArtifactName()
-	 * @see #getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getNodeClusterDeploymentConf_ArtifactName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getConfigFolderPath <em>Config Folder Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Config Folder Path</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getConfigFolderPath()
-	 * @see #getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getNodeClusterDeploymentConf_ConfigFolderPath();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getScriptFolderPath <em>Script Folder Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Script Folder Path</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getScriptFolderPath()
-	 * @see #getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getNodeClusterDeploymentConf_ScriptFolderPath();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getDataFolderPath <em>Data Folder Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Data Folder Path</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getDataFolderPath()
-	 * @see #getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getNodeClusterDeploymentConf_DataFolderPath();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getLogFolderPath <em>Log Folder Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Log Folder Path</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getLogFolderPath()
-	 * @see #getNodeClusterDeploymentConf()
-	 * @generated
-	 */
-	EAttribute getNodeClusterDeploymentConf_LogFolderPath();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getArguments <em>Arguments</em>}'.
+	 * Returns the meta object for the attribute list '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getArguments <em>Arguments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Arguments</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#getArguments()
-	 * @see #getNodeClusterDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getArguments()
+	 * @see #getNodeDeploymentConf()
 	 * @generated
 	 */
-	EAttribute getNodeClusterDeploymentConf_Arguments();
+	EAttribute getNodeDeploymentConf_Arguments();
 
 	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeClusterDeploymentConf#isIsRunning <em>Is Running</em>}'.
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getArtifactLocator <em>Artifact Locator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Locator</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getArtifactLocator()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_ArtifactLocator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getArtifactName <em>Artifact Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Name</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getArtifactName()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_ArtifactName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getConfigFolderPath <em>Config Folder Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Folder Path</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getConfigFolderPath()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_ConfigFolderPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getScriptFolderPath <em>Script Folder Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Script Folder Path</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getScriptFolderPath()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_ScriptFolderPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getDataFolderPath <em>Data Folder Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data Folder Path</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getDataFolderPath()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_DataFolderPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getLogFolderPath <em>Log Folder Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Log Folder Path</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getLogFolderPath()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_LogFolderPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#getCodeFolderPath <em>Code Folder Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code Folder Path</em>'.
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#getCodeFolderPath()
+	 * @see #getNodeDeploymentConf()
+	 * @generated
+	 */
+	EAttribute getNodeDeploymentConf_CodeFolderPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.NodeDeploymentConf#isIsRunning <em>Is Running</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Is Running</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeClusterDeploymentConf#isIsRunning()
-	 * @see #getNodeClusterDeploymentConf()
+	 * @see PASYS_Metamodel.pasys.NodeDeploymentConf#isIsRunning()
+	 * @see #getNodeDeploymentConf()
 	 * @generated
 	 */
-	EAttribute getNodeClusterDeploymentConf_IsRunning();
+	EAttribute getNodeDeploymentConf_IsRunning();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.FileDescriptor <em>File Descriptor</em>}'.
@@ -12227,26 +11850,6 @@ public interface PasysPackage extends EPackage {
 	
 
 	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.NodeCluster <em>Node Cluster</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Node Cluster</em>'.
-	 * @see PASYS_Metamodel.pasys.NodeCluster
-	 * @generated
-	 */
-	EClass getNodeCluster();
-
-	/**
-	 * Returns the meta object for the '{@link PASYS_Metamodel.pasys.NodeCluster#getNodes() <em>Get Nodes</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Nodes</em>' operation.
-	 * @see PASYS_Metamodel.pasys.NodeCluster#getNodes()
-	 * @generated
-	 */
-	EOperation getNodeCluster__GetNodes();
-
-	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.PrometheusMeter <em>Prometheus Meter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12299,16 +11902,6 @@ public interface PasysPackage extends EPackage {
 	EEnum getExternalElementType();
 
 	/**
-	 * Returns the meta object for enum '{@link PASYS_Metamodel.pasys.SystemComponentType <em>System Component Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>System Component Type</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemComponentType
-	 * @generated
-	 */
-	EEnum getSystemComponentType();
-
-	/**
 	 * Returns the meta object for enum '{@link PASYS_Metamodel.pasys.PortMode <em>Port Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12327,6 +11920,16 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getProtocol();
+
+	/**
+	 * Returns the meta object for enum '{@link PASYS_Metamodel.pasys.DeployableComponentType <em>Deployable Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Deployable Component Type</em>'.
+	 * @see PASYS_Metamodel.pasys.DeployableComponentType
+	 * @generated
+	 */
+	EEnum getDeployableComponentType();
 
 	/**
 	 * Returns the meta object for enum '{@link PASYS_Metamodel.pasys.VolumeType <em>Volume Type</em>}'.
@@ -12671,14 +12274,6 @@ public interface PasysPackage extends EPackage {
 		EReference PROCESSING_NODE__CONFIG_FILES = eINSTANCE.getProcessingNode_ConfigFiles();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Config Data</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROCESSING_NODE__PROPERTY_CONFIG_DATA = eINSTANCE.getProcessingNode_PropertyConfigData();
-
-		/**
 		 * The meta object literal for the '<em><b>Owned Meters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12725,6 +12320,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROCESSING_NODE__SPEED_FACTOR = eINSTANCE.getProcessingNode_SpeedFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Data</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSING_NODE__CONFIG_DATA = eINSTANCE.getProcessingNode_ConfigData();
 
 		/**
 		 * The meta object literal for the '<em><b>Code Files</b></em>' reference list feature.
@@ -12877,22 +12480,70 @@ public interface PasysPackage extends EPackage {
 		EAttribute AWS_VIRTUAL_PROCESSING_NODE__INSTANCE_TYPE = eINSTANCE.getAWSVirtualProcessingNode_InstanceType();
 
 		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.ResourceClusterImpl <em>Resource Cluster</em>}' class.
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.ProcessingResourceClusterImpl <em>Processing Resource Cluster</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.ResourceClusterImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getResourceCluster()
+		 * @see PASYS_Metamodel.pasys.impl.ProcessingResourceClusterImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingResourceCluster()
 		 * @generated
 		 */
-		EClass RESOURCE_CLUSTER = eINSTANCE.getResourceCluster();
+		EClass PROCESSING_RESOURCE_CLUSTER = eINSTANCE.getProcessingResourceCluster();
 
 		/**
-		 * The meta object literal for the '<em><b>Resources</b></em>' reference list feature.
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.ProcessingNodeClusterImpl <em>Processing Node Cluster</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see PASYS_Metamodel.pasys.impl.ProcessingNodeClusterImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeCluster()
+		 * @generated
+		 */
+		EClass PROCESSING_NODE_CLUSTER = eINSTANCE.getProcessingNodeCluster();
+
+		/**
+		 * The meta object literal for the '<em><b>Nodes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESOURCE_CLUSTER__RESOURCES = eINSTANCE.getResourceCluster_Resources();
+		EReference PROCESSING_NODE_CLUSTER__NODES = eINSTANCE.getProcessingNodeCluster_Nodes();
+
+		/**
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationClusterImpl <em>Orchestration Cluster</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see PASYS_Metamodel.pasys.impl.OrchestrationClusterImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationCluster()
+		 * @generated
+		 */
+		EClass ORCHESTRATION_CLUSTER = eINSTANCE.getOrchestrationCluster();
+
+		/**
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.KubernetesClusterImpl <em>Kubernetes Cluster</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see PASYS_Metamodel.pasys.impl.KubernetesClusterImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesCluster()
+		 * @generated
+		 */
+		EClass KUBERNETES_CLUSTER = eINSTANCE.getKubernetesCluster();
+
+		/**
+		 * The meta object literal for the '<em><b>Api Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KUBERNETES_CLUSTER__API_VERSION = eINSTANCE.getKubernetesCluster_ApiVersion();
+
+		/**
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SwarmClusterImpl <em>Swarm Cluster</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see PASYS_Metamodel.pasys.impl.SwarmClusterImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmCluster()
+		 * @generated
+		 */
+		EClass SWARM_CLUSTER = eINSTANCE.getSwarmCluster();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.NetworkImpl <em>Network</em>}' class.
@@ -12929,68 +12580,6 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLATFORM_SERVICE__HOST = eINSTANCE.getPlatformService_Host();
-
-		/**
-		 * The meta object literal for the '<em><b>Orchestrator</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLATFORM_SERVICE__ORCHESTRATOR = eINSTANCE.getPlatformService_Orchestrator();
-
-		/**
-		 * The meta object literal for the '<em><b>Managed</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLATFORM_SERVICE__MANAGED = eINSTANCE.getPlatformService_Managed();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl <em>Orchestration Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.OrchestrationServiceImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationService()
-		 * @generated
-		 */
-		EClass ORCHESTRATION_SERVICE = eINSTANCE.getOrchestrationService();
-
-		/**
-		 * The meta object literal for the '<em><b>Services</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORCHESTRATION_SERVICE__SERVICES = eINSTANCE.getOrchestrationService_Services();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.KubernetesServiceImpl <em>Kubernetes Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.KubernetesServiceImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesService()
-		 * @generated
-		 */
-		EClass KUBERNETES_SERVICE = eINSTANCE.getKubernetesService();
-
-		/**
-		 * The meta object literal for the '<em><b>Api Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute KUBERNETES_SERVICE__API_VERSION = eINSTANCE.getKubernetesService_ApiVersion();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SwarmServiceImpl <em>Swarm Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.SwarmServiceImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmService()
-		 * @generated
-		 */
-		EClass SWARM_SERVICE = eINSTANCE.getSwarmService();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SerializationServiceImpl <em>Serialization Service</em>}' class.
@@ -13269,6 +12858,16 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEDULING_SERVICE__WORKFLOWS = eINSTANCE.getSchedulingService_Workflows();
+
+		/**
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SecurityServiceImpl <em>Security Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see PASYS_Metamodel.pasys.impl.SecurityServiceImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSecurityService()
+		 * @generated
+		 */
+		EClass SECURITY_SERVICE = eINSTANCE.getSecurityService();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.NodeSchedulerImpl <em>Node Scheduler</em>}' class.
@@ -14565,14 +14164,14 @@ public interface PasysPackage extends EPackage {
 		EClass PLATFORM_SERVICE_DEPLOYMENT_CONF = eINSTANCE.getPlatformServiceDeploymentConf();
 
 		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl <em>Orchestration Service Deployment Conf</em>}' class.
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.OrchestratorDeploymentConfImpl <em>Orchestrator Deployment Conf</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.OrchestrationServiceDeploymentConfImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationServiceDeploymentConf()
+		 * @see PASYS_Metamodel.pasys.impl.OrchestratorDeploymentConfImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestratorDeploymentConf()
 		 * @generated
 		 */
-		EClass ORCHESTRATION_SERVICE_DEPLOYMENT_CONF = eINSTANCE.getOrchestrationServiceDeploymentConf();
+		EClass ORCHESTRATOR_DEPLOYMENT_CONF = eINSTANCE.getOrchestratorDeploymentConf();
 
 		/**
 		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature.
@@ -14580,7 +14179,7 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE = eINSTANCE.getOrchestrationServiceDeploymentConf_Image();
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE = eINSTANCE.getOrchestratorDeploymentConf_Image();
 
 		/**
 		 * The meta object literal for the '<em><b>Image Tag</b></em>' attribute feature.
@@ -14588,39 +14187,7 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG = eINSTANCE.getOrchestrationServiceDeploymentConf_ImageTag();
-
-		/**
-		 * The meta object literal for the '<em><b>Replicas</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS = eINSTANCE.getOrchestrationServiceDeploymentConf_Replicas();
-
-		/**
-		 * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND = eINSTANCE.getOrchestrationServiceDeploymentConf_Command();
-
-		/**
-		 * The meta object literal for the '<em><b>Args</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS = eINSTANCE.getOrchestrationServiceDeploymentConf_Args();
-
-		/**
-		 * The meta object literal for the '<em><b>Restart Policy</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY = eINSTANCE.getOrchestrationServiceDeploymentConf_RestartPolicy();
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE_TAG = eINSTANCE.getOrchestratorDeploymentConf_ImageTag();
 
 		/**
 		 * The meta object literal for the '<em><b>Image Pull Policy</b></em>' attribute feature.
@@ -14628,7 +14195,47 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = eINSTANCE.getOrchestrationServiceDeploymentConf_ImagePullPolicy();
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE_PULL_POLICY = eINSTANCE.getOrchestratorDeploymentConf_ImagePullPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Replicas</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__REPLICAS = eINSTANCE.getOrchestratorDeploymentConf_Replicas();
+
+		/**
+		 * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__COMMAND = eINSTANCE.getOrchestratorDeploymentConf_Command();
+
+		/**
+		 * The meta object literal for the '<em><b>Args</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__ARGS = eINSTANCE.getOrchestratorDeploymentConf_Args();
+
+		/**
+		 * The meta object literal for the '<em><b>Restart Policy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__RESTART_POLICY = eINSTANCE.getOrchestratorDeploymentConf_RestartPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Env</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORCHESTRATOR_DEPLOYMENT_CONF__ENV = eINSTANCE.getOrchestratorDeploymentConf_Env();
 
 		/**
 		 * The meta object literal for the '<em><b>Volumes</b></em>' containment reference list feature.
@@ -14636,7 +14243,7 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES = eINSTANCE.getOrchestrationServiceDeploymentConf_Volumes();
+		EReference ORCHESTRATOR_DEPLOYMENT_CONF__VOLUMES = eINSTANCE.getOrchestratorDeploymentConf_Volumes();
 
 		/**
 		 * The meta object literal for the '<em><b>Ports</b></em>' containment reference list feature.
@@ -14644,7 +14251,7 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS = eINSTANCE.getOrchestrationServiceDeploymentConf_Ports();
+		EReference ORCHESTRATOR_DEPLOYMENT_CONF__PORTS = eINSTANCE.getOrchestratorDeploymentConf_Ports();
 
 		/**
 		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference feature.
@@ -14652,65 +14259,17 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS = eINSTANCE.getOrchestrationServiceDeploymentConf_Constraints();
+		EReference ORCHESTRATOR_DEPLOYMENT_CONF__CONSTRAINTS = eINSTANCE.getOrchestratorDeploymentConf_Constraints();
 
 		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.NodeClusterDeploymentConfImpl <em>Node Cluster Deployment Conf</em>}' class.
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.NodeDeploymentConfImpl <em>Node Deployment Conf</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.NodeClusterDeploymentConfImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeClusterDeploymentConf()
+		 * @see PASYS_Metamodel.pasys.impl.NodeDeploymentConfImpl
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeDeploymentConf()
 		 * @generated
 		 */
-		EClass NODE_CLUSTER_DEPLOYMENT_CONF = eINSTANCE.getNodeClusterDeploymentConf();
-
-		/**
-		 * The meta object literal for the '<em><b>Artifact Locator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_LOCATOR = eINSTANCE.getNodeClusterDeploymentConf_ArtifactLocator();
-
-		/**
-		 * The meta object literal for the '<em><b>Artifact Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_NAME = eINSTANCE.getNodeClusterDeploymentConf_ArtifactName();
-
-		/**
-		 * The meta object literal for the '<em><b>Config Folder Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__CONFIG_FOLDER_PATH = eINSTANCE.getNodeClusterDeploymentConf_ConfigFolderPath();
-
-		/**
-		 * The meta object literal for the '<em><b>Script Folder Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__SCRIPT_FOLDER_PATH = eINSTANCE.getNodeClusterDeploymentConf_ScriptFolderPath();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Folder Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__DATA_FOLDER_PATH = eINSTANCE.getNodeClusterDeploymentConf_DataFolderPath();
-
-		/**
-		 * The meta object literal for the '<em><b>Log Folder Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__LOG_FOLDER_PATH = eINSTANCE.getNodeClusterDeploymentConf_LogFolderPath();
+		EClass NODE_DEPLOYMENT_CONF = eINSTANCE.getNodeDeploymentConf();
 
 		/**
 		 * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
@@ -14718,7 +14277,63 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__ARGUMENTS = eINSTANCE.getNodeClusterDeploymentConf_Arguments();
+		EAttribute NODE_DEPLOYMENT_CONF__ARGUMENTS = eINSTANCE.getNodeDeploymentConf_Arguments();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Locator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__ARTIFACT_LOCATOR = eINSTANCE.getNodeDeploymentConf_ArtifactLocator();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__ARTIFACT_NAME = eINSTANCE.getNodeDeploymentConf_ArtifactName();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Folder Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__CONFIG_FOLDER_PATH = eINSTANCE.getNodeDeploymentConf_ConfigFolderPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Script Folder Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__SCRIPT_FOLDER_PATH = eINSTANCE.getNodeDeploymentConf_ScriptFolderPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Folder Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__DATA_FOLDER_PATH = eINSTANCE.getNodeDeploymentConf_DataFolderPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Log Folder Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__LOG_FOLDER_PATH = eINSTANCE.getNodeDeploymentConf_LogFolderPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Code Folder Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE_DEPLOYMENT_CONF__CODE_FOLDER_PATH = eINSTANCE.getNodeDeploymentConf_CodeFolderPath();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Running</b></em>' attribute feature.
@@ -14726,7 +14341,7 @@ public interface PasysPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NODE_CLUSTER_DEPLOYMENT_CONF__IS_RUNNING = eINSTANCE.getNodeClusterDeploymentConf_IsRunning();
+		EAttribute NODE_DEPLOYMENT_CONF__IS_RUNNING = eINSTANCE.getNodeDeploymentConf_IsRunning();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.FileDescriptorImpl <em>File Descriptor</em>}' class.
@@ -15072,24 +14687,6 @@ public interface PasysPackage extends EPackage {
 		 */
 
 		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.NodeClusterImpl <em>Node Cluster</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.NodeClusterImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeCluster()
-		 * @generated
-		 */
-		EClass NODE_CLUSTER = eINSTANCE.getNodeCluster();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Nodes</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE_CLUSTER___GET_NODES = eINSTANCE.getNodeCluster__GetNodes();
-
-		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PrometheusMeterImpl <em>Prometheus Meter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15134,16 +14731,6 @@ public interface PasysPackage extends EPackage {
 		EEnum EXTERNAL_ELEMENT_TYPE = eINSTANCE.getExternalElementType();
 
 		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.SystemComponentType <em>System Component Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.SystemComponentType
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemComponentType()
-		 * @generated
-		 */
-		EEnum SYSTEM_COMPONENT_TYPE = eINSTANCE.getSystemComponentType();
-
-		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.PortMode <em>Port Mode</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15162,6 +14749,16 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PROTOCOL = eINSTANCE.getProtocol();
+
+		/**
+		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.DeployableComponentType <em>Deployable Component Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see PASYS_Metamodel.pasys.DeployableComponentType
+		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeployableComponentType()
+		 * @generated
+		 */
+		EEnum DEPLOYABLE_COMPONENT_TYPE = eINSTANCE.getDeployableComponentType();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.VolumeType <em>Volume Type</em>}' enum.

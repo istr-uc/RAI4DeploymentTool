@@ -24,8 +24,8 @@ import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
+import PASYS_Metamodel.pasys.KubernetesCluster;
 import PASYS_Metamodel.pasys.KubernetesPort;
-import PASYS_Metamodel.pasys.KubernetesService;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Meter;
@@ -35,13 +35,12 @@ import PASYS_Metamodel.pasys.NamedElement;
 import PASYS_Metamodel.pasys.Neo4JService;
 import PASYS_Metamodel.pasys.Network;
 import PASYS_Metamodel.pasys.NetworkUtilization;
-import PASYS_Metamodel.pasys.NodeCluster;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
-import PASYS_Metamodel.pasys.OrchestrationService;
-import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
+import PASYS_Metamodel.pasys.OrchestrationCluster;
+import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PersistenceService;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
@@ -50,14 +49,16 @@ import PASYS_Metamodel.pasys.PlatformService;
 import PASYS_Metamodel.pasys.PlatformServiceDeploymentConf;
 import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
+import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.Rack;
-import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
+import PASYS_Metamodel.pasys.SecurityService;
 import PASYS_Metamodel.pasys.SerializationService;
 import PASYS_Metamodel.pasys.SparkService;
 import PASYS_Metamodel.pasys.StormNimbus;
@@ -68,8 +69,8 @@ import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SwarmService;
 import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.SystemElementAdapter;
@@ -236,22 +237,54 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.RESOURCE_CLUSTER: {
-				ResourceCluster resourceCluster = (ResourceCluster)theEObject;
-				T result = caseResourceCluster(resourceCluster);
-				if (result == null) result = casePlatformResource(resourceCluster);
-				if (result == null) result = caseSystemElement(resourceCluster);
-				if (result == null) result = caseNamedElement(resourceCluster);
+			case PasysPackage.PROCESSING_RESOURCE_CLUSTER: {
+				ProcessingResourceCluster processingResourceCluster = (ProcessingResourceCluster)theEObject;
+				T result = caseProcessingResourceCluster(processingResourceCluster);
+				if (result == null) result = casePlatformResource(processingResourceCluster);
+				if (result == null) result = caseSystemElement(processingResourceCluster);
+				if (result == null) result = caseNamedElement(processingResourceCluster);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.NODE_CLUSTER: {
-				NodeCluster nodeCluster = (NodeCluster)theEObject;
-				T result = caseNodeCluster(nodeCluster);
-				if (result == null) result = caseResourceCluster(nodeCluster);
-				if (result == null) result = casePlatformResource(nodeCluster);
-				if (result == null) result = caseSystemElement(nodeCluster);
-				if (result == null) result = caseNamedElement(nodeCluster);
+			case PasysPackage.PROCESSING_NODE_CLUSTER: {
+				ProcessingNodeCluster processingNodeCluster = (ProcessingNodeCluster)theEObject;
+				T result = caseProcessingNodeCluster(processingNodeCluster);
+				if (result == null) result = caseProcessingResourceCluster(processingNodeCluster);
+				if (result == null) result = casePlatformResource(processingNodeCluster);
+				if (result == null) result = caseSystemElement(processingNodeCluster);
+				if (result == null) result = caseNamedElement(processingNodeCluster);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.ORCHESTRATION_CLUSTER: {
+				OrchestrationCluster orchestrationCluster = (OrchestrationCluster)theEObject;
+				T result = caseOrchestrationCluster(orchestrationCluster);
+				if (result == null) result = caseProcessingResourceCluster(orchestrationCluster);
+				if (result == null) result = casePlatformResource(orchestrationCluster);
+				if (result == null) result = caseSystemElement(orchestrationCluster);
+				if (result == null) result = caseNamedElement(orchestrationCluster);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.KUBERNETES_CLUSTER: {
+				KubernetesCluster kubernetesCluster = (KubernetesCluster)theEObject;
+				T result = caseKubernetesCluster(kubernetesCluster);
+				if (result == null) result = caseOrchestrationCluster(kubernetesCluster);
+				if (result == null) result = caseProcessingResourceCluster(kubernetesCluster);
+				if (result == null) result = casePlatformResource(kubernetesCluster);
+				if (result == null) result = caseSystemElement(kubernetesCluster);
+				if (result == null) result = caseNamedElement(kubernetesCluster);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SWARM_CLUSTER: {
+				SwarmCluster swarmCluster = (SwarmCluster)theEObject;
+				T result = caseSwarmCluster(swarmCluster);
+				if (result == null) result = caseOrchestrationCluster(swarmCluster);
+				if (result == null) result = caseProcessingResourceCluster(swarmCluster);
+				if (result == null) result = casePlatformResource(swarmCluster);
+				if (result == null) result = caseSystemElement(swarmCluster);
+				if (result == null) result = caseNamedElement(swarmCluster);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -274,41 +307,6 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.ORCHESTRATION_SERVICE: {
-				OrchestrationService orchestrationService = (OrchestrationService)theEObject;
-				T result = caseOrchestrationService(orchestrationService);
-				if (result == null) result = casePlatformService(orchestrationService);
-				if (result == null) result = casePlatformResource(orchestrationService);
-				if (result == null) result = caseDeployableComponent(orchestrationService);
-				if (result == null) result = caseSystemElement(orchestrationService);
-				if (result == null) result = caseNamedElement(orchestrationService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.KUBERNETES_SERVICE: {
-				KubernetesService kubernetesService = (KubernetesService)theEObject;
-				T result = caseKubernetesService(kubernetesService);
-				if (result == null) result = caseOrchestrationService(kubernetesService);
-				if (result == null) result = casePlatformService(kubernetesService);
-				if (result == null) result = casePlatformResource(kubernetesService);
-				if (result == null) result = caseDeployableComponent(kubernetesService);
-				if (result == null) result = caseSystemElement(kubernetesService);
-				if (result == null) result = caseNamedElement(kubernetesService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.SWARM_SERVICE: {
-				SwarmService swarmService = (SwarmService)theEObject;
-				T result = caseSwarmService(swarmService);
-				if (result == null) result = caseOrchestrationService(swarmService);
-				if (result == null) result = casePlatformService(swarmService);
-				if (result == null) result = casePlatformResource(swarmService);
-				if (result == null) result = caseDeployableComponent(swarmService);
-				if (result == null) result = caseSystemElement(swarmService);
-				if (result == null) result = caseNamedElement(swarmService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PasysPackage.SERIALIZATION_SERVICE: {
 				SerializationService serializationService = (SerializationService)theEObject;
 				T result = caseSerializationService(serializationService);
@@ -317,6 +315,72 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDeployableComponent(serializationService);
 				if (result == null) result = caseSystemElement(serializationService);
 				if (result == null) result = caseNamedElement(serializationService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.DISTRIBUTION_SERVICE: {
+				DistributionService distributionService = (DistributionService)theEObject;
+				T result = caseDistributionService(distributionService);
+				if (result == null) result = casePlatformService(distributionService);
+				if (result == null) result = casePlatformResource(distributionService);
+				if (result == null) result = caseDeployableComponent(distributionService);
+				if (result == null) result = caseSystemElement(distributionService);
+				if (result == null) result = caseNamedElement(distributionService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.COMMUNICATION_SERVICE: {
+				CommunicationService communicationService = (CommunicationService)theEObject;
+				T result = caseCommunicationService(communicationService);
+				if (result == null) result = casePlatformService(communicationService);
+				if (result == null) result = casePlatformResource(communicationService);
+				if (result == null) result = caseDeployableComponent(communicationService);
+				if (result == null) result = caseSystemElement(communicationService);
+				if (result == null) result = caseNamedElement(communicationService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SCHEDULING_SERVICE: {
+				SchedulingService schedulingService = (SchedulingService)theEObject;
+				T result = caseSchedulingService(schedulingService);
+				if (result == null) result = casePlatformService(schedulingService);
+				if (result == null) result = casePlatformResource(schedulingService);
+				if (result == null) result = caseDeployableComponent(schedulingService);
+				if (result == null) result = caseSystemElement(schedulingService);
+				if (result == null) result = caseNamedElement(schedulingService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SECURITY_SERVICE: {
+				SecurityService securityService = (SecurityService)theEObject;
+				T result = caseSecurityService(securityService);
+				if (result == null) result = casePlatformService(securityService);
+				if (result == null) result = casePlatformResource(securityService);
+				if (result == null) result = caseDeployableComponent(securityService);
+				if (result == null) result = caseSystemElement(securityService);
+				if (result == null) result = caseNamedElement(securityService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.PERSISTENCE_SERVICE: {
+				PersistenceService persistenceService = (PersistenceService)theEObject;
+				T result = casePersistenceService(persistenceService);
+				if (result == null) result = casePlatformService(persistenceService);
+				if (result == null) result = casePlatformResource(persistenceService);
+				if (result == null) result = caseDeployableComponent(persistenceService);
+				if (result == null) result = caseSystemElement(persistenceService);
+				if (result == null) result = caseNamedElement(persistenceService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.MONITORING_SERVICE: {
+				MonitoringService monitoringService = (MonitoringService)theEObject;
+				T result = caseMonitoringService(monitoringService);
+				if (result == null) result = casePlatformService(monitoringService);
+				if (result == null) result = casePlatformResource(monitoringService);
+				if (result == null) result = caseDeployableComponent(monitoringService);
+				if (result == null) result = caseSystemElement(monitoringService);
+				if (result == null) result = caseNamedElement(monitoringService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,17 +396,6 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.DISTRIBUTION_SERVICE: {
-				DistributionService distributionService = (DistributionService)theEObject;
-				T result = caseDistributionService(distributionService);
-				if (result == null) result = casePlatformService(distributionService);
-				if (result == null) result = casePlatformResource(distributionService);
-				if (result == null) result = caseDeployableComponent(distributionService);
-				if (result == null) result = caseSystemElement(distributionService);
-				if (result == null) result = caseNamedElement(distributionService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PasysPackage.ZOOKEEPER_SERVICE: {
 				ZookeeperService zookeeperService = (ZookeeperService)theEObject;
 				T result = caseZookeeperService(zookeeperService);
@@ -355,17 +408,6 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.COMMUNICATION_SERVICE: {
-				CommunicationService communicationService = (CommunicationService)theEObject;
-				T result = caseCommunicationService(communicationService);
-				if (result == null) result = casePlatformService(communicationService);
-				if (result == null) result = casePlatformResource(communicationService);
-				if (result == null) result = caseDeployableComponent(communicationService);
-				if (result == null) result = caseSystemElement(communicationService);
-				if (result == null) result = caseNamedElement(communicationService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PasysPackage.KAFKA_SERVICE: {
 				KafkaService kafkaService = (KafkaService)theEObject;
 				T result = caseKafkaService(kafkaService);
@@ -375,17 +417,6 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDeployableComponent(kafkaService);
 				if (result == null) result = caseSystemElement(kafkaService);
 				if (result == null) result = caseNamedElement(kafkaService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.SCHEDULING_SERVICE: {
-				SchedulingService schedulingService = (SchedulingService)theEObject;
-				T result = caseSchedulingService(schedulingService);
-				if (result == null) result = casePlatformService(schedulingService);
-				if (result == null) result = casePlatformResource(schedulingService);
-				if (result == null) result = caseDeployableComponent(schedulingService);
-				if (result == null) result = caseSystemElement(schedulingService);
-				if (result == null) result = caseNamedElement(schedulingService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -449,14 +480,15 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.PERSISTENCE_SERVICE: {
-				PersistenceService persistenceService = (PersistenceService)theEObject;
-				T result = casePersistenceService(persistenceService);
-				if (result == null) result = casePlatformService(persistenceService);
-				if (result == null) result = casePlatformResource(persistenceService);
-				if (result == null) result = caseDeployableComponent(persistenceService);
-				if (result == null) result = caseSystemElement(persistenceService);
-				if (result == null) result = caseNamedElement(persistenceService);
+			case PasysPackage.NEO4_JSERVICE: {
+				Neo4JService neo4JService = (Neo4JService)theEObject;
+				T result = caseNeo4JService(neo4JService);
+				if (result == null) result = casePersistenceService(neo4JService);
+				if (result == null) result = casePlatformService(neo4JService);
+				if (result == null) result = casePlatformResource(neo4JService);
+				if (result == null) result = caseDeployableComponent(neo4JService);
+				if (result == null) result = caseSystemElement(neo4JService);
+				if (result == null) result = caseNamedElement(neo4JService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -495,29 +527,6 @@ public class PasysSwitch<T> extends Switch<T> {
 				Rack rack = (Rack)theEObject;
 				T result = caseRack(rack);
 				if (result == null) result = caseNamedElement(rack);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.NEO4_JSERVICE: {
-				Neo4JService neo4JService = (Neo4JService)theEObject;
-				T result = caseNeo4JService(neo4JService);
-				if (result == null) result = casePersistenceService(neo4JService);
-				if (result == null) result = casePlatformService(neo4JService);
-				if (result == null) result = casePlatformResource(neo4JService);
-				if (result == null) result = caseDeployableComponent(neo4JService);
-				if (result == null) result = caseSystemElement(neo4JService);
-				if (result == null) result = caseNamedElement(neo4JService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.MONITORING_SERVICE: {
-				MonitoringService monitoringService = (MonitoringService)theEObject;
-				T result = caseMonitoringService(monitoringService);
-				if (result == null) result = casePlatformService(monitoringService);
-				if (result == null) result = casePlatformResource(monitoringService);
-				if (result == null) result = caseDeployableComponent(monitoringService);
-				if (result == null) result = caseSystemElement(monitoringService);
-				if (result == null) result = caseNamedElement(monitoringService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -805,19 +814,19 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF: {
-				OrchestrationServiceDeploymentConf orchestrationServiceDeploymentConf = (OrchestrationServiceDeploymentConf)theEObject;
-				T result = caseOrchestrationServiceDeploymentConf(orchestrationServiceDeploymentConf);
-				if (result == null) result = casePlatformServiceDeploymentConf(orchestrationServiceDeploymentConf);
-				if (result == null) result = caseDeploymentConfiguration(orchestrationServiceDeploymentConf);
+			case PasysPackage.ORCHESTRATOR_DEPLOYMENT_CONF: {
+				OrchestratorDeploymentConf orchestratorDeploymentConf = (OrchestratorDeploymentConf)theEObject;
+				T result = caseOrchestratorDeploymentConf(orchestratorDeploymentConf);
+				if (result == null) result = casePlatformServiceDeploymentConf(orchestratorDeploymentConf);
+				if (result == null) result = caseDeploymentConfiguration(orchestratorDeploymentConf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PasysPackage.NODE_CLUSTER_DEPLOYMENT_CONF: {
-				NodeClusterDeploymentConf nodeClusterDeploymentConf = (NodeClusterDeploymentConf)theEObject;
-				T result = caseNodeClusterDeploymentConf(nodeClusterDeploymentConf);
-				if (result == null) result = casePlatformServiceDeploymentConf(nodeClusterDeploymentConf);
-				if (result == null) result = caseDeploymentConfiguration(nodeClusterDeploymentConf);
+			case PasysPackage.NODE_DEPLOYMENT_CONF: {
+				NodeDeploymentConf nodeDeploymentConf = (NodeDeploymentConf)theEObject;
+				T result = caseNodeDeploymentConf(nodeDeploymentConf);
+				if (result == null) result = casePlatformServiceDeploymentConf(nodeDeploymentConf);
+				if (result == null) result = caseDeploymentConfiguration(nodeDeploymentConf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1076,17 +1085,77 @@ public class PasysSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Cluster</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Processing Resource Cluster</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Cluster</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Processing Resource Cluster</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourceCluster(ResourceCluster object) {
+	public T caseProcessingResourceCluster(ProcessingResourceCluster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Processing Node Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Processing Node Cluster</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcessingNodeCluster(ProcessingNodeCluster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Orchestration Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Orchestration Cluster</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrchestrationCluster(OrchestrationCluster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Kubernetes Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Kubernetes Cluster</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKubernetesCluster(KubernetesCluster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Swarm Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Swarm Cluster</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwarmCluster(SwarmCluster object) {
 		return null;
 	}
 
@@ -1117,51 +1186,6 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlatformService(PlatformService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Orchestration Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Orchestration Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOrchestrationService(OrchestrationService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Kubernetes Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Kubernetes Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseKubernetesService(KubernetesService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Swarm Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Swarm Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSwarmService(SwarmService object) {
 		return null;
 	}
 
@@ -1267,6 +1291,21 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchedulingService(SchedulingService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityService(SecurityService object) {
 		return null;
 	}
 
@@ -1916,32 +1955,32 @@ public class PasysSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Orchestration Service Deployment Conf</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Orchestrator Deployment Conf</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Orchestration Service Deployment Conf</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Orchestrator Deployment Conf</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOrchestrationServiceDeploymentConf(OrchestrationServiceDeploymentConf object) {
+	public T caseOrchestratorDeploymentConf(OrchestratorDeploymentConf object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node Cluster Deployment Conf</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Node Deployment Conf</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node Cluster Deployment Conf</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Node Deployment Conf</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNodeClusterDeploymentConf(NodeClusterDeploymentConf object) {
+	public T caseNodeDeploymentConf(NodeDeploymentConf object) {
 		return null;
 	}
 
@@ -2152,21 +2191,6 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVolume(Volume object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node Cluster</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node Cluster</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNodeCluster(NodeCluster object) {
 		return null;
 	}
 

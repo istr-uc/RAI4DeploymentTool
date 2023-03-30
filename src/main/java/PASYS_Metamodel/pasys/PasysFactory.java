@@ -76,22 +76,40 @@ public interface PasysFactory extends EFactory {
 	AWSVirtualProcessingNode createAWSVirtualProcessingNode();
 
 	/**
-	 * Returns a new object of class '<em>Resource Cluster</em>'.
+	 * Returns a new object of class '<em>Processing Node Cluster</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Cluster</em>'.
+	 * @return a new object of class '<em>Processing Node Cluster</em>'.
 	 * @generated
 	 */
-	ResourceCluster createResourceCluster();
+	ProcessingNodeCluster createProcessingNodeCluster();
 
 	/**
-	 * Returns a new object of class '<em>Node Cluster</em>'.
+	 * Returns a new object of class '<em>Orchestration Cluster</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node Cluster</em>'.
+	 * @return a new object of class '<em>Orchestration Cluster</em>'.
 	 * @generated
 	 */
-	NodeCluster createNodeCluster();
+	OrchestrationCluster createOrchestrationCluster();
+
+	/**
+	 * Returns a new object of class '<em>Kubernetes Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Kubernetes Cluster</em>'.
+	 * @generated
+	 */
+	KubernetesCluster createKubernetesCluster();
+
+	/**
+	 * Returns a new object of class '<em>Swarm Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swarm Cluster</em>'.
+	 * @generated
+	 */
+	SwarmCluster createSwarmCluster();
 
 	/**
 	 * Returns a new object of class '<em>Network</em>'.
@@ -101,24 +119,6 @@ public interface PasysFactory extends EFactory {
 	 * @generated
 	 */
 	Network createNetwork();
-
-	/**
-	 * Returns a new object of class '<em>Kubernetes Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Kubernetes Service</em>'.
-	 * @generated
-	 */
-	KubernetesService createKubernetesService();
-
-	/**
-	 * Returns a new object of class '<em>Swarm Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swarm Service</em>'.
-	 * @generated
-	 */
-	SwarmService createSwarmService();
 
 	/**
 	 * Returns a new object of class '<em>AVRO Service</em>'.
@@ -454,22 +454,22 @@ public interface PasysFactory extends EFactory {
 	TaskProcessingAmountMeter createTaskProcessingAmountMeter();
 
 	/**
-	 * Returns a new object of class '<em>Orchestration Service Deployment Conf</em>'.
+	 * Returns a new object of class '<em>Orchestrator Deployment Conf</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Orchestration Service Deployment Conf</em>'.
+	 * @return a new object of class '<em>Orchestrator Deployment Conf</em>'.
 	 * @generated
 	 */
-	OrchestrationServiceDeploymentConf createOrchestrationServiceDeploymentConf();
+	OrchestratorDeploymentConf createOrchestratorDeploymentConf();
 
 	/**
-	 * Returns a new object of class '<em>Node Cluster Deployment Conf</em>'.
+	 * Returns a new object of class '<em>Node Deployment Conf</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node Cluster Deployment Conf</em>'.
+	 * @return a new object of class '<em>Node Deployment Conf</em>'.
 	 * @generated
 	 */
-	NodeClusterDeploymentConf createNodeClusterDeploymentConf();
+	NodeDeploymentConf createNodeDeploymentConf();
 
 	/**
 	 * Returns a new object of class '<em>File Descriptor</em>'.

@@ -80,7 +80,7 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int CLIENT_PORT_EDEFAULT = 0;
+	protected static final int CLIENT_PORT_EDEFAULT = 9092;
 
 	/**
 	 * The cached value of the '{@link #getClientPort() <em>Client Port</em>}' attribute.
@@ -210,7 +210,7 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUM_PARTITIONS_EDEFAULT = 1;
+	protected static final int NUM_PARTITIONS_EDEFAULT = 4;
 
 	/**
 	 * The cached value of the '{@link #getNumPartitions() <em>Num Partitions</em>}' attribute.

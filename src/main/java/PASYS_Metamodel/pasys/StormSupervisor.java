@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
 public interface StormSupervisor extends DeployableComponent, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Supervisor Slot Ports</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Supervisor Slot Ports</em>' attribute list.
@@ -33,7 +33,7 @@ public interface StormSupervisor extends DeployableComponent, NamedElement {
 	 * @model
 	 * @generated
 	 */
-	EList<Integer> getSupervisorSlotPorts();
+	EList<String> getSupervisorSlotPorts();
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
@@ -64,12 +64,12 @@ public interface StormSupervisor extends DeployableComponent, NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' reference.
-	 * @see #setHost(NodeCluster)
+	 * @see #setHost(ProcessingNodeCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormSupervisor_Host()
 	 * @model
 	 * @generated
 	 */
-	NodeCluster getHost();
+	ProcessingNodeCluster getHost();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormSupervisor#getHost <em>Host</em>}' reference.
@@ -79,6 +79,6 @@ public interface StormSupervisor extends DeployableComponent, NamedElement {
 	 * @see #getHost()
 	 * @generated
 	 */
-	void setHost(NodeCluster value);
+	void setHost(ProcessingNodeCluster value);
 
 } // StormSupervisor

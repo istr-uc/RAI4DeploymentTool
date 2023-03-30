@@ -2,8 +2,8 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
-import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.PasysPackage;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.Rack;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,7 +35,7 @@ public class RackImpl extends NamedElementImpl implements Rack {
 	 * @generated
 	 * @ordered
 	 */
-	protected NodeCluster nodes;
+	protected ProcessingNodeCluster nodes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,10 +62,10 @@ public class RackImpl extends NamedElementImpl implements Rack {
 	 * @generated
 	 */
 	@Override
-	public NodeCluster getNodes() {
+	public ProcessingNodeCluster getNodes() {
 		if (nodes != null && nodes.eIsProxy()) {
 			InternalEObject oldNodes = (InternalEObject)nodes;
-			nodes = (NodeCluster)eResolveProxy(oldNodes);
+			nodes = (ProcessingNodeCluster)eResolveProxy(oldNodes);
 			if (nodes != oldNodes) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.RACK__NODES, oldNodes, nodes));
@@ -79,7 +79,7 @@ public class RackImpl extends NamedElementImpl implements Rack {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NodeCluster basicGetNodes() {
+	public ProcessingNodeCluster basicGetNodes() {
 		return nodes;
 	}
 
@@ -89,8 +89,8 @@ public class RackImpl extends NamedElementImpl implements Rack {
 	 * @generated
 	 */
 	@Override
-	public void setNodes(NodeCluster newNodes) {
-		NodeCluster oldNodes = nodes;
+	public void setNodes(ProcessingNodeCluster newNodes) {
+		ProcessingNodeCluster oldNodes = nodes;
 		nodes = newNodes;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.RACK__NODES, oldNodes, nodes));
@@ -120,7 +120,7 @@ public class RackImpl extends NamedElementImpl implements Rack {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PasysPackage.RACK__NODES:
-				setNodes((NodeCluster)newValue);
+				setNodes((ProcessingNodeCluster)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -135,7 +135,7 @@ public class RackImpl extends NamedElementImpl implements Rack {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case PasysPackage.RACK__NODES:
-				setNodes((NodeCluster)null);
+				setNodes((ProcessingNodeCluster)null);
 				return;
 		}
 		super.eUnset(featureID);

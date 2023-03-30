@@ -2,6 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.PasysPackage;
@@ -60,7 +61,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SystemComponentType ELEMENT_TYPE_EDEFAULT = SystemComponentType.PROMETHEUS_SERVER;
+	protected static final DeployableComponentType ELEMENT_TYPE_EDEFAULT = DeployableComponentType.PROMETHEUS_SERVICE;
 
 	/**
 	 * The cached value of the '{@link #getElementType() <em>Element Type</em>}' attribute.
@@ -70,7 +71,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected SystemComponentType elementType = ELEMENT_TYPE_EDEFAULT;
+	protected DeployableComponentType elementType = ELEMENT_TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
@@ -139,7 +140,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 * @generated
 	 */
 	@Override
-	public SystemComponentType getElementType() {
+	public DeployableComponentType getElementType() {
 		return elementType;
 	}
 
@@ -149,8 +150,8 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setElementType(SystemComponentType newElementType) {
-		SystemComponentType oldElementType = elementType;
+	public void setElementType(DeployableComponentType newElementType) {
+		DeployableComponentType oldElementType = elementType;
 		elementType = newElementType == null ? ELEMENT_TYPE_EDEFAULT : newElementType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR__ELEMENT_TYPE, oldElementType, elementType));
@@ -227,7 +228,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 				setFileContent((String)newValue);
 				return;
 			case PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR__ELEMENT_TYPE:
-				setElementType((SystemComponentType)newValue);
+				setElementType((DeployableComponentType)newValue);
 				return;
 			case PasysPackage.DEPLOYMENT_FILE_DESCRIPTOR__OWNER:
 				setOwner((ProcessingNode)newValue);

@@ -25,12 +25,12 @@ public interface Rack extends NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Nodes</em>' reference.
-	 * @see #setNodes(NodeCluster)
+	 * @see #setNodes(ProcessingNodeCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getRack_Nodes()
 	 * @model required="true"
 	 * @generated
 	 */
-	NodeCluster getNodes();
+	ProcessingNodeCluster getNodes();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.Rack#getNodes <em>Nodes</em>}' reference.
@@ -40,6 +40,6 @@ public interface Rack extends NamedElement {
 	 * @see #getNodes()
 	 * @generated
 	 */
-	void setNodes(NodeCluster value);
+	void setNodes(ProcessingNodeCluster value);
 
 } // Rack

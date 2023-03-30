@@ -3,8 +3,8 @@
 package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.NamedElement;
-import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.PasysPackage;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.StormService;
 import PASYS_Metamodel.pasys.StormUI;
 
@@ -104,7 +104,7 @@ public class StormUIImpl extends DeployableComponentImpl implements StormUI {
 	 * @generated
 	 * @ordered
 	 */
-	protected NodeCluster host;
+	protected ProcessingNodeCluster host;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -243,10 +243,10 @@ public class StormUIImpl extends DeployableComponentImpl implements StormUI {
 	 * @generated
 	 */
 	@Override
-	public NodeCluster getHost() {
+	public ProcessingNodeCluster getHost() {
 		if (host != null && host.eIsProxy()) {
 			InternalEObject oldHost = (InternalEObject)host;
-			host = (NodeCluster)eResolveProxy(oldHost);
+			host = (ProcessingNodeCluster)eResolveProxy(oldHost);
 			if (host != oldHost) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_UI__HOST, oldHost, host));
@@ -260,7 +260,7 @@ public class StormUIImpl extends DeployableComponentImpl implements StormUI {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NodeCluster basicGetHost() {
+	public ProcessingNodeCluster basicGetHost() {
 		return host;
 	}
 
@@ -270,8 +270,8 @@ public class StormUIImpl extends DeployableComponentImpl implements StormUI {
 	 * @generated
 	 */
 	@Override
-	public void setHost(NodeCluster newHost) {
-		NodeCluster oldHost = host;
+	public void setHost(ProcessingNodeCluster newHost) {
+		ProcessingNodeCluster oldHost = host;
 		host = newHost;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_UI__HOST, oldHost, host));
@@ -365,7 +365,7 @@ public class StormUIImpl extends DeployableComponentImpl implements StormUI {
 				setOwner((StormService)newValue);
 				return;
 			case PasysPackage.STORM_UI__HOST:
-				setHost((NodeCluster)newValue);
+				setHost((ProcessingNodeCluster)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -392,7 +392,7 @@ public class StormUIImpl extends DeployableComponentImpl implements StormUI {
 				setOwner((StormService)null);
 				return;
 			case PasysPackage.STORM_UI__HOST:
-				setHost((NodeCluster)null);
+				setHost((ProcessingNodeCluster)null);
 				return;
 		}
 		super.eUnset(featureID);

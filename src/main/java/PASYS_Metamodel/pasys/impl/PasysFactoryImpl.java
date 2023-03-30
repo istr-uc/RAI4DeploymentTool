@@ -9,6 +9,7 @@ import PASYS_Metamodel.pasys.CassandraService;
 import PASYS_Metamodel.pasys.CommunicationMeter;
 import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.DataCenter;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.DeploymentConstraints;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
@@ -19,29 +20,29 @@ import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
+import PASYS_Metamodel.pasys.KubernetesCluster;
 import PASYS_Metamodel.pasys.KubernetesPort;
-import PASYS_Metamodel.pasys.KubernetesService;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Neo4JService;
 import PASYS_Metamodel.pasys.Network;
 import PASYS_Metamodel.pasys.NetworkUtilization;
-import PASYS_Metamodel.pasys.NodeCluster;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
-import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
+import PASYS_Metamodel.pasys.OrchestrationCluster;
+import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.PortMode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.Protocol;
 import PASYS_Metamodel.pasys.Rack;
-import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SparkService;
 import PASYS_Metamodel.pasys.StormNimbus;
@@ -51,10 +52,9 @@ import PASYS_Metamodel.pasys.StormUI;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SwarmService;
 import PASYS_Metamodel.pasys.SystemAdapter;
-import PASYS_Metamodel.pasys.SystemComponentType;
 import PASYS_Metamodel.pasys.SystemElementAdapter;
 import PASYS_Metamodel.pasys.SystemExternalElement;
 import PASYS_Metamodel.pasys.Task;
@@ -131,11 +131,11 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.SYSTEM_ELEMENT_ADAPTER: return createSystemElementAdapter();
 			case PasysPackage.PHYSICAL_PROCESSING_NODE: return createPhysicalProcessingNode();
 			case PasysPackage.AWS_VIRTUAL_PROCESSING_NODE: return createAWSVirtualProcessingNode();
-			case PasysPackage.RESOURCE_CLUSTER: return createResourceCluster();
-			case PasysPackage.NODE_CLUSTER: return createNodeCluster();
+			case PasysPackage.PROCESSING_NODE_CLUSTER: return createProcessingNodeCluster();
+			case PasysPackage.ORCHESTRATION_CLUSTER: return createOrchestrationCluster();
+			case PasysPackage.KUBERNETES_CLUSTER: return createKubernetesCluster();
+			case PasysPackage.SWARM_CLUSTER: return createSwarmCluster();
 			case PasysPackage.NETWORK: return createNetwork();
-			case PasysPackage.KUBERNETES_SERVICE: return createKubernetesService();
-			case PasysPackage.SWARM_SERVICE: return createSwarmService();
 			case PasysPackage.AVRO_SERVICE: return createAVROService();
 			case PasysPackage.ZOOKEEPER_SERVICE: return createZookeeperService();
 			case PasysPackage.KAFKA_SERVICE: return createKafkaService();
@@ -145,11 +145,11 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.STORM_UI: return createStormUI();
 			case PasysPackage.STORM_NIMBUS: return createStormNimbus();
 			case PasysPackage.STORM_SUPERVISOR: return createStormSupervisor();
+			case PasysPackage.NEO4_JSERVICE: return createNeo4JService();
 			case PasysPackage.MEM_SQL_SERVICE: return createMemSQLService();
 			case PasysPackage.CASSANDRA_SERVICE: return createCassandraService();
 			case PasysPackage.DATA_CENTER: return createDataCenter();
 			case PasysPackage.RACK: return createRack();
-			case PasysPackage.NEO4_JSERVICE: return createNeo4JService();
 			case PasysPackage.PROMETHEUS_SERVICE: return createPrometheusService();
 			case PasysPackage.EXPORTER_DATA: return createExporterData();
 			case PasysPackage.STREAM_DATA_PARTITION: return createStreamDataPartition();
@@ -174,8 +174,8 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.STREAM_RATE_METER: return createStreamRateMeter();
 			case PasysPackage.WORKFLOW_LATENCY_METER: return createWorkflowLatencyMeter();
 			case PasysPackage.TASK_PROCESSING_AMOUNT_METER: return createTaskProcessingAmountMeter();
-			case PasysPackage.ORCHESTRATION_SERVICE_DEPLOYMENT_CONF: return createOrchestrationServiceDeploymentConf();
-			case PasysPackage.NODE_CLUSTER_DEPLOYMENT_CONF: return createNodeClusterDeploymentConf();
+			case PasysPackage.ORCHESTRATOR_DEPLOYMENT_CONF: return createOrchestratorDeploymentConf();
+			case PasysPackage.NODE_DEPLOYMENT_CONF: return createNodeDeploymentConf();
 			case PasysPackage.VOLUME: return createVolume();
 			case PasysPackage.PORT: return createPort();
 			case PasysPackage.SWARM_PORT: return createSwarmPort();
@@ -208,8 +208,8 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 				return createPortModeFromString(eDataType, initialValue);
 			case PasysPackage.PROTOCOL:
 				return createProtocolFromString(eDataType, initialValue);
-			case PasysPackage.SYSTEM_COMPONENT_TYPE:
-				return createSystemComponentTypeFromString(eDataType, initialValue);
+			case PasysPackage.DEPLOYABLE_COMPONENT_TYPE:
+				return createDeployableComponentTypeFromString(eDataType, initialValue);
 			case PasysPackage.PROPERTIES:
 				return createPropertiesFromString(eDataType, initialValue);
 			default:
@@ -235,8 +235,8 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 				return convertPortModeToString(eDataType, instanceValue);
 			case PasysPackage.PROTOCOL:
 				return convertProtocolToString(eDataType, instanceValue);
-			case PasysPackage.SYSTEM_COMPONENT_TYPE:
-				return convertSystemComponentTypeToString(eDataType, instanceValue);
+			case PasysPackage.DEPLOYABLE_COMPONENT_TYPE:
+				return convertDeployableComponentTypeToString(eDataType, instanceValue);
 			case PasysPackage.PROPERTIES:
 				return convertPropertiesToString(eDataType, instanceValue);
 			default:
@@ -316,9 +316,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public ResourceCluster createResourceCluster() {
-		ResourceClusterImpl resourceCluster = new ResourceClusterImpl();
-		return resourceCluster;
+	public ProcessingNodeCluster createProcessingNodeCluster() {
+		ProcessingNodeClusterImpl processingNodeCluster = new ProcessingNodeClusterImpl();
+		return processingNodeCluster;
 	}
 
 	/**
@@ -327,9 +327,31 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public NodeCluster createNodeCluster() {
-		NodeClusterImpl nodeCluster = new NodeClusterImpl();
-		return nodeCluster;
+	public OrchestrationCluster createOrchestrationCluster() {
+		OrchestrationClusterImpl orchestrationCluster = new OrchestrationClusterImpl();
+		return orchestrationCluster;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public KubernetesCluster createKubernetesCluster() {
+		KubernetesClusterImpl kubernetesCluster = new KubernetesClusterImpl();
+		return kubernetesCluster;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SwarmCluster createSwarmCluster() {
+		SwarmClusterImpl swarmCluster = new SwarmClusterImpl();
+		return swarmCluster;
 	}
 
 	/**
@@ -341,28 +363,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public Network createNetwork() {
 		NetworkImpl network = new NetworkImpl();
 		return network;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public KubernetesService createKubernetesService() {
-		KubernetesServiceImpl kubernetesService = new KubernetesServiceImpl();
-		return kubernetesService;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SwarmService createSwarmService() {
-		SwarmServiceImpl swarmService = new SwarmServiceImpl();
-		return swarmService;
 	}
 
 	/**
@@ -778,9 +778,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public OrchestrationServiceDeploymentConf createOrchestrationServiceDeploymentConf() {
-		OrchestrationServiceDeploymentConfImpl orchestrationServiceDeploymentConf = new OrchestrationServiceDeploymentConfImpl();
-		return orchestrationServiceDeploymentConf;
+	public OrchestratorDeploymentConf createOrchestratorDeploymentConf() {
+		OrchestratorDeploymentConfImpl orchestratorDeploymentConf = new OrchestratorDeploymentConfImpl();
+		return orchestratorDeploymentConf;
 	}
 
 	/**
@@ -789,9 +789,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public NodeClusterDeploymentConf createNodeClusterDeploymentConf() {
-		NodeClusterDeploymentConfImpl nodeClusterDeploymentConf = new NodeClusterDeploymentConfImpl();
-		return nodeClusterDeploymentConf;
+	public NodeDeploymentConf createNodeDeploymentConf() {
+		NodeDeploymentConfImpl nodeDeploymentConf = new NodeDeploymentConfImpl();
+		return nodeDeploymentConf;
 	}
 
 	/**
@@ -928,26 +928,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemComponentType createSystemComponentTypeFromString(EDataType eDataType, String initialValue) {
-		SystemComponentType result = SystemComponentType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSystemComponentTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PortMode createPortModeFromString(EDataType eDataType, String initialValue) {
 		PortMode result = PortMode.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -980,6 +960,26 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeployableComponentType createDeployableComponentTypeFromString(EDataType eDataType, String initialValue) {
+		DeployableComponentType result = DeployableComponentType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDeployableComponentTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

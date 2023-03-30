@@ -8,10 +8,10 @@ import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FileDescriptor;
-import PASYS_Metamodel.pasys.NodeCluster;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
@@ -92,7 +92,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @generated
 	 * @ordered
 	 */
-	protected NodeCluster seeds;
+	protected ProcessingNodeCluster seeds;
 
 	/**
 	 * The default value of the '{@link #getSeedProviderClass() <em>Seed Provider Class</em>}' attribute.
@@ -287,10 +287,10 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @generated
 	 */
 	@Override
-	public NodeCluster getSeeds() {
+	public ProcessingNodeCluster getSeeds() {
 		if (seeds != null && seeds.eIsProxy()) {
 			InternalEObject oldSeeds = (InternalEObject)seeds;
-			seeds = (NodeCluster)eResolveProxy(oldSeeds);
+			seeds = (ProcessingNodeCluster)eResolveProxy(oldSeeds);
 			if (seeds != oldSeeds) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.CASSANDRA_SERVICE__SEEDS, oldSeeds, seeds));
@@ -303,17 +303,18 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NodeCluster basicGetSeeds() {
+	public ProcessingNodeCluster basicGetSeeds() {
 		return seeds;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setSeeds(NodeCluster newSeeds) {
-		NodeCluster oldSeeds = seeds;
+	public void setSeeds(ProcessingNodeCluster newSeeds) {
+		ProcessingNodeCluster oldSeeds = seeds;
 		seeds = newSeeds;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.CASSANDRA_SERVICE__SEEDS, oldSeeds, seeds));
@@ -557,7 +558,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				setNumTokens((Integer)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEEDS:
-				setSeeds((NodeCluster)newValue);
+				setSeeds((ProcessingNodeCluster)newValue);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				setSeedProviderClass((String)newValue);
@@ -603,7 +604,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				setNumTokens(NUM_TOKENS_EDEFAULT);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEEDS:
-				setSeeds((NodeCluster)null);
+				setSeeds((ProcessingNodeCluster)null);
 				return;
 			case PasysPackage.CASSANDRA_SERVICE__SEED_PROVIDER_CLASS:
 				setSeedProviderClass(SEED_PROVIDER_CLASS_EDEFAULT);

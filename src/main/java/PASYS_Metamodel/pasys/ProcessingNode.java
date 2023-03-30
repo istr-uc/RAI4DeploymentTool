@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConcurrencyLevel <em>Concurrency Level</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getMemorySize <em>Memory Size</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getSpeedFactor <em>Speed Factor</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getPropertyConfigData <em>Property Config Data</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConfigData <em>Config Data</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getUserName <em>User Name</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getConnectedTo <em>Connected To</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ProcessingNode#getLaunchingScripts <em>Launching Scripts</em>}</li>
@@ -46,7 +46,7 @@ public interface ProcessingNode extends PlatformResource {
 	 * @return the value of the '<em>Concurrency Level</em>' attribute.
 	 * @see #setConcurrencyLevel(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_ConcurrencyLevel()
-	 * @model default="1" required="true"
+	 * @model default="1"
 	 * @generated
 	 */
 	int getConcurrencyLevel();
@@ -108,32 +108,6 @@ public interface ProcessingNode extends PlatformResource {
 	 * @generated
 	 */
 	EList<DeploymentFileDescriptor> getConfigFiles();
-
-	/**
-	 * Returns the value of the '<em><b>Property Config Data</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property Config Data</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Config Data</em>' attribute.
-	 * @see #setPropertyConfigData(Properties)
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_PropertyConfigData()
-	 * @model dataType="PASYS_Metamodel.pasys.Properties"
-	 * @generated
-	 */
-	Properties getPropertyConfigData();
-
-	/**
-	 * Sets the value of the '{@link PASYS_Metamodel.pasys.ProcessingNode#getPropertyConfigData <em>Property Config Data</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Config Data</em>' attribute.
-	 * @see #getPropertyConfigData()
-	 * @generated
-	 */
-	void setPropertyConfigData(Properties value);
 
 	/**
 	 * Returns the value of the '<em><b>Owned Meters</b></em>' containment reference list.
@@ -238,7 +212,7 @@ public interface ProcessingNode extends PlatformResource {
 	 * @return the value of the '<em>Memory Size</em>' attribute.
 	 * @see #setMemorySize(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_MemorySize()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	int getMemorySize();
@@ -279,6 +253,28 @@ public interface ProcessingNode extends PlatformResource {
 	 * @generated
 	 */
 	void setSpeedFactor(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Data</em>' attribute.
+	 * @see #setConfigData(Properties)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getProcessingNode_ConfigData()
+	 * @model dataType="PASYS_Metamodel.pasys.Properties"
+	 * @generated
+	 */
+	Properties getConfigData();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.ProcessingNode#getConfigData <em>Config Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Config Data</em>' attribute.
+	 * @see #getConfigData()
+	 * @generated
+	 */
+	void setConfigData(Properties value);
 
 	/**
 	 * Returns the value of the '<em><b>Code Files</b></em>' reference list.

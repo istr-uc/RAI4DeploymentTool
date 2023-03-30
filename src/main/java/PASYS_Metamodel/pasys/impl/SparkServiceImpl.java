@@ -3,7 +3,7 @@
 package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.PasysPackage;
-import PASYS_Metamodel.pasys.ResourceCluster;
+import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SparkService;
 
@@ -138,7 +138,7 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceCluster master;
+	protected ProcessingResourceCluster master;
 
 	/**
 	 * The default value of the '{@link #getWindowSize() <em>Window Size</em>}' attribute.
@@ -437,10 +437,10 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 	 * @generated
 	 */
 	@Override
-	public ResourceCluster getMaster() {
+	public ProcessingResourceCluster getMaster() {
 		if (master != null && master.eIsProxy()) {
 			InternalEObject oldMaster = (InternalEObject)master;
-			master = (ResourceCluster)eResolveProxy(oldMaster);
+			master = (ProcessingResourceCluster)eResolveProxy(oldMaster);
 			if (master != oldMaster) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.SPARK_SERVICE__MASTER, oldMaster, master));
@@ -454,7 +454,7 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceCluster basicGetMaster() {
+	public ProcessingResourceCluster basicGetMaster() {
 		return master;
 	}
 
@@ -464,8 +464,8 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 	 * @generated
 	 */
 	@Override
-	public void setMaster(ResourceCluster newMaster) {
-		ResourceCluster oldMaster = master;
+	public void setMaster(ProcessingResourceCluster newMaster) {
+		ProcessingResourceCluster oldMaster = master;
 		master = newMaster;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.SPARK_SERVICE__MASTER, oldMaster, master));
@@ -696,7 +696,7 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 				setLocalDir((String)newValue);
 				return;
 			case PasysPackage.SPARK_SERVICE__MASTER:
-				setMaster((ResourceCluster)newValue);
+				setMaster((ProcessingResourceCluster)newValue);
 				return;
 			case PasysPackage.SPARK_SERVICE__WINDOW_SIZE:
 				setWindowSize((Integer)newValue);
@@ -747,7 +747,7 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 				setLocalDir(LOCAL_DIR_EDEFAULT);
 				return;
 			case PasysPackage.SPARK_SERVICE__MASTER:
-				setMaster((ResourceCluster)null);
+				setMaster((ProcessingResourceCluster)null);
 				return;
 			case PasysPackage.SPARK_SERVICE__WINDOW_SIZE:
 				setWindowSize(WINDOW_SIZE_EDEFAULT);

@@ -59,12 +59,12 @@ public interface CassandraService extends PersistenceService {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Seeds</em>' reference.
-	 * @see #setSeeds(NodeCluster)
+	 * @see #setSeeds(ProcessingNodeCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getCassandraService_Seeds()
 	 * @model
 	 * @generated
 	 */
-	NodeCluster getSeeds();
+	ProcessingNodeCluster getSeeds();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.CassandraService#getSeeds <em>Seeds</em>}' reference.
@@ -74,7 +74,7 @@ public interface CassandraService extends PersistenceService {
 	 * @see #getSeeds()
 	 * @generated
 	 */
-	void setSeeds(NodeCluster value);
+	void setSeeds(ProcessingNodeCluster value);
 
 	/**
 	 * Returns the value of the '<em><b>Seed Provider Class</b></em>' attribute.

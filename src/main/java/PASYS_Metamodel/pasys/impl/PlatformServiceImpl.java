@@ -5,10 +5,9 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeployableComponent;
 import PASYS_Metamodel.pasys.DeploymentConfiguration;
-import PASYS_Metamodel.pasys.NodeCluster;
-import PASYS_Metamodel.pasys.OrchestrationService;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PlatformService;
+import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,8 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#getDeploymentConfig <em>Deployment Config</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#getHost <em>Host</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#getOrchestrator <em>Orchestrator</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.PlatformServiceImpl#isManaged <em>Managed</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,37 +51,7 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected NodeCluster host;
-
-	/**
-	 * The cached value of the '{@link #getOrchestrator() <em>Orchestrator</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrchestrator()
-	 * @generated
-	 * @ordered
-	 */
-	protected OrchestrationService orchestrator;
-
-	/**
-	 * The default value of the '{@link #isManaged() <em>Managed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isManaged()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MANAGED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isManaged() <em>Managed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isManaged()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean managed = MANAGED_EDEFAULT;
+	protected ProcessingResourceCluster host;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,10 +123,10 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	 * @generated
 	 */
 	@Override
-	public NodeCluster getHost() {
+	public ProcessingResourceCluster getHost() {
 		if (host != null && host.eIsProxy()) {
 			InternalEObject oldHost = (InternalEObject)host;
-			host = (NodeCluster)eResolveProxy(oldHost);
+			host = (ProcessingResourceCluster)eResolveProxy(oldHost);
 			if (host != oldHost) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVICE__HOST, oldHost, host));
@@ -173,7 +140,7 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NodeCluster basicGetHost() {
+	public ProcessingResourceCluster basicGetHost() {
 		return host;
 	}
 
@@ -183,96 +150,11 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	 * @generated
 	 */
 	@Override
-	public void setHost(NodeCluster newHost) {
-		NodeCluster oldHost = host;
+	public void setHost(ProcessingResourceCluster newHost) {
+		ProcessingResourceCluster oldHost = host;
 		host = newHost;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVICE__HOST, oldHost, host));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public OrchestrationService getOrchestrator() {
-		if (orchestrator != null && orchestrator.eIsProxy()) {
-			InternalEObject oldOrchestrator = (InternalEObject)orchestrator;
-			orchestrator = (OrchestrationService)eResolveProxy(oldOrchestrator);
-			if (orchestrator != oldOrchestrator) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR, oldOrchestrator, orchestrator));
-			}
-		}
-		return orchestrator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OrchestrationService basicGetOrchestrator() {
-		return orchestrator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrchestrator(OrchestrationService newOrchestrator, NotificationChain msgs) {
-		OrchestrationService oldOrchestrator = orchestrator;
-		orchestrator = newOrchestrator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR, oldOrchestrator, newOrchestrator);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOrchestrator(OrchestrationService newOrchestrator) {
-		if (newOrchestrator != orchestrator) {
-			NotificationChain msgs = null;
-			if (orchestrator != null)
-				msgs = ((InternalEObject)orchestrator).eInverseRemove(this, PasysPackage.ORCHESTRATION_SERVICE__SERVICES, OrchestrationService.class, msgs);
-			if (newOrchestrator != null)
-				msgs = ((InternalEObject)newOrchestrator).eInverseAdd(this, PasysPackage.ORCHESTRATION_SERVICE__SERVICES, OrchestrationService.class, msgs);
-			msgs = basicSetOrchestrator(newOrchestrator, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR, newOrchestrator, newOrchestrator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isManaged() {
-		return managed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setManaged(boolean newManaged) {
-		boolean oldManaged = managed;
-		managed = newManaged;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PLATFORM_SERVICE__MANAGED, oldManaged, managed));
 	}
 
 	/**
@@ -285,8 +167,6 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 		switch (featureID) {
 			case PasysPackage.PLATFORM_SERVICE__DEPLOYMENT_CONFIG:
 				return basicSetDeploymentConfig(null, msgs);
-			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
-				return basicSetOrchestrator(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -304,11 +184,6 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 			case PasysPackage.PLATFORM_SERVICE__HOST:
 				if (resolve) return getHost();
 				return basicGetHost();
-			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
-				if (resolve) return getOrchestrator();
-				return basicGetOrchestrator();
-			case PasysPackage.PLATFORM_SERVICE__MANAGED:
-				return isManaged();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -325,13 +200,7 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 				setDeploymentConfig((DeploymentConfiguration)newValue);
 				return;
 			case PasysPackage.PLATFORM_SERVICE__HOST:
-				setHost((NodeCluster)newValue);
-				return;
-			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
-				setOrchestrator((OrchestrationService)newValue);
-				return;
-			case PasysPackage.PLATFORM_SERVICE__MANAGED:
-				setManaged((Boolean)newValue);
+				setHost((ProcessingResourceCluster)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -349,13 +218,7 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 				setDeploymentConfig((DeploymentConfiguration)null);
 				return;
 			case PasysPackage.PLATFORM_SERVICE__HOST:
-				setHost((NodeCluster)null);
-				return;
-			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
-				setOrchestrator((OrchestrationService)null);
-				return;
-			case PasysPackage.PLATFORM_SERVICE__MANAGED:
-				setManaged(MANAGED_EDEFAULT);
+				setHost((ProcessingResourceCluster)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -373,10 +236,6 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 				return deploymentConfig != null;
 			case PasysPackage.PLATFORM_SERVICE__HOST:
 				return host != null;
-			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
-				return orchestrator != null;
-			case PasysPackage.PLATFORM_SERVICE__MANAGED:
-				return managed != MANAGED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -453,41 +312,9 @@ public abstract class PlatformServiceImpl extends PlatformResourceImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (managed: ");
-		result.append(managed);
-		result.append(')');
-		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override 
 	public void configureDeployment() throws ConfigurationException {}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PasysPackage.PLATFORM_SERVICE__ORCHESTRATOR:
-				if (orchestrator != null)
-					msgs = ((InternalEObject)orchestrator).eInverseRemove(this, PasysPackage.ORCHESTRATION_SERVICE__SERVICES, OrchestrationService.class, msgs);
-				return basicSetOrchestrator((OrchestrationService)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
 	
 } //PlatformServiceImpl

@@ -12,6 +12,7 @@ import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeployableComponent;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.DeploymentConfiguration;
 import PASYS_Metamodel.pasys.DeploymentConstraints;
 import PASYS_Metamodel.pasys.DeploymentException;
@@ -25,8 +26,8 @@ import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
+import PASYS_Metamodel.pasys.KubernetesCluster;
 import PASYS_Metamodel.pasys.KubernetesPort;
-import PASYS_Metamodel.pasys.KubernetesService;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Meter;
@@ -36,13 +37,12 @@ import PASYS_Metamodel.pasys.NamedElement;
 import PASYS_Metamodel.pasys.Neo4JService;
 import PASYS_Metamodel.pasys.Network;
 import PASYS_Metamodel.pasys.NetworkUtilization;
-import PASYS_Metamodel.pasys.NodeCluster;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
-import PASYS_Metamodel.pasys.OrchestrationService;
-import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
+import PASYS_Metamodel.pasys.OrchestrationCluster;
+import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PersistenceService;
@@ -53,15 +53,17 @@ import PASYS_Metamodel.pasys.PlatformServiceDeploymentConf;
 import PASYS_Metamodel.pasys.Port;
 import PASYS_Metamodel.pasys.PortMode;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
+import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.Protocol;
 import PASYS_Metamodel.pasys.Rack;
-import PASYS_Metamodel.pasys.ResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
+import PASYS_Metamodel.pasys.SecurityService;
 import PASYS_Metamodel.pasys.SerializationService;
 import PASYS_Metamodel.pasys.SparkService;
 import PASYS_Metamodel.pasys.StormNimbus;
@@ -72,10 +74,9 @@ import PASYS_Metamodel.pasys.StreamData;
 import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
+import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SwarmService;
 import PASYS_Metamodel.pasys.SystemAdapter;
-import PASYS_Metamodel.pasys.SystemComponentType;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.SystemElementAdapter;
 import PASYS_Metamodel.pasys.SystemExternalElement;
@@ -93,7 +94,6 @@ import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
 import PASYS_Metamodel.pasys.WorkflowStreamData;
 import PASYS_Metamodel.pasys.WorkloadStreamData;
 import PASYS_Metamodel.pasys.ZookeeperService;
-import PASYS_Metamodel.pasys.util.PasysValidator;
 import java.lang.Exception;
 
 import java.util.Map;
@@ -106,8 +106,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -199,7 +197,35 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resourceClusterEClass = null;
+	private EClass processingResourceClusterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processingNodeClusterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orchestrationClusterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass kubernetesClusterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swarmClusterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,27 +240,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EClass platformServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass orchestrationServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass kubernetesServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass swarmServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -284,6 +289,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EClass schedulingServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -591,14 +603,14 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass orchestrationServiceDeploymentConfEClass = null;
+	private EClass orchestratorDeploymentConfEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass nodeClusterDeploymentConfEClass = null;
+	private EClass nodeDeploymentConfEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -703,13 +715,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass nodeClusterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass prometheusMeterEClass = null;
 
 	/**
@@ -724,13 +729,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum systemComponentTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum portModeEEnum = null;
 
 	/**
@@ -739,6 +737,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EEnum protocolEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum deployableComponentTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -813,16 +818,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		// Initialize created meta-data
 		thePasysPackage.initializePackageContents();
-
-		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(thePasysPackage,
-			 new EValidator.Descriptor() {
-				 @Override
-				 public EValidator getEValidator() {
-					 return PasysValidator.INSTANCE;
-				 }
-			 });
 
 		// Mark meta-data to indicate it can't be changed
 		thePasysPackage.freeze();
@@ -1178,16 +1173,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProcessingNode_PropertyConfigData() {
-		return (EAttribute)processingNodeEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getProcessingNode_OwnedMeters() {
 		return (EReference)processingNodeEClass.getEStructuralFeatures().get(11);
 	}
@@ -1240,6 +1225,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EAttribute getProcessingNode_SpeedFactor() {
 		return (EAttribute)processingNodeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProcessingNode_ConfigData() {
+		return (EAttribute)processingNodeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1428,8 +1423,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getResourceCluster() {
-		return resourceClusterEClass;
+	public EClass getProcessingResourceCluster() {
+		return processingResourceClusterEClass;
 	}
 
 	/**
@@ -1438,8 +1433,58 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getResourceCluster_Resources() {
-		return (EReference)resourceClusterEClass.getEStructuralFeatures().get(0);
+	public EClass getProcessingNodeCluster() {
+		return processingNodeClusterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProcessingNodeCluster_Nodes() {
+		return (EReference)processingNodeClusterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOrchestrationCluster() {
+		return orchestrationClusterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getKubernetesCluster() {
+		return kubernetesClusterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKubernetesCluster_ApiVersion() {
+		return (EAttribute)kubernetesClusterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSwarmCluster() {
+		return swarmClusterEClass;
 	}
 
 	/**
@@ -1480,76 +1525,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EReference getPlatformService_Host() {
 		return (EReference)platformServiceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPlatformService_Orchestrator() {
-		return (EReference)platformServiceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPlatformService_Managed() {
-		return (EAttribute)platformServiceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getOrchestrationService() {
-		return orchestrationServiceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getOrchestrationService_Services() {
-		return (EReference)orchestrationServiceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getKubernetesService() {
-		return kubernetesServiceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getKubernetesService_ApiVersion() {
-		return (EAttribute)kubernetesServiceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSwarmService() {
-		return swarmServiceEClass;
 	}
 
 	/**
@@ -1880,6 +1855,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EReference getSchedulingService_Workflows() {
 		return (EReference)schedulingServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSecurityService() {
+		return securityServiceEClass;
 	}
 
 	/**
@@ -3398,8 +3383,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getOrchestrationServiceDeploymentConf() {
-		return orchestrationServiceDeploymentConfEClass;
+	public EClass getOrchestratorDeploymentConf() {
+		return orchestratorDeploymentConfEClass;
 	}
 
 	/**
@@ -3408,8 +3393,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Image() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(0);
+	public EAttribute getOrchestratorDeploymentConf_Image() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3418,8 +3403,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_ImageTag() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(1);
+	public EAttribute getOrchestratorDeploymentConf_ImageTag() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3428,8 +3413,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Replicas() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(2);
+	public EAttribute getOrchestratorDeploymentConf_ImagePullPolicy() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3438,8 +3423,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Command() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(3);
+	public EAttribute getOrchestratorDeploymentConf_Replicas() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3448,8 +3433,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_Args() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(4);
+	public EAttribute getOrchestratorDeploymentConf_Command() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3458,8 +3443,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_RestartPolicy() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(5);
+	public EAttribute getOrchestratorDeploymentConf_Args() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3468,8 +3453,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOrchestrationServiceDeploymentConf_ImagePullPolicy() {
-		return (EAttribute)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(6);
+	public EAttribute getOrchestratorDeploymentConf_RestartPolicy() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3478,8 +3463,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Volumes() {
-		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(7);
+	public EAttribute getOrchestratorDeploymentConf_Env() {
+		return (EAttribute)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3488,8 +3473,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Ports() {
-		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(8);
+	public EReference getOrchestratorDeploymentConf_Volumes() {
+		return (EReference)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3498,8 +3483,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOrchestrationServiceDeploymentConf_Constraints() {
-		return (EReference)orchestrationServiceDeploymentConfEClass.getEStructuralFeatures().get(9);
+	public EReference getOrchestratorDeploymentConf_Ports() {
+		return (EReference)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -3508,8 +3493,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getNodeClusterDeploymentConf() {
-		return nodeClusterDeploymentConfEClass;
+	public EReference getOrchestratorDeploymentConf_Constraints() {
+		return (EReference)orchestratorDeploymentConfEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3518,8 +3503,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_ArtifactLocator() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(0);
+	public EClass getNodeDeploymentConf() {
+		return nodeDeploymentConfEClass;
 	}
 
 	/**
@@ -3528,8 +3513,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_ArtifactName() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(1);
+	public EAttribute getNodeDeploymentConf_Arguments() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3538,8 +3523,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_ConfigFolderPath() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(2);
+	public EAttribute getNodeDeploymentConf_ArtifactLocator() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3548,8 +3533,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_ScriptFolderPath() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(3);
+	public EAttribute getNodeDeploymentConf_ArtifactName() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3558,8 +3543,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_DataFolderPath() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(4);
+	public EAttribute getNodeDeploymentConf_ConfigFolderPath() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3568,8 +3553,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_LogFolderPath() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(5);
+	public EAttribute getNodeDeploymentConf_ScriptFolderPath() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3578,8 +3563,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_Arguments() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(6);
+	public EAttribute getNodeDeploymentConf_DataFolderPath() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3588,8 +3573,28 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNodeClusterDeploymentConf_IsRunning() {
-		return (EAttribute)nodeClusterDeploymentConfEClass.getEStructuralFeatures().get(7);
+	public EAttribute getNodeDeploymentConf_LogFolderPath() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNodeDeploymentConf_CodeFolderPath() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNodeDeploymentConf_IsRunning() {
+		return (EAttribute)nodeDeploymentConfEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3958,26 +3963,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getNodeCluster() {
-		return nodeClusterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNodeCluster__GetNodes() {
-		return nodeClusterEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPrometheusMeter() {
 		return prometheusMeterEClass;
 	}
@@ -4028,16 +4013,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EEnum getSystemComponentType() {
-		return systemComponentTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getPortMode() {
 		return portModeEEnum;
 	}
@@ -4050,6 +4025,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EEnum getProtocol() {
 		return protocolEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getDeployableComponentType() {
+		return deployableComponentTypeEEnum;
 	}
 
 	/**
@@ -4153,7 +4138,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(processingNodeEClass, PROCESSING_NODE__CONCURRENCY_LEVEL);
 		createEAttribute(processingNodeEClass, PROCESSING_NODE__MEMORY_SIZE);
 		createEAttribute(processingNodeEClass, PROCESSING_NODE__SPEED_FACTOR);
-		createEAttribute(processingNodeEClass, PROCESSING_NODE__PROPERTY_CONFIG_DATA);
+		createEAttribute(processingNodeEClass, PROCESSING_NODE__CONFIG_DATA);
 		createEAttribute(processingNodeEClass, PROCESSING_NODE__USER_NAME);
 		createEReference(processingNodeEClass, PROCESSING_NODE__CONNECTED_TO);
 		createEReference(processingNodeEClass, PROCESSING_NODE__LAUNCHING_SCRIPTS);
@@ -4181,33 +4166,44 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(awsVirtualProcessingNodeEClass, AWS_VIRTUAL_PROCESSING_NODE__AMI);
 		createEAttribute(awsVirtualProcessingNodeEClass, AWS_VIRTUAL_PROCESSING_NODE__INSTANCE_TYPE);
 
-		resourceClusterEClass = createEClass(RESOURCE_CLUSTER);
-		createEReference(resourceClusterEClass, RESOURCE_CLUSTER__RESOURCES);
+		processingResourceClusterEClass = createEClass(PROCESSING_RESOURCE_CLUSTER);
 
-		nodeClusterEClass = createEClass(NODE_CLUSTER);
-		createEOperation(nodeClusterEClass, NODE_CLUSTER___GET_NODES);
+		processingNodeClusterEClass = createEClass(PROCESSING_NODE_CLUSTER);
+		createEReference(processingNodeClusterEClass, PROCESSING_NODE_CLUSTER__NODES);
+
+		orchestrationClusterEClass = createEClass(ORCHESTRATION_CLUSTER);
+
+		kubernetesClusterEClass = createEClass(KUBERNETES_CLUSTER);
+		createEAttribute(kubernetesClusterEClass, KUBERNETES_CLUSTER__API_VERSION);
+
+		swarmClusterEClass = createEClass(SWARM_CLUSTER);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__BANDWITH);
 
 		platformServiceEClass = createEClass(PLATFORM_SERVICE);
 		createEReference(platformServiceEClass, PLATFORM_SERVICE__HOST);
-		createEReference(platformServiceEClass, PLATFORM_SERVICE__ORCHESTRATOR);
-		createEAttribute(platformServiceEClass, PLATFORM_SERVICE__MANAGED);
-
-		orchestrationServiceEClass = createEClass(ORCHESTRATION_SERVICE);
-		createEReference(orchestrationServiceEClass, ORCHESTRATION_SERVICE__SERVICES);
-
-		kubernetesServiceEClass = createEClass(KUBERNETES_SERVICE);
-		createEAttribute(kubernetesServiceEClass, KUBERNETES_SERVICE__API_VERSION);
-
-		swarmServiceEClass = createEClass(SWARM_SERVICE);
 
 		serializationServiceEClass = createEClass(SERIALIZATION_SERVICE);
 
-		avroServiceEClass = createEClass(AVRO_SERVICE);
-
 		distributionServiceEClass = createEClass(DISTRIBUTION_SERVICE);
+
+		communicationServiceEClass = createEClass(COMMUNICATION_SERVICE);
+
+		schedulingServiceEClass = createEClass(SCHEDULING_SERVICE);
+		createEReference(schedulingServiceEClass, SCHEDULING_SERVICE__WORKFLOWS);
+
+		securityServiceEClass = createEClass(SECURITY_SERVICE);
+
+		persistenceServiceEClass = createEClass(PERSISTENCE_SERVICE);
+		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__LOGGING);
+		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__PASSWD);
+		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__PORT);
+
+		monitoringServiceEClass = createEClass(MONITORING_SERVICE);
+		createEReference(monitoringServiceEClass, MONITORING_SERVICE__MONITORIZED_METERS);
+
+		avroServiceEClass = createEClass(AVRO_SERVICE);
 
 		zookeeperServiceEClass = createEClass(ZOOKEEPER_SERVICE);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__SERVER_ID);
@@ -4218,8 +4214,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__LEADER_PORT);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__INIT_LIMIT);
 		createEAttribute(zookeeperServiceEClass, ZOOKEEPER_SERVICE__SYNC_LIMIT);
-
-		communicationServiceEClass = createEClass(COMMUNICATION_SERVICE);
 
 		kafkaServiceEClass = createEClass(KAFKA_SERVICE);
 		createEAttribute(kafkaServiceEClass, KAFKA_SERVICE__COMM_ID);
@@ -4239,9 +4233,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(kafkaServiceEClass, KAFKA_SERVICE__SOCKET_SEND_BUFFER_BYTES);
 		createEAttribute(kafkaServiceEClass, KAFKA_SERVICE__SOCKET_RECEIVE_BUFFER_BYTES);
 		createEAttribute(kafkaServiceEClass, KAFKA_SERVICE__SOCKET_REQUEST_MAX_BYTES);
-
-		schedulingServiceEClass = createEClass(SCHEDULING_SERVICE);
-		createEReference(schedulingServiceEClass, SCHEDULING_SERVICE__WORKFLOWS);
 
 		nodeSchedulerEClass = createEClass(NODE_SCHEDULER);
 
@@ -4281,10 +4272,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEReference(stormSupervisorEClass, STORM_SUPERVISOR__OWNER);
 		createEReference(stormSupervisorEClass, STORM_SUPERVISOR__HOST);
 
-		persistenceServiceEClass = createEClass(PERSISTENCE_SERVICE);
-		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__LOGGING);
-		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__PASSWD);
-		createEAttribute(persistenceServiceEClass, PERSISTENCE_SERVICE__PORT);
+		neo4JServiceEClass = createEClass(NEO4_JSERVICE);
 
 		memSQLServiceEClass = createEClass(MEM_SQL_SERVICE);
 
@@ -4306,11 +4294,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		rackEClass = createEClass(RACK);
 		createEReference(rackEClass, RACK__NODES);
-
-		neo4JServiceEClass = createEClass(NEO4_JSERVICE);
-
-		monitoringServiceEClass = createEClass(MONITORING_SERVICE);
-		createEReference(monitoringServiceEClass, MONITORING_SERVICE__MONITORIZED_METERS);
 
 		prometheusServiceEClass = createEClass(PROMETHEUS_SERVICE);
 		createEReference(prometheusServiceEClass, PROMETHEUS_SERVICE__EXPORTERS_DATA);
@@ -4446,27 +4429,29 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		platformServiceDeploymentConfEClass = createEClass(PLATFORM_SERVICE_DEPLOYMENT_CONF);
 
-		orchestrationServiceDeploymentConfEClass = createEClass(ORCHESTRATION_SERVICE_DEPLOYMENT_CONF);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_TAG);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__REPLICAS);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__COMMAND);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__ARGS);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__RESTART_POLICY);
-		createEAttribute(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__IMAGE_PULL_POLICY);
-		createEReference(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__VOLUMES);
-		createEReference(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__PORTS);
-		createEReference(orchestrationServiceDeploymentConfEClass, ORCHESTRATION_SERVICE_DEPLOYMENT_CONF__CONSTRAINTS);
+		orchestratorDeploymentConfEClass = createEClass(ORCHESTRATOR_DEPLOYMENT_CONF);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE_TAG);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__IMAGE_PULL_POLICY);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__REPLICAS);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__COMMAND);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__ARGS);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__RESTART_POLICY);
+		createEAttribute(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__ENV);
+		createEReference(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__VOLUMES);
+		createEReference(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__PORTS);
+		createEReference(orchestratorDeploymentConfEClass, ORCHESTRATOR_DEPLOYMENT_CONF__CONSTRAINTS);
 
-		nodeClusterDeploymentConfEClass = createEClass(NODE_CLUSTER_DEPLOYMENT_CONF);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_LOCATOR);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__ARTIFACT_NAME);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__CONFIG_FOLDER_PATH);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__SCRIPT_FOLDER_PATH);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__DATA_FOLDER_PATH);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__LOG_FOLDER_PATH);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__ARGUMENTS);
-		createEAttribute(nodeClusterDeploymentConfEClass, NODE_CLUSTER_DEPLOYMENT_CONF__IS_RUNNING);
+		nodeDeploymentConfEClass = createEClass(NODE_DEPLOYMENT_CONF);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__ARGUMENTS);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__ARTIFACT_LOCATOR);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__ARTIFACT_NAME);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__CONFIG_FOLDER_PATH);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__SCRIPT_FOLDER_PATH);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__DATA_FOLDER_PATH);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__LOG_FOLDER_PATH);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__CODE_FOLDER_PATH);
+		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__IS_RUNNING);
 
 		volumeEClass = createEClass(VOLUME);
 		createEAttribute(volumeEClass, VOLUME__SOURCE);
@@ -4520,7 +4505,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		volumeAccessModeEEnum = createEEnum(VOLUME_ACCESS_MODE);
 		portModeEEnum = createEEnum(PORT_MODE);
 		protocolEEnum = createEEnum(PROTOCOL);
-		systemComponentTypeEEnum = createEEnum(SYSTEM_COMPONENT_TYPE);
+		deployableComponentTypeEEnum = createEEnum(DEPLOYABLE_COMPONENT_TYPE);
 
 		// Create data types
 		propertiesEDataType = createEDataType(PROPERTIES);
@@ -4561,21 +4546,24 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		physicalProcessingNodeEClass.getESuperTypes().add(this.getProcessingNode());
 		virtualProcessingNodeEClass.getESuperTypes().add(this.getProcessingNode());
 		awsVirtualProcessingNodeEClass.getESuperTypes().add(this.getVirtualProcessingNode());
-		resourceClusterEClass.getESuperTypes().add(this.getPlatformResource());
-		nodeClusterEClass.getESuperTypes().add(this.getResourceCluster());
+		processingResourceClusterEClass.getESuperTypes().add(this.getPlatformResource());
+		processingNodeClusterEClass.getESuperTypes().add(this.getProcessingResourceCluster());
+		orchestrationClusterEClass.getESuperTypes().add(this.getProcessingResourceCluster());
+		kubernetesClusterEClass.getESuperTypes().add(this.getOrchestrationCluster());
+		swarmClusterEClass.getESuperTypes().add(this.getOrchestrationCluster());
 		networkEClass.getESuperTypes().add(this.getPlatformResource());
 		platformServiceEClass.getESuperTypes().add(this.getPlatformResource());
 		platformServiceEClass.getESuperTypes().add(this.getDeployableComponent());
-		orchestrationServiceEClass.getESuperTypes().add(this.getPlatformService());
-		kubernetesServiceEClass.getESuperTypes().add(this.getOrchestrationService());
-		swarmServiceEClass.getESuperTypes().add(this.getOrchestrationService());
 		serializationServiceEClass.getESuperTypes().add(this.getPlatformService());
-		avroServiceEClass.getESuperTypes().add(this.getSerializationService());
 		distributionServiceEClass.getESuperTypes().add(this.getPlatformService());
-		zookeeperServiceEClass.getESuperTypes().add(this.getDistributionService());
 		communicationServiceEClass.getESuperTypes().add(this.getPlatformService());
-		kafkaServiceEClass.getESuperTypes().add(this.getCommunicationService());
 		schedulingServiceEClass.getESuperTypes().add(this.getPlatformService());
+		securityServiceEClass.getESuperTypes().add(this.getPlatformService());
+		persistenceServiceEClass.getESuperTypes().add(this.getPlatformService());
+		monitoringServiceEClass.getESuperTypes().add(this.getPlatformService());
+		avroServiceEClass.getESuperTypes().add(this.getSerializationService());
+		zookeeperServiceEClass.getESuperTypes().add(this.getDistributionService());
+		kafkaServiceEClass.getESuperTypes().add(this.getCommunicationService());
 		nodeSchedulerEClass.getESuperTypes().add(this.getSchedulingService());
 		sparkServiceEClass.getESuperTypes().add(this.getSchedulingService());
 		stormServiceEClass.getESuperTypes().add(this.getSchedulingService());
@@ -4585,13 +4573,11 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		stormNimbusEClass.getESuperTypes().add(this.getNamedElement());
 		stormSupervisorEClass.getESuperTypes().add(this.getDeployableComponent());
 		stormSupervisorEClass.getESuperTypes().add(this.getNamedElement());
-		persistenceServiceEClass.getESuperTypes().add(this.getPlatformService());
+		neo4JServiceEClass.getESuperTypes().add(this.getPersistenceService());
 		memSQLServiceEClass.getESuperTypes().add(this.getPersistenceService());
 		cassandraServiceEClass.getESuperTypes().add(this.getPersistenceService());
 		dataCenterEClass.getESuperTypes().add(this.getNamedElement());
 		rackEClass.getESuperTypes().add(this.getNamedElement());
-		neo4JServiceEClass.getESuperTypes().add(this.getPersistenceService());
-		monitoringServiceEClass.getESuperTypes().add(this.getPlatformService());
 		prometheusServiceEClass.getESuperTypes().add(this.getMonitoringService());
 		streamDataEClass.getESuperTypes().add(this.getDeployableComponent());
 		workflowStreamDataEClass.getESuperTypes().add(this.getNamedElement());
@@ -4625,8 +4611,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		workflowLatencyMeterEClass.getESuperTypes().add(this.getPrometheusMeter());
 		taskProcessingAmountMeterEClass.getESuperTypes().add(this.getPrometheusMeter());
 		platformServiceDeploymentConfEClass.getESuperTypes().add(this.getDeploymentConfiguration());
-		orchestrationServiceDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
-		nodeClusterDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
+		orchestratorDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
+		nodeDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
 		swarmPortEClass.getESuperTypes().add(this.getPort());
 		kubernetesPortEClass.getESuperTypes().add(this.getPort());
 		configurationExceptionEClass.getESuperTypes().add(this.getException());
@@ -4677,10 +4663,10 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(processingNodeEClass, ProcessingNode.class, "ProcessingNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessingNode_Ip(), ecorePackage.getEString(), "ip", null, 1, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessingNode_Os(), ecorePackage.getEString(), "os", null, 0, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProcessingNode_ConcurrencyLevel(), ecorePackage.getEInt(), "concurrencyLevel", "1", 1, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProcessingNode_MemorySize(), ecorePackage.getEInt(), "memorySize", null, 1, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProcessingNode_ConcurrencyLevel(), ecorePackage.getEInt(), "concurrencyLevel", "1", 0, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProcessingNode_MemorySize(), ecorePackage.getEInt(), "memorySize", null, 0, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessingNode_SpeedFactor(), ecorePackage.getEDouble(), "speedFactor", "1.0", 1, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProcessingNode_PropertyConfigData(), this.getProperties(), "propertyConfigData", null, 0, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProcessingNode_ConfigData(), this.getProperties(), "configData", null, 0, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessingNode_UserName(), ecorePackage.getEString(), "userName", null, 1, 1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingNode_ConnectedTo(), this.getNetwork(), null, "connectedTo", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingNode_LaunchingScripts(), this.getDeploymentFileDescriptor(), null, "launchingScripts", null, 0, -1, ProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4720,34 +4706,44 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getAWSVirtualProcessingNode_AMI(), ecorePackage.getEString(), "AMI", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAWSVirtualProcessingNode_InstanceType(), ecorePackage.getEString(), "instanceType", null, 0, 1, AWSVirtualProcessingNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceClusterEClass, ResourceCluster.class, "ResourceCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceCluster_Resources(), this.getPlatformResource(), null, "resources", null, 1, -1, ResourceCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(processingResourceClusterEClass, ProcessingResourceCluster.class, "ProcessingResourceCluster", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(nodeClusterEClass, NodeCluster.class, "NodeCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(processingNodeClusterEClass, ProcessingNodeCluster.class, "ProcessingNodeCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProcessingNodeCluster_Nodes(), this.getProcessingNode(), null, "nodes", null, 1, -1, ProcessingNodeCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getNodeCluster__GetNodes(), this.getProcessingNode(), "getNodes", 1, -1, IS_UNIQUE, IS_ORDERED);
+		initEClass(orchestrationClusterEClass, OrchestrationCluster.class, "OrchestrationCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(kubernetesClusterEClass, KubernetesCluster.class, "KubernetesCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKubernetesCluster_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, KubernetesCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(swarmClusterEClass, SwarmCluster.class, "SwarmCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 1, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformServiceEClass, PlatformService.class, "PlatformService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlatformService_Host(), this.getNodeCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlatformService_Orchestrator(), this.getOrchestrationService(), this.getOrchestrationService_Services(), "orchestrator", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlatformService_Managed(), ecorePackage.getEBoolean(), "managed", "false", 1, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(orchestrationServiceEClass, OrchestrationService.class, "OrchestrationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOrchestrationService_Services(), this.getPlatformService(), this.getPlatformService_Orchestrator(), "services", null, 0, -1, OrchestrationService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(kubernetesServiceEClass, KubernetesService.class, "KubernetesService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getKubernetesService_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, KubernetesService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(swarmServiceEClass, SwarmService.class, "SwarmService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPlatformService_Host(), this.getProcessingResourceCluster(), null, "host", null, 0, 1, PlatformService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serializationServiceEClass, SerializationService.class, "SerializationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(avroServiceEClass, AVROService.class, "AVROService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(distributionServiceEClass, DistributionService.class, "DistributionService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(communicationServiceEClass, CommunicationService.class, "CommunicationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(schedulingServiceEClass, SchedulingService.class, "SchedulingService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchedulingService_Workflows(), this.getWorkflow(), this.getWorkflow_Scheduler(), "workflows", null, 0, -1, SchedulingService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityServiceEClass, SecurityService.class, "SecurityService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(persistenceServiceEClass, PersistenceService.class, "PersistenceService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPersistenceService_Logging(), ecorePackage.getEString(), "logging", null, 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceService_Passwd(), ecorePackage.getEString(), "passwd", null, 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceService_Port(), ecorePackage.getEInt(), "port", "9098", 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(monitoringServiceEClass, MonitoringService.class, "MonitoringService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMonitoringService_MonitorizedMeters(), this.getMeter(), this.getMeter_MonitoringServer(), "monitorizedMeters", null, 0, -1, MonitoringService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(avroServiceEClass, AVROService.class, "AVROService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(zookeeperServiceEClass, ZookeeperService.class, "ZookeeperService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getZookeeperService_ServerId(), ecorePackage.getEInt(), "serverId", null, 1, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4759,18 +4755,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getZookeeperService_InitLimit(), ecorePackage.getEInt(), "initLimit", "5", 1, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getZookeeperService_SyncLimit(), ecorePackage.getEInt(), "syncLimit", "3", 1, 1, ZookeeperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(communicationServiceEClass, CommunicationService.class, "CommunicationService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(kafkaServiceEClass, KafkaService.class, "KafkaService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKafkaService_CommId(), ecorePackage.getEInt(), "commId", null, 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getKafkaService_ClientPort(), ecorePackage.getEInt(), "clientPort", null, 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKafkaService_ClientPort(), ecorePackage.getEInt(), "clientPort", "9092", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getKafkaService_ZookeeperConnect(), this.getZookeeperService(), null, "zookeeperConnect", null, 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_ZookeeperConnectionTimeout(), ecorePackage.getEInt(), "zookeeperConnectionTimeout", "6000", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_Listeners(), ecorePackage.getEString(), "listeners", "\u201dPLAINTEXT\u201d", 0, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_AdvertisedListeners(), ecorePackage.getEString(), "advertisedListeners", "PLAINTEXT", 0, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_AutoCreateTopicEnable(), ecorePackage.getEBoolean(), "autoCreateTopicEnable", "false", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_DeleteTopicEnable(), ecorePackage.getEBoolean(), "deleteTopicEnable", "false", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getKafkaService_NumPartitions(), ecorePackage.getEInt(), "numPartitions", "1", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKafkaService_NumPartitions(), ecorePackage.getEInt(), "numPartitions", "4", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_NumRecoveryThreadsPerDataDir(), ecorePackage.getEInt(), "numRecoveryThreadsPerDataDir", "1", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_LogFlushIntervalMessages(), ecorePackage.getEInt(), "logFlushIntervalMessages", "10000", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_LogFlushInterval(), ecorePackage.getEInt(), "logFlushInterval", "1000", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4780,9 +4774,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getKafkaService_SocketReceiveBufferBytes(), ecorePackage.getEInt(), "socketReceiveBufferBytes", "102400", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKafkaService_SocketRequestMaxBytes(), ecorePackage.getEInt(), "socketRequestMaxBytes", "104857600", 1, 1, KafkaService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(schedulingServiceEClass, SchedulingService.class, "SchedulingService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSchedulingService_Workflows(), this.getWorkflow(), this.getWorkflow_Scheduler(), "workflows", null, 0, -1, SchedulingService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(nodeSchedulerEClass, NodeScheduler.class, "NodeScheduler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sparkServiceEClass, SparkService.class, "SparkService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4791,7 +4782,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getSparkService_DriverMaxResultSize(), ecorePackage.getEString(), "driverMaxResultSize", "1g", 0, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSparkService_DriverMemory(), ecorePackage.getELong(), "driverMemory", "1000000000", 1, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSparkService_LocalDir(), ecorePackage.getEString(), "localDir", "/home/apache/spark/localDir", 0, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSparkService_Master(), this.getResourceCluster(), null, "master", null, 1, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSparkService_Master(), this.getProcessingResourceCluster(), null, "master", null, 1, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSparkService_WindowSize(), ecorePackage.getEInt(), "windowSize", null, 1, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSparkService_ExecutorMemory(), ecorePackage.getELong(), "executorMemory", "1000000000", 1, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSparkService_ExtraListener(), ecorePackage.getEString(), "extraListener", null, 0, 1, SparkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4810,27 +4801,24 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(stormUIEClass, StormUI.class, "StormUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStormUI_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 1, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormUI_Owner(), this.getStormService(), this.getStormService_Ui(), "owner", null, 1, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormUI_Host(), this.getNodeCluster(), null, "host", null, 0, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormUI_Host(), this.getProcessingNodeCluster(), null, "host", null, 0, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stormNimbusEClass, StormNimbus.class, "StormNimbus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStormNimbus_Owner(), this.getStormService(), this.getStormService_Nimbus(), "owner", null, 1, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormNimbus_Host(), this.getNodeCluster(), null, "host", null, 0, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormNimbus_Host(), this.getProcessingNodeCluster(), null, "host", null, 0, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stormSupervisorEClass, StormSupervisor.class, "StormSupervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStormSupervisor_SupervisorSlotPorts(), ecorePackage.getEInt(), "supervisorSlotPorts", null, 0, -1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStormSupervisor_SupervisorSlotPorts(), ecorePackage.getEString(), "supervisorSlotPorts", null, 0, -1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormSupervisor_Owner(), this.getStormService(), this.getStormService_Supervisor(), "owner", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormSupervisor_Host(), this.getNodeCluster(), null, "host", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormSupervisor_Host(), this.getProcessingNodeCluster(), null, "host", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(persistenceServiceEClass, PersistenceService.class, "PersistenceService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPersistenceService_Logging(), ecorePackage.getEString(), "logging", null, 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPersistenceService_Passwd(), ecorePackage.getEString(), "passwd", null, 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPersistenceService_Port(), ecorePackage.getEInt(), "port", "9098", 1, 1, PersistenceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(neo4JServiceEClass, Neo4JService.class, "Neo4JService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(memSQLServiceEClass, MemSQLService.class, "MemSQLService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cassandraServiceEClass, CassandraService.class, "CassandraService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCassandraService_NumTokens(), ecorePackage.getEInt(), "numTokens", "256", 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCassandraService_Seeds(), this.getNodeCluster(), null, "seeds", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCassandraService_Seeds(), this.getProcessingNodeCluster(), null, "seeds", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_SeedProviderClass(), ecorePackage.getEString(), "seedProviderClass", null, 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_EndpointSnitch(), ecorePackage.getEString(), "endpointSnitch", "SimpleSnitch", 0, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCassandraService_DataFileDir(), ecorePackage.getEString(), "dataFileDir", null, 1, 1, CassandraService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4845,12 +4833,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEReference(getDataCenter_Racks(), this.getRack(), null, "racks", null, 1, -1, DataCenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rackEClass, Rack.class, "Rack", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRack_Nodes(), this.getNodeCluster(), null, "nodes", null, 1, 1, Rack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(neo4JServiceEClass, Neo4JService.class, "Neo4JService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(monitoringServiceEClass, MonitoringService.class, "MonitoringService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMonitoringService_MonitorizedMeters(), this.getMeter(), this.getMeter_MonitoringServer(), "monitorizedMeters", null, 0, -1, MonitoringService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRack_Nodes(), this.getProcessingNodeCluster(), null, "nodes", null, 1, 1, Rack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prometheusServiceEClass, PrometheusService.class, "PrometheusService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrometheusService_ExportersData(), this.getExporterData(), null, "exportersData", null, 0, -1, PrometheusService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4989,27 +4972,29 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(platformServiceDeploymentConfEClass, PlatformServiceDeploymentConf.class, "PlatformServiceDeploymentConf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(orchestrationServiceDeploymentConfEClass, OrchestrationServiceDeploymentConf.class, "OrchestrationServiceDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOrchestrationServiceDeploymentConf_Image(), ecorePackage.getEString(), "image", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrchestrationServiceDeploymentConf_ImageTag(), ecorePackage.getEString(), "imageTag", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrchestrationServiceDeploymentConf_Replicas(), ecorePackage.getEInt(), "replicas", null, 1, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrchestrationServiceDeploymentConf_Command(), ecorePackage.getEString(), "command", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrchestrationServiceDeploymentConf_Args(), ecorePackage.getEString(), "args", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrchestrationServiceDeploymentConf_RestartPolicy(), ecorePackage.getEString(), "restartPolicy", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrchestrationServiceDeploymentConf_ImagePullPolicy(), ecorePackage.getEString(), "imagePullPolicy", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Ports(), this.getPort(), null, "ports", null, 0, -1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrchestrationServiceDeploymentConf_Constraints(), this.getDeploymentConstraints(), null, "constraints", null, 0, 1, OrchestrationServiceDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(orchestratorDeploymentConfEClass, OrchestratorDeploymentConf.class, "OrchestratorDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOrchestratorDeploymentConf_Image(), ecorePackage.getEString(), "image", null, 1, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_ImageTag(), ecorePackage.getEString(), "imageTag", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_ImagePullPolicy(), ecorePackage.getEString(), "imagePullPolicy", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_Replicas(), ecorePackage.getEInt(), "replicas", "1", 1, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_Command(), ecorePackage.getEString(), "command", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_Args(), ecorePackage.getEString(), "args", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_RestartPolicy(), ecorePackage.getEString(), "restartPolicy", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrchestratorDeploymentConf_Env(), this.getProperties(), "env", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestratorDeploymentConf_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestratorDeploymentConf_Ports(), this.getPort(), null, "ports", null, 0, -1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrchestratorDeploymentConf_Constraints(), this.getDeploymentConstraints(), null, "constraints", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(nodeClusterDeploymentConfEClass, NodeClusterDeploymentConf.class, "NodeClusterDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNodeClusterDeploymentConf_ArtifactLocator(), ecorePackage.getEString(), "artifactLocator", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_ArtifactName(), ecorePackage.getEString(), "artifactName", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_ConfigFolderPath(), ecorePackage.getEString(), "configFolderPath", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_ScriptFolderPath(), ecorePackage.getEString(), "scriptFolderPath", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_DataFolderPath(), ecorePackage.getEString(), "dataFolderPath", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_LogFolderPath(), ecorePackage.getEString(), "logFolderPath", null, 0, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNodeClusterDeploymentConf_IsRunning(), ecorePackage.getEBoolean(), "isRunning", null, 1, 1, NodeClusterDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(nodeDeploymentConfEClass, NodeDeploymentConf.class, "NodeDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNodeDeploymentConf_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_ArtifactLocator(), ecorePackage.getEString(), "artifactLocator", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_ArtifactName(), ecorePackage.getEString(), "artifactName", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_ConfigFolderPath(), ecorePackage.getEString(), "configFolderPath", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_ScriptFolderPath(), ecorePackage.getEString(), "scriptFolderPath", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_DataFolderPath(), ecorePackage.getEString(), "dataFolderPath", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_LogFolderPath(), ecorePackage.getEString(), "logFolderPath", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_CodeFolderPath(), ecorePackage.getEString(), "codeFolderPath", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeDeploymentConf_IsRunning(), ecorePackage.getEBoolean(), "isRunning", null, 1, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(volumeEClass, Volume.class, "Volume", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVolume_Source(), ecorePackage.getEString(), "source", null, 1, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5051,7 +5036,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(deploymentFileDescriptorEClass, DeploymentFileDescriptor.class, "DeploymentFileDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploymentFileDescriptor_FileContent(), ecorePackage.getEString(), "fileContent", null, 1, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDeploymentFileDescriptor_ElementType(), this.getSystemComponentType(), "elementType", null, 0, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeploymentFileDescriptor_ElementType(), this.getDeployableComponentType(), "elementType", null, 0, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeploymentFileDescriptor_Owner(), this.getProcessingNode(), null, "owner", null, 0, 1, DeploymentFileDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactDescriptorEClass, ArtifactDescriptor.class, "ArtifactDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5088,25 +5073,25 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		addEEnumLiteral(protocolEEnum, Protocol.TCP);
 		addEEnumLiteral(protocolEEnum, Protocol.UDP);
 
-		initEEnum(systemComponentTypeEEnum, SystemComponentType.class, "SystemComponentType");
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.PROMETHEUS_SERVER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.ZOOKEEPER_SERVER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.KAFKA_SERVER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.CASSANDRA_SERVER_SEED);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.CASSANDRA_SERVER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.STORM_NIMBUS);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.STORM_SUPERVISOR);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.STORM_UI);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.SPARK_SERVER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.KAFKA_WORKLOAD_STREAM);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.KAFKA_FLOW_STREAM);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.AVRO_SERVER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.NODE_RESOURCE_METER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_EXECUTOR);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.TASK_AMOUNT_METER);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.DOCKER_STACK);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.CASSANDRA_SCHEMA);
-		addEEnumLiteral(systemComponentTypeEEnum, SystemComponentType.WORKFLOW);
+		initEEnum(deployableComponentTypeEEnum, DeployableComponentType.class, "DeployableComponentType");
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.PROMETHEUS_SERVICE);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.ZOOKEEPER_SERVICE);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.KAFKA_SERVICE);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.CASSANDRA_SERVICE_SEED);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.CASSANDRA_SERVICE);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.STORM_NIMBUS);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.STORM_SUPERVISOR);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.STORM_UI);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.SPARK_SERVICE);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.KAFKA_WORKLOAD_STREAM);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.KAFKA_FLOW_STREAM);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.AVRO_SERVICE);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.NODE_RESOURCE_METER);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.TASK_EXECUTOR);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.TASK_AMOUNT_METER);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.DOCKER_STACK);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.CASSANDRA_SCHEMA);
+		addEEnumLiteral(deployableComponentTypeEEnum, DeployableComponentType.WORKFLOW);
 
 		// Initialize data types
 		initEDataType(propertiesEDataType, Properties.class, "Properties", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -5117,8 +5102,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-		createPivotAnnotations();
 	}
 
 	/**
@@ -5136,40 +5119,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });
-		addAnnotation
-		  (nodeClusterEClass,
-		   source,
-		   new String[] {
-			   "constraints", "allNodes"
-		   });
-		addAnnotation
-		  (platformServiceEClass,
-		   source,
-		   new String[] {
-			   "constraints", "hostOrOrchestrator"
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-		addAnnotation
-		  (nodeClusterEClass,
-		   source,
-		   new String[] {
-			   "allNodes", "resources->forAll(r|r.oclIsKindOf(ProcessingNode))"
-		   });
-		addAnnotation
-		  (platformServiceEClass,
-		   source,
-		   new String[] {
-			   "hostOrOrchestrator", "if managed then \n\t\t\t\thost=null and orchestrator = null\n\t\t\telse\n\t\t\t\thost<>null xor orchestrator<>null\n\t\t\tendif"
 		   });
 	}
 

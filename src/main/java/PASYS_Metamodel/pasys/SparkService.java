@@ -151,12 +151,12 @@ public interface SparkService extends SchedulingService {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Master</em>' reference.
-	 * @see #setMaster(ResourceCluster)
+	 * @see #setMaster(ProcessingResourceCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getSparkService_Master()
 	 * @model required="true"
 	 * @generated
 	 */
-	ResourceCluster getMaster();
+	ProcessingResourceCluster getMaster();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.SparkService#getMaster <em>Master</em>}' reference.
@@ -166,7 +166,7 @@ public interface SparkService extends SchedulingService {
 	 * @see #getMaster()
 	 * @generated
 	 */
-	void setMaster(ResourceCluster value);
+	void setMaster(ProcessingResourceCluster value);
 
 	/**
 	 * Returns the value of the '<em><b>Window Size</b></em>' attribute.

@@ -49,7 +49,7 @@ public interface DeploymentFileDescriptor extends FileDescriptor {
 
 	/**
 	 * Returns the value of the '<em><b>Element Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link PASYS_Metamodel.pasys.SystemComponentType}.
+	 * The literals are from the enumeration {@link PASYS_Metamodel.pasys.DeployableComponentType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Element Type</em>' attribute isn't clear,
@@ -57,24 +57,24 @@ public interface DeploymentFileDescriptor extends FileDescriptor {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element Type</em>' attribute.
-	 * @see PASYS_Metamodel.pasys.SystemComponentType
-	 * @see #setElementType(SystemComponentType)
+	 * @see PASYS_Metamodel.pasys.DeployableComponentType
+	 * @see #setElementType(DeployableComponentType)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getDeploymentFileDescriptor_ElementType()
 	 * @model
 	 * @generated
 	 */
-	SystemComponentType getElementType();
+	DeployableComponentType getElementType();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.DeploymentFileDescriptor#getElementType <em>Element Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Element Type</em>' attribute.
-	 * @see PASYS_Metamodel.pasys.SystemComponentType
+	 * @see PASYS_Metamodel.pasys.DeployableComponentType
 	 * @see #getElementType()
 	 * @generated
 	 */
-	void setElementType(SystemComponentType value);
+	void setElementType(DeployableComponentType value);
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' reference.

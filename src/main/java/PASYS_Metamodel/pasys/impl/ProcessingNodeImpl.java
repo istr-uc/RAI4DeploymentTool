@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConcurrencyLevel <em>Concurrency Level</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getMemorySize <em>Memory Size</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getSpeedFactor <em>Speed Factor</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getPropertyConfigData <em>Property Config Data</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConfigData <em>Config Data</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getUserName <em>User Name</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getConnectedTo <em>Connected To</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ProcessingNodeImpl#getLaunchingScripts <em>Launching Scripts</em>}</li>
@@ -149,26 +149,24 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	protected double speedFactor = SPEED_FACTOR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPropertyConfigData() <em>Property
-	 * Config Data</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getPropertyConfigData()
+	 * The default value of the '{@link #getConfigData() <em>Config Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigData()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Properties PROPERTY_CONFIG_DATA_EDEFAULT = null;
+	protected static final Properties CONFIG_DATA_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPropertyConfigData() <em>Property
-	 * Config Data</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getPropertyConfigData()
+	 * The cached value of the '{@link #getConfigData() <em>Config Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigData()
 	 * @generated
 	 * @ordered
 	 */
-	protected Properties propertyConfigData = PROPERTY_CONFIG_DATA_EDEFAULT;
+	protected Properties configData = CONFIG_DATA_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUserName() <em>User Name</em>}' attribute.
@@ -314,27 +312,6 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	 * @generated
 	 */
 	@Override
-	public Properties getPropertyConfigData() {
-		return propertyConfigData;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPropertyConfigData(Properties newPropertyConfigData) {
-		Properties oldPropertyConfigData = propertyConfigData;
-		propertyConfigData = newPropertyConfigData;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA, oldPropertyConfigData, propertyConfigData));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<NodeHostedMeter> getOwnedMeters() {
 		if (ownedMeters == null) {
 			ownedMeters = new EObjectContainmentWithInverseEList<NodeHostedMeter>(NodeHostedMeter.class, this, PasysPackage.PROCESSING_NODE__OWNED_METERS, PasysPackage.NODE_HOSTED_METER__OWNER);
@@ -447,6 +424,29 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 		speedFactor = newSpeedFactor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__SPEED_FACTOR, oldSpeedFactor, speedFactor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Properties getConfigData() {
+		return configData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setConfigData(Properties newConfigData) {
+		Properties oldConfigData = configData;
+		configData = newConfigData;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.PROCESSING_NODE__CONFIG_DATA, oldConfigData, configData));
 	}
 
 	/**
@@ -603,8 +603,8 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 				return getMemorySize();
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				return getSpeedFactor();
-			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-				return getPropertyConfigData();
+			case PasysPackage.PROCESSING_NODE__CONFIG_DATA:
+				return getConfigData();
 			case PasysPackage.PROCESSING_NODE__USER_NAME:
 				return getUserName();
 			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
@@ -644,8 +644,8 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				setSpeedFactor((Double)newValue);
 				return;
-			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-				setPropertyConfigData((Properties)newValue);
+			case PasysPackage.PROCESSING_NODE__CONFIG_DATA:
+				setConfigData((Properties)newValue);
 				return;
 			case PasysPackage.PROCESSING_NODE__USER_NAME:
 				setUserName((String)newValue);
@@ -696,8 +696,8 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				setSpeedFactor(SPEED_FACTOR_EDEFAULT);
 				return;
-			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-				setPropertyConfigData(PROPERTY_CONFIG_DATA_EDEFAULT);
+			case PasysPackage.PROCESSING_NODE__CONFIG_DATA:
+				setConfigData(CONFIG_DATA_EDEFAULT);
 				return;
 			case PasysPackage.PROCESSING_NODE__USER_NAME:
 				setUserName(USER_NAME_EDEFAULT);
@@ -738,8 +738,8 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 				return memorySize != MEMORY_SIZE_EDEFAULT;
 			case PasysPackage.PROCESSING_NODE__SPEED_FACTOR:
 				return speedFactor != SPEED_FACTOR_EDEFAULT;
-			case PasysPackage.PROCESSING_NODE__PROPERTY_CONFIG_DATA:
-				return PROPERTY_CONFIG_DATA_EDEFAULT == null ? propertyConfigData != null : !PROPERTY_CONFIG_DATA_EDEFAULT.equals(propertyConfigData);
+			case PasysPackage.PROCESSING_NODE__CONFIG_DATA:
+				return CONFIG_DATA_EDEFAULT == null ? configData != null : !CONFIG_DATA_EDEFAULT.equals(configData);
 			case PasysPackage.PROCESSING_NODE__USER_NAME:
 				return USER_NAME_EDEFAULT == null ? userName != null : !USER_NAME_EDEFAULT.equals(userName);
 			case PasysPackage.PROCESSING_NODE__CONNECTED_TO:
@@ -817,8 +817,8 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 		result.append(memorySize);
 		result.append(", speedFactor: ");
 		result.append(speedFactor);
-		result.append(", propertyConfigData: ");
-		result.append(propertyConfigData);
+		result.append(", configData: ");
+		result.append(configData);
 		result.append(", userName: ");
 		result.append(userName);
 		result.append(')');

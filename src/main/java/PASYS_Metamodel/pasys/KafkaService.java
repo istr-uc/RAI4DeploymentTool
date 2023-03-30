@@ -151,13 +151,13 @@ public interface KafkaService extends CommunicationService {
 
 	/**
 	 * Returns the value of the '<em><b>Num Partitions</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * The default value is <code>"4"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Num Partitions</em>' attribute.
 	 * @see #setNumPartitions(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_NumPartitions()
-	 * @model default="1" required="true"
+	 * @model default="4" required="true"
 	 * @generated
 	 */
 	int getNumPartitions();
@@ -404,12 +404,13 @@ public interface KafkaService extends CommunicationService {
 
 	/**
 	 * Returns the value of the '<em><b>Client Port</b></em>' attribute.
+	 * The default value is <code>"9092"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Client Port</em>' attribute.
 	 * @see #setClientPort(int)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getKafkaService_ClientPort()
-	 * @model required="true"
+	 * @model default="9092" required="true"
 	 * @generated
 	 */
 	int getClientPort();

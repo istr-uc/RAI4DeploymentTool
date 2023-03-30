@@ -50,12 +50,12 @@ public interface StormNimbus extends DeployableComponent, NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' reference.
-	 * @see #setHost(NodeCluster)
+	 * @see #setHost(ProcessingNodeCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormNimbus_Host()
 	 * @model
 	 * @generated
 	 */
-	NodeCluster getHost();
+	ProcessingNodeCluster getHost();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormNimbus#getHost <em>Host</em>}' reference.
@@ -65,6 +65,6 @@ public interface StormNimbus extends DeployableComponent, NamedElement {
 	 * @see #getHost()
 	 * @generated
 	 */
-	void setHost(NodeCluster value);
+	void setHost(ProcessingNodeCluster value);
 
 } // StormNimbus
