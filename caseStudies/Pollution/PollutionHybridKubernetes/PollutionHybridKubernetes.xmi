@@ -60,7 +60,10 @@
       id="PollutionZkpr"
       host="//@ownedElements.7">
     <deploymentConfig
-        xsi:type="pasys:OrchestratorDeploymentConf"/>
+        xsi:type="pasys:OrchestratorDeploymentConf"
+        image="zookeeper"
+        imageTag="3.7"
+        imagePullPolicy="IfNoPresent"/>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:KafkaService"
@@ -68,11 +71,15 @@
       id="PollutionKafka"
       host="//@ownedElements.7"
       commId="1"
+      zookeeperConnect="//@ownedElements.8"
       listeners="PLAINTEXT://172.31.16.47:9092"
       advertisedListeners="PLAINTEXT://172.31.16.47:9092"
       autoCreateTopicEnable="true">
     <deploymentConfig
-        xsi:type="pasys:OrchestratorDeploymentConf"/>
+        xsi:type="pasys:OrchestratorDeploymentConf"
+        image="gcr.io/google_containers/kubernetes-kafka"
+        imageTag="1.0-10.2.1"
+        imagePullPolicy="IfNotPresent"/>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:StormService"
@@ -81,7 +88,7 @@
       host="//@ownedElements.6"
       workflows="//@ownedElements.12"
       zookeeperConnect="//@ownedElements.8">
-      <deploymentConfig
+    <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
         artifactLocator="/home/gestor/apache/services/storm/bin"
         artifactName="storm"
@@ -92,7 +99,7 @@
     <nimbus
         name="PolllutionStormNimbus"
         id="PolllutionStormNimbus">
-        <deploymentConfig
+      <deploymentConfig
           xsi:type="pasys:NodeDeploymentConf"
           artifactLocator="/home/gestor/apache/services/storm/bin"
           artifactName="storm"
@@ -104,7 +111,7 @@
     <supervisor
         name="PollutionStormSupervisor"
         id="PollutionStormSupervisor">
-         <deploymentConfig
+      <deploymentConfig
           xsi:type="pasys:NodeDeploymentConf"
           artifactLocator="/home/gestor/apache/services/storm/bin"
           artifactName="storm"
@@ -119,7 +126,7 @@
     </supervisor>
     <ui name="PollutionStormUI"
         id="PollutionStormUI">
-        <deploymentConfig
+      <deploymentConfig
           xsi:type="pasys:NodeDeploymentConf"
           artifactLocator="/home/gestor/apache/services/storm/bin"
           artifactName="storm"
@@ -136,7 +143,7 @@
       numPartitions="1"
       numReplication="1"
       holder="1">
-       <deploymentConfig
+    <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
         artifactLocator="/home/gestor/apache/services/kafka/bin"
         artifactName="kafka-topics.sh"
@@ -151,7 +158,7 @@
       id="PollutionProcess"
       rootTask="//@ownedElements.12/@ownedTasks.0"
       scheduler="//@ownedElements.10">
-      <deploymentConfig
+    <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
         artifactLocator="/home/gestor/apache/apps/pollution/workflows/jars"
         artifactName="SantanderPollution.jar"
@@ -175,7 +182,7 @@
       port="9042"
       seedProviderClass="SimpleProvider"
       dataFileDir="/home/gestor/apache/services/cassandra/data/data">
-      <deploymentConfig
+    <deploymentConfig
         xsi:type="pasys:NodeDeploymentConf"
         artifactLocator="/home/gestor/apache/services/cassandra/bin"
         artifactName="cassandra"
