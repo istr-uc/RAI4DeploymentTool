@@ -20,7 +20,6 @@ import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
 import PASYS_Metamodel.pasys.DistributionService;
 import PASYS_Metamodel.pasys.ExporterData;
-import PASYS_Metamodel.pasys.ExternalElementType;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
@@ -76,10 +75,7 @@ import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemElement;
-import PASYS_Metamodel.pasys.SystemElementAdapter;
-import PASYS_Metamodel.pasys.SystemExternalElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
@@ -135,27 +131,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EClass systemElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass systemExternalElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass systemAdapterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass systemElementAdapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -722,13 +697,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum externalElementTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum portModeEEnum = null;
 
 	/**
@@ -903,18 +871,8 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComputationalSystem_ReferencedSystems() {
-		return (EReference)computationalSystemEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getComputationalSystem_AuthenticationFiles() {
-		return (EReference)computationalSystemEClass.getEStructuralFeatures().get(7);
+		return (EReference)computationalSystemEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -985,126 +943,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EReference getSystemElement_Owner() {
 		return (EReference)systemElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSystemExternalElement() {
-		return systemExternalElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemExternalElement_ElementType() {
-		return (EAttribute)systemExternalElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSystemAdapter() {
-		return systemAdapterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemAdapter_IdPrefix() {
-		return (EAttribute)systemAdapterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemAdapter_Prefix() {
-		return (EAttribute)systemAdapterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSystemAdapter_ElemMapping() {
-		return (EReference)systemAdapterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSystemAdapter_SystemTarget() {
-		return (EReference)systemAdapterEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemAdapter_TargetSysLocator() {
-		return (EAttribute)systemAdapterEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSystemElementAdapter() {
-		return systemElementAdapterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemElementAdapter_ElemName() {
-		return (EAttribute)systemElementAdapterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemElementAdapter_SourceElemId() {
-		return (EAttribute)systemElementAdapterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSystemElementAdapter_TargetElemId() {
-		return (EAttribute)systemElementAdapterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4003,16 +3841,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EEnum getExternalElementType() {
-		return externalElementTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getPortMode() {
 		return portModeEEnum;
 	}
@@ -4103,7 +3931,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(computationalSystemEClass, COMPUTATIONAL_SYSTEM__TARGET_PLATFORM_NAME);
 		createEAttribute(computationalSystemEClass, COMPUTATIONAL_SYSTEM__DOC);
 		createEReference(computationalSystemEClass, COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS);
-		createEReference(computationalSystemEClass, COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS);
 		createEReference(computationalSystemEClass, COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES);
 		createEOperation(computationalSystemEClass, COMPUTATIONAL_SYSTEM___DEPLOY_AND_LAUNCH);
 		createEOperation(computationalSystemEClass, COMPUTATIONAL_SYSTEM___CLEAN_DEPLOYMENT);
@@ -4114,21 +3941,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		systemElementEClass = createEClass(SYSTEM_ELEMENT);
 		createEReference(systemElementEClass, SYSTEM_ELEMENT__OWNER);
-
-		systemExternalElementEClass = createEClass(SYSTEM_EXTERNAL_ELEMENT);
-		createEAttribute(systemExternalElementEClass, SYSTEM_EXTERNAL_ELEMENT__ELEMENT_TYPE);
-
-		systemAdapterEClass = createEClass(SYSTEM_ADAPTER);
-		createEAttribute(systemAdapterEClass, SYSTEM_ADAPTER__ID_PREFIX);
-		createEAttribute(systemAdapterEClass, SYSTEM_ADAPTER__PREFIX);
-		createEReference(systemAdapterEClass, SYSTEM_ADAPTER__ELEM_MAPPING);
-		createEReference(systemAdapterEClass, SYSTEM_ADAPTER__SYSTEM_TARGET);
-		createEAttribute(systemAdapterEClass, SYSTEM_ADAPTER__TARGET_SYS_LOCATOR);
-
-		systemElementAdapterEClass = createEClass(SYSTEM_ELEMENT_ADAPTER);
-		createEAttribute(systemElementAdapterEClass, SYSTEM_ELEMENT_ADAPTER__ELEM_NAME);
-		createEAttribute(systemElementAdapterEClass, SYSTEM_ELEMENT_ADAPTER__SOURCE_ELEM_ID);
-		createEAttribute(systemElementAdapterEClass, SYSTEM_ELEMENT_ADAPTER__TARGET_ELEM_ID);
 
 		platformResourceEClass = createEClass(PLATFORM_RESOURCE);
 
@@ -4500,7 +4312,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(artifactDescriptorEClass, ARTIFACT_DESCRIPTOR__LOCAL_PATH);
 
 		// Create enums
-		externalElementTypeEEnum = createEEnum(EXTERNAL_ELEMENT_TYPE);
 		volumeTypeEEnum = createEEnum(VOLUME_TYPE);
 		volumeAccessModeEEnum = createEEnum(VOLUME_ACCESS_MODE);
 		portModeEEnum = createEEnum(PORT_MODE);
@@ -4540,7 +4351,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		// Add supertypes to classes
 		systemElementEClass.getESuperTypes().add(this.getNamedElement());
-		systemExternalElementEClass.getESuperTypes().add(this.getSystemElement());
 		platformResourceEClass.getESuperTypes().add(this.getSystemElement());
 		processingNodeEClass.getESuperTypes().add(this.getPlatformResource());
 		physicalProcessingNodeEClass.getESuperTypes().add(this.getProcessingNode());
@@ -4629,7 +4439,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getComputationalSystem_TargetPlatformName(), ecorePackage.getEString(), "targetPlatformName", null, 0, 1, ComputationalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComputationalSystem_Doc(), ecorePackage.getEString(), "doc", null, 0, 1, ComputationalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComputationalSystem_OwnedElements(), this.getSystemElement(), this.getSystemElement_Owner(), "ownedElements", null, 0, -1, ComputationalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getComputationalSystem_ReferencedSystems(), this.getSystemAdapter(), this.getSystemAdapter_SystemTarget(), "referencedSystems", null, 0, -1, ComputationalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComputationalSystem_AuthenticationFiles(), this.getStringToStringMap(), null, "authenticationFiles", null, 0, -1, ComputationalSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComputationalSystem__DeployAndLaunch(), null, "deployAndLaunch", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4642,21 +4451,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(systemElementEClass, SystemElement.class, "SystemElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystemElement_Owner(), this.getComputationalSystem(), this.getComputationalSystem_OwnedElements(), "owner", null, 1, 1, SystemElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(systemExternalElementEClass, SystemExternalElement.class, "SystemExternalElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSystemExternalElement_ElementType(), this.getExternalElementType(), "elementType", null, 0, 1, SystemExternalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(systemAdapterEClass, SystemAdapter.class, "SystemAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSystemAdapter_IdPrefix(), ecorePackage.getEString(), "idPrefix", null, 1, 1, SystemAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemAdapter_Prefix(), ecorePackage.getEString(), "prefix", null, 1, 1, SystemAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSystemAdapter_ElemMapping(), this.getSystemElementAdapter(), null, "elemMapping", null, 0, -1, SystemAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSystemAdapter_SystemTarget(), this.getComputationalSystem(), this.getComputationalSystem_ReferencedSystems(), "systemTarget", null, 1, 1, SystemAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemAdapter_TargetSysLocator(), ecorePackage.getEString(), "targetSysLocator", null, 0, 1, SystemAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(systemElementAdapterEClass, SystemElementAdapter.class, "SystemElementAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSystemElementAdapter_ElemName(), ecorePackage.getEString(), "elemName", null, 1, 1, SystemElementAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemElementAdapter_SourceElemId(), ecorePackage.getEString(), "sourceElemId", null, 1, 1, SystemElementAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemElementAdapter_TargetElemId(), ecorePackage.getEString(), "targetElemId", null, 1, 1, SystemElementAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(platformResourceEClass, PlatformResource.class, "PlatformResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4801,16 +4595,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(stormUIEClass, StormUI.class, "StormUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStormUI_UiPort(), ecorePackage.getEInt(), "uiPort", "8080", 1, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormUI_Owner(), this.getStormService(), this.getStormService_Ui(), "owner", null, 1, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormUI_Host(), this.getProcessingNodeCluster(), null, "host", null, 0, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormUI_Host(), this.getProcessingResourceCluster(), null, "host", null, 0, 1, StormUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stormNimbusEClass, StormNimbus.class, "StormNimbus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStormNimbus_Owner(), this.getStormService(), this.getStormService_Nimbus(), "owner", null, 1, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormNimbus_Host(), this.getProcessingNodeCluster(), null, "host", null, 0, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormNimbus_Host(), this.getProcessingResourceCluster(), null, "host", null, 0, 1, StormNimbus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stormSupervisorEClass, StormSupervisor.class, "StormSupervisor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStormSupervisor_SupervisorSlotPorts(), ecorePackage.getEString(), "supervisorSlotPorts", null, 0, -1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStormSupervisor_Owner(), this.getStormService(), this.getStormService_Supervisor(), "owner", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStormSupervisor_Host(), this.getProcessingNodeCluster(), null, "host", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStormSupervisor_Host(), this.getProcessingResourceCluster(), null, "host", null, 0, 1, StormSupervisor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(neo4JServiceEClass, Neo4JService.class, "Neo4JService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -5043,16 +4837,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getArtifactDescriptor_LocalPath(), ecorePackage.getEString(), "localPath", null, 1, 1, ArtifactDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(externalElementTypeEEnum, ExternalElementType.class, "ExternalElementType");
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.PROCESSING_NODE);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.COMMUNICATION_SERVER);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.SCHEDULING_SERVER);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.NODE_CLUSTER);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.PLATFORM_RESOURCE);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.WORKFLOW);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.SCHEDULABLE_SET);
-		addEEnumLiteral(externalElementTypeEEnum, ExternalElementType.TASK);
-
 		initEEnum(volumeTypeEEnum, VolumeType.class, "VolumeType");
 		addEEnumLiteral(volumeTypeEEnum, VolumeType.VOLUME);
 		addEEnumLiteral(volumeTypeEEnum, VolumeType.BIND);

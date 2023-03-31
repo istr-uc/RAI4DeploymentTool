@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link PASYS_Metamodel.pasys.ComputationalSystem#getTargetPlatformName <em>Target Platform Name</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ComputationalSystem#getDoc <em>Doc</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ComputationalSystem#getOwnedElements <em>Owned Elements</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.ComputationalSystem#getReferencedSystems <em>Referenced Systems</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.ComputationalSystem#getAuthenticationFiles <em>Authentication Files</em>}</li>
  * </ul>
  *
@@ -178,24 +177,6 @@ public interface ComputationalSystem extends EObject {
 	 * @generated
 	 */
 	EList<SystemElement> getOwnedElements();
-
-	/**
-	 * Returns the value of the '<em><b>Referenced Systems</b></em>' containment reference list.
-	 * The list contents are of type {@link PASYS_Metamodel.pasys.SystemAdapter}.
-	 * It is bidirectional and its opposite is '{@link PASYS_Metamodel.pasys.SystemAdapter#getSystemTarget <em>System Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Referenced Systems</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referenced Systems</em>' containment reference list.
-	 * @see PASYS_Metamodel.pasys.PasysPackage#getComputationalSystem_ReferencedSystems()
-	 * @see PASYS_Metamodel.pasys.SystemAdapter#getSystemTarget
-	 * @model opposite="systemTarget" containment="true"
-	 * @generated
-	 */
-	EList<SystemAdapter> getReferencedSystems();
 
 	/**
 	 * Returns the value of the '<em><b>Authentication Files</b></em>' map.

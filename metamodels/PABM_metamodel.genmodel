@@ -9,16 +9,6 @@
   <foreignModel>PABM_Metamodel.ecore</foreignModel>
   <genPackages prefix="PASYS_Metamodel" disposableProviderFactory="true" ecorePackage="PABM_Metamodel.ecore#/">
     <nestedGenPackages prefix="Pasys" disposableProviderFactory="true" ecorePackage="PABM_Metamodel.ecore#//pasys">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/ExternalElementType">
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/PROCESSING_NODE"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/COMMUNICATION_SERVER"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/SCHEDULING_SERVER"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/NODE_CLUSTER"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/PLATFORM_RESOURCE"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/WORKFLOW"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/SCHEDULABLE_SET"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/TASK"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/VolumeType">
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeType/VOLUME"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeType/BIND"/>
@@ -67,7 +57,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ComputationalSystem/targetPlatformName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ComputationalSystem/doc"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ComputationalSystem/ownedElements"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ComputationalSystem/referencedSystems"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ComputationalSystem/authenticationFiles"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ComputationalSystem/deployAndLaunch"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ComputationalSystem/cleanDeployment"/>
@@ -78,21 +67,6 @@
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/SystemElement">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SystemElement/owner"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SystemExternalElement">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemExternalElement/elementType"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SystemAdapter">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemAdapter/idPrefix"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemAdapter/prefix"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SystemAdapter/elemMapping"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SystemAdapter/systemTarget"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemAdapter/targetSysLocator"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SystemElementAdapter">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemElementAdapter/elemName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemElementAdapter/sourceElemId"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemElementAdapter/targetElemId"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PlatformResource"/>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ProcessingNode">

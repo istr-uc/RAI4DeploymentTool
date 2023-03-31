@@ -71,10 +71,7 @@ import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemElement;
-import PASYS_Metamodel.pasys.SystemElementAdapter;
-import PASYS_Metamodel.pasys.SystemExternalElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
@@ -166,26 +163,6 @@ public class PasysSwitch<T> extends Switch<T> {
 				SystemElement systemElement = (SystemElement)theEObject;
 				T result = caseSystemElement(systemElement);
 				if (result == null) result = caseNamedElement(systemElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.SYSTEM_EXTERNAL_ELEMENT: {
-				SystemExternalElement systemExternalElement = (SystemExternalElement)theEObject;
-				T result = caseSystemExternalElement(systemExternalElement);
-				if (result == null) result = caseSystemElement(systemExternalElement);
-				if (result == null) result = caseNamedElement(systemExternalElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.SYSTEM_ADAPTER: {
-				SystemAdapter systemAdapter = (SystemAdapter)theEObject;
-				T result = caseSystemAdapter(systemAdapter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.SYSTEM_ELEMENT_ADAPTER: {
-				SystemElementAdapter systemElementAdapter = (SystemElementAdapter)theEObject;
-				T result = caseSystemElementAdapter(systemElementAdapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -961,51 +938,6 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSystemElement(SystemElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System External Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System External Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSystemExternalElement(SystemExternalElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Adapter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSystemAdapter(SystemAdapter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Element Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Element Adapter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSystemElementAdapter(SystemElementAdapter object) {
 		return null;
 	}
 

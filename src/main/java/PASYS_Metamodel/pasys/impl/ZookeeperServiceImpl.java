@@ -4,12 +4,13 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
-import PASYS_Metamodel.pasys.OrchestrationServiceDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
+import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.ZookeeperService;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
 import java.io.IOException;
@@ -572,34 +573,35 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	@Override
 	public void configureDeployment() throws ConfigurationException {
 		super.configureDeployment();
-		if (!isManaged()) {
-			if (getHost()!=null)
+		
+			if (getHost() instanceof ProcessingNodeCluster)
 				configureDeploymentOnHost();
 			else
 				configureDeploymentOnOrchestrator();
-		}
+		
 	}
 	
 	private void configureDeploymentOnHost() throws ConfigurationException {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		if (!conf.isIsRunning()) {		
 			try {
 				// Config File generation
 				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + ".cfg",
-						conf.getConfigFolderPath(), generateConfigFileContent(conf), SystemComponentType.ZOOKEEPER_SERVER);
+						conf.getConfigFolderPath(), generateConfigFileContent(conf), DeployableComponentType.ZOOKEEPER_SERVICE);
 				
 				//myid file generation
 				DeploymentFileDescriptor idFile = new DeploymentFileDescriptorImpl("myid",
-						conf.getDataFolderPath(), Integer.toString(serverId), SystemComponentType.ZOOKEEPER_SERVER);			
+						conf.getDataFolderPath(), Integer.toString(serverId), DeployableComponentType.ZOOKEEPER_SERVICE);			
 				
 				// Script generation
 				String scriptContent = conf.getArtifactLocator()+ "/"+conf.getArtifactName()+ " start "+conf.getConfigFolderPath()+"/zoo"+serverId+".cfg";
 				scriptContent=DeploymentToolsUtils.scriptHeaders(conf.getScriptFolderPath())+scriptContent;
 				scriptContent+="\nsleep 30";
 				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+getServerId()+".sh",
-					conf.getScriptFolderPath(), scriptContent, SystemComponentType.ZOOKEEPER_SERVER);
+					conf.getScriptFolderPath(), scriptContent, DeployableComponentType.ZOOKEEPER_SERVICE);
 				
-				for (ProcessingNode node: getHost().getNodes()) {
+				ProcessingNodeCluster nodeHost = (ProcessingNodeCluster) host;
+				for (ProcessingNode node:nodeHost.getNodes()) {
 					node.addLaunchingScript(script);
 					node.addConfigFile(configFile);
 					node.addConfigFile(idFile);
@@ -613,7 +615,7 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		}
 	}
 
-	private String generateConfigFileContent(NodeClusterDeploymentConf conf) throws IOException, ConfigurationException {
+	private String generateConfigFileContent(NodeDeploymentConf conf) throws IOException, ConfigurationException {
 		Properties props = new Properties();
 		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper-server-properties.cfg"));
 		
@@ -630,7 +632,8 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 			
 		// serverX= host:leaderPort:peerPort
 		int i=1;
-		for (ProcessingNode node:getHost().getNodes()) {
+		ProcessingNodeCluster nodeHost = (ProcessingNodeCluster) host;
+		for (ProcessingNode node:nodeHost.getNodes()) {
 			//ZookeeperService zk = (ZookeeperService)res;
 			props.put("server."+i, node.getIp()+":"+getPeerPort()+":"+getLeaderPort());
 			i++;
@@ -645,13 +648,13 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	private void configureDeploymentOnOrchestrator() {
 		// Values File generation
 		//DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + "values.yaml",
-			//	conf.getConfigFolderPath(), generateValuesFileContent(conf), SystemComponentType.ZOOKEEPER_SERVER);
+			//	conf.getConfigFolderPath(), generateValuesFileContent(conf), DeployableComponentType.ZOOKEEPER_SERVER);
 		
 		// Los ficheros y el script se deberían guardar en el nodo local en que se esté ejecutando
 		// la herramienta, en la que debería estar instalado HELM
 	}
 	
-	private String generateValuesFileContent(OrchestrationServiceDeploymentConf conf)   throws IOException, ConfigurationException {
+	private String generateValuesFileContent(OrchestratorDeploymentConf conf)   throws IOException, ConfigurationException {
 		
 		Properties props = new Properties();
 		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper-values.yaml"));

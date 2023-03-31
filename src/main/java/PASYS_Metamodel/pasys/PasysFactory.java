@@ -31,33 +31,6 @@ public interface PasysFactory extends EFactory {
 	ComputationalSystem createComputationalSystem();
 
 	/**
-	 * Returns a new object of class '<em>System External Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>System External Element</em>'.
-	 * @generated
-	 */
-	SystemExternalElement createSystemExternalElement();
-
-	/**
-	 * Returns a new object of class '<em>System Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>System Adapter</em>'.
-	 * @generated
-	 */
-	SystemAdapter createSystemAdapter();
-
-	/**
-	 * Returns a new object of class '<em>System Element Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>System Element Adapter</em>'.
-	 * @generated
-	 */
-	SystemElementAdapter createSystemElementAdapter();
-
-	/**
 	 * Returns a new object of class '<em>Physical Processing Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

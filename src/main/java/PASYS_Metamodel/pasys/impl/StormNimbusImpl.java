@@ -4,7 +4,7 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.NamedElement;
 import PASYS_Metamodel.pasys.PasysPackage;
-import PASYS_Metamodel.pasys.ProcessingNodeCluster;
+import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
 
@@ -83,7 +83,7 @@ public class StormNimbusImpl extends DeployableComponentImpl implements StormNim
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessingNodeCluster host;
+	protected ProcessingResourceCluster host;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,10 +199,10 @@ public class StormNimbusImpl extends DeployableComponentImpl implements StormNim
 	 * @generated
 	 */
 	@Override
-	public ProcessingNodeCluster getHost() {
+	public ProcessingResourceCluster getHost() {
 		if (host != null && host.eIsProxy()) {
 			InternalEObject oldHost = (InternalEObject)host;
-			host = (ProcessingNodeCluster)eResolveProxy(oldHost);
+			host = (ProcessingResourceCluster)eResolveProxy(oldHost);
 			if (host != oldHost) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_NIMBUS__HOST, oldHost, host));
@@ -216,7 +216,7 @@ public class StormNimbusImpl extends DeployableComponentImpl implements StormNim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingNodeCluster basicGetHost() {
+	public ProcessingResourceCluster basicGetHost() {
 		return host;
 	}
 
@@ -226,8 +226,8 @@ public class StormNimbusImpl extends DeployableComponentImpl implements StormNim
 	 * @generated
 	 */
 	@Override
-	public void setHost(ProcessingNodeCluster newHost) {
-		ProcessingNodeCluster oldHost = host;
+	public void setHost(ProcessingResourceCluster newHost) {
+		ProcessingResourceCluster oldHost = host;
 		host = newHost;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_NIMBUS__HOST, oldHost, host));
@@ -316,7 +316,7 @@ public class StormNimbusImpl extends DeployableComponentImpl implements StormNim
 				setOwner((StormService)newValue);
 				return;
 			case PasysPackage.STORM_NIMBUS__HOST:
-				setHost((ProcessingNodeCluster)newValue);
+				setHost((ProcessingResourceCluster)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -340,7 +340,7 @@ public class StormNimbusImpl extends DeployableComponentImpl implements StormNim
 				setOwner((StormService)null);
 				return;
 			case PasysPackage.STORM_NIMBUS__HOST:
-				setHost((ProcessingNodeCluster)null);
+				setHost((ProcessingResourceCluster)null);
 				return;
 		}
 		super.eUnset(featureID);

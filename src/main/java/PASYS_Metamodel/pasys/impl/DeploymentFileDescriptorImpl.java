@@ -7,7 +7,6 @@ import PASYS_Metamodel.pasys.DeploymentException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
-import PASYS_Metamodel.pasys.SystemComponentType;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -95,7 +94,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	/**
 	 * @generated NOT
 	 */
-	protected DeploymentFileDescriptorImpl(String fileName, String filePath, String fileContent, SystemComponentType componentType) {
+	protected DeploymentFileDescriptorImpl(String fileName, String filePath, String fileContent, DeployableComponentType componentType) {
 		super(fileName, filePath);
 		this.fileContent = fileContent;
 		this.elementType= componentType;

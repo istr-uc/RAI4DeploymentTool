@@ -125,22 +125,13 @@ public interface PasysPackage extends EPackage {
 	int COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Referenced Systems</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS = 6;
-
-	/**
 	 * The feature id for the '<em><b>Authentication Files</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES = 7;
+	int COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES = 6;
 
 	/**
 	 * The number of structural features of the '<em>Computational System</em>' class.
@@ -149,7 +140,7 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPUTATIONAL_SYSTEM_FEATURE_COUNT = 8;
+	int COMPUTATIONAL_SYSTEM_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Deploy And Launch</em>' operation.
@@ -280,198 +271,6 @@ public interface PasysPackage extends EPackage {
 	int SYSTEM_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SystemExternalElementImpl <em>System External Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.SystemExternalElementImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemExternalElement()
-	 * @generated
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT__NAME = SYSTEM_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT__ID = SYSTEM_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT__OWNER = SYSTEM_ELEMENT__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Element Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT__ELEMENT_TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>System External Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>System External Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_EXTERNAL_ELEMENT_OPERATION_COUNT = SYSTEM_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SystemAdapterImpl <em>System Adapter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.SystemAdapterImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemAdapter()
-	 * @generated
-	 */
-	int SYSTEM_ADAPTER = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER__ID_PREFIX = 0;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER__PREFIX = 1;
-
-	/**
-	 * The feature id for the '<em><b>Elem Mapping</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER__ELEM_MAPPING = 2;
-
-	/**
-	 * The feature id for the '<em><b>System Target</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER__SYSTEM_TARGET = 3;
-
-	/**
-	 * The feature id for the '<em><b>Target Sys Locator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER__TARGET_SYS_LOCATOR = 4;
-
-	/**
-	 * The number of structural features of the '<em>System Adapter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>System Adapter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ADAPTER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SystemElementAdapterImpl <em>System Element Adapter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.impl.SystemElementAdapterImpl
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemElementAdapter()
-	 * @generated
-	 */
-	int SYSTEM_ELEMENT_ADAPTER = 5;
-
-	/**
-	 * The feature id for the '<em><b>Elem Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ELEMENT_ADAPTER__ELEM_NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Source Elem Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ELEMENT_ADAPTER__SOURCE_ELEM_ID = 1;
-
-	/**
-	 * The feature id for the '<em><b>Target Elem Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ELEMENT_ADAPTER__TARGET_ELEM_ID = 2;
-
-	/**
-	 * The number of structural features of the '<em>System Element Adapter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ELEMENT_ADAPTER_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>System Element Adapter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ELEMENT_ADAPTER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PlatformResourceImpl <em>Platform Resource</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,7 +278,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPlatformResource()
 	 * @generated
 	 */
-	int PLATFORM_RESOURCE = 6;
+	int PLATFORM_RESOURCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -534,7 +333,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNode()
 	 * @generated
 	 */
-	int PROCESSING_NODE = 7;
+	int PROCESSING_NODE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -760,7 +559,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPhysicalProcessingNode()
 	 * @generated
 	 */
-	int PHYSICAL_PROCESSING_NODE = 8;
+	int PHYSICAL_PROCESSING_NODE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -986,7 +785,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVirtualProcessingNode()
 	 * @generated
 	 */
-	int VIRTUAL_PROCESSING_NODE = 9;
+	int VIRTUAL_PROCESSING_NODE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1221,7 +1020,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getAWSVirtualProcessingNode()
 	 * @generated
 	 */
-	int AWS_VIRTUAL_PROCESSING_NODE = 10;
+	int AWS_VIRTUAL_PROCESSING_NODE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1510,7 +1309,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingResourceCluster()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_CLUSTER = 11;
+	int PROCESSING_RESOURCE_CLUSTER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1565,7 +1364,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeCluster()
 	 * @generated
 	 */
-	int PROCESSING_NODE_CLUSTER = 12;
+	int PROCESSING_NODE_CLUSTER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1629,7 +1428,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestrationCluster()
 	 * @generated
 	 */
-	int ORCHESTRATION_CLUSTER = 13;
+	int ORCHESTRATION_CLUSTER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1684,7 +1483,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesCluster()
 	 * @generated
 	 */
-	int KUBERNETES_CLUSTER = 14;
+	int KUBERNETES_CLUSTER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1748,7 +1547,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmCluster()
 	 * @generated
 	 */
-	int SWARM_CLUSTER = 15;
+	int SWARM_CLUSTER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1803,7 +1602,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNetwork()
 	 * @generated
 	 */
-	int NETWORK = 16;
+	int NETWORK = 13;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeSchedulerImpl <em>Node Scheduler</em>}' class.
@@ -1813,7 +1612,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeScheduler()
 	 * @generated
 	 */
-	int NODE_SCHEDULER = 28;
+	int NODE_SCHEDULER = 25;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamDataImpl <em>Stream Data</em>}' class.
@@ -1823,7 +1622,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamData()
 	 * @generated
 	 */
-	int STREAM_DATA = 41;
+	int STREAM_DATA = 38;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamDataPartitionImpl <em>Stream Data Partition</em>}' class.
@@ -1833,7 +1632,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamDataPartition()
 	 * @generated
 	 */
-	int STREAM_DATA_PARTITION = 42;
+	int STREAM_DATA_PARTITION = 39;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowStreamDataImpl <em>Workflow Stream Data</em>}' class.
@@ -1843,7 +1642,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflowStreamData()
 	 * @generated
 	 */
-	int WORKFLOW_STREAM_DATA = 43;
+	int WORKFLOW_STREAM_DATA = 40;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.FlowStreamDataImpl <em>Flow Stream Data</em>}' class.
@@ -1853,7 +1652,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getFlowStreamData()
 	 * @generated
 	 */
-	int FLOW_STREAM_DATA = 44;
+	int FLOW_STREAM_DATA = 41;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KafkaFlowStreamDataImpl <em>Kafka Flow Stream Data</em>}' class.
@@ -1863,7 +1662,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaFlowStreamData()
 	 * @generated
 	 */
-	int KAFKA_FLOW_STREAM_DATA = 45;
+	int KAFKA_FLOW_STREAM_DATA = 42;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DerivedStreamDataImpl <em>Derived Stream Data</em>}' class.
@@ -1873,7 +1672,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDerivedStreamData()
 	 * @generated
 	 */
-	int DERIVED_STREAM_DATA = 46;
+	int DERIVED_STREAM_DATA = 43;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkloadStreamDataImpl <em>Workload Stream Data</em>}' class.
@@ -1883,7 +1682,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkloadStreamData()
 	 * @generated
 	 */
-	int WORKLOAD_STREAM_DATA = 47;
+	int WORKLOAD_STREAM_DATA = 44;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KafkaWorkloadStreamDataImpl <em>Kafka Workload Stream Data</em>}' class.
@@ -1893,7 +1692,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaWorkloadStreamData()
 	 * @generated
 	 */
-	int KAFKA_WORKLOAD_STREAM_DATA = 48;
+	int KAFKA_WORKLOAD_STREAM_DATA = 45;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowImpl <em>Workflow</em>}' class.
@@ -1903,7 +1702,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflow()
 	 * @generated
 	 */
-	int WORKFLOW = 49;
+	int WORKFLOW = 46;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SchedulableSetImpl <em>Schedulable Set</em>}' class.
@@ -1913,7 +1712,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSchedulableSet()
 	 * @generated
 	 */
-	int SCHEDULABLE_SET = 50;
+	int SCHEDULABLE_SET = 47;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskImpl <em>Task</em>}' class.
@@ -1923,7 +1722,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 51;
+	int TASK = 48;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskExecutorImpl <em>Task Executor</em>}' class.
@@ -1933,7 +1732,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTaskExecutor()
 	 * @generated
 	 */
-	int TASK_EXECUTOR = 52;
+	int TASK_EXECUTOR = 49;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MetricImpl <em>Metric</em>}' class.
@@ -1943,7 +1742,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMetric()
 	 * @generated
 	 */
-	int METRIC = 53;
+	int METRIC = 50;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ProcessingNodeUtilizationImpl <em>Processing Node Utilization</em>}' class.
@@ -1953,7 +1752,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeUtilization()
 	 * @generated
 	 */
-	int PROCESSING_NODE_UTILIZATION = 54;
+	int PROCESSING_NODE_UTILIZATION = 51;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ProcessingNodeMemoryImpl <em>Processing Node Memory</em>}' class.
@@ -1963,7 +1762,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProcessingNodeMemory()
 	 * @generated
 	 */
-	int PROCESSING_NODE_MEMORY = 55;
+	int PROCESSING_NODE_MEMORY = 52;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NetworkUtilizationImpl <em>Network Utilization</em>}' class.
@@ -1973,7 +1772,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNetworkUtilization()
 	 * @generated
 	 */
-	int NETWORK_UTILIZATION = 56;
+	int NETWORK_UTILIZATION = 53;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowLatencyImpl <em>Workflow Latency</em>}' class.
@@ -1983,7 +1782,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflowLatency()
 	 * @generated
 	 */
-	int WORKFLOW_LATENCY = 57;
+	int WORKFLOW_LATENCY = 54;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskProcessingAmountImpl <em>Task Processing Amount</em>}' class.
@@ -1993,7 +1792,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTaskProcessingAmount()
 	 * @generated
 	 */
-	int TASK_PROCESSING_AMOUNT = 58;
+	int TASK_PROCESSING_AMOUNT = 55;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamDataRateImpl <em>Stream Data Rate</em>}' class.
@@ -2003,7 +1802,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamDataRate()
 	 * @generated
 	 */
-	int STREAM_DATA_RATE = 59;
+	int STREAM_DATA_RATE = 56;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MeterImpl <em>Meter</em>}' class.
@@ -2013,7 +1812,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMeter()
 	 * @generated
 	 */
-	int METER = 60;
+	int METER = 57;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeHostedMeterImpl <em>Node Hosted Meter</em>}' class.
@@ -2023,7 +1822,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeHostedMeter()
 	 * @generated
 	 */
-	int NODE_HOSTED_METER = 62;
+	int NODE_HOSTED_METER = 59;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.NodeResourceMeterImpl <em>Node Resource Meter</em>}' class.
@@ -2033,7 +1832,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeResourceMeter()
 	 * @generated
 	 */
-	int NODE_RESOURCE_METER = 63;
+	int NODE_RESOURCE_METER = 60;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CommunicationMeterImpl <em>Communication Meter</em>}' class.
@@ -2043,7 +1842,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCommunicationMeter()
 	 * @generated
 	 */
-	int COMMUNICATION_METER = 64;
+	int COMMUNICATION_METER = 61;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StreamRateMeterImpl <em>Stream Rate Meter</em>}' class.
@@ -2053,7 +1852,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStreamRateMeter()
 	 * @generated
 	 */
-	int STREAM_RATE_METER = 65;
+	int STREAM_RATE_METER = 62;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.WorkflowLatencyMeterImpl <em>Workflow Latency Meter</em>}' class.
@@ -2063,7 +1862,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getWorkflowLatencyMeter()
 	 * @generated
 	 */
-	int WORKFLOW_LATENCY_METER = 66;
+	int WORKFLOW_LATENCY_METER = 63;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.TaskProcessingAmountMeterImpl <em>Task Processing Amount Meter</em>}' class.
@@ -2073,7 +1872,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getTaskProcessingAmountMeter()
 	 * @generated
 	 */
-	int TASK_PROCESSING_AMOUNT_METER = 67;
+	int TASK_PROCESSING_AMOUNT_METER = 64;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentFileDescriptorImpl <em>Deployment File Descriptor</em>}' class.
@@ -2083,7 +1882,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentFileDescriptor()
 	 * @generated
 	 */
-	int DEPLOYMENT_FILE_DESCRIPTOR = 84;
+	int DEPLOYMENT_FILE_DESCRIPTOR = 81;
 
 	/**
 	 * The meta object id for the '{@link java.lang.Exception <em>Exception</em>}' class.
@@ -2093,7 +1892,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 78;
+	int EXCEPTION = 75;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.ConfigurationException <em>Configuration Exception</em>}' class.
@@ -2103,7 +1902,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getConfigurationException()
 	 * @generated
 	 */
-	int CONFIGURATION_EXCEPTION = 79;
+	int CONFIGURATION_EXCEPTION = 76;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.DeploymentException <em>Deployment Exception</em>}' class.
@@ -2113,7 +1912,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentException()
 	 * @generated
 	 */
-	int DEPLOYMENT_EXCEPTION = 80;
+	int DEPLOYMENT_EXCEPTION = 77;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.LaunchException <em>Launch Exception</em>}' class.
@@ -2123,7 +1922,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getLaunchException()
 	 * @generated
 	 */
-	int LAUNCH_EXCEPTION = 81;
+	int LAUNCH_EXCEPTION = 78;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PrometheusMeterImpl <em>Prometheus Meter</em>}' class.
@@ -2133,7 +1932,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPrometheusMeter()
 	 * @generated
 	 */
-	int PROMETHEUS_METER = 61;
+	int PROMETHEUS_METER = 58;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2197,7 +1996,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPlatformService()
 	 * @generated
 	 */
-	int PLATFORM_SERVICE = 17;
+	int PLATFORM_SERVICE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2279,7 +2078,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSerializationService()
 	 * @generated
 	 */
-	int SERIALIZATION_SERVICE = 18;
+	int SERIALIZATION_SERVICE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2361,7 +2160,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getAVROService()
 	 * @generated
 	 */
-	int AVRO_SERVICE = 25;
+	int AVRO_SERVICE = 22;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DistributionServiceImpl <em>Distribution Service</em>}' class.
@@ -2371,7 +2170,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDistributionService()
 	 * @generated
 	 */
-	int DISTRIBUTION_SERVICE = 19;
+	int DISTRIBUTION_SERVICE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2453,7 +2252,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getZookeeperService()
 	 * @generated
 	 */
-	int ZOOKEEPER_SERVICE = 26;
+	int ZOOKEEPER_SERVICE = 23;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CommunicationServiceImpl <em>Communication Service</em>}' class.
@@ -2463,7 +2262,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCommunicationService()
 	 * @generated
 	 */
-	int COMMUNICATION_SERVICE = 20;
+	int COMMUNICATION_SERVICE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2545,7 +2344,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKafkaService()
 	 * @generated
 	 */
-	int KAFKA_SERVICE = 27;
+	int KAFKA_SERVICE = 24;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SchedulingServiceImpl <em>Scheduling Service</em>}' class.
@@ -2555,7 +2354,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSchedulingService()
 	 * @generated
 	 */
-	int SCHEDULING_SERVICE = 21;
+	int SCHEDULING_SERVICE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2646,7 +2445,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSecurityService()
 	 * @generated
 	 */
-	int SECURITY_SERVICE = 22;
+	int SECURITY_SERVICE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2728,7 +2527,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSparkService()
 	 * @generated
 	 */
-	int SPARK_SERVICE = 29;
+	int SPARK_SERVICE = 26;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormServiceImpl <em>Storm Service</em>}' class.
@@ -2738,7 +2537,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormService()
 	 * @generated
 	 */
-	int STORM_SERVICE = 30;
+	int STORM_SERVICE = 27;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PersistenceServiceImpl <em>Persistence Service</em>}' class.
@@ -2748,7 +2547,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPersistenceService()
 	 * @generated
 	 */
-	int PERSISTENCE_SERVICE = 23;
+	int PERSISTENCE_SERVICE = 20;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MemSQLServiceImpl <em>Mem SQL Service</em>}' class.
@@ -2758,7 +2557,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMemSQLService()
 	 * @generated
 	 */
-	int MEM_SQL_SERVICE = 35;
+	int MEM_SQL_SERVICE = 32;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.CassandraServiceImpl <em>Cassandra Service</em>}' class.
@@ -2768,7 +2567,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getCassandraService()
 	 * @generated
 	 */
-	int CASSANDRA_SERVICE = 36;
+	int CASSANDRA_SERVICE = 33;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DataCenterImpl <em>Data Center</em>}' class.
@@ -2778,7 +2577,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDataCenter()
 	 * @generated
 	 */
-	int DATA_CENTER = 37;
+	int DATA_CENTER = 34;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.RackImpl <em>Rack</em>}' class.
@@ -2788,7 +2587,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getRack()
 	 * @generated
 	 */
-	int RACK = 38;
+	int RACK = 35;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.Neo4JServiceImpl <em>Neo4 JService</em>}' class.
@@ -2798,7 +2597,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNeo4JService()
 	 * @generated
 	 */
-	int NEO4_JSERVICE = 34;
+	int NEO4_JSERVICE = 31;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.MonitoringServiceImpl <em>Monitoring Service</em>}' class.
@@ -2808,7 +2607,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getMonitoringService()
 	 * @generated
 	 */
-	int MONITORING_SERVICE = 24;
+	int MONITORING_SERVICE = 21;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PrometheusServiceImpl <em>Prometheus Service</em>}' class.
@@ -2818,7 +2617,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPrometheusService()
 	 * @generated
 	 */
-	int PROMETHEUS_SERVICE = 39;
+	int PROMETHEUS_SERVICE = 36;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentConfigurationImpl <em>Deployment Configuration</em>}' class.
@@ -2828,7 +2627,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentConfiguration()
 	 * @generated
 	 */
-	int DEPLOYMENT_CONFIGURATION = 69;
+	int DEPLOYMENT_CONFIGURATION = 66;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PlatformServiceDeploymentConfImpl <em>Platform Service Deployment Conf</em>}' class.
@@ -2838,7 +2637,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPlatformServiceDeploymentConf()
 	 * @generated
 	 */
-	int PLATFORM_SERVICE_DEPLOYMENT_CONF = 70;
+	int PLATFORM_SERVICE_DEPLOYMENT_CONF = 67;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.FileDescriptorImpl <em>File Descriptor</em>}' class.
@@ -2848,7 +2647,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getFileDescriptor()
 	 * @generated
 	 */
-	int FILE_DESCRIPTOR = 83;
+	int FILE_DESCRIPTOR = 80;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ArtifactDescriptorImpl <em>Artifact Descriptor</em>}' class.
@@ -2858,7 +2657,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getArtifactDescriptor()
 	 * @generated
 	 */
-	int ARTIFACT_DESCRIPTOR = 85;
+	int ARTIFACT_DESCRIPTOR = 82;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.ExporterDataImpl <em>Exporter Data</em>}' class.
@@ -2868,7 +2667,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getExporterData()
 	 * @generated
 	 */
-	int EXPORTER_DATA = 40;
+	int EXPORTER_DATA = 37;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeployableComponentImpl <em>Deployable Component</em>}' class.
@@ -2878,7 +2677,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeployableComponent()
 	 * @generated
 	 */
-	int DEPLOYABLE_COMPONENT = 68;
+	int DEPLOYABLE_COMPONENT = 65;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormUIImpl <em>Storm UI</em>}' class.
@@ -2888,7 +2687,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormUI()
 	 * @generated
 	 */
-	int STORM_UI = 31;
+	int STORM_UI = 28;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormNimbusImpl <em>Storm Nimbus</em>}' class.
@@ -2898,7 +2697,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormNimbus()
 	 * @generated
 	 */
-	int STORM_NIMBUS = 32;
+	int STORM_NIMBUS = 29;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.StormSupervisorImpl <em>Storm Supervisor</em>}' class.
@@ -2908,7 +2707,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStormSupervisor()
 	 * @generated
 	 */
-	int STORM_SUPERVISOR = 33;
+	int STORM_SUPERVISOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -7616,7 +7415,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getOrchestratorDeploymentConf()
 	 * @generated
 	 */
-	int ORCHESTRATOR_DEPLOYMENT_CONF = 71;
+	int ORCHESTRATOR_DEPLOYMENT_CONF = 68;
 
 	/**
 	 * The feature id for the '<em><b>Image</b></em>' attribute.
@@ -7743,7 +7542,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getNodeDeploymentConf()
 	 * @generated
 	 */
-	int NODE_DEPLOYMENT_CONF = 72;
+	int NODE_DEPLOYMENT_CONF = 69;
 
 	/**
 	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
@@ -7852,7 +7651,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getStringToStringMap()
 	 * @generated
 	 */
-	int STRING_TO_STRING_MAP = 82;
+	int STRING_TO_STRING_MAP = 79;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.PortImpl <em>Port</em>}' class.
@@ -7862,7 +7661,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPort()
 	 * @generated
 	 */
-	int PORT = 74;
+	int PORT = 71;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.SwarmPortImpl <em>Swarm Port</em>}' class.
@@ -7872,7 +7671,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSwarmPort()
 	 * @generated
 	 */
-	int SWARM_PORT = 75;
+	int SWARM_PORT = 72;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.KubernetesPortImpl <em>Kubernetes Port</em>}' class.
@@ -7882,7 +7681,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getKubernetesPort()
 	 * @generated
 	 */
-	int KUBERNETES_PORT = 76;
+	int KUBERNETES_PORT = 73;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.DeploymentConstraintsImpl <em>Deployment Constraints</em>}' class.
@@ -7892,7 +7691,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeploymentConstraints()
 	 * @generated
 	 */
-	int DEPLOYMENT_CONSTRAINTS = 77;
+	int DEPLOYMENT_CONSTRAINTS = 74;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.impl.VolumeImpl <em>Volume</em>}' class.
@@ -7902,7 +7701,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVolume()
 	 * @generated
 	 */
-	int VOLUME = 73;
+	int VOLUME = 70;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -8391,16 +8190,6 @@ public interface PasysPackage extends EPackage {
 	int ARTIFACT_DESCRIPTOR_OPERATION_COUNT = FILE_DESCRIPTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link PASYS_Metamodel.pasys.ExternalElementType <em>External Element Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see PASYS_Metamodel.pasys.ExternalElementType
-	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getExternalElementType()
-	 * @generated
-	 */
-	int EXTERNAL_ELEMENT_TYPE = 86;
-
-	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.PortMode <em>Port Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8408,7 +8197,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getPortMode()
 	 * @generated
 	 */
-	int PORT_MODE = 89;
+	int PORT_MODE = 85;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.Protocol <em>Protocol</em>}' enum.
@@ -8418,7 +8207,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 90;
+	int PROTOCOL = 86;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.DeployableComponentType <em>Deployable Component Type</em>}' enum.
@@ -8428,7 +8217,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getDeployableComponentType()
 	 * @generated
 	 */
-	int DEPLOYABLE_COMPONENT_TYPE = 91;
+	int DEPLOYABLE_COMPONENT_TYPE = 87;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.VolumeType <em>Volume Type</em>}' enum.
@@ -8438,7 +8227,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVolumeType()
 	 * @generated
 	 */
-	int VOLUME_TYPE = 87;
+	int VOLUME_TYPE = 83;
 
 	/**
 	 * The meta object id for the '{@link PASYS_Metamodel.pasys.VolumeAccessMode <em>Volume Access Mode</em>}' enum.
@@ -8448,7 +8237,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getVolumeAccessMode()
 	 * @generated
 	 */
-	int VOLUME_ACCESS_MODE = 88;
+	int VOLUME_ACCESS_MODE = 84;
 
 	/**
 	 * The meta object id for the '<em>Properties</em>' data type.
@@ -8458,7 +8247,7 @@ public interface PasysPackage extends EPackage {
 	 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getProperties()
 	 * @generated
 	 */
-	int PROPERTIES = 92;
+	int PROPERTIES = 88;
 
 
 	/**
@@ -8536,17 +8325,6 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComputationalSystem_OwnedElements();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.ComputationalSystem#getReferencedSystems <em>Referenced Systems</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Referenced Systems</em>'.
-	 * @see PASYS_Metamodel.pasys.ComputationalSystem#getReferencedSystems()
-	 * @see #getComputationalSystem()
-	 * @generated
-	 */
-	EReference getComputationalSystem_ReferencedSystems();
 
 	/**
 	 * Returns the meta object for the map '{@link PASYS_Metamodel.pasys.ComputationalSystem#getAuthenticationFiles <em>Authentication Files</em>}'.
@@ -8631,135 +8409,6 @@ public interface PasysPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSystemElement_Owner();
-
-	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SystemExternalElement <em>System External Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>System External Element</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemExternalElement
-	 * @generated
-	 */
-	EClass getSystemExternalElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemExternalElement#getElementType <em>Element Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Element Type</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemExternalElement#getElementType()
-	 * @see #getSystemExternalElement()
-	 * @generated
-	 */
-	EAttribute getSystemExternalElement_ElementType();
-
-	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SystemAdapter <em>System Adapter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>System Adapter</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter
-	 * @generated
-	 */
-	EClass getSystemAdapter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemAdapter#getIdPrefix <em>Id Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id Prefix</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter#getIdPrefix()
-	 * @see #getSystemAdapter()
-	 * @generated
-	 */
-	EAttribute getSystemAdapter_IdPrefix();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemAdapter#getPrefix <em>Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Prefix</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter#getPrefix()
-	 * @see #getSystemAdapter()
-	 * @generated
-	 */
-	EAttribute getSystemAdapter_Prefix();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link PASYS_Metamodel.pasys.SystemAdapter#getElemMapping <em>Elem Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elem Mapping</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter#getElemMapping()
-	 * @see #getSystemAdapter()
-	 * @generated
-	 */
-	EReference getSystemAdapter_ElemMapping();
-
-	/**
-	 * Returns the meta object for the container reference '{@link PASYS_Metamodel.pasys.SystemAdapter#getSystemTarget <em>System Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>System Target</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter#getSystemTarget()
-	 * @see #getSystemAdapter()
-	 * @generated
-	 */
-	EReference getSystemAdapter_SystemTarget();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemAdapter#getTargetSysLocator <em>Target Sys Locator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Target Sys Locator</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter#getTargetSysLocator()
-	 * @see #getSystemAdapter()
-	 * @generated
-	 */
-	EAttribute getSystemAdapter_TargetSysLocator();
-
-	/**
-	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SystemElementAdapter <em>System Element Adapter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>System Element Adapter</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemElementAdapter
-	 * @generated
-	 */
-	EClass getSystemElementAdapter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemElementAdapter#getElemName <em>Elem Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Elem Name</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemElementAdapter#getElemName()
-	 * @see #getSystemElementAdapter()
-	 * @generated
-	 */
-	EAttribute getSystemElementAdapter_ElemName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemElementAdapter#getSourceElemId <em>Source Elem Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source Elem Id</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemElementAdapter#getSourceElemId()
-	 * @see #getSystemElementAdapter()
-	 * @generated
-	 */
-	EAttribute getSystemElementAdapter_SourceElemId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.SystemElementAdapter#getTargetElemId <em>Target Elem Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Target Elem Id</em>'.
-	 * @see PASYS_Metamodel.pasys.SystemElementAdapter#getTargetElemId()
-	 * @see #getSystemElementAdapter()
-	 * @generated
-	 */
-	EAttribute getSystemElementAdapter_TargetElemId();
 
 	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.PlatformResource <em>Platform Resource</em>}'.
@@ -11892,16 +11541,6 @@ public interface PasysPackage extends EPackage {
 	EOperation getPrometheusMeter__GetPrometheusServerConfiguration();
 
 	/**
-	 * Returns the meta object for enum '{@link PASYS_Metamodel.pasys.ExternalElementType <em>External Element Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>External Element Type</em>'.
-	 * @see PASYS_Metamodel.pasys.ExternalElementType
-	 * @generated
-	 */
-	EEnum getExternalElementType();
-
-	/**
 	 * Returns the meta object for enum '{@link PASYS_Metamodel.pasys.PortMode <em>Port Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12044,14 +11683,6 @@ public interface PasysPackage extends EPackage {
 		EReference COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS = eINSTANCE.getComputationalSystem_OwnedElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Referenced Systems</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS = eINSTANCE.getComputationalSystem_ReferencedSystems();
-
-		/**
 		 * The meta object literal for the '<em><b>Authentication Files</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12118,108 +11749,6 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYSTEM_ELEMENT__OWNER = eINSTANCE.getSystemElement_Owner();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SystemExternalElementImpl <em>System External Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.SystemExternalElementImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemExternalElement()
-		 * @generated
-		 */
-		EClass SYSTEM_EXTERNAL_ELEMENT = eINSTANCE.getSystemExternalElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Element Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_EXTERNAL_ELEMENT__ELEMENT_TYPE = eINSTANCE.getSystemExternalElement_ElementType();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SystemAdapterImpl <em>System Adapter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.SystemAdapterImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemAdapter()
-		 * @generated
-		 */
-		EClass SYSTEM_ADAPTER = eINSTANCE.getSystemAdapter();
-
-		/**
-		 * The meta object literal for the '<em><b>Id Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_ADAPTER__ID_PREFIX = eINSTANCE.getSystemAdapter_IdPrefix();
-
-		/**
-		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_ADAPTER__PREFIX = eINSTANCE.getSystemAdapter_Prefix();
-
-		/**
-		 * The meta object literal for the '<em><b>Elem Mapping</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYSTEM_ADAPTER__ELEM_MAPPING = eINSTANCE.getSystemAdapter_ElemMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>System Target</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYSTEM_ADAPTER__SYSTEM_TARGET = eINSTANCE.getSystemAdapter_SystemTarget();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Sys Locator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_ADAPTER__TARGET_SYS_LOCATOR = eINSTANCE.getSystemAdapter_TargetSysLocator();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SystemElementAdapterImpl <em>System Element Adapter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.impl.SystemElementAdapterImpl
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getSystemElementAdapter()
-		 * @generated
-		 */
-		EClass SYSTEM_ELEMENT_ADAPTER = eINSTANCE.getSystemElementAdapter();
-
-		/**
-		 * The meta object literal for the '<em><b>Elem Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_ELEMENT_ADAPTER__ELEM_NAME = eINSTANCE.getSystemElementAdapter_ElemName();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Elem Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_ELEMENT_ADAPTER__SOURCE_ELEM_ID = eINSTANCE.getSystemElementAdapter_SourceElemId();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Elem Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM_ELEMENT_ADAPTER__TARGET_ELEM_ID = eINSTANCE.getSystemElementAdapter_TargetElemId();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.PlatformResourceImpl <em>Platform Resource</em>}' class.
@@ -14719,16 +14248,6 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROMETHEUS_METER___GET_PROMETHEUS_SERVER_CONFIGURATION = eINSTANCE.getPrometheusMeter__GetPrometheusServerConfiguration();
-
-		/**
-		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.ExternalElementType <em>External Element Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see PASYS_Metamodel.pasys.ExternalElementType
-		 * @see PASYS_Metamodel.pasys.impl.PasysPackageImpl#getExternalElementType()
-		 * @generated
-		 */
-		EEnum EXTERNAL_ELEMENT_TYPE = eINSTANCE.getExternalElementType();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.PortMode <em>Port Mode</em>}' enum.

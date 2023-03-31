@@ -5,15 +5,16 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeployableComponent;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.DeploymentConfiguration;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.StormService;
-import PASYS_Metamodel.pasys.SystemComponentType;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.Workflow;
@@ -616,8 +617,8 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 	private void configureDeploymentOnHost() {
 		// Script generation
 		SchedulingService server = getScheduler();
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
-		NodeClusterDeploymentConf serverConf = (NodeClusterDeploymentConf) server.getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf serverConf = (NodeDeploymentConf) server.getDeploymentConfig();
 		
 		if (server instanceof StormService) {
 			String scriptName = "Workflow" + this.getId() + ".sh";	
@@ -628,10 +629,13 @@ public class WorkflowImpl extends SystemElementImpl implements Workflow {
 				scriptContent += " " + DeploymentToolsUtils.argumentsToString(conf.getArguments());
 			
 			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(),
-					scriptContent, SystemComponentType.WORKFLOW);
+					scriptContent, DeployableComponentType.WORKFLOW);
 			
 			// It is enough with deploying the workflow in only one of the nodes but it must be Nimbus
-			ProcessingNode node = ((StormService) server).getNimbus().getHost().getNodes().get(0);
+			
+			ProcessingNodeCluster nodeHost = (ProcessingNodeCluster)((StormService) server).getNimbus().getHost();
+			
+			ProcessingNode node = nodeHost.getNodes().get(0);
 			node.addLaunchingScript(script);
 
 			// Artifact to move to the corresponding nodes

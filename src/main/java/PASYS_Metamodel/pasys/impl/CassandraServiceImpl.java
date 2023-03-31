@@ -6,6 +6,7 @@ import PASYS_Metamodel.pasys.ArtifactDescriptor;
 import PASYS_Metamodel.pasys.CassandraService;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DataCenter;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
@@ -13,7 +14,6 @@ import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.Rack;
-import PASYS_Metamodel.pasys.SystemComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
 import java.io.IOException;
@@ -748,11 +748,11 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 					//type = SystemComponentType.CASSANDRA_SERVER_SEED;
 
 				for (ProcessingNode node: getHost().getNodes()) {
-					SystemComponentType type = null;
+					DeployableComponentType type = null;
 					if (getSeeds().getNodes().contains(node))
-						type = SystemComponentType.CASSANDRA_SERVER_SEED;
+						type = DeployableComponentType.CASSANDRA_SERVICE_SEED;
 					else
-						type = SystemComponentType.CASSANDRA_SERVER;
+						type = DeployableComponentType.CASSANDRA_SERVICE;
 					// Config file content generation
 					String configFileContent = generateConfigFileContent(node, seedsValue);
 					String configFileName = "cassandra" + id + ".yaml";

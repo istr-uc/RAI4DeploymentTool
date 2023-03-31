@@ -10,7 +10,7 @@ import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
 import org.eclipse.emf.ecore.EClass;
@@ -60,7 +60,7 @@ public class KafkaFlowStreamDataImpl extends FlowStreamDataImpl implements Kafka
 		String scriptName = "topic_"+this.getId()+".sh";
 		
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
-				getScriptContent(getName(), server), SystemComponentType.KAFKA_FLOW_STREAM);
+				getScriptContent(getName(), server), DeployableComponentType.KAFKA_FLOW_STREAM);
 		ProcessingNode node = server.getHost().getNodes().get(0);
 		node.addLaunchingScript(script);
 	}

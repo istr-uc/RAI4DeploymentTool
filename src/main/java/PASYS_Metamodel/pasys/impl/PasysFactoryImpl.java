@@ -14,7 +14,6 @@ import PASYS_Metamodel.pasys.DeploymentConstraints;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.DerivedStreamData;
 import PASYS_Metamodel.pasys.ExporterData;
-import PASYS_Metamodel.pasys.ExternalElementType;
 import PASYS_Metamodel.pasys.FileDescriptor;
 import PASYS_Metamodel.pasys.FlowStreamData;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
@@ -54,9 +53,6 @@ import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SystemAdapter;
-import PASYS_Metamodel.pasys.SystemElementAdapter;
-import PASYS_Metamodel.pasys.SystemExternalElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
@@ -126,9 +122,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case PasysPackage.COMPUTATIONAL_SYSTEM: return createComputationalSystem();
-			case PasysPackage.SYSTEM_EXTERNAL_ELEMENT: return createSystemExternalElement();
-			case PasysPackage.SYSTEM_ADAPTER: return createSystemAdapter();
-			case PasysPackage.SYSTEM_ELEMENT_ADAPTER: return createSystemElementAdapter();
 			case PasysPackage.PHYSICAL_PROCESSING_NODE: return createPhysicalProcessingNode();
 			case PasysPackage.AWS_VIRTUAL_PROCESSING_NODE: return createAWSVirtualProcessingNode();
 			case PasysPackage.PROCESSING_NODE_CLUSTER: return createProcessingNodeCluster();
@@ -198,8 +191,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case PasysPackage.EXTERNAL_ELEMENT_TYPE:
-				return createExternalElementTypeFromString(eDataType, initialValue);
 			case PasysPackage.VOLUME_TYPE:
 				return createVolumeTypeFromString(eDataType, initialValue);
 			case PasysPackage.VOLUME_ACCESS_MODE:
@@ -225,8 +216,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case PasysPackage.EXTERNAL_ELEMENT_TYPE:
-				return convertExternalElementTypeToString(eDataType, instanceValue);
 			case PasysPackage.VOLUME_TYPE:
 				return convertVolumeTypeToString(eDataType, instanceValue);
 			case PasysPackage.VOLUME_ACCESS_MODE:
@@ -253,39 +242,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public ComputationalSystem createComputationalSystem() {
 		ComputationalSystemImpl computationalSystem = new ComputationalSystemImpl();
 		return computationalSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SystemExternalElement createSystemExternalElement() {
-		SystemExternalElementImpl systemExternalElement = new SystemExternalElementImpl();
-		return systemExternalElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SystemAdapter createSystemAdapter() {
-		SystemAdapterImpl systemAdapter = new SystemAdapterImpl();
-		return systemAdapter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SystemElementAdapter createSystemElementAdapter() {
-		SystemElementAdapterImpl systemElementAdapter = new SystemElementAdapterImpl();
-		return systemElementAdapter;
 	}
 
 	/**
@@ -901,26 +857,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public DeploymentFileDescriptor createDeploymentFileDescriptor() {
 		DeploymentFileDescriptorImpl deploymentFileDescriptor = new DeploymentFileDescriptorImpl();
 		return deploymentFileDescriptor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExternalElementType createExternalElementTypeFromString(EDataType eDataType, String initialValue) {
-		ExternalElementType result = ExternalElementType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertExternalElementTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

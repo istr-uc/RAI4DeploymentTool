@@ -64,12 +64,12 @@ public interface StormSupervisor extends DeployableComponent, NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' reference.
-	 * @see #setHost(ProcessingNodeCluster)
+	 * @see #setHost(ProcessingResourceCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getStormSupervisor_Host()
 	 * @model
 	 * @generated
 	 */
-	ProcessingNodeCluster getHost();
+	ProcessingResourceCluster getHost();
 
 	/**
 	 * Sets the value of the '{@link PASYS_Metamodel.pasys.StormSupervisor#getHost <em>Host</em>}' reference.
@@ -79,6 +79,6 @@ public interface StormSupervisor extends DeployableComponent, NamedElement {
 	 * @see #getHost()
 	 * @generated
 	 */
-	void setHost(ProcessingNodeCluster value);
+	void setHost(ProcessingResourceCluster value);
 
 } // StormSupervisor

@@ -24,9 +24,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElements" ordered="false"
           upperBound="-1" eType="#//pasys/SystemElement" containment="true" resolveProxies="false"
           eOpposite="#//pasys/SystemElement/owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="referencedSystems" upperBound="-1"
-          eType="#//pasys/SystemAdapter" containment="true" resolveProxies="false"
-          eOpposite="#//pasys/SystemAdapter/systemTarget"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="authenticationFiles"
           upperBound="-1" eType="#//pasys/StringToStringMap" containment="true"/>
     </eClassifiers>
@@ -38,38 +35,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="SystemElement" abstract="true" eSuperTypes="#//pasys/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
           eType="#//pasys/ComputationalSystem" eOpposite="#//pasys/ComputationalSystem/ownedElements"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemExternalElement" eSuperTypes="#//pasys/SystemElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementType" eType="#//pasys/ExternalElementType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemAdapter">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="idPrefix" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="elemMapping" upperBound="-1"
-          eType="#//pasys/SystemElementAdapter" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemTarget" lowerBound="1"
-          eType="#//pasys/ComputationalSystem" eOpposite="#//pasys/ComputationalSystem/referencedSystems"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetSysLocator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemElementAdapter">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elemName" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceElemId" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetElemId" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="ExternalElementType">
-      <eLiterals name="PROCESSING_NODE"/>
-      <eLiterals name="COMMUNICATION_SERVER" value="1"/>
-      <eLiterals name="SCHEDULING_SERVER" value="2"/>
-      <eLiterals name="NODE_CLUSTER" value="4" literal="NODE_CLUSTER"/>
-      <eLiterals name="PLATFORM_RESOURCE" value="5"/>
-      <eLiterals name="WORKFLOW" value="6"/>
-      <eLiterals name="SCHEDULABLE_SET" value="7"/>
-      <eLiterals name="TASK" value="8"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PlatformResource" abstract="true"
         eSuperTypes="#//pasys/SystemElement"/>
@@ -278,19 +243,19 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="8080"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
           eType="#//pasys/StormService" eOpposite="#//pasys/StormService/ui"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingNodeCluster"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingResourceCluster"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StormNimbus" eSuperTypes="#//pasys/DeployableComponent #//pasys/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
           eType="#//pasys/StormService" eOpposite="#//pasys/StormService/nimbus"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingNodeCluster"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingResourceCluster"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StormSupervisor" eSuperTypes="#//pasys/DeployableComponent #//pasys/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="supervisorSlotPorts"
           upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//pasys/StormService"
           eOpposite="#//pasys/StormService/supervisor"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingNodeCluster"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//pasys/ProcessingResourceCluster"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Neo4JService" eSuperTypes="#//pasys/PersistenceService"/>
     <eClassifiers xsi:type="ecore:EClass" name="MemSQLService" eSuperTypes="#//pasys/PersistenceService"/>

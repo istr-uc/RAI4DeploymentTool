@@ -71,10 +71,7 @@ import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.SwarmPort;
-import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemElement;
-import PASYS_Metamodel.pasys.SystemElementAdapter;
-import PASYS_Metamodel.pasys.SystemExternalElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
@@ -162,18 +159,6 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSystemElement(SystemElement object) {
 				return createSystemElementAdapter();
-			}
-			@Override
-			public Adapter caseSystemExternalElement(SystemExternalElement object) {
-				return createSystemExternalElementAdapter();
-			}
-			@Override
-			public Adapter caseSystemAdapter(SystemAdapter object) {
-				return createSystemAdapterAdapter();
-			}
-			@Override
-			public Adapter caseSystemElementAdapter(SystemElementAdapter object) {
-				return createSystemElementAdapterAdapter();
 			}
 			@Override
 			public Adapter casePlatformResource(PlatformResource object) {
@@ -554,48 +539,6 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSystemElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SystemExternalElement <em>System External Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see PASYS_Metamodel.pasys.SystemExternalElement
-	 * @generated
-	 */
-	public Adapter createSystemExternalElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SystemAdapter <em>System Adapter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see PASYS_Metamodel.pasys.SystemAdapter
-	 * @generated
-	 */
-	public Adapter createSystemAdapterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SystemElementAdapter <em>System Element Adapter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see PASYS_Metamodel.pasys.SystemElementAdapter
-	 * @generated
-	 */
-	public Adapter createSystemElementAdapterAdapter() {
 		return null;
 	}
 

@@ -6,7 +6,6 @@ import PASYS_Metamodel.pasys.ComputationalSystem;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNode;
-import PASYS_Metamodel.pasys.SystemAdapter;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
 import java.lang.reflect.InvocationTargetException;
@@ -49,7 +48,6 @@ import PASYS_Metamodel.pasys.LaunchException;
  *   <li>{@link PASYS_Metamodel.pasys.impl.ComputationalSystemImpl#getTargetPlatformName <em>Target Platform Name</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ComputationalSystemImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ComputationalSystemImpl#getOwnedElements <em>Owned Elements</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.ComputationalSystemImpl#getReferencedSystems <em>Referenced Systems</em>}</li>
  *   <li>{@link PASYS_Metamodel.pasys.impl.ComputationalSystemImpl#getAuthenticationFiles <em>Authentication Files</em>}</li>
  * </ul>
  *
@@ -161,16 +159,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected EList<SystemElement> ownedElements;
-
-	/**
-	 * The cached value of the '{@link #getReferencedSystems() <em>Referenced Systems</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getReferencedSystems()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SystemAdapter> referencedSystems;
 
 	/**
 	 * The cached value of the '{@link #getAuthenticationFiles() <em>Authentication Files</em>}' map.
@@ -317,18 +305,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<SystemAdapter> getReferencedSystems() {
-		if (referencedSystems == null) {
-			referencedSystems = new EObjectContainmentWithInverseEList<SystemAdapter>(SystemAdapter.class, this, PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS, PasysPackage.SYSTEM_ADAPTER__SYSTEM_TARGET);
-		}
-		return referencedSystems;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -352,8 +328,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case PasysPackage.COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedElements()).basicAdd(otherEnd, msgs);
-			case PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferencedSystems()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -367,8 +341,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case PasysPackage.COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS:
 				return ((InternalEList<?>)getOwnedElements()).basicRemove(otherEnd, msgs);
-			case PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS:
-				return ((InternalEList<?>)getReferencedSystems()).basicRemove(otherEnd, msgs);
 			case PasysPackage.COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES:
 				return ((InternalEList<?>)getAuthenticationFiles()).basicRemove(otherEnd, msgs);
 		}
@@ -394,8 +366,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				return getDoc();
 			case PasysPackage.COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS:
 				return getOwnedElements();
-			case PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS:
-				return getReferencedSystems();
 			case PasysPackage.COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES:
 				if (coreType) return getAuthenticationFiles();
 				else return getAuthenticationFiles().map();
@@ -430,10 +400,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				getOwnedElements().clear();
 				getOwnedElements().addAll((Collection<? extends SystemElement>)newValue);
 				return;
-			case PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS:
-				getReferencedSystems().clear();
-				getReferencedSystems().addAll((Collection<? extends SystemAdapter>)newValue);
-				return;
 			case PasysPackage.COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES:
 				((EStructuralFeature.Setting)getAuthenticationFiles()).set(newValue);
 				return;
@@ -466,9 +432,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			case PasysPackage.COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS:
 				getOwnedElements().clear();
 				return;
-			case PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS:
-				getReferencedSystems().clear();
-				return;
 			case PasysPackage.COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES:
 				getAuthenticationFiles().clear();
 				return;
@@ -495,8 +458,6 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				return DOC_EDEFAULT == null ? doc != null : !DOC_EDEFAULT.equals(doc);
 			case PasysPackage.COMPUTATIONAL_SYSTEM__OWNED_ELEMENTS:
 				return ownedElements != null && !ownedElements.isEmpty();
-			case PasysPackage.COMPUTATIONAL_SYSTEM__REFERENCED_SYSTEMS:
-				return referencedSystems != null && !referencedSystems.isEmpty();
 			case PasysPackage.COMPUTATIONAL_SYSTEM__AUTHENTICATION_FILES:
 				return authenticationFiles != null && !authenticationFiles.isEmpty();
 		}

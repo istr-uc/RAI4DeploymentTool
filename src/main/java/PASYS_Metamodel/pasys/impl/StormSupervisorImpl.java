@@ -4,7 +4,7 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.NamedElement;
 import PASYS_Metamodel.pasys.PasysPackage;
-import PASYS_Metamodel.pasys.ProcessingNodeCluster;
+import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import PASYS_Metamodel.pasys.StormService;
 import PASYS_Metamodel.pasys.StormSupervisor;
 
@@ -99,7 +99,7 @@ public class StormSupervisorImpl extends DeployableComponentImpl implements Stor
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessingNodeCluster host;
+	protected ProcessingResourceCluster host;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,10 +228,10 @@ public class StormSupervisorImpl extends DeployableComponentImpl implements Stor
 	 * @generated
 	 */
 	@Override
-	public ProcessingNodeCluster getHost() {
+	public ProcessingResourceCluster getHost() {
 		if (host != null && host.eIsProxy()) {
 			InternalEObject oldHost = (InternalEObject)host;
-			host = (ProcessingNodeCluster)eResolveProxy(oldHost);
+			host = (ProcessingResourceCluster)eResolveProxy(oldHost);
 			if (host != oldHost) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PasysPackage.STORM_SUPERVISOR__HOST, oldHost, host));
@@ -245,7 +245,7 @@ public class StormSupervisorImpl extends DeployableComponentImpl implements Stor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingNodeCluster basicGetHost() {
+	public ProcessingResourceCluster basicGetHost() {
 		return host;
 	}
 
@@ -255,8 +255,8 @@ public class StormSupervisorImpl extends DeployableComponentImpl implements Stor
 	 * @generated
 	 */
 	@Override
-	public void setHost(ProcessingNodeCluster newHost) {
-		ProcessingNodeCluster oldHost = host;
+	public void setHost(ProcessingResourceCluster newHost) {
+		ProcessingResourceCluster oldHost = host;
 		host = newHost;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.STORM_SUPERVISOR__HOST, oldHost, host));
@@ -352,7 +352,7 @@ public class StormSupervisorImpl extends DeployableComponentImpl implements Stor
 				setOwner((StormService)newValue);
 				return;
 			case PasysPackage.STORM_SUPERVISOR__HOST:
-				setHost((ProcessingNodeCluster)newValue);
+				setHost((ProcessingResourceCluster)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -379,7 +379,7 @@ public class StormSupervisorImpl extends DeployableComponentImpl implements Stor
 				setOwner((StormService)null);
 				return;
 			case PasysPackage.STORM_SUPERVISOR__HOST:
-				setHost((ProcessingNodeCluster)null);
+				setHost((ProcessingResourceCluster)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -10,7 +10,7 @@ import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
 import org.eclipse.emf.ecore.EClass;
@@ -62,7 +62,7 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 		String scriptName = "topic_"+this.getId()+".sh";
 		
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
-				getScriptContent(getName(), server), SystemComponentType.KAFKA_FLOW_STREAM);
+				getScriptContent(getName(), server), DeployableComponentType.KAFKA_FLOW_STREAM);
 		
 		// If Kakfa is deployed in a cluster, the topic must be created in only one of the instances
 		ProcessingNode node = server.getHost().getNodes().get(0);

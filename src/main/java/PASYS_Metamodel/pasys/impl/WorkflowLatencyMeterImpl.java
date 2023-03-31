@@ -5,6 +5,7 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.Workflow;
 import PASYS_Metamodel.pasys.WorkflowLatency;
 import PASYS_Metamodel.pasys.WorkflowLatencyMeter;
@@ -312,8 +313,8 @@ public class WorkflowLatencyMeterImpl extends PrometheusMeterImpl implements Wor
 	}
 	
 	private List<ProcessingNode> getHosts(){
-				
-		return this.getOwner().getScheduler().getHost().getNodes();
+		ProcessingNodeCluster nodeCluster = (ProcessingNodeCluster) this.getOwner().getScheduler().getHost();
+		return nodeCluster.getNodes();
 		
 	}
 
