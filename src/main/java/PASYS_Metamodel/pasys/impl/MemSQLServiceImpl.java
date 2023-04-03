@@ -2,6 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
+import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.PasysPackage;
 
@@ -32,6 +33,28 @@ public class MemSQLServiceImpl extends PersistenceServiceImpl implements MemSQLS
 	@Override
 	protected EClass eStaticClass() {
 		return PasysPackage.Literals.MEM_SQL_SERVICE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
 	}
 
 } //MemSQLServiceImpl

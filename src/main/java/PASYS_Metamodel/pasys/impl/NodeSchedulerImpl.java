@@ -2,6 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
+import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.NodeScheduler;
 import PASYS_Metamodel.pasys.PasysPackage;
 
@@ -36,5 +37,27 @@ public class NodeSchedulerImpl extends SchedulingServiceImpl implements NodeSche
 		return PasysPackage.Literals.NODE_SCHEDULER;
 	}
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
 	
 } //NodeSchedulerImpl

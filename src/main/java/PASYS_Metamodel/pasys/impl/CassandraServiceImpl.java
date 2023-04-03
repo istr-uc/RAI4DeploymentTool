@@ -9,7 +9,7 @@ import PASYS_Metamodel.pasys.DataCenter;
 import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.FileDescriptor;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeCluster;
@@ -705,14 +705,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	 * @generated NOT
 	 */
 	@Override
-	public void configureDeployment() throws ConfigurationException {
-		if (getHost() != null)
-			configureDeploymentOnHost();
-		else
-			configureDeploymentOnOrchestrator();
-	}
-
-	private void configureDeploymentOnOrchestrator() {
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
 		
 		// En Kubernetes
 			// 1. Generar el fichero de configuración (sin seeds y con listenAddress y rpcAddress sin asignar)
@@ -737,8 +730,14 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 
 	}
 
-	private void configureDeploymentOnHost() throws ConfigurationException {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException {
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		String seedsValue= getSeedsValue();
 		Map<String, String> rackConf = rackConfiguration();
 		if (!conf.isIsRunning()) {		
@@ -746,8 +745,8 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 				//SystemComponentType type = SystemComponentType.CASSANDRA_SERVER;
 				//if (isSeed)
 					//type = SystemComponentType.CASSANDRA_SERVER_SEED;
-
-				for (ProcessingNode node: getHost().getNodes()) {
+				ProcessingNodeCluster nodeHost = (ProcessingNodeCluster) host;
+				for (ProcessingNode node:nodeHost.getNodes()) {
 					DeployableComponentType type = null;
 					if (getSeeds().getNodes().contains(node))
 						type = DeployableComponentType.CASSANDRA_SERVICE_SEED;
@@ -789,7 +788,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 	}
 
 	private String generateScriptContent(String configFileName, String ip) {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		String scriptContent = "rm -rf " + getDataFileDir() + "/system/*\n";
 		scriptContent += "rm -f " + conf.getConfigFolderPath() + "/cassandra-topology.properties\n";
 		scriptContent += conf.getArtifactLocator() + "/" + conf.getArtifactName() + " -Dcassandra.config=file:///"

@@ -570,18 +570,8 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	 * 
 	 * @generated NOT
 	 */
-	@Override
-	public void configureDeployment() throws ConfigurationException {
-		super.configureDeployment();
-		
-			if (getHost() instanceof ProcessingNodeCluster)
-				configureDeploymentOnHost();
-			else
-				configureDeploymentOnOrchestrator();
-		
-	}
-	
-	private void configureDeploymentOnHost() throws ConfigurationException {
+	@Override	
+	public void configureDeploymentOnNode() throws ConfigurationException {
 		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		if (!conf.isIsRunning()) {		
 			try {
@@ -644,8 +634,13 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		return configFileContent;
 	}
 	
-	
-	private void configureDeploymentOnOrchestrator() {
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override	
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
 		// Values File generation
 		//DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + "values.yaml",
 			//	conf.getConfigFolderPath(), generateValuesFileContent(conf), DeployableComponentType.ZOOKEEPER_SERVER);

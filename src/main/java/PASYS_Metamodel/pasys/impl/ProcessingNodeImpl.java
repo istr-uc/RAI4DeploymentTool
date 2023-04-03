@@ -469,10 +469,10 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	@Override
 	public void prepareForDeployment() throws ConfigurationException {
 		// Initialize properties
-		propertyConfigData = new Properties();
-		propertyConfigData.setProperty("hostID", getId());
-		propertyConfigData.setProperty("IP", getIp());
-		propertyConfigData.setProperty("speedFactor", Double.toString(getSpeedFactor()));
+		configData = new Properties();
+		configData.setProperty("hostID", getId());
+		configData.setProperty("IP", getIp());
+		configData.setProperty("speedFactor", Double.toString(getSpeedFactor()));
 
 		// 0. Deploy the owned meters
 		for (NodeHostedMeter meter : getOwnedMeters())
@@ -500,7 +500,7 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	public void bringBackConfiguration() {
 		// Por el momento no hay que hacer nada.
 		// Por asegurarnos podemos inicializar las estructuras.
-		setPropertyConfigData(null);
+		setConfigData(null);
 		getLaunchingScripts().clear();
 		getConfigFiles().clear();
 		getCodeFiles().clear();

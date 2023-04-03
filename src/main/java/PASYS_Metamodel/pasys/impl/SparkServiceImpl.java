@@ -2,6 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
+import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingResourceCluster;
 import PASYS_Metamodel.pasys.SchedulableSet;
@@ -847,5 +848,28 @@ public class SparkServiceImpl extends SchedulingServiceImpl implements SparkServ
 		result.append(')');
 		return result.toString();
 	}
-
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 } //SparkServiceImpl

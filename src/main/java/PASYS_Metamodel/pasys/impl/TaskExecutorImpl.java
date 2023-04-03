@@ -10,13 +10,12 @@ import PASYS_Metamodel.pasys.DeploymentConfiguration;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.KafkaService;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.PrometheusService;
-import PASYS_Metamodel.pasys.ResourceCluster;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
@@ -434,28 +433,29 @@ public class TaskExecutorImpl extends NamedElementImpl implements TaskExecutor {
 		 * ResourceCluster resourceCluster = this.getOwner().getScheduler().getTarget();
 		 * for (PlatformResource c : resourceCluster.getResources()) { ResourceCluster
 		 * rc = (ResourceCluster) c; deployInNode(rc); } // end for Node
-		 */	}
-
-	public void deployInNode(ResourceCluster rsrcCluster) throws ConfigurationException {
-
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
-		ProcessingNode pNode=null;
-		KafkaService kfkServer = null;
-		CassandraService csServer = null;
-		
-		for (PlatformResource pr:rsrcCluster.getResources()) {
-			if (pr instanceof ProcessingNode) 
-				pNode = (ProcessingNode)pr;
-			if (pr instanceof KafkaService)
-				kfkServer = (KafkaService) pr;
-			if (pr instanceof CassandraService) 
-				csServer = (CassandraService)pr;
+		 */	
 		}
+
+	public void deployInNode(ProcessingNode pNode, KafkaService kfkServer, CassandraService csServer) throws ConfigurationException {
+
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
+		//ProcessingNode pNode=null;
+		//KafkaService kfkServer = null;
+		//CassandraService csServer = null;
+		
+		//for (PlatformResource pr:rsrcCluster.getResources()) {
+			//if (pr instanceof ProcessingNode) 
+				//pNode = (ProcessingNode)pr;
+			//if (pr instanceof KafkaService)
+				//kfkServer = (KafkaService) pr;
+			//if (pr instanceof CassandraService) 
+				//csServer = (CassandraService)pr;
+		//}
 		
 		// ConfigurationFile generation
 		String configFileContent = generateConfigFileContent(pNode);
 		DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("TaskExecutor"+this.getId()+".cfg", 
-				conf.getConfigFolderPath(), configFileContent, SystemComponentType.TASK_EXECUTOR );
+				conf.getConfigFolderPath(), configFileContent, DeployableComponentType.TASK_EXECUTOR );
 		pNode.addConfigFile(configFile);
 		
 		
@@ -463,7 +463,7 @@ public class TaskExecutorImpl extends NamedElementImpl implements TaskExecutor {
 		String scriptContent = generateScriptContent(pNode, kfkServer, csServer);
 		String scriptName = "TaskExecutor"+this.getId() + ".sh";	
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
-				scriptContent, SystemComponentType.TASK_EXECUTOR);
+				scriptContent, DeployableComponentType.TASK_EXECUTOR);
 		pNode.addLaunchingScript(script);
 		
 		// Artifact to move to the corresponding nodes
@@ -473,7 +473,7 @@ public class TaskExecutorImpl extends NamedElementImpl implements TaskExecutor {
 
 	private String generateScriptContent(ProcessingNode pNode, KafkaService kfkServer,
 			CassandraService csServer) {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		String scriptContent = "java ";
 		if (getOwnedMeters().size()>0) {
 			String agentLocation = null;

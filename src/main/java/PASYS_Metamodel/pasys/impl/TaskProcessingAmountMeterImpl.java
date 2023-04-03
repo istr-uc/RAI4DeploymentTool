@@ -5,6 +5,7 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
 import PASYS_Metamodel.pasys.TaskProcessingAmountMeter;
@@ -313,8 +314,9 @@ public class TaskProcessingAmountMeterImpl extends PrometheusMeterImpl implement
 	}
 	
 	private List<ProcessingNode> getHosts(){
-	
-		return this.getOwner().getOwner().getScheduler().getHost().getNodes();
+		
+		ProcessingNodeCluster cluster = (ProcessingNodeCluster) this.getOwner().getOwner().getScheduler().getHost();
+		return cluster.getNodes();
 		
 	}
 

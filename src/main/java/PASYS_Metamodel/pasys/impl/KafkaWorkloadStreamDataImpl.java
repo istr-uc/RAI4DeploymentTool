@@ -7,9 +7,10 @@ import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
@@ -56,7 +57,7 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 			throw new ConfigurationException("The topic "+getName()+ " is not assigned to a Kafka Server");
 		
 		
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		// Launching script generation
 		// De estos puede haber muchos en un mismo nodo, as� que le ponemos el id
 		String scriptName = "topic_"+this.getId()+".sh";
@@ -65,13 +66,15 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 				getScriptContent(getName(), server), DeployableComponentType.KAFKA_FLOW_STREAM);
 		
 		// If Kakfa is deployed in a cluster, the topic must be created in only one of the instances
-		ProcessingNode node = server.getHost().getNodes().get(0);
+		ProcessingNodeCluster serverHost = (ProcessingNodeCluster) server.getHost();		
+		ProcessingNode node = serverHost.getNodes().get(0);
 		node.addLaunchingScript(script);
 	}
 	
 	private String getScriptContent(String topicName, CommunicationService server) {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
-		String ip = server.getHost().getNodes().get(0).getIp();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
+		ProcessingNodeCluster serverHost = (ProcessingNodeCluster) server.getHost();		
+		String ip = serverHost.getNodes().get(0).getIp();
 		int port = ((KafkaService)server).getClientPort();
 		
 		String baseKafkaScript = conf.getArtifactLocator()+"/"+conf.getArtifactName();

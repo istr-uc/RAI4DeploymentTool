@@ -4,14 +4,15 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
 import PASYS_Metamodel.pasys.StormSupervisor;
 import PASYS_Metamodel.pasys.StormUI;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.ZookeeperService;
 
 import java.io.InputStreamReader;
@@ -476,42 +477,43 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 	 * @generated NOT
 	 */
 	@Override
-	public void configureDeployment() throws ConfigurationException {
-		super.configureDeployment();
-		if (getHost() != null)
-			configureDeploymentOnHost();
-		else
-			configureDeploymentOnOrchestrator();
-	}
-
-	private void configureDeploymentOnOrchestrator() {
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
 		// TODO Auto-generated method stub
 
 	}
 
-	private void configureDeploymentOnHost() throws ConfigurationException {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException {
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 
 		try {
 			// Config file generation
 			DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("storm.yaml",
-					conf.getConfigFolderPath(), generateConfigFileContent(), SystemComponentType.STORM_NIMBUS);
+					conf.getConfigFolderPath(), generateConfigFileContent(), DeployableComponentType.STORM_NIMBUS);
 			
 			DeploymentFileDescriptor script = null;
-			for (ProcessingNode node:nimbus.getHost().getNodes()) {
-				script = generateScript(SystemComponentType.STORM_NIMBUS);
+			ProcessingNodeCluster cluster = (ProcessingNodeCluster) nimbus.getHost();
+			for (ProcessingNode node:cluster.getNodes()) {
+				script = generateScript(DeployableComponentType.STORM_NIMBUS);
 				node.addLaunchingScript(script);
 				node.addConfigFile(configFile);		
 			}
 			
-			for (ProcessingNode node:supervisor.getHost().getNodes()) {
-				script = generateScript(SystemComponentType.STORM_SUPERVISOR);
+			cluster = (ProcessingNodeCluster) supervisor.getHost();
+			for (ProcessingNode node:cluster.getNodes()) {
+				script = generateScript(DeployableComponentType.STORM_SUPERVISOR);
 				node.addLaunchingScript(script);
 				node.addConfigFile(configFile);		
 			}
 			
-			for (ProcessingNode node:ui.getHost().getNodes()) {
-				script = generateScript(SystemComponentType.STORM_UI);
+			cluster = (ProcessingNodeCluster) ui.getHost();
+			for (ProcessingNode node:cluster.getNodes()) {
+				script = generateScript(DeployableComponentType.STORM_UI);
 				node.addLaunchingScript(script);			
 				//node.getConfigFiles().add(configFile);		
 			}
@@ -544,7 +546,8 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		// storm.zookeeper.servers
 		List<String> zkServers = new LinkedList<String>();
 		ZookeeperService zk = getZookeeperConnect();
-		for (ProcessingNode node : zk.getHost().getNodes()) {
+		ProcessingNodeCluster cluster = (ProcessingNodeCluster) zk.getHost();
+		for (ProcessingNode node:cluster.getNodes()) {
 			zkServers.add(node.getIp());
 		}
 
@@ -553,15 +556,17 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 
 		// nimbus.seeds		
 		List<String> nimbusSeeds = new LinkedList<String>();
-		for (ProcessingNode seed : getNimbus().getHost().getNodes()) {
+		
+		cluster = (ProcessingNodeCluster) getNimbus().getHost();
+		for (ProcessingNode seed : cluster.getNodes()) {
 			nimbusSeeds.add(seed.getIp());
 		}
 
 		// Prueba para ver si me lo escribe sin comilla
 		if (!(getSupervisor().getSupervisorSlotPorts() == null)) {
 			List<String> supervisorSlotPorts = new LinkedList<String>();
-			for (Integer port : getSupervisor().getSupervisorSlotPorts())
-				supervisorSlotPorts.add(Integer.toString(port));
+			for (String port : getSupervisor().getSupervisorSlotPorts())
+				supervisorSlotPorts.add(port);
 
 			map.put("supervisor.slots.ports", supervisorSlotPorts);
 		}
@@ -588,9 +593,9 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		return configFileContent;
 	}
 
-	private DeploymentFileDescriptor generateScript(SystemComponentType type) {
+	private DeploymentFileDescriptor generateScript(DeployableComponentType type) {
 		
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		String scriptContent = "launch " + conf.getArtifactLocator() + "/" + conf.getArtifactName() + " ";
 		scriptContent = "cd " + conf.getScriptFolderPath() + "\n"+ scriptContent;
 		DeploymentFileDescriptor script = null;
@@ -599,17 +604,17 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		case STORM_NIMBUS:
 			scriptContent += "nimbus";
 			script = new DeploymentFileDescriptorImpl("stormNimbus" + getId() + ".sh", conf.getScriptFolderPath(),
-					scriptContent, SystemComponentType.STORM_NIMBUS);
+					scriptContent, DeployableComponentType.STORM_NIMBUS);
 			break;
 		case STORM_SUPERVISOR:
 			scriptContent += "supervisor";
 			script = new DeploymentFileDescriptorImpl("stormSupervisor" + getId() + ".sh", conf.getScriptFolderPath(),
-					scriptContent, SystemComponentType.STORM_SUPERVISOR);
+					scriptContent, DeployableComponentType.STORM_SUPERVISOR);
 			break;
 		case STORM_UI:
 			scriptContent += "ui";
 			script = new DeploymentFileDescriptorImpl("stormUI" + getId() + ".sh", conf.getScriptFolderPath(),
-					scriptContent, SystemComponentType.STORM_UI);
+					scriptContent, DeployableComponentType.STORM_UI);
 			break;
 		}
 		

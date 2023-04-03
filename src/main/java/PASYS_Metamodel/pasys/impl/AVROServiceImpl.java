@@ -3,6 +3,7 @@
 package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.AVROService;
+import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.PasysPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -32,6 +33,28 @@ public class AVROServiceImpl extends SerializationServiceImpl implements AVROSer
 	@Override
 	protected EClass eStaticClass() {
 		return PasysPackage.Literals.AVRO_SERVICE;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException{
+		// TODO Auto-generated method stub
+		
 	}
 
 } //AVROServiceImpl

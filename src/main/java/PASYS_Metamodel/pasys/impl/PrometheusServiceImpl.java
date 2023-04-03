@@ -6,12 +6,13 @@ import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.Meter;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.PrometheusMeter;
 import PASYS_Metamodel.pasys.PrometheusService;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
 import java.util.Collection;
@@ -157,26 +158,25 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 	}
 	
 	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public void configureDeployment() throws ConfigurationException {
-		super.configureDeployment();
-		if (getHost()!=null)
-			configureDeploymentOnHost();
-		else
-			configureDeploymentOnOrchestrator();
-	}
-	
-	private void configureDeploymentOnOrchestrator() {
+	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
 		// TODO 
 	}
 
-	private void configureDeploymentOnHost() throws ConfigurationException {
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void configureDeploymentOnNode() throws ConfigurationException {
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		
 		// prometheus.yml file generation
 		String prometheusConfigFile ="prometheus"+getId()+".yml";
@@ -189,7 +189,7 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 		// Add file to the legatedConfigFiles of the host
 		DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(
 				prometheusConfigFile, conf.getConfigFolderPath(), 
-				prometheusConfigContent, SystemComponentType.PROMETHEUS_SERVER);
+				prometheusConfigContent, DeployableComponentType.PROMETHEUS_SERVICE);
 		
 		// Launching script generation
 		String scriptContent =  "/usr/local/bin/launch ";
@@ -199,9 +199,10 @@ public class PrometheusServiceImpl extends MonitoringServiceImpl implements Prom
 		String scriptName = "prometheusScript.sh";
 		
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, 
-				conf.getScriptFolderPath(), scriptContent, SystemComponentType.PROMETHEUS_SERVER);
+				conf.getScriptFolderPath(), scriptContent, DeployableComponentType.PROMETHEUS_SERVICE);
 
-		for (ProcessingNode node: getHost().getNodes()) {
+		ProcessingNodeCluster nodeCluster = (ProcessingNodeCluster) getHost();
+		for (ProcessingNode node: nodeCluster.getNodes()) {
 			node.addLaunchingScript(script);
 			node.addConfigFile(configFile);
 		}

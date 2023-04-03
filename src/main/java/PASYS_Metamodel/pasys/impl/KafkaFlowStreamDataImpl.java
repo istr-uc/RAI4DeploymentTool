@@ -6,12 +6,13 @@ import PASYS_Metamodel.pasys.CommunicationService;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.KafkaFlowStreamData;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.KafkaService;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
+import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -54,21 +55,24 @@ public class KafkaFlowStreamDataImpl extends FlowStreamDataImpl implements Kafka
 		if (!(server instanceof KafkaService)) 
 			throw new ConfigurationException("The topic "+getName()+ " is not assigned to a Kafka Server");
 		
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		// Launching script generation
 		// De estos puede haber muchos en un mismo nodo, asi que le ponemos el id
 		String scriptName = "topic_"+this.getId()+".sh";
 		
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
 				getScriptContent(getName(), server), DeployableComponentType.KAFKA_FLOW_STREAM);
-		ProcessingNode node = server.getHost().getNodes().get(0);
+		ProcessingNodeCluster serverCluster = (ProcessingNodeCluster) server.getHost();
+		ProcessingNode node = serverCluster.getNodes().get(0);
 		node.addLaunchingScript(script);
 	}
 	
 	private String getScriptContent(String topicName, CommunicationService server) {
-		String ip = server.getHost().getNodes().get(0).getIp();
+		
+		ProcessingNodeCluster serverCluster = (ProcessingNodeCluster) server.getHost();	
+		String ip = serverCluster.getNodes().get(0).getIp();
 		int port = ((KafkaService)server).getClientPort();
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 		
 		String baseKafkaScript = conf.getArtifactLocator()+"/"+conf.getArtifactName();
 		String scriptContent = "TOPIC_NAME=\""+topicName+"\"\n";

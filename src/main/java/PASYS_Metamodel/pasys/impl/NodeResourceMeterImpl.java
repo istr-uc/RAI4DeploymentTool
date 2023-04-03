@@ -4,12 +4,12 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
-import PASYS_Metamodel.pasys.NodeClusterDeploymentConf;
+import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNodeMemory;
 import PASYS_Metamodel.pasys.ProcessingNodeUtilization;
-import PASYS_Metamodel.pasys.SystemComponentType;
+import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -279,7 +279,7 @@ public class NodeResourceMeterImpl extends NodeHostedMeterImpl implements NodeRe
 	public void configureDeployment() throws ConfigurationException {
 		//System.out.println("deploy in PrometheusNodeMeter " + this.getId());
 		// No configuration needed
-		NodeClusterDeploymentConf conf = (NodeClusterDeploymentConf) getDeploymentConfig();
+		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
 
 		// Launching script generation
 		String scriptContent = "/usr/local/bin/launch "; 
@@ -313,7 +313,7 @@ public class NodeResourceMeterImpl extends NodeHostedMeterImpl implements NodeRe
 		scriptContent=DeploymentToolsUtils.scriptHeaders(conf.getScriptFolderPath())+scriptContent;
 		// Add the script to the scriptFiles of the host
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("NodeResourceMeter"+this.getId()+".sh",
-				conf.getScriptFolderPath(), scriptContent, SystemComponentType.NODE_RESOURCE_METER);
+				conf.getScriptFolderPath(), scriptContent, DeployableComponentType.NODE_RESOURCE_METER);
 		this.getOwner().getLaunchingScripts().add(script);
 	}
 
