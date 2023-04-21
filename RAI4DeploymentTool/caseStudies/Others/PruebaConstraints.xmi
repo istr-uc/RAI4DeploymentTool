@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pasys:ComputationalSystem
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pasys="www.unican.es/ISTR/P3forI4/pasys"
+    xsi:schemaLocation="www.unican.es/ISTR/P3forI4/pasys ../../metamodels/PABM_Metamodel.ecore#//pasys">
+  <ownedElements
+      xsi:type="pasys:NodeCluster"
+      resources="//@ownedElements.3"/>
+  <ownedElements
+      xsi:type="pasys:KubernetesService"
+      host="//@ownedElements.0"/>
+  <ownedElements
+      xsi:type="pasys:KafkaService"
+      host="//@ownedElements.0"
+      orchestrator="//@ownedElements.1"/>
+  <ownedElements
+      xsi:type="pasys:PhysicalProcessingNode"/>
+</pasys:ComputationalSystem>

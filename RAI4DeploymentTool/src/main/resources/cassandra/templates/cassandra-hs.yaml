@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  cassandra-hs
+spec:
+  selector:
+    app:  cassandra
+  type:  ClusterIP
+  clusterIP: None
+  ports:
+  - name:  inter-node
+    port:  {{ .Values.intraNodePort }}
+    targetPort: {{ .Values.intraNodePort }}
+  - name:  tsl-inter-node
+    port:  {{ .Values.tslIntraNodePort }}
+    targetPort:  {{ .Values.tslIntraNodePort }}
+  - name:  thrift
+    port:  9160
+    targetPort:  9160

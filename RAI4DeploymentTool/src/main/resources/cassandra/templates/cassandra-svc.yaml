@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  cassandra-svc
+spec:
+  selector:
+    app:  cassandra
+  type:  ClusterIP
+  ports:
+  - name:  cql-client
+    port:  {{ .Values.cqlPort }}
+    targetPort:  {{ .Values.cqlPort }}

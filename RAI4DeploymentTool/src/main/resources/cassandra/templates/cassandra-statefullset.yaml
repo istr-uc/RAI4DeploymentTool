@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.name }}
+spec:
+  selector:
+    matchLabels:
+      app: cassandra
+  serviceName: cassandra-svc
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: cassandra
+    spec:
+      containers:
+      - name: cassandra
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+        command: ["/bin/sh"]
+        args: ["-c", "docker-entrypoint-custom.sh; while true; do cat /etc/cassandra/cassandra.yaml; sleep 10;done"]
+        ports:
+        - containerPort: {{ .Values.intraNodePort }}
+          name: intra-node
+        - containerPort: {{ .Values.tslIntraNodePort }}
+          name: tls-intra-node
+        - containerPort: {{ .Values.jmxPort }}
+          name: jmx
+        - containerPort:  {{ .Values.cqlPort }}
+          name: cql
+        volumeMounts:
+        - name: cassandra-data
+          mountPath: /cassandra_data
+        - name: cassandra-yaml
+          mountPath: /tmp/cassandra.yaml
+          subPath: cassandra.yaml
+      volumes:
+      - name: "cassandra-yaml"
+        configMap:
+            name: "cassandra-yaml"
+  volumeClaimTemplates:
+  - metadata:
+      name: cassandra-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: fast
+      resources:
+        requests:
+          storage: 1Gi
