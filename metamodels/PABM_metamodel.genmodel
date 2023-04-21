@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/RAI4DeploymentTool/src/main/java" editDirectory="/RAI4DeploymentTool.edit/src"
-    editorDirectory="/RAI4DeploymentTool.editor/src" modelPluginID="RAI4DeploymentTool"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/IAP4_0DeploymentTool/src/main/java" modelPluginID="IAP4_0DeploymentTool"
     modelName="PABM_Metamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    editPluginID="RAI4DeploymentTool.edit" editorPluginID="RAI4DeploymentTool.editor"
     operationReflection="true" importOrganizing="true">
   <foreignModel>PABM_Metamodel.ecore</foreignModel>
   <genPackages prefix="PASYS_Metamodel" disposableProviderFactory="true" ecorePackage="PABM_Metamodel.ecore#/">
@@ -19,26 +17,6 @@
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/SCHEDULABLE_SET"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/ExternalElementType/TASK"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/VolumeType">
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeType/VOLUME"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeType/BIND"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeType/TMPFS"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeType/NPIPE"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/VolumeAccessMode">
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeAccessMode/READWRITEONCE"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeAccessMode/READONLYMANY"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeAccessMode/READWRITEMANY"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/VolumeAccessMode/READWRITEONCEPOD"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/PortMode">
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/PortMode/HOST"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/PortMode/INGRESS"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/Protocol">
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/Protocol/TCP"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/Protocol/UDP"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="PABM_Metamodel.ecore#//pasys/SystemComponentType">
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/PROMETHEUS_SERVER"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/ZOOKEEPER_SERVER"/>
@@ -47,7 +25,6 @@
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/CASSANDRA_SERVER"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/STORM_NIMBUS"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/STORM_SUPERVISOR"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/STORM_UI"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/SPARK_SERVER"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/KAFKA_WORKLOAD_STREAM"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/KAFKA_FLOW_STREAM"/>
@@ -55,8 +32,6 @@
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/NODE_RESOURCE_METER"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/TASK_EXECUTOR"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/TASK_AMOUNT_METER"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/DOCKER_STACK"/>
-        <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/CASSANDRA_SCHEMA"/>
         <genEnumLiterals ecoreEnumLiteral="PABM_Metamodel.ecore#//pasys/SystemComponentType/WORKFLOW"/>
       </genEnums>
       <genDataTypes ecoreDataType="PABM_Metamodel.ecore#//pasys/Properties"/>
@@ -70,7 +45,6 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ComputationalSystem/referencedSystems"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ComputationalSystem/authenticationFiles"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ComputationalSystem/deployAndLaunch"/>
-        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ComputationalSystem/cleanDeployment"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/NamedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NamedElement/name"/>
@@ -96,15 +70,12 @@
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PlatformResource"/>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ProcessingNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/ip"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/os"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/concurrencyLevel"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/memorySize"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/speedFactor"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/propertyConfigData"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/userName"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ProcessingNode/connectedTo"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/propertyConfigData"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ProcessingNode/launchingScripts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -112,21 +83,18 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ProcessingNode/codeFiles"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ProcessingNode/ownedMeters"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ProcessingNode/ip"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/prepareForDeployment"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/deployAndLaunch"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/bringBackConfiguration"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/bringBackDeployment"/>
         <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/abortLaunching"/>
-        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/addLaunchingScript">
-          <genParameters ecoreParameter="PABM_Metamodel.ecore#//pasys/ProcessingNode/addLaunchingScript/script"/>
-        </genOperations>
-        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/ProcessingNode/addConfigFile">
-          <genParameters ecoreParameter="PABM_Metamodel.ecore#//pasys/ProcessingNode/addConfigFile/configFile"/>
-        </genOperations>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/PhysicalProcessingNode"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/PhysicalProcessingNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PhysicalProcessingNode/os"/>
+      </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/VirtualProcessingNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/VirtualProcessingNode/externalIP"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/VirtualProcessingNode/privateIP"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/AWSVirtualProcessingNode">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/AWSVirtualProcessingNode/vpc"/>
@@ -140,152 +108,118 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/ResourceCluster/resources"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/NodeCluster">
-        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/NodeCluster/getNodes"/>
-      </genClasses>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/NodeCluster"/>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Network">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Network/bandwith"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PlatformService">
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/PlatformServer">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PlatformService/host"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PlatformServer/host"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PlatformService/orchestrator"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PlatformService/managed"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PlatformServer/target"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/OrchestrationService">
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/SerializationServer"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/AVROServer"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DistributionServer"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ZookeeperServer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/serverId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/tickTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/leaderServers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/initLimit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/syncLimit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/clientPort"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/peerPort"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperServer/leaderPort"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/CommunicationServer"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/KafkaServer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/commId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/autoCreateTopicEnable"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/deleteTopicEnable"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/OrchestrationService/services"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/KafkaServer/zookeeperConnect"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/zookeeperConnectionTimeout"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/numPartitions"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/numRecoveryThreadsPerDataDir"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/logFlushIntervalMessages"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/logFlushInterval"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/listeners"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/advertisedListeners"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/numNetworkThreads"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/numIOThreads"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/socketSendBufferBytes"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/socketReceiveBufferBytes"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/socketRequestMaxBytes"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaServer/clientPort"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/KubernetesService">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KubernetesService/apiVersion"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SwarmService"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/SerializationService"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/AVROService"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DistributionService"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ZookeeperService">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/serverId"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/clientPort"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/tickTime"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/leaderServers"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/peerPort"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/leaderPort"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/initLimit"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ZookeeperService/syncLimit"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/CommunicationService"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/KafkaService">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/commId"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/clientPort"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/SchedulingServer">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/KafkaService/zookeeperConnect"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/zookeeperConnectionTimeout"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/listeners"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/advertisedListeners"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/autoCreateTopicEnable"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/deleteTopicEnable"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/numPartitions"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/numRecoveryThreadsPerDataDir"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/logFlushIntervalMessages"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/logFlushInterval"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/numNetworkThreads"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/numIOThreads"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/socketSendBufferBytes"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/socketReceiveBufferBytes"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KafkaService/socketRequestMaxBytes"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/SchedulingService">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SchedulingService/workflows"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SchedulingServer/workflows"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/NodeScheduler"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SparkService">
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SparkServer">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SparkService/load"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/driverCores"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/driverMaxResultSize"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/driverMemory"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/localDir"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SparkServer/load"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/driverCores"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/driverMaxResultSize"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/driverMemory"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/localDir"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SparkService/master"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/windowSize"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/executorMemory"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/extraListener"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/logConf"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/submitDeployMode"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/logCallerContext"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkService/driverSuperviser"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/SparkServer/master"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/windowSize"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/executorMemory"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/extraListener"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/logConf"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/submitDeployMode"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/logCallerContext"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SparkServer/driverSuperviser"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StormService">
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StormServer">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/zookeeperConnect"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormService/localDir"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormServer/zookeeperConnect"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormServer/localDir"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/nimbus"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormServer/nimbusSeeds"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormServer/supervisorSlotPorts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/supervisor"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormServer/drpcServers"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormService/ui"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormServer/supervisors"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormServer/uiPort"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StormUI">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormUI/uiPort"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormUI/owner"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormUI/host"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PersistenceServer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceServer/logging"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceServer/passwd"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceServer/port"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StormNimbus">
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/MemSQLServer"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/CassandraServer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/numTokens"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormNimbus/owner"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraServer/seeds"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/seedProviderClass"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormNimbus/host"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StormSupervisor">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StormSupervisor/supervisorSlotPorts"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraServer/listenAddress"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormSupervisor/owner"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraServer/rpcAddress"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/endpointSnitch"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/StormSupervisor/host"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PersistenceService">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceService/logging"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceService/passwd"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/PersistenceService/port"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/MemSQLService"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/CassandraService">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/numTokens"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraServer/dataCenter"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/dataFileDir"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/nativeTransportPort"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/seeds"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/seedProviderClass"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/endpointSnitch"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/dataFileDir"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/storagePort"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/autoBootstrap"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/cqlSchemas"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraService/dataCenters"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/sslStoragePort"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraService/rpcPort"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraServer/rack"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/autoBootstrap"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/CassandraServer/cqlSchemas"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/CassandraServer/isSeed"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/DataCenter">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/DataCenter/racks"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Rack">
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Neo4JServer"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/MonitoringServer">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/Rack/nodes"/>
+            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/MonitoringServer/monitorizedMeters"/>
       </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Neo4JService"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/MonitoringService">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/MonitoringService/monitorizedMeters"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/PrometheusService">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PrometheusService/exportersData"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ExporterData">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ExporterData/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ExporterData/artifact"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/PrometheusServer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/PrometheusServer/exportersData"/>
       </genClasses>
       <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/StreamData">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StreamData/retention_ms"/>
@@ -435,63 +369,16 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/TaskProcessingAmountMeter/metric"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DeployableComponent">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/DeployableComponent/deploymentConfig"/>
-        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/DeployableComponent/configureDeployment"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DeploymentConfiguration"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/PlatformServiceDeploymentConf"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/image"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/imageTag"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/replicas"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/command"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/args"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/restartPolicy"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/imagePullPolicy"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/volumes"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/ports"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/OrchestrationServiceDeploymentConf/constraints"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/artifactLocator"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/artifactName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/configFolderPath"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/scriptFolderPath"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/dataFolderPath"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/logFolderPath"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/arguments"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/NodeClusterDeploymentConf/isRunning"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Volume">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Volume/source"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Volume/target"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Volume/type"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Volume/accessMode"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/Port">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Port/target"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/Port/published"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/SwarmPort">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SwarmPort/protocol"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SwarmPort/mode"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/KubernetesPort">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KubernetesPort/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/KubernetesPort/internal"/>
-      </genClasses>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/DeploymentConstraints">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/DeploymentConstraints/labels"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/DeploymentConstraints/resources"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/Exception"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/ConfigurationException"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DeploymentException"/>
-      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/LaunchException"/>
-      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StringToStringMap">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StringToStringMap/key"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StringToStringMap/value"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/SystemComponent">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/artifactName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/artifactLocator"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/arguments"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/scriptFolderPath"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/configFolderPath"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/dataFolderPath"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/logFolderPath"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/SystemComponent/isRunning"/>
+        <genOperations ecoreOperation="PABM_Metamodel.ecore#//pasys/SystemComponent/deploy"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/FileDescriptor">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/FileDescriptor/filePath"/>
@@ -504,7 +391,19 @@
             ecoreFeature="ecore:EReference PABM_Metamodel.ecore#//pasys/DeploymentFileDescriptor/owner"/>
       </genClasses>
       <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ArtifactDescriptor">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ArtifactDescriptor/localPath"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ArtifactDescriptor/fileLocator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/Exception"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/ConfigurationException"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/DeploymentException"/>
+      <genClasses image="false" ecoreClass="PABM_Metamodel.ecore#//pasys/LaunchException"/>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/ExporterData">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ExporterData/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/ExporterData/artifact"/>
+      </genClasses>
+      <genClasses ecoreClass="PABM_Metamodel.ecore#//pasys/StringToStringMap">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StringToStringMap/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PABM_Metamodel.ecore#//pasys/StringToStringMap/value"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>
