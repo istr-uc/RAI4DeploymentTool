@@ -15,7 +15,9 @@ The repository is organized as follows:
     * README.md
 
 ## RAI4.0 Metamodel
-The metamodel contains all the required elements to model a RAI4.0 compliant system. The description and validation of the metamodel is described in ["A big data-centric architecture metamodel for Industry 4.0"](https://doi.org/10.1016/j.future.2021.06.020).
+The metamodel contains all the required elements to model a RAI4.0 compliant system. 
+
+The description and validation of the metamodel is explained in ["A big data-centric architecture metamodel for Industry 4.0"](https://doi.org/10.1016/j.future.2021.06.020). The version of the metamodel and the tool corresponding to this paper are available [here](https://github.com/istr-uc/RAI4DeploymentTool/releases/tag/vFGCS2021) (tag vFGCS2021).
 
 ## Deployment tool
 This deployment tool developed using Java is aimed at automating the deployment of industrial systems defined following RAI4.0 Metamodel. A normal workflow follows this steps:
