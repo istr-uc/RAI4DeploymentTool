@@ -12,7 +12,6 @@ import PASYS_Metamodel.pasys.ExporterData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
-import PASYS_Metamodel.pasys.PlatformResource;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.DeployableComponentType;
