@@ -1,0 +1,174 @@
+# Default values for kafka.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+name: kafka
+replicaCount: 1
+
+clientPort: 9092
+clientPortExternal: 9094
+#externalIp: 51.138.219.144
+
+image:
+  repository: gcr.io/google_containers/kubernetes-kafka
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.0-10.2.1"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+# Kafka properties
+listeners: PLAINTEXT://:9092 
+#advertisedListeners: "PLAINTEXT://$(POD_NAME).{{ .Values.name }}-hs.default.svc.cluster.local:"
+zookeeperConnect: zookeeper-helm-svc:2181 
+logDir: /var/lib/kafka 
+autoCreateTopicsEnable: true 
+autoLeaderRebalanceEnable: true 
+backgroundThreads: "10" 
+compressionType: producer 
+deleteTopicEnable: false 
+leaderImbalanceCheckIntervalSeconds: "300" 
+leaderImbalancePerBrokerPercentage: "10" 
+logFlushIntervalMessages: "9223372036854775807" 
+logFlushOffsetCheckpointIntervalMs: "60000" 
+logFlushSchedulerIntervalMs: "9223372036854775807" 
+logRetentionBytes: "-1" 
+logRetentionHours: "168" 
+logRollHours: "168" 
+logRollJitterHours: "0" 
+logSegmentBytes: "1073741824" 
+logSegmentDeleteDelayMs: "60000" 
+messageMaxBytes: "1000012" 
+minInsyncReplicas: "1" 
+numIoThreads: "8" 
+numNetworkThreads: "3" 
+numRecoveryThreadsPerDataDir: "1" 
+numReplicaFetchers: "1" 
+offsetMetadataMaxBytes: "4096" 
+offsetsCommitRequiredAcks: "-1" 
+offsetsCommitTimeoutMs: "5000" 
+offsetsLoadBufferSize: "5242880" 
+offsetsRetentionCheckIntervalMs: "600000" 
+offsetsRetentionMinutes: "1440" 
+offsetsTopicCompressionCodec: "0" 
+offsetsTopicNumPartitions: "50" 
+offsetsTopicReplicationFactor: "3" 
+offsetsTopicSegmentBytes: "104857600" 
+queuedMaxRequests: "500" 
+quotaConsumerDefault: "9223372036854775807" 
+quotaProducerDefault: "9223372036854775807" 
+replicaFetchMinBytes: 1 
+replicaFetchWaitMaxMs: "500" 
+replicaHighWatermarkCheckpointIntervalMs: "5000" 
+replicaLagTimeMaxMs: "10000" 
+replicaSocketReceiveBufferBytes: "65536" 
+replicaSocketTimeoutMs: "30000" 
+requestTimeoutMs: "30000" 
+socketReceiveBufferBytes: "102400" 
+socketRequestMaxBytes: "104857600" 
+socketSendBufferBytes: "102400" 
+uncleanLeaderElectionEnable: true 
+zookeeperSessionTimeoutMs: "6000" 
+zookeeperSetAcl: false 
+brokerIdGenerationEnable: true 
+connectionsMaxIdleMs: "600000" 
+controlledShutdownEnable: true 
+controlledShutdownMaxRetries: 3 
+controlledShutdownRetryBackoffMs: "5000" 
+controllerSocketTimeoutMs: "30000" 
+defaultReplicationFactor: "1" 
+fetchPurgatoryPurgeIntervalRequests: "1000" 
+groupMaxSessionTimeoutMs: "300000" 
+groupMinSessionTimeoutMs: "6000" 
+interBrokerProtocolVersion: 0.10.2-IV0 
+logCleanerBackoffMs: "15000" 
+logCleanerDedupeBufferSize: "134217728" 
+logCleanerDeleteRetentionMs: "86400000" 
+logCleanerEnable: true 
+logCleanerIoBufferLoadFactor: "0.9" 
+logCleanerIoBufferSize: "524288" 
+logCleanerIoMaxBytesPerSecond: "1.7976931348623157E308" 
+logCleanerMinCleanableRatio: "0.5" 
+logCleanerMinCompactionLagMs: "0" 
+logCleanerThreads: 1 
+logCleanupPolicy: delete 
+logIndexIntervalBytes: "4096" 
+logIndexSizeMaxBytes: "10485760" 
+logMessageTimestampDifferenceMaxMs: "9223372036854775807" 
+logMessageTimestampType: CreateTime 
+logPreallocate: false 
+logRetentionCheckIntervalMs: "300000" 
+maxConnectionsPerIp: "2147483647" 
+numPartitions: "1" 
+producerPurgatoryPurgeIntervalRequests: "1000"
+replicaFetchBackoffMs: "1000" 
+replicaFetchMaxBytes: "1048576" 
+replicaFetchResponseMaxBytes: "10485760"
+reservedBrokerMaxId: "1000"
