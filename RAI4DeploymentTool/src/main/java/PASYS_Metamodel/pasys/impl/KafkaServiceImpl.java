@@ -1047,7 +1047,7 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 		NodeDeploymentConfImpl conf = (NodeDeploymentConfImpl) getDeploymentConfig();
 		Properties props = new Properties();
 		try {
-			props.load(this.getClass().getClassLoader().getResourceAsStream("kafka-server.properties"));
+			props.load(this.getClass().getClassLoader().getResourceAsStream("kafka/kafka-server.properties"));
 
 			props.put("broker.id", id);
 

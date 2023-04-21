@@ -533,7 +533,7 @@ public class StormServiceImpl extends SchedulingServiceImpl implements StormServ
 		// reader = new YamlReader(new FileReader(new
 		// File(this.getClass().getClassLoader().getResourceAsStream("cassandra.yaml"))));
 		YamlReader reader = new YamlReader(
-				new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("storm.yaml")));
+				new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("storm/storm.yaml")));
 		Object object = reader.read();
 
 		// Modify simple properties

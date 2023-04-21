@@ -789,7 +789,7 @@ public class CassandraServiceImpl extends PersistenceServiceImpl implements Cass
 		// reader = new YamlReader(new FileReader(new
 		// File(this.getClass().getClassLoader().getResourceAsStream("cassandra.yaml"))));
 		YamlReader reader = new YamlReader(
-				new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("cassandra.yaml")));
+				new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("cassandra/cassandra.yaml")));
 		Object object = reader.read();
 
 		// Modify simple properties

@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:pasys="www.unican.es/ISTR/P3forI4/pasys"
-    xsi:schemaLocation="www.unican.es/ISTR/P3forI4/pasys ../../../metamodels/PABM_Metamodel.ecore#//pasys"
+    xsi:schemaLocation="www.unican.es/ISTR/P3forI4/pasys ../../../RAI4DeploymentTool/metamodels/RAI4_Metamodel.ecore#//pasys"
     name="SantanderPollution"
     date="20/11/2019"
     authors="P. López y R. Dintén">

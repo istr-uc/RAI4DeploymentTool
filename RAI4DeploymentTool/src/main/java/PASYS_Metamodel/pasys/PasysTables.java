@@ -3,7 +3,7 @@
  * This code is 100% auto-generated
  * from:
  * using:
- *   /RAI4DeploymentTool/metamodels/PABM_metamodel.genmodel
+ *   /RAI4DeploymentTool/metamodels/RAI4_metamodel.genmodel
  *   org.eclipse.ocl.examples.codegen.oclinecore.OCLinEcoreTables
  *
  * Do not edit it.

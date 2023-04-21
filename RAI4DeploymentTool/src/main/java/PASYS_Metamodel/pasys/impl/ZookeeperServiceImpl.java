@@ -607,7 +607,7 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 
 	private String generateConfigFileContent(NodeDeploymentConf conf) throws IOException, ConfigurationException {
 		Properties props = new Properties();
-		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper-server-properties.cfg"));
+		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper/zookeeper-server-properties.cfg"));
 		
 		props.put("clientPort", Integer.toString(clientPort));
 		props.put("tickTime", Long.toString(tickTime));
