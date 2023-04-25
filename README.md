@@ -61,7 +61,7 @@ This case study consists on a system that monitors the different parameters meas
 ### Conference Paper
 1. [Ricardo Dintén Herrero, Marta Zorrilla. An I4.0 data intensive platform suitable for the deployment of machine learning models: a predictive maintenance service case study, Procedia Computer Science, Volume 200, pp. 1014-1023 (2022) (ISM 2021)](https://doi.org/10.1016/j.procs.2022.01.300)
 
-2. [Ricardo Dintén, Sebastián García, Marta Zorrilla. Fleet management systems in Logistics 4.0 era: a real time distributed and scalable architectural proposal, Procedia Computer Science, Volume 217, pp. 806-815 (2023) (ISM 2022)] https://doi.org/10.1016/j.procs.2022.12.277.
+2. [Ricardo Dintén, Sebastián García, Marta Zorrilla. Fleet management systems in Logistics 4.0 era: a real time distributed and scalable architectural proposal, Procedia Computer Science, Volume 217, pp. 806-815 (2023) (ISM 2022)](https://doi.org/10.1016/j.procs.2022.12.277)
 
 ### Academic Report
 
