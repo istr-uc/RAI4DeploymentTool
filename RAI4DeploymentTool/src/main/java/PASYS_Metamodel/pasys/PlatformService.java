@@ -26,7 +26,7 @@ public interface PlatformService extends PlatformResource, DeployableComponent {
 	 * @return the value of the '<em>Host</em>' reference.
 	 * @see #setHost(ProcessingResourceCluster)
 	 * @see PASYS_Metamodel.pasys.PasysPackage#getPlatformService_Host()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	ProcessingResourceCluster getHost();

@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see PASYS_Metamodel.pasys.PasysFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface PasysPackage extends EPackage {

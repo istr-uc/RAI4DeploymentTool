@@ -486,7 +486,9 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	 */
 	@Override
 	public void deployAndLaunch() throws LaunchException, DeploymentException, ConfigurationException {
-		throw new UnsupportedOperationException();  // FIXME Unimplemented www.unican.es/ISTR/P3forI4/pasys!ProcessingNode!deployAndLaunch()
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -529,7 +531,9 @@ public abstract class ProcessingNodeImpl extends PlatformResourceImpl implements
 	 */
 	@Override
 	public void abortLaunching() {
-		throw new UnsupportedOperationException();  // FIXME Unimplemented www.unican.es/ISTR/P3forI4/pasys!ProcessingNode!abortLaunching()
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
