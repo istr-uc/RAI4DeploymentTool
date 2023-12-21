@@ -11,4 +11,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: PASYS_Metamodel.pasys,
  PASYS_Metamodel.pasys.impl,
  PASYS_Metamodel.pasys.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

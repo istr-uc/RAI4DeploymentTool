@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.impl.KubernetesClusterImpl#getApiVersion <em>Api Version</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.KubernetesClusterImpl#getKubeConfigPath <em>Kube Config Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,6 +45,26 @@ public class KubernetesClusterImpl extends OrchestrationClusterImpl implements K
 	 * @ordered
 	 */
 	protected String apiVersion = API_VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKubeConfigPath() <em>Kube Config Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKubeConfigPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KUBE_CONFIG_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKubeConfigPath() <em>Kube Config Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKubeConfigPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String kubeConfigPath = KUBE_CONFIG_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,10 +114,35 @@ public class KubernetesClusterImpl extends OrchestrationClusterImpl implements K
 	 * @generated
 	 */
 	@Override
+	public String getKubeConfigPath() {
+		return kubeConfigPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKubeConfigPath(String newKubeConfigPath) {
+		String oldKubeConfigPath = kubeConfigPath;
+		kubeConfigPath = newKubeConfigPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.KUBERNETES_CLUSTER__KUBE_CONFIG_PATH, oldKubeConfigPath, kubeConfigPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PasysPackage.KUBERNETES_CLUSTER__API_VERSION:
 				return getApiVersion();
+			case PasysPackage.KUBERNETES_CLUSTER__KUBE_CONFIG_PATH:
+				return getKubeConfigPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,6 +157,9 @@ public class KubernetesClusterImpl extends OrchestrationClusterImpl implements K
 		switch (featureID) {
 			case PasysPackage.KUBERNETES_CLUSTER__API_VERSION:
 				setApiVersion((String)newValue);
+				return;
+			case PasysPackage.KUBERNETES_CLUSTER__KUBE_CONFIG_PATH:
+				setKubeConfigPath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,6 +176,9 @@ public class KubernetesClusterImpl extends OrchestrationClusterImpl implements K
 			case PasysPackage.KUBERNETES_CLUSTER__API_VERSION:
 				setApiVersion(API_VERSION_EDEFAULT);
 				return;
+			case PasysPackage.KUBERNETES_CLUSTER__KUBE_CONFIG_PATH:
+				setKubeConfigPath(KUBE_CONFIG_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,6 +193,8 @@ public class KubernetesClusterImpl extends OrchestrationClusterImpl implements K
 		switch (featureID) {
 			case PasysPackage.KUBERNETES_CLUSTER__API_VERSION:
 				return API_VERSION_EDEFAULT == null ? apiVersion != null : !API_VERSION_EDEFAULT.equals(apiVersion);
+			case PasysPackage.KUBERNETES_CLUSTER__KUBE_CONFIG_PATH:
+				return KUBE_CONFIG_PATH_EDEFAULT == null ? kubeConfigPath != null : !KUBE_CONFIG_PATH_EDEFAULT.equals(kubeConfigPath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -157,6 +211,8 @@ public class KubernetesClusterImpl extends OrchestrationClusterImpl implements K
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (apiVersion: ");
 		result.append(apiVersion);
+		result.append(", kubeConfigPath: ");
+		result.append(kubeConfigPath);
 		result.append(')');
 		return result.toString();
 	}

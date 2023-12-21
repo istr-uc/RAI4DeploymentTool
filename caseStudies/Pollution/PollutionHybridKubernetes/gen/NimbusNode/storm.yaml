@@ -5,7 +5,6 @@ supervisor.slots.ports:
 - 6703
 storm.local.dir: storm-local
 ui.port: 8080
-storm.zookeeper.servers: 
-- 172.31.24.124
+storm.zookeeper.servers: []
 storm.zookeeper.port: 2181
 nimbus.seeds: ["172.31.16.48"]

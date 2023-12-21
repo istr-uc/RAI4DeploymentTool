@@ -1,1 +1,0 @@
-helm install pollutionZkpr /home/gestor/orchestrator/kubernetesCluster/pollutionZkpr

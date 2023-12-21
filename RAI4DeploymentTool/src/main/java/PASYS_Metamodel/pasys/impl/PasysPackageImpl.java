@@ -1321,6 +1321,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getKubernetesCluster_KubeConfigPath() {
+		return (EAttribute)kubernetesClusterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSwarmCluster() {
 		return swarmClusterEClass;
 	}
@@ -3987,6 +3997,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		kubernetesClusterEClass = createEClass(KUBERNETES_CLUSTER);
 		createEAttribute(kubernetesClusterEClass, KUBERNETES_CLUSTER__API_VERSION);
+		createEAttribute(kubernetesClusterEClass, KUBERNETES_CLUSTER__KUBE_CONFIG_PATH);
 
 		swarmClusterEClass = createEClass(SWARM_CLUSTER);
 
@@ -4509,6 +4520,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(kubernetesClusterEClass, KubernetesCluster.class, "KubernetesCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKubernetesCluster_ApiVersion(), ecorePackage.getEString(), "apiVersion", null, 0, 1, KubernetesCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKubernetesCluster_KubeConfigPath(), ecorePackage.getEString(), "kubeConfigPath", null, 1, 1, KubernetesCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(swarmClusterEClass, SwarmCluster.class, "SwarmCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

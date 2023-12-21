@@ -8,7 +8,11 @@ import PASYS_Metamodel.pasys.PhysicalProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
+import deploymentTool.DeploymentToolsUtils;
+
 import java.lang.reflect.InvocationTargetException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -547,6 +551,16 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				node.deployAndLaunch();
 				globalScriptsList.addAll(node.getLaunchingScripts());
 			}
+			
+			// NEW for kubernetes 21/12/2023
+			for (DeploymentFileDescriptor fd: getLocalNode().getConfigFiles()) {
+				DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
+			}
+			
+			for (DeploymentFileDescriptor fd: getLocalNode().getLaunchingScripts()) {
+				DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
+			}
+			globalScriptsList.addAll(getLocalNode().getLaunchingScripts());
 						
 			// Execute the global list of scripts		
 			sshExecution(globalScriptsList);		
@@ -667,6 +681,34 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			System.out.println(e.getMessage());
 
 		}
+	}
+	
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	
+	private static PhysicalProcessingNode localNode;
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static PhysicalProcessingNode getLocalNode() {
+		if (localNode==null) {
+			localNode = new PhysicalProcessingNodeImpl();
+			localNode.setId("LocalNode");
+			localNode.setName("LocalNode");
+			localNode.setUserName("");
+			try {
+				localNode.setIp(InetAddress.getLocalHost().getHostAddress());
+			} catch (UnknownHostException e) {
+				// TODO Hacer algo 
+				
+			}
+		}
+		return localNode;	
 	}
 
 

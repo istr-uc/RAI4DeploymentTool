@@ -118,6 +118,7 @@
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/OrchestrationCluster"/>
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/KubernetesCluster">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesCluster/apiVersion"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesCluster/kubeConfigPath"/>
       </genClasses>
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/SwarmCluster"/>
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/Network">

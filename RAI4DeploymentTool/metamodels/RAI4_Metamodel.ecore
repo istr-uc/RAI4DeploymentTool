@@ -88,6 +88,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="OrchestrationCluster" eSuperTypes="#//pasys/ProcessingResourceCluster"/>
     <eClassifiers xsi:type="ecore:EClass" name="KubernetesCluster" eSuperTypes="#//pasys/OrchestrationCluster">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kubeConfigPath" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwarmCluster" eSuperTypes="#//pasys/OrchestrationCluster"/>
     <eClassifiers xsi:type="ecore:EClass" name="Network" eSuperTypes="#//pasys/PlatformResource">

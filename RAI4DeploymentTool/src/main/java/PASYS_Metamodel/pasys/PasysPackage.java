@@ -1521,13 +1521,22 @@ public interface PasysPackage extends EPackage {
 	int KUBERNETES_CLUSTER__API_VERSION = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Kube Config Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KUBERNETES_CLUSTER__KUBE_CONFIG_PATH = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Kubernetes Cluster</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KUBERNETES_CLUSTER_FEATURE_COUNT = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 1;
+	int KUBERNETES_CLUSTER_FEATURE_COUNT = ORCHESTRATION_CLUSTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Kubernetes Cluster</em>' class.
@@ -8801,6 +8810,17 @@ public interface PasysPackage extends EPackage {
 	EAttribute getKubernetesCluster_ApiVersion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link PASYS_Metamodel.pasys.KubernetesCluster#getKubeConfigPath <em>Kube Config Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kube Config Path</em>'.
+	 * @see PASYS_Metamodel.pasys.KubernetesCluster#getKubeConfigPath()
+	 * @see #getKubernetesCluster()
+	 * @generated
+	 */
+	EAttribute getKubernetesCluster_KubeConfigPath();
+
+	/**
 	 * Returns the meta object for class '{@link PASYS_Metamodel.pasys.SwarmCluster <em>Swarm Cluster</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12062,6 +12082,14 @@ public interface PasysPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute KUBERNETES_CLUSTER__API_VERSION = eINSTANCE.getKubernetesCluster_ApiVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Kube Config Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KUBERNETES_CLUSTER__KUBE_CONFIG_PATH = eINSTANCE.getKubernetesCluster_KubeConfigPath();
 
 		/**
 		 * The meta object literal for the '{@link PASYS_Metamodel.pasys.impl.SwarmClusterImpl <em>Swarm Cluster</em>}' class.

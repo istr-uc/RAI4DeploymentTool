@@ -4,11 +4,14 @@ package PASYS_Metamodel.pasys.impl;
 
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
+import PASYS_Metamodel.pasys.KubernetesCluster;
 import PASYS_Metamodel.pasys.NodeDeploymentConf;
+import PASYS_Metamodel.pasys.OrchestrationCluster;
 import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeCluster;
+import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.ZookeeperService;
 import PASYS_Metamodel.pasys.DeployableComponentType;
 import deploymentTool.DeploymentToolsUtils;
@@ -641,21 +644,48 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 	 */
 	@Override	
 	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
-		// Values File generation
-		//DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl("zoo" + serverId + "values.yaml",
-			//	conf.getConfigFolderPath(), generateValuesFileContent(conf), DeployableComponentType.ZOOKEEPER_SERVER);
+		OrchestratorDeploymentConf conf = (OrchestratorDeploymentConf) getDeploymentConfig();
+		OrchestrationCluster host = (OrchestrationCluster) getHost();
+		if (host instanceof KubernetesCluster) {
+			configureDeploymentInKubernetes(conf, (KubernetesCluster)host );
+		} else  {
+			configureDeploymentInSwarm(conf, (SwarmCluster)host);
+		}
 		
-		// Los ficheros y el script se deberían guardar en el nodo local en que se esté ejecutando
-		// la herramienta, en la que debería estar instalado HELM
+		
+	}
+
+	private void configureDeploymentInKubernetes(OrchestratorDeploymentConf conf, KubernetesCluster host) throws ConfigurationException {
+		// Values File generation
+		String valuesFile = "zoo"+serverId+"values.yaml";
+		DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(valuesFile,
+				"C:\\Temp\\helm", generateValuesFileContent(conf), DeployableComponentType.ZOOKEEPER_SERVICE);
+		// Script Generation
+		String scriptContent = "helm install "+"zoo"+serverId+ " \\src\\main\\resources\\zookeeper\\helm ";
+		scriptContent +="-f "+"C:\\Temp\\helm\\"+valuesFile+ " --kubeconfig "+host.getKubeConfigPath();
+		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+serverId+".sh",
+			"C:\\Temp\\localScripts", scriptContent, DeployableComponentType.ZOOKEEPER_SERVICE);
+		
+		
+		ComputationalSystemImpl.getLocalNode().addConfigFile(configFile);
+		ComputationalSystemImpl.getLocalNode().addLaunchingScript(script);
+		
 	}
 	
-	private String generateValuesFileContent(OrchestratorDeploymentConf conf)   throws IOException, ConfigurationException {
+	private void configureDeploymentInSwarm(OrchestratorDeploymentConf conf, SwarmCluster host) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private String generateValuesFileContent(OrchestratorDeploymentConf conf) throws ConfigurationException {
 		
 		Properties props = new Properties();
-		props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper-values.yaml"));
+		try {
+			props.load(this.getClass().getClassLoader().getResourceAsStream("zookeeper/helm/values.yaml"));
+		
 		
 		props.put("name", getName()+"-helm");
-		props.put("replicaCount", conf.getReplicas());
+		props.put("replicaCount", Integer.toString(conf.getReplicas()));
 		props.put("image.repository", conf.getImage());
 		props.put("image.tag", conf.getImageTag());
 		props.put("image.pullPolicy", conf.getImagePullPolicy());
@@ -667,6 +697,10 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		
 		String configFileContent = DeploymentToolsUtils.propertiesToString(props);
 		return configFileContent;
+		
+		} catch (IOException e) {
+			throw new ConfigurationException("No se encuentra el fichero de propiedades de Zookeeper");
+		}
 	}
 
 		

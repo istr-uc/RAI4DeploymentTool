@@ -56,19 +56,23 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 		if (!(server instanceof KafkaService)) 
 			throw new ConfigurationException("The topic "+getName()+ " is not assigned to a Kafka Server");
 		
+		if (getDeploymentConfig() instanceof NodeDeploymentConf) {
 		
-		NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
-		// Launching script generation
-		// De estos puede haber muchos en un mismo nodo, as� que le ponemos el id
-		String scriptName = "topic_"+this.getId()+".sh";
+			NodeDeploymentConf conf = (NodeDeploymentConf) getDeploymentConfig();
+			// Launching script generation
+			// De estos puede haber muchos en un mismo nodo, as� que le ponemos el id
+			String scriptName = "topic_"+this.getId()+".sh";
 		
-		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
+			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, conf.getScriptFolderPath(), 
 				getScriptContent(getName(), server), DeployableComponentType.KAFKA_FLOW_STREAM);
 		
-		// If Kakfa is deployed in a cluster, the topic must be created in only one of the instances
-		ProcessingNodeCluster serverHost = (ProcessingNodeCluster) server.getHost();		
-		ProcessingNode node = serverHost.getNodes().get(0);
-		node.addLaunchingScript(script);
+			// If Kakfa is deployed in a cluster, the topic must be created in only one of the instances
+			ProcessingNodeCluster serverHost = (ProcessingNodeCluster) server.getHost();		
+			ProcessingNode node = serverHost.getNodes().get(0);
+			node.addLaunchingScript(script);
+		} else {
+			// TODO cunaod es en orchestrator
+		}
 	}
 	
 	private String getScriptContent(String topicName, CommunicationService server) {

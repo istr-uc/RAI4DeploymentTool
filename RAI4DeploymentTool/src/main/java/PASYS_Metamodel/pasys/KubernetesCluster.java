@@ -13,6 +13,7 @@ package PASYS_Metamodel.pasys;
  * </p>
  * <ul>
  *   <li>{@link PASYS_Metamodel.pasys.KubernetesCluster#getApiVersion <em>Api Version</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.KubernetesCluster#getKubeConfigPath <em>Kube Config Path</em>}</li>
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getKubernetesCluster()
@@ -41,5 +42,27 @@ public interface KubernetesCluster extends OrchestrationCluster {
 	 * @generated
 	 */
 	void setApiVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Kube Config Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Kube Config Path</em>' attribute.
+	 * @see #setKubeConfigPath(String)
+	 * @see PASYS_Metamodel.pasys.PasysPackage#getKubernetesCluster_KubeConfigPath()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getKubeConfigPath();
+
+	/**
+	 * Sets the value of the '{@link PASYS_Metamodel.pasys.KubernetesCluster#getKubeConfigPath <em>Kube Config Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Kube Config Path</em>' attribute.
+	 * @see #getKubeConfigPath()
+	 * @generated
+	 */
+	void setKubeConfigPath(String value);
 
 } // KubernetesCluster
