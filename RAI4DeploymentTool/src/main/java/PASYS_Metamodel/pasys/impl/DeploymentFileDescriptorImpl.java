@@ -301,9 +301,10 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 	 */
 	@Override
 	public String createFileFromDescriptor(String directory) throws DeploymentException {
-		// Windows String filePath= directory+"\\"+getFileName();
+		// Windows 
+		String filePath= directory+"\\"+getFileName();
 		// Linux
-		String filePath=directory+"/"+getFileName();
+		//String filePath=directory+"/"+getFileName();
 		try (PrintWriter out = new PrintWriter(filePath)) {
 		    out.println(getFileContent());
 		
@@ -330,6 +331,7 @@ public class DeploymentFileDescriptorImpl extends FileDescriptorImpl implements 
 		return filePath;
 		
 		} catch (IOException e) {
+			e.printStackTrace();
 			throw new DeploymentException("Error creando fichero en "+filePath);
 		}
 	}

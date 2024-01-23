@@ -666,7 +666,6 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("zkServer"+serverId+".sh",
 			"C:\\Temp\\localScripts", scriptContent, DeployableComponentType.ZOOKEEPER_SERVICE);
 		
-		
 		ComputationalSystemImpl.getLocalNode().addConfigFile(configFile);
 		ComputationalSystemImpl.getLocalNode().addLaunchingScript(script);
 		

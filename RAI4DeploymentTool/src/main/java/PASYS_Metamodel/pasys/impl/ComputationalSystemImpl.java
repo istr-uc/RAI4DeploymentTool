@@ -10,6 +10,7 @@ import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.VirtualProcessingNode;
 import deploymentTool.DeploymentToolsUtils;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -552,13 +553,19 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 				globalScriptsList.addAll(node.getLaunchingScripts());
 			}
 			
+			
 			// NEW for kubernetes 21/12/2023
+			File tempDir= new File(DeploymentToolsUtils.GEN_DIR+"/"+getLocalNode().getId());
+			tempDir.mkdir();
 			for (DeploymentFileDescriptor fd: getLocalNode().getConfigFiles()) {
+				
 				DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
+				fd.createFileFromDescriptor(DeploymentToolsUtils.GEN_DIR+"\\"+getLocalNode().getId());
 			}
 			
 			for (DeploymentFileDescriptor fd: getLocalNode().getLaunchingScripts()) {
 				DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
+				fd.createFileFromDescriptor(DeploymentToolsUtils.GEN_DIR+"\\"+getLocalNode().getId());
 			}
 			globalScriptsList.addAll(getLocalNode().getLaunchingScripts());
 						
