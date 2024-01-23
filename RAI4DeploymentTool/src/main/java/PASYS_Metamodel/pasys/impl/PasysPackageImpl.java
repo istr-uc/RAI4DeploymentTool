@@ -26,7 +26,7 @@ import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.KubernetesCluster;
-import PASYS_Metamodel.pasys.KubernetesPort;
+import PASYS_Metamodel.pasys.KubernetesDeploymentConf;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Meter;
@@ -40,6 +40,9 @@ import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.NomadCluster;
+import PASYS_Metamodel.pasys.NomadDeploymentConf;
+import PASYS_Metamodel.pasys.NomadDriver;
 import PASYS_Metamodel.pasys.OrchestrationCluster;
 import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysFactory;
@@ -64,6 +67,7 @@ import PASYS_Metamodel.pasys.SchedulableSet;
 import PASYS_Metamodel.pasys.SchedulingService;
 import PASYS_Metamodel.pasys.SecurityService;
 import PASYS_Metamodel.pasys.SerializationService;
+import PASYS_Metamodel.pasys.ServiceType;
 import PASYS_Metamodel.pasys.SparkService;
 import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
@@ -74,7 +78,7 @@ import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
-import PASYS_Metamodel.pasys.SwarmPort;
+import PASYS_Metamodel.pasys.SwarmDeploymentConf;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
@@ -201,6 +205,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EClass swarmClusterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nomadClusterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -592,6 +603,27 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass kubernetesDeploymentConfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swarmDeploymentConfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nomadDeploymentConfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass fileDescriptorEClass = null;
 
 	/**
@@ -662,20 +694,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass swarmPortEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass kubernetesPortEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass deploymentConstraintsEClass = null;
 
 	/**
@@ -704,6 +722,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum serviceTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum protocolEEnum = null;
 
 	/**
@@ -719,6 +744,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	private EEnum volumeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nomadDriverEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1333,6 +1365,66 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EClass getSwarmCluster() {
 		return swarmClusterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSwarmCluster_Ip() {
+		return (EAttribute)swarmClusterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSwarmCluster_Port() {
+		return (EAttribute)swarmClusterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSwarmCluster_User() {
+		return (EAttribute)swarmClusterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNomadCluster() {
+		return nomadClusterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNomadCluster_Ip() {
+		return (EAttribute)nomadClusterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNomadCluster_Port() {
+		return (EAttribute)nomadClusterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3451,6 +3543,106 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getKubernetesDeploymentConf() {
+		return kubernetesDeploymentConfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKubernetesDeploymentConf_ExternalIP() {
+		return (EAttribute)kubernetesDeploymentConfEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKubernetesDeploymentConf_ServiceType() {
+		return (EAttribute)kubernetesDeploymentConfEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSwarmDeploymentConf() {
+		return swarmDeploymentConfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSwarmDeploymentConf_Network() {
+		return (EAttribute)swarmDeploymentConfEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNomadDeploymentConf() {
+		return nomadDeploymentConfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNomadDeploymentConf_Region() {
+		return (EAttribute)nomadDeploymentConfEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNomadDeploymentConf_DataCenter() {
+		return (EAttribute)nomadDeploymentConfEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNomadDeploymentConf_Priority() {
+		return (EAttribute)nomadDeploymentConfEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNomadDeploymentConf_Driver() {
+		return (EAttribute)nomadDeploymentConfEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFileDescriptor() {
 		return fileDescriptorEClass;
 	}
@@ -3671,66 +3863,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getSwarmPort() {
-		return swarmPortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSwarmPort_Protocol() {
-		return (EAttribute)swarmPortEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSwarmPort_Mode() {
-		return (EAttribute)swarmPortEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getKubernetesPort() {
-		return kubernetesPortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getKubernetesPort_Name() {
-		return (EAttribute)kubernetesPortEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getKubernetesPort_Internal() {
-		return (EAttribute)kubernetesPortEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDeploymentConstraints() {
 		return deploymentConstraintsEClass;
 	}
@@ -3861,6 +3993,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getServiceType() {
+		return serviceTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getProtocol() {
 		return protocolEEnum;
 	}
@@ -3883,6 +4025,16 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 	@Override
 	public EEnum getVolumeType() {
 		return volumeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getNomadDriver() {
+		return nomadDriverEEnum;
 	}
 
 	/**
@@ -4000,6 +4152,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(kubernetesClusterEClass, KUBERNETES_CLUSTER__KUBE_CONFIG_PATH);
 
 		swarmClusterEClass = createEClass(SWARM_CLUSTER);
+		createEAttribute(swarmClusterEClass, SWARM_CLUSTER__IP);
+		createEAttribute(swarmClusterEClass, SWARM_CLUSTER__PORT);
+		createEAttribute(swarmClusterEClass, SWARM_CLUSTER__USER);
+
+		nomadClusterEClass = createEClass(NOMAD_CLUSTER);
+		createEAttribute(nomadClusterEClass, NOMAD_CLUSTER__IP);
+		createEAttribute(nomadClusterEClass, NOMAD_CLUSTER__PORT);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__BANDWITH);
@@ -4276,6 +4435,19 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__CODE_FOLDER_PATH);
 		createEAttribute(nodeDeploymentConfEClass, NODE_DEPLOYMENT_CONF__IS_RUNNING);
 
+		kubernetesDeploymentConfEClass = createEClass(KUBERNETES_DEPLOYMENT_CONF);
+		createEAttribute(kubernetesDeploymentConfEClass, KUBERNETES_DEPLOYMENT_CONF__EXTERNAL_IP);
+		createEAttribute(kubernetesDeploymentConfEClass, KUBERNETES_DEPLOYMENT_CONF__SERVICE_TYPE);
+
+		swarmDeploymentConfEClass = createEClass(SWARM_DEPLOYMENT_CONF);
+		createEAttribute(swarmDeploymentConfEClass, SWARM_DEPLOYMENT_CONF__NETWORK);
+
+		nomadDeploymentConfEClass = createEClass(NOMAD_DEPLOYMENT_CONF);
+		createEAttribute(nomadDeploymentConfEClass, NOMAD_DEPLOYMENT_CONF__REGION);
+		createEAttribute(nomadDeploymentConfEClass, NOMAD_DEPLOYMENT_CONF__DATA_CENTER);
+		createEAttribute(nomadDeploymentConfEClass, NOMAD_DEPLOYMENT_CONF__PRIORITY);
+		createEAttribute(nomadDeploymentConfEClass, NOMAD_DEPLOYMENT_CONF__DRIVER);
+
 		volumeEClass = createEClass(VOLUME);
 		createEAttribute(volumeEClass, VOLUME__SOURCE);
 		createEAttribute(volumeEClass, VOLUME__TARGET);
@@ -4285,14 +4457,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		portEClass = createEClass(PORT);
 		createEAttribute(portEClass, PORT__TARGET);
 		createEAttribute(portEClass, PORT__PUBLISHED);
-
-		swarmPortEClass = createEClass(SWARM_PORT);
-		createEAttribute(swarmPortEClass, SWARM_PORT__PROTOCOL);
-		createEAttribute(swarmPortEClass, SWARM_PORT__MODE);
-
-		kubernetesPortEClass = createEClass(KUBERNETES_PORT);
-		createEAttribute(kubernetesPortEClass, KUBERNETES_PORT__NAME);
-		createEAttribute(kubernetesPortEClass, KUBERNETES_PORT__INTERNAL);
 
 		deploymentConstraintsEClass = createEClass(DEPLOYMENT_CONSTRAINTS);
 		createEAttribute(deploymentConstraintsEClass, DEPLOYMENT_CONSTRAINTS__LABELS);
@@ -4323,9 +4487,11 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		createEAttribute(artifactDescriptorEClass, ARTIFACT_DESCRIPTOR__LOCAL_PATH);
 
 		// Create enums
-		volumeTypeEEnum = createEEnum(VOLUME_TYPE);
 		volumeAccessModeEEnum = createEEnum(VOLUME_ACCESS_MODE);
+		volumeTypeEEnum = createEEnum(VOLUME_TYPE);
+		nomadDriverEEnum = createEEnum(NOMAD_DRIVER);
 		portModeEEnum = createEEnum(PORT_MODE);
+		serviceTypeEEnum = createEEnum(SERVICE_TYPE);
 		protocolEEnum = createEEnum(PROTOCOL);
 		deployableComponentTypeEEnum = createEEnum(DEPLOYABLE_COMPONENT_TYPE);
 
@@ -4372,6 +4538,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		orchestrationClusterEClass.getESuperTypes().add(this.getProcessingResourceCluster());
 		kubernetesClusterEClass.getESuperTypes().add(this.getOrchestrationCluster());
 		swarmClusterEClass.getESuperTypes().add(this.getOrchestrationCluster());
+		nomadClusterEClass.getESuperTypes().add(this.getOrchestrationCluster());
 		networkEClass.getESuperTypes().add(this.getPlatformResource());
 		platformServiceEClass.getESuperTypes().add(this.getPlatformResource());
 		platformServiceEClass.getESuperTypes().add(this.getDeployableComponent());
@@ -4434,8 +4601,9 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		platformServiceDeploymentConfEClass.getESuperTypes().add(this.getDeploymentConfiguration());
 		orchestratorDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
 		nodeDeploymentConfEClass.getESuperTypes().add(this.getPlatformServiceDeploymentConf());
-		swarmPortEClass.getESuperTypes().add(this.getPort());
-		kubernetesPortEClass.getESuperTypes().add(this.getPort());
+		kubernetesDeploymentConfEClass.getESuperTypes().add(this.getOrchestratorDeploymentConf());
+		swarmDeploymentConfEClass.getESuperTypes().add(this.getOrchestratorDeploymentConf());
+		nomadDeploymentConfEClass.getESuperTypes().add(this.getOrchestratorDeploymentConf());
 		configurationExceptionEClass.getESuperTypes().add(this.getException());
 		deploymentExceptionEClass.getESuperTypes().add(this.getException());
 		launchExceptionEClass.getESuperTypes().add(this.getException());
@@ -4523,6 +4691,13 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getKubernetesCluster_KubeConfigPath(), ecorePackage.getEString(), "kubeConfigPath", null, 1, 1, KubernetesCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(swarmClusterEClass, SwarmCluster.class, "SwarmCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSwarmCluster_Ip(), ecorePackage.getEString(), "ip", null, 1, 1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSwarmCluster_Port(), ecorePackage.getEString(), "port", null, 1, 1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSwarmCluster_User(), ecorePackage.getEString(), "user", null, 1, 1, SwarmCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nomadClusterEClass, NomadCluster.class, "NomadCluster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNomadCluster_Ip(), ecorePackage.getEString(), "ip", null, 1, 1, NomadCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNomadCluster_Port(), ecorePackage.getEString(), "port", null, 1, 1, NomadCluster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Bandwith(), ecorePackage.getEDouble(), "bandwith", null, 1, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4778,7 +4953,7 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 
 		initEClass(platformServiceDeploymentConfEClass, PlatformServiceDeploymentConf.class, "PlatformServiceDeploymentConf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(orchestratorDeploymentConfEClass, OrchestratorDeploymentConf.class, "OrchestratorDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(orchestratorDeploymentConfEClass, OrchestratorDeploymentConf.class, "OrchestratorDeploymentConf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrchestratorDeploymentConf_Image(), ecorePackage.getEString(), "image", null, 1, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestratorDeploymentConf_ImageTag(), ecorePackage.getEString(), "imageTag", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrchestratorDeploymentConf_ImagePullPolicy(), ecorePackage.getEString(), "imagePullPolicy", null, 0, 1, OrchestratorDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4802,6 +4977,19 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getNodeDeploymentConf_CodeFolderPath(), ecorePackage.getEString(), "codeFolderPath", null, 0, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNodeDeploymentConf_IsRunning(), ecorePackage.getEBoolean(), "isRunning", null, 1, 1, NodeDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(kubernetesDeploymentConfEClass, KubernetesDeploymentConf.class, "KubernetesDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKubernetesDeploymentConf_ExternalIP(), ecorePackage.getEString(), "externalIP", null, 0, 1, KubernetesDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKubernetesDeploymentConf_ServiceType(), this.getServiceType(), "serviceType", null, 0, 1, KubernetesDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(swarmDeploymentConfEClass, SwarmDeploymentConf.class, "SwarmDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSwarmDeploymentConf_Network(), ecorePackage.getEString(), "network", null, 0, -1, SwarmDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nomadDeploymentConfEClass, NomadDeploymentConf.class, "NomadDeploymentConf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNomadDeploymentConf_Region(), ecorePackage.getEString(), "region", null, 1, 1, NomadDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNomadDeploymentConf_DataCenter(), ecorePackage.getEString(), "dataCenter", null, 1, 1, NomadDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNomadDeploymentConf_Priority(), ecorePackage.getEInt(), "priority", null, 1, 1, NomadDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNomadDeploymentConf_Driver(), this.getNomadDriver(), "driver", null, 0, 1, NomadDeploymentConf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(volumeEClass, Volume.class, "Volume", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVolume_Source(), ecorePackage.getEString(), "source", null, 1, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVolume_Target(), ecorePackage.getEString(), "target", null, 1, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4811,14 +4999,6 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_Target(), ecorePackage.getEString(), "target", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPort_Published(), ecorePackage.getEString(), "published", null, 1, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(swarmPortEClass, SwarmPort.class, "SwarmPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSwarmPort_Protocol(), this.getProtocol(), "protocol", null, 1, 1, SwarmPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSwarmPort_Mode(), this.getPortMode(), "mode", null, 1, 1, SwarmPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(kubernetesPortEClass, KubernetesPort.class, "KubernetesPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getKubernetesPort_Name(), ecorePackage.getEString(), "name", null, 0, 1, KubernetesPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getKubernetesPort_Internal(), ecorePackage.getEBoolean(), "internal", "false", 1, 1, KubernetesPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentConstraintsEClass, DeploymentConstraints.class, "DeploymentConstraints", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploymentConstraints_Labels(), this.getProperties(), "labels", null, 0, 1, DeploymentConstraints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4849,21 +5029,32 @@ public class PasysPackageImpl extends EPackageImpl implements PasysPackage {
 		initEAttribute(getArtifactDescriptor_LocalPath(), ecorePackage.getEString(), "localPath", null, 1, 1, ArtifactDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(volumeTypeEEnum, VolumeType.class, "VolumeType");
-		addEEnumLiteral(volumeTypeEEnum, VolumeType.VOLUME);
-		addEEnumLiteral(volumeTypeEEnum, VolumeType.BIND);
-		addEEnumLiteral(volumeTypeEEnum, VolumeType.TMPFS);
-		addEEnumLiteral(volumeTypeEEnum, VolumeType.NPIPE);
-
 		initEEnum(volumeAccessModeEEnum, VolumeAccessMode.class, "VolumeAccessMode");
 		addEEnumLiteral(volumeAccessModeEEnum, VolumeAccessMode.READWRITEONCE);
 		addEEnumLiteral(volumeAccessModeEEnum, VolumeAccessMode.READONLYMANY);
 		addEEnumLiteral(volumeAccessModeEEnum, VolumeAccessMode.READWRITEMANY);
 		addEEnumLiteral(volumeAccessModeEEnum, VolumeAccessMode.READWRITEONCEPOD);
 
+		initEEnum(volumeTypeEEnum, VolumeType.class, "VolumeType");
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.VOLUME);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.BIND);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.TMPFS);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.NPIPE);
+
+		initEEnum(nomadDriverEEnum, NomadDriver.class, "NomadDriver");
+		addEEnumLiteral(nomadDriverEEnum, NomadDriver.JAVA);
+		addEEnumLiteral(nomadDriverEEnum, NomadDriver.DOCKER);
+		addEEnumLiteral(nomadDriverEEnum, NomadDriver.QEMU);
+		addEEnumLiteral(nomadDriverEEnum, NomadDriver.PODMAN);
+		addEEnumLiteral(nomadDriverEEnum, NomadDriver.EXEC);
+
 		initEEnum(portModeEEnum, PortMode.class, "PortMode");
 		addEEnumLiteral(portModeEEnum, PortMode.HOST);
 		addEEnumLiteral(portModeEEnum, PortMode.INGRESS);
+
+		initEEnum(serviceTypeEEnum, ServiceType.class, "ServiceType");
+		addEEnumLiteral(serviceTypeEEnum, ServiceType.LOAD_BALANCER);
+		addEEnumLiteral(serviceTypeEEnum, ServiceType.CLUSTER_IP);
 
 		initEEnum(protocolEEnum, Protocol.class, "Protocol");
 		addEEnumLiteral(protocolEEnum, Protocol.TCP);

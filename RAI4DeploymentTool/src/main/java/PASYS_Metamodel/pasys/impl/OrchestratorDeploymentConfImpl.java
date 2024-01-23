@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class OrchestratorDeploymentConfImpl extends PlatformServiceDeploymentConfImpl implements OrchestratorDeploymentConf {
+public abstract class OrchestratorDeploymentConfImpl extends PlatformServiceDeploymentConfImpl implements OrchestratorDeploymentConf {
 	/**
 	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute.
 	 * <!-- begin-user-doc -->

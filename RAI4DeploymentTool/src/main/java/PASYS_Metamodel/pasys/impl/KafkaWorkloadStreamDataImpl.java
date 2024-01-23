@@ -69,7 +69,7 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 			NodeDeploymentConf nodeConf = (NodeDeploymentConf) getDeploymentConfig();
 		
 			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, nodeConf.getScriptFolderPath(), 
-				getScriptContent(getName(), server, conf), DeployableComponentType.KAFKA_FLOW_STREAM);
+				scriptContent, DeployableComponentType.KAFKA_FLOW_STREAM);
 		
 			// If Kakfa is deployed in a cluster, the topic must be created in only one of the instances
 			ProcessingNodeCluster serverHost = (ProcessingNodeCluster) server.getHost();		
@@ -77,7 +77,7 @@ public class KafkaWorkloadStreamDataImpl extends WorkloadStreamDataImpl implemen
 			node.addLaunchingScript(script);
 		} else {
 			DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl(scriptName, "C:\\Temp\\localScripts", 
-					getScriptContent(getName(), server, conf), DeployableComponentType.KAFKA_FLOW_STREAM);
+					scriptContent, DeployableComponentType.KAFKA_FLOW_STREAM);
 			ComputationalSystemImpl.getLocalNode().addLaunchingScript(script);
 			
 			script = new DeploymentFileDescriptorImpl("helm_"+scriptName, "C:\\Temp\\localScripts", 

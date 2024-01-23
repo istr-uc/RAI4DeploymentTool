@@ -689,18 +689,18 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 
 		}
 	}
-	
+
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	private static PhysicalProcessingNode localNode;
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public static PhysicalProcessingNode getLocalNode() {
 		if (localNode==null) {
@@ -717,6 +717,7 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 		}
 		return localNode;	
 	}
+
 
 
 

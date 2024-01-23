@@ -20,7 +20,7 @@ import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.KubernetesCluster;
-import PASYS_Metamodel.pasys.KubernetesPort;
+import PASYS_Metamodel.pasys.KubernetesDeploymentConf;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Neo4JService;
 import PASYS_Metamodel.pasys.Network;
@@ -28,8 +28,10 @@ import PASYS_Metamodel.pasys.NetworkUtilization;
 import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.NomadCluster;
+import PASYS_Metamodel.pasys.NomadDeploymentConf;
+import PASYS_Metamodel.pasys.NomadDriver;
 import PASYS_Metamodel.pasys.OrchestrationCluster;
-import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysFactory;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.PhysicalProcessingNode;
@@ -43,6 +45,7 @@ import PASYS_Metamodel.pasys.PrometheusService;
 import PASYS_Metamodel.pasys.Protocol;
 import PASYS_Metamodel.pasys.Rack;
 import PASYS_Metamodel.pasys.SchedulableSet;
+import PASYS_Metamodel.pasys.ServiceType;
 import PASYS_Metamodel.pasys.SparkService;
 import PASYS_Metamodel.pasys.StormNimbus;
 import PASYS_Metamodel.pasys.StormService;
@@ -52,7 +55,7 @@ import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
-import PASYS_Metamodel.pasys.SwarmPort;
+import PASYS_Metamodel.pasys.SwarmDeploymentConf;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
 import PASYS_Metamodel.pasys.TaskProcessingAmount;
@@ -128,6 +131,7 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.ORCHESTRATION_CLUSTER: return createOrchestrationCluster();
 			case PasysPackage.KUBERNETES_CLUSTER: return createKubernetesCluster();
 			case PasysPackage.SWARM_CLUSTER: return createSwarmCluster();
+			case PasysPackage.NOMAD_CLUSTER: return createNomadCluster();
 			case PasysPackage.NETWORK: return createNetwork();
 			case PasysPackage.AVRO_SERVICE: return createAVROService();
 			case PasysPackage.ZOOKEEPER_SERVICE: return createZookeeperService();
@@ -167,12 +171,12 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 			case PasysPackage.STREAM_RATE_METER: return createStreamRateMeter();
 			case PasysPackage.WORKFLOW_LATENCY_METER: return createWorkflowLatencyMeter();
 			case PasysPackage.TASK_PROCESSING_AMOUNT_METER: return createTaskProcessingAmountMeter();
-			case PasysPackage.ORCHESTRATOR_DEPLOYMENT_CONF: return createOrchestratorDeploymentConf();
 			case PasysPackage.NODE_DEPLOYMENT_CONF: return createNodeDeploymentConf();
+			case PasysPackage.KUBERNETES_DEPLOYMENT_CONF: return createKubernetesDeploymentConf();
+			case PasysPackage.SWARM_DEPLOYMENT_CONF: return createSwarmDeploymentConf();
+			case PasysPackage.NOMAD_DEPLOYMENT_CONF: return createNomadDeploymentConf();
 			case PasysPackage.VOLUME: return createVolume();
 			case PasysPackage.PORT: return createPort();
-			case PasysPackage.SWARM_PORT: return createSwarmPort();
-			case PasysPackage.KUBERNETES_PORT: return createKubernetesPort();
 			case PasysPackage.DEPLOYMENT_CONSTRAINTS: return createDeploymentConstraints();
 			case PasysPackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
 			case PasysPackage.FILE_DESCRIPTOR: return createFileDescriptor();
@@ -191,12 +195,16 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case PasysPackage.VOLUME_TYPE:
-				return createVolumeTypeFromString(eDataType, initialValue);
 			case PasysPackage.VOLUME_ACCESS_MODE:
 				return createVolumeAccessModeFromString(eDataType, initialValue);
+			case PasysPackage.VOLUME_TYPE:
+				return createVolumeTypeFromString(eDataType, initialValue);
+			case PasysPackage.NOMAD_DRIVER:
+				return createNomadDriverFromString(eDataType, initialValue);
 			case PasysPackage.PORT_MODE:
 				return createPortModeFromString(eDataType, initialValue);
+			case PasysPackage.SERVICE_TYPE:
+				return createServiceTypeFromString(eDataType, initialValue);
 			case PasysPackage.PROTOCOL:
 				return createProtocolFromString(eDataType, initialValue);
 			case PasysPackage.DEPLOYABLE_COMPONENT_TYPE:
@@ -216,12 +224,16 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case PasysPackage.VOLUME_TYPE:
-				return convertVolumeTypeToString(eDataType, instanceValue);
 			case PasysPackage.VOLUME_ACCESS_MODE:
 				return convertVolumeAccessModeToString(eDataType, instanceValue);
+			case PasysPackage.VOLUME_TYPE:
+				return convertVolumeTypeToString(eDataType, instanceValue);
+			case PasysPackage.NOMAD_DRIVER:
+				return convertNomadDriverToString(eDataType, instanceValue);
 			case PasysPackage.PORT_MODE:
 				return convertPortModeToString(eDataType, instanceValue);
+			case PasysPackage.SERVICE_TYPE:
+				return convertServiceTypeToString(eDataType, instanceValue);
 			case PasysPackage.PROTOCOL:
 				return convertProtocolToString(eDataType, instanceValue);
 			case PasysPackage.DEPLOYABLE_COMPONENT_TYPE:
@@ -308,6 +320,17 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	public SwarmCluster createSwarmCluster() {
 		SwarmClusterImpl swarmCluster = new SwarmClusterImpl();
 		return swarmCluster;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NomadCluster createNomadCluster() {
+		NomadClusterImpl nomadCluster = new NomadClusterImpl();
+		return nomadCluster;
 	}
 
 	/**
@@ -734,9 +757,9 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public OrchestratorDeploymentConf createOrchestratorDeploymentConf() {
-		OrchestratorDeploymentConfImpl orchestratorDeploymentConf = new OrchestratorDeploymentConfImpl();
-		return orchestratorDeploymentConf;
+	public NodeDeploymentConf createNodeDeploymentConf() {
+		NodeDeploymentConfImpl nodeDeploymentConf = new NodeDeploymentConfImpl();
+		return nodeDeploymentConf;
 	}
 
 	/**
@@ -745,9 +768,31 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public NodeDeploymentConf createNodeDeploymentConf() {
-		NodeDeploymentConfImpl nodeDeploymentConf = new NodeDeploymentConfImpl();
-		return nodeDeploymentConf;
+	public KubernetesDeploymentConf createKubernetesDeploymentConf() {
+		KubernetesDeploymentConfImpl kubernetesDeploymentConf = new KubernetesDeploymentConfImpl();
+		return kubernetesDeploymentConf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SwarmDeploymentConf createSwarmDeploymentConf() {
+		SwarmDeploymentConfImpl swarmDeploymentConf = new SwarmDeploymentConfImpl();
+		return swarmDeploymentConf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NomadDeploymentConf createNomadDeploymentConf() {
+		NomadDeploymentConfImpl nomadDeploymentConf = new NomadDeploymentConfImpl();
+		return nomadDeploymentConf;
 	}
 
 	/**
@@ -810,28 +855,6 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	@Override
-	public SwarmPort createSwarmPort() {
-		SwarmPortImpl swarmPort = new SwarmPortImpl();
-		return swarmPort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public KubernetesPort createKubernetesPort() {
-		KubernetesPortImpl kubernetesPort = new KubernetesPortImpl();
-		return kubernetesPort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public DeploymentConstraints createDeploymentConstraints() {
 		DeploymentConstraintsImpl deploymentConstraints = new DeploymentConstraintsImpl();
 		return deploymentConstraints;
@@ -876,6 +899,26 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	public String convertPortModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceType createServiceTypeFromString(EDataType eDataType, String initialValue) {
+		ServiceType result = ServiceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertServiceTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -936,6 +979,26 @@ public class PasysFactoryImpl extends EFactoryImpl implements PasysFactory {
 	 * @generated
 	 */
 	public String convertVolumeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NomadDriver createNomadDriverFromString(EDataType eDataType, String initialValue) {
+		NomadDriver result = NomadDriver.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNomadDriverToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -56,10 +56,10 @@
       id="PollutionZkpr"
       host="//@ownedElements.13">
     <deploymentConfig
-        xsi:type="pasys:OrchestratorDeploymentConf"
+        xsi:type="pasys:KubernetesDeploymentConf"
         image="zookeeper"
         imageTag="3.7"
-        imagePullPolicy="IfNoPresent"/>
+        imagePullPolicy="IfNotPresent"/>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:KafkaService"
@@ -72,7 +72,7 @@
       advertisedListeners="PLAINTEXT://172.31.16.47:9092"
       autoCreateTopicEnable="true">
     <deploymentConfig
-        xsi:type="pasys:OrchestratorDeploymentConf"
+        xsi:type="pasys:KubernetesDeploymentConf"
         image="gcr.io/google_containers/kubernetes-kafka"
         imageTag="1.0-10.2.1"
         imagePullPolicy="IfNotPresent"/>
@@ -143,8 +143,10 @@
       numReplication="1"
       holder="1">
     <deploymentConfig
-        xsi:type="pasys:OrchestratorDeploymentConf"
-        image="kafka"/>
+        xsi:type="pasys:KubernetesDeploymentConf"
+        image="gcr.io/google_containers/kubernetes-kafka"
+        imageTag="1.0-10.2.1"
+        imagePullPolicy="IfNotPresent"/>
   </ownedElements>
   <ownedElements
       xsi:type="pasys:Workflow"

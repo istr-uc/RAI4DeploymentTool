@@ -25,7 +25,7 @@ import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.KubernetesCluster;
-import PASYS_Metamodel.pasys.KubernetesPort;
+import PASYS_Metamodel.pasys.KubernetesDeploymentConf;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Meter;
@@ -39,6 +39,8 @@ import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.NomadCluster;
+import PASYS_Metamodel.pasys.NomadDeploymentConf;
 import PASYS_Metamodel.pasys.OrchestrationCluster;
 import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
@@ -70,7 +72,7 @@ import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
-import PASYS_Metamodel.pasys.SwarmPort;
+import PASYS_Metamodel.pasys.SwarmDeploymentConf;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
@@ -262,6 +264,17 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = casePlatformResource(swarmCluster);
 				if (result == null) result = caseSystemElement(swarmCluster);
 				if (result == null) result = caseNamedElement(swarmCluster);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.NOMAD_CLUSTER: {
+				NomadCluster nomadCluster = (NomadCluster)theEObject;
+				T result = caseNomadCluster(nomadCluster);
+				if (result == null) result = caseOrchestrationCluster(nomadCluster);
+				if (result == null) result = caseProcessingResourceCluster(nomadCluster);
+				if (result == null) result = casePlatformResource(nomadCluster);
+				if (result == null) result = caseSystemElement(nomadCluster);
+				if (result == null) result = caseNamedElement(nomadCluster);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -807,6 +820,33 @@ public class PasysSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PasysPackage.KUBERNETES_DEPLOYMENT_CONF: {
+				KubernetesDeploymentConf kubernetesDeploymentConf = (KubernetesDeploymentConf)theEObject;
+				T result = caseKubernetesDeploymentConf(kubernetesDeploymentConf);
+				if (result == null) result = caseOrchestratorDeploymentConf(kubernetesDeploymentConf);
+				if (result == null) result = casePlatformServiceDeploymentConf(kubernetesDeploymentConf);
+				if (result == null) result = caseDeploymentConfiguration(kubernetesDeploymentConf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.SWARM_DEPLOYMENT_CONF: {
+				SwarmDeploymentConf swarmDeploymentConf = (SwarmDeploymentConf)theEObject;
+				T result = caseSwarmDeploymentConf(swarmDeploymentConf);
+				if (result == null) result = caseOrchestratorDeploymentConf(swarmDeploymentConf);
+				if (result == null) result = casePlatformServiceDeploymentConf(swarmDeploymentConf);
+				if (result == null) result = caseDeploymentConfiguration(swarmDeploymentConf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PasysPackage.NOMAD_DEPLOYMENT_CONF: {
+				NomadDeploymentConf nomadDeploymentConf = (NomadDeploymentConf)theEObject;
+				T result = caseNomadDeploymentConf(nomadDeploymentConf);
+				if (result == null) result = caseOrchestratorDeploymentConf(nomadDeploymentConf);
+				if (result == null) result = casePlatformServiceDeploymentConf(nomadDeploymentConf);
+				if (result == null) result = caseDeploymentConfiguration(nomadDeploymentConf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PasysPackage.VOLUME: {
 				Volume volume = (Volume)theEObject;
 				T result = caseVolume(volume);
@@ -816,20 +856,6 @@ public class PasysSwitch<T> extends Switch<T> {
 			case PasysPackage.PORT: {
 				Port port = (Port)theEObject;
 				T result = casePort(port);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.SWARM_PORT: {
-				SwarmPort swarmPort = (SwarmPort)theEObject;
-				T result = caseSwarmPort(swarmPort);
-				if (result == null) result = casePort(swarmPort);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PasysPackage.KUBERNETES_PORT: {
-				KubernetesPort kubernetesPort = (KubernetesPort)theEObject;
-				T result = caseKubernetesPort(kubernetesPort);
-				if (result == null) result = casePort(kubernetesPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1088,6 +1114,21 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSwarmCluster(SwarmCluster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Nomad Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Nomad Cluster</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNomadCluster(NomadCluster object) {
 		return null;
 	}
 
@@ -1917,6 +1958,51 @@ public class PasysSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Kubernetes Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Kubernetes Deployment Conf</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKubernetesDeploymentConf(KubernetesDeploymentConf object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Swarm Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Swarm Deployment Conf</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwarmDeploymentConf(SwarmDeploymentConf object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Nomad Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Nomad Deployment Conf</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNomadDeploymentConf(NomadDeploymentConf object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>File Descriptor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2063,36 +2149,6 @@ public class PasysSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePort(Port object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Swarm Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Swarm Port</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSwarmPort(SwarmPort object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Kubernetes Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Kubernetes Port</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseKubernetesPort(KubernetesPort object) {
 		return null;
 	}
 

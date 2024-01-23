@@ -91,7 +91,18 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="kubeConfigPath" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SwarmCluster" eSuperTypes="#//pasys/OrchestrationCluster"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SwarmCluster" eSuperTypes="#//pasys/OrchestrationCluster">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NomadCluster" eSuperTypes="#//pasys/OrchestrationCluster">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Network" eSuperTypes="#//pasys/PlatformResource">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="bandwith" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -483,7 +494,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentConfiguration" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="PlatformServiceDeploymentConf" abstract="true"
         eSuperTypes="#//pasys/DeploymentConfiguration"/>
-    <eClassifiers xsi:type="ecore:EClass" name="OrchestratorDeploymentConf" eSuperTypes="#//pasys/PlatformServiceDeploymentConf">
+    <eClassifiers xsi:type="ecore:EClass" name="OrchestratorDeploymentConf" abstract="true"
+        eSuperTypes="#//pasys/PlatformServiceDeploymentConf">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -514,6 +526,23 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRunning" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="KubernetesDeploymentConf" eSuperTypes="#//pasys/OrchestratorDeploymentConf">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalIP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceType" eType="#//pasys/ServiceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SwarmDeploymentConf" eSuperTypes="#//pasys/OrchestratorDeploymentConf">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="network" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NomadDeploymentConf" eSuperTypes="#//pasys/OrchestratorDeploymentConf">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="region" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataCenter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="driver" eType="#//pasys/NomadDriver"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Volume">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -522,11 +551,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//pasys/VolumeType"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessMode" eType="#//pasys/VolumeAccessMode"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="VolumeType">
-      <eLiterals name="VOLUME"/>
-      <eLiterals name="BIND" value="1"/>
-      <eLiterals name="TMPFS" value="2"/>
-      <eLiterals name="NPIPE" value="3"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Port">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="published" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="VolumeAccessMode">
       <eLiterals name="READWRITEONCE"/>
@@ -534,31 +563,30 @@
       <eLiterals name="READWRITEMANY" value="2"/>
       <eLiterals name="READWRITEONCEPOD" value="3"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Port">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="published" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="VolumeType">
+      <eLiterals name="VOLUME"/>
+      <eLiterals name="BIND" value="1"/>
+      <eLiterals name="TMPFS" value="2"/>
+      <eLiterals name="NPIPE" value="3"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SwarmPort" eSuperTypes="#//pasys/Port">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" lowerBound="1"
-          eType="#//pasys/Protocol"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1"
-          eType="#//pasys/PortMode"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="NomadDriver">
+      <eLiterals name="JAVA"/>
+      <eLiterals name="DOCKER"/>
+      <eLiterals name="QEMU"/>
+      <eLiterals name="PODMAN" literal="PODMAN"/>
+      <eLiterals name="EXEC"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PortMode">
       <eLiterals name="HOST"/>
       <eLiterals name="INGRESS" value="1"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ServiceType">
+      <eLiterals name="LOAD_BALANCER"/>
+      <eLiterals name="CLUSTER_IP"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
       <eLiterals name="TCP"/>
       <eLiterals name="UDP" value="1"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="KubernetesPort" eSuperTypes="#//pasys/Port">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="internal" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentConstraints">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="labels" eType="#//pasys/Properties"/>

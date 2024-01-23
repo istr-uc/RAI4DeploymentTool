@@ -9,21 +9,32 @@
   <foreignModel>RAI4_Metamodel.ecore</foreignModel>
   <genPackages prefix="PASYS_Metamodel" disposableProviderFactory="true" ecorePackage="RAI4_Metamodel.ecore#/">
     <nestedGenPackages prefix="Pasys" disposableProviderFactory="true" ecorePackage="RAI4_Metamodel.ecore#//pasys">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/VolumeType">
-        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/VOLUME"/>
-        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/BIND"/>
-        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/TMPFS"/>
-        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/NPIPE"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/VolumeAccessMode">
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeAccessMode/READWRITEONCE"/>
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeAccessMode/READONLYMANY"/>
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeAccessMode/READWRITEMANY"/>
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeAccessMode/READWRITEONCEPOD"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/VolumeType">
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/VOLUME"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/BIND"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/TMPFS"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/VolumeType/NPIPE"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/NomadDriver">
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/NomadDriver/JAVA"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/NomadDriver/DOCKER"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/NomadDriver/QEMU"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/NomadDriver/PODMAN"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/NomadDriver/EXEC"/>
+      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/PortMode">
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/PortMode/HOST"/>
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/PortMode/INGRESS"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/ServiceType">
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/ServiceType/LOAD_BALANCER"/>
+        <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/ServiceType/CLUSTER_IP"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="RAI4_Metamodel.ecore#//pasys/Protocol">
         <genEnumLiterals ecoreEnumLiteral="RAI4_Metamodel.ecore#//pasys/Protocol/TCP"/>
@@ -120,7 +131,15 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesCluster/apiVersion"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesCluster/kubeConfigPath"/>
       </genClasses>
-      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/SwarmCluster"/>
+      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/SwarmCluster">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/SwarmCluster/ip"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/SwarmCluster/port"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/SwarmCluster/user"/>
+      </genClasses>
+      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/NomadCluster">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NomadCluster/ip"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NomadCluster/port"/>
+      </genClasses>
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/Network">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/Network/bandwith"/>
       </genClasses>
@@ -433,6 +452,19 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NodeDeploymentConf/codeFolderPath"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NodeDeploymentConf/isRunning"/>
       </genClasses>
+      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/KubernetesDeploymentConf">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesDeploymentConf/externalIP"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesDeploymentConf/serviceType"/>
+      </genClasses>
+      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/SwarmDeploymentConf">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/SwarmDeploymentConf/network"/>
+      </genClasses>
+      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/NomadDeploymentConf">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NomadDeploymentConf/region"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NomadDeploymentConf/dataCenter"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NomadDeploymentConf/priority"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/NomadDeploymentConf/driver"/>
+      </genClasses>
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/Volume">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/Volume/source"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/Volume/target"/>
@@ -442,14 +474,6 @@
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/Port">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/Port/target"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/Port/published"/>
-      </genClasses>
-      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/SwarmPort">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/SwarmPort/protocol"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/SwarmPort/mode"/>
-      </genClasses>
-      <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/KubernetesPort">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesPort/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/KubernetesPort/internal"/>
       </genClasses>
       <genClasses ecoreClass="RAI4_Metamodel.ecore#//pasys/DeploymentConstraints">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RAI4_Metamodel.ecore#//pasys/DeploymentConstraints/labels"/>

@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see PASYS_Metamodel.pasys.PasysPackage#getOrchestratorDeploymentConf()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface OrchestratorDeploymentConf extends PlatformServiceDeploymentConf {

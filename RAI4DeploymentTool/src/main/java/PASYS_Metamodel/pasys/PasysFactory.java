@@ -85,6 +85,15 @@ public interface PasysFactory extends EFactory {
 	SwarmCluster createSwarmCluster();
 
 	/**
+	 * Returns a new object of class '<em>Nomad Cluster</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Nomad Cluster</em>'.
+	 * @generated
+	 */
+	NomadCluster createNomadCluster();
+
+	/**
 	 * Returns a new object of class '<em>Network</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -427,15 +436,6 @@ public interface PasysFactory extends EFactory {
 	TaskProcessingAmountMeter createTaskProcessingAmountMeter();
 
 	/**
-	 * Returns a new object of class '<em>Orchestrator Deployment Conf</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Orchestrator Deployment Conf</em>'.
-	 * @generated
-	 */
-	OrchestratorDeploymentConf createOrchestratorDeploymentConf();
-
-	/**
 	 * Returns a new object of class '<em>Node Deployment Conf</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -443,6 +443,33 @@ public interface PasysFactory extends EFactory {
 	 * @generated
 	 */
 	NodeDeploymentConf createNodeDeploymentConf();
+
+	/**
+	 * Returns a new object of class '<em>Kubernetes Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Kubernetes Deployment Conf</em>'.
+	 * @generated
+	 */
+	KubernetesDeploymentConf createKubernetesDeploymentConf();
+
+	/**
+	 * Returns a new object of class '<em>Swarm Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swarm Deployment Conf</em>'.
+	 * @generated
+	 */
+	SwarmDeploymentConf createSwarmDeploymentConf();
+
+	/**
+	 * Returns a new object of class '<em>Nomad Deployment Conf</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Nomad Deployment Conf</em>'.
+	 * @generated
+	 */
+	NomadDeploymentConf createNomadDeploymentConf();
 
 	/**
 	 * Returns a new object of class '<em>File Descriptor</em>'.
@@ -479,24 +506,6 @@ public interface PasysFactory extends EFactory {
 	 * @generated
 	 */
 	Port createPort();
-
-	/**
-	 * Returns a new object of class '<em>Swarm Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swarm Port</em>'.
-	 * @generated
-	 */
-	SwarmPort createSwarmPort();
-
-	/**
-	 * Returns a new object of class '<em>Kubernetes Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Kubernetes Port</em>'.
-	 * @generated
-	 */
-	KubernetesPort createKubernetesPort();
 
 	/**
 	 * Returns a new object of class '<em>Deployment Constraints</em>'.

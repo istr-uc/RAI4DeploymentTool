@@ -2,7 +2,7 @@
  */
 package PASYS_Metamodel.pasys.impl;
 
-import PASYS_Metamodel.pasys.KubernetesPort;
+import PASYS_Metamodel.pasys.NomadCluster;
 import PASYS_Metamodel.pasys.PasysPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,65 +13,65 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Kubernetes Port</b></em>'.
+ * An implementation of the model object '<em><b>Nomad Cluster</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link PASYS_Metamodel.pasys.impl.KubernetesPortImpl#getName <em>Name</em>}</li>
- *   <li>{@link PASYS_Metamodel.pasys.impl.KubernetesPortImpl#isInternal <em>Internal</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.NomadClusterImpl#getIp <em>Ip</em>}</li>
+ *   <li>{@link PASYS_Metamodel.pasys.impl.NomadClusterImpl#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
+public class NomadClusterImpl extends OrchestrationClusterImpl implements NomadCluster {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getIp() <em>Ip</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getIp()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String IP_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getIp() <em>Ip</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getIp()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String ip = IP_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isInternal() <em>Internal</em>}' attribute.
+	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isInternal()
+	 * @see #getPort()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean INTERNAL_EDEFAULT = false;
+	protected static final String PORT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isInternal() <em>Internal</em>}' attribute.
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isInternal()
+	 * @see #getPort()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean internal = INTERNAL_EDEFAULT;
+	protected String port = PORT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KubernetesPortImpl() {
+	protected NomadClusterImpl() {
 		super();
 	}
 
@@ -82,7 +82,7 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PasysPackage.Literals.KUBERNETES_PORT;
+		return PasysPackage.Literals.NOMAD_CLUSTER;
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
+	public String getIp() {
+		return ip;
 	}
 
 	/**
@@ -101,11 +101,11 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	 * @generated
 	 */
 	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setIp(String newIp) {
+		String oldIp = ip;
+		ip = newIp;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.KUBERNETES_PORT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.NOMAD_CLUSTER__IP, oldIp, ip));
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	 * @generated
 	 */
 	@Override
-	public boolean isInternal() {
-		return internal;
+	public String getPort() {
+		return port;
 	}
 
 	/**
@@ -124,11 +124,11 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	 * @generated
 	 */
 	@Override
-	public void setInternal(boolean newInternal) {
-		boolean oldInternal = internal;
-		internal = newInternal;
+	public void setPort(String newPort) {
+		String oldPort = port;
+		port = newPort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.KUBERNETES_PORT__INTERNAL, oldInternal, internal));
+			eNotify(new ENotificationImpl(this, Notification.SET, PasysPackage.NOMAD_CLUSTER__PORT, oldPort, port));
 	}
 
 	/**
@@ -139,10 +139,10 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PasysPackage.KUBERNETES_PORT__NAME:
-				return getName();
-			case PasysPackage.KUBERNETES_PORT__INTERNAL:
-				return isInternal();
+			case PasysPackage.NOMAD_CLUSTER__IP:
+				return getIp();
+			case PasysPackage.NOMAD_CLUSTER__PORT:
+				return getPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -155,11 +155,11 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PasysPackage.KUBERNETES_PORT__NAME:
-				setName((String)newValue);
+			case PasysPackage.NOMAD_CLUSTER__IP:
+				setIp((String)newValue);
 				return;
-			case PasysPackage.KUBERNETES_PORT__INTERNAL:
-				setInternal((Boolean)newValue);
+			case PasysPackage.NOMAD_CLUSTER__PORT:
+				setPort((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,11 +173,11 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PasysPackage.KUBERNETES_PORT__NAME:
-				setName(NAME_EDEFAULT);
+			case PasysPackage.NOMAD_CLUSTER__IP:
+				setIp(IP_EDEFAULT);
 				return;
-			case PasysPackage.KUBERNETES_PORT__INTERNAL:
-				setInternal(INTERNAL_EDEFAULT);
+			case PasysPackage.NOMAD_CLUSTER__PORT:
+				setPort(PORT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -191,10 +191,10 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PasysPackage.KUBERNETES_PORT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PasysPackage.KUBERNETES_PORT__INTERNAL:
-				return internal != INTERNAL_EDEFAULT;
+			case PasysPackage.NOMAD_CLUSTER__IP:
+				return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
+			case PasysPackage.NOMAD_CLUSTER__PORT:
+				return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -209,12 +209,12 @@ public class KubernetesPortImpl extends PortImpl implements KubernetesPort {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", internal: ");
-		result.append(internal);
+		result.append(" (ip: ");
+		result.append(ip);
+		result.append(", port: ");
+		result.append(port);
 		result.append(')');
 		return result.toString();
 	}
 
-} //KubernetesPortImpl
+} //NomadClusterImpl

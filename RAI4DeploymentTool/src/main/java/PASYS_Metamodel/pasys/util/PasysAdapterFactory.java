@@ -25,7 +25,7 @@ import PASYS_Metamodel.pasys.KafkaFlowStreamData;
 import PASYS_Metamodel.pasys.KafkaService;
 import PASYS_Metamodel.pasys.KafkaWorkloadStreamData;
 import PASYS_Metamodel.pasys.KubernetesCluster;
-import PASYS_Metamodel.pasys.KubernetesPort;
+import PASYS_Metamodel.pasys.KubernetesDeploymentConf;
 import PASYS_Metamodel.pasys.LaunchException;
 import PASYS_Metamodel.pasys.MemSQLService;
 import PASYS_Metamodel.pasys.Meter;
@@ -39,6 +39,8 @@ import PASYS_Metamodel.pasys.NodeDeploymentConf;
 import PASYS_Metamodel.pasys.NodeHostedMeter;
 import PASYS_Metamodel.pasys.NodeResourceMeter;
 import PASYS_Metamodel.pasys.NodeScheduler;
+import PASYS_Metamodel.pasys.NomadCluster;
+import PASYS_Metamodel.pasys.NomadDeploymentConf;
 import PASYS_Metamodel.pasys.OrchestrationCluster;
 import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
@@ -70,7 +72,7 @@ import PASYS_Metamodel.pasys.StreamDataPartition;
 import PASYS_Metamodel.pasys.StreamDataRate;
 import PASYS_Metamodel.pasys.StreamRateMeter;
 import PASYS_Metamodel.pasys.SwarmCluster;
-import PASYS_Metamodel.pasys.SwarmPort;
+import PASYS_Metamodel.pasys.SwarmDeploymentConf;
 import PASYS_Metamodel.pasys.SystemElement;
 import PASYS_Metamodel.pasys.Task;
 import PASYS_Metamodel.pasys.TaskExecutor;
@@ -199,6 +201,10 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSwarmCluster(SwarmCluster object) {
 				return createSwarmClusterAdapter();
+			}
+			@Override
+			public Adapter caseNomadCluster(NomadCluster object) {
+				return createNomadClusterAdapter();
 			}
 			@Override
 			public Adapter caseNetwork(Network object) {
@@ -429,20 +435,24 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 				return createNodeDeploymentConfAdapter();
 			}
 			@Override
+			public Adapter caseKubernetesDeploymentConf(KubernetesDeploymentConf object) {
+				return createKubernetesDeploymentConfAdapter();
+			}
+			@Override
+			public Adapter caseSwarmDeploymentConf(SwarmDeploymentConf object) {
+				return createSwarmDeploymentConfAdapter();
+			}
+			@Override
+			public Adapter caseNomadDeploymentConf(NomadDeploymentConf object) {
+				return createNomadDeploymentConfAdapter();
+			}
+			@Override
 			public Adapter caseVolume(Volume object) {
 				return createVolumeAdapter();
 			}
 			@Override
 			public Adapter casePort(Port object) {
 				return createPortAdapter();
-			}
-			@Override
-			public Adapter caseSwarmPort(SwarmPort object) {
-				return createSwarmPortAdapter();
-			}
-			@Override
-			public Adapter caseKubernetesPort(KubernetesPort object) {
-				return createKubernetesPortAdapter();
 			}
 			@Override
 			public Adapter caseDeploymentConstraints(DeploymentConstraints object) {
@@ -679,6 +689,20 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSwarmClusterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.NomadCluster <em>Nomad Cluster</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.NomadCluster
+	 * @generated
+	 */
+	public Adapter createNomadClusterAdapter() {
 		return null;
 	}
 
@@ -1453,6 +1477,48 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.KubernetesDeploymentConf <em>Kubernetes Deployment Conf</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.KubernetesDeploymentConf
+	 * @generated
+	 */
+	public Adapter createKubernetesDeploymentConfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SwarmDeploymentConf <em>Swarm Deployment Conf</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.SwarmDeploymentConf
+	 * @generated
+	 */
+	public Adapter createSwarmDeploymentConfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.NomadDeploymentConf <em>Nomad Deployment Conf</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see PASYS_Metamodel.pasys.NomadDeploymentConf
+	 * @generated
+	 */
+	public Adapter createNomadDeploymentConfAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.FileDescriptor <em>File Descriptor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1589,34 +1655,6 @@ public class PasysAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPortAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.SwarmPort <em>Swarm Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see PASYS_Metamodel.pasys.SwarmPort
-	 * @generated
-	 */
-	public Adapter createSwarmPortAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link PASYS_Metamodel.pasys.KubernetesPort <em>Kubernetes Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see PASYS_Metamodel.pasys.KubernetesPort
-	 * @generated
-	 */
-	public Adapter createKubernetesPortAdapter() {
 		return null;
 	}
 
