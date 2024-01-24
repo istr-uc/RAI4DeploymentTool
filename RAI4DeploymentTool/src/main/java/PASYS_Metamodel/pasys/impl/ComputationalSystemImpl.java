@@ -559,12 +559,12 @@ public class ComputationalSystemImpl extends MinimalEObjectImpl.Container implem
 			tempDir.mkdir();
 			for (DeploymentFileDescriptor fd: getLocalNode().getConfigFiles()) {
 				
-				DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
+				//DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
 				fd.createFileFromDescriptor(DeploymentToolsUtils.GEN_DIR+"\\"+getLocalNode().getId());
 			}
 			
 			for (DeploymentFileDescriptor fd: getLocalNode().getLaunchingScripts()) {
-				DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
+				//DeploymentToolsUtils.createFile(fd.getFileContent(), fd.getFilePath()+"\\"+fd.getFileName());
 				fd.createFileFromDescriptor(DeploymentToolsUtils.GEN_DIR+"\\"+getLocalNode().getId());
 			}
 			globalScriptsList.addAll(getLocalNode().getLaunchingScripts());

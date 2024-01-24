@@ -6,6 +6,7 @@ import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.KubernetesCluster;
 import PASYS_Metamodel.pasys.NodeDeploymentConf;
+import PASYS_Metamodel.pasys.NomadCluster;
 import PASYS_Metamodel.pasys.OrchestrationCluster;
 import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
@@ -648,10 +649,17 @@ public class ZookeeperServiceImpl extends DistributionServiceImpl implements Zoo
 		OrchestrationCluster host = (OrchestrationCluster) getHost();
 		if (host instanceof KubernetesCluster) {
 			configureDeploymentInKubernetes(conf, (KubernetesCluster)host );
-		} else  {
+		} else if (host instanceof SwarmCluster) {
 			configureDeploymentInSwarm(conf, (SwarmCluster)host);
+		} else {
+			configureDeploymentInNomad(conf, (NomadCluster) host);
 		}
 		
+		
+	}
+
+	private void configureDeploymentInNomad(OrchestratorDeploymentConf conf, NomadCluster host) {
+		// TODO Auto-generated method stub
 		
 	}
 

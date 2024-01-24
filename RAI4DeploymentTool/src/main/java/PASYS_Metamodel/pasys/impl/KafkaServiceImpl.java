@@ -5,11 +5,15 @@ package PASYS_Metamodel.pasys.impl;
 import PASYS_Metamodel.pasys.ConfigurationException;
 import PASYS_Metamodel.pasys.DeploymentFileDescriptor;
 import PASYS_Metamodel.pasys.KafkaService;
+import PASYS_Metamodel.pasys.KubernetesCluster;
+import PASYS_Metamodel.pasys.NomadCluster;
 import PASYS_Metamodel.pasys.OrchestrationCluster;
+import PASYS_Metamodel.pasys.OrchestratorDeploymentConf;
 import PASYS_Metamodel.pasys.PasysPackage;
 import PASYS_Metamodel.pasys.ProcessingNode;
 import PASYS_Metamodel.pasys.ProcessingNodeCluster;
 import PASYS_Metamodel.pasys.ProcessingResourceCluster;
+import PASYS_Metamodel.pasys.SwarmCluster;
 import PASYS_Metamodel.pasys.DeployableComponentType;
 import PASYS_Metamodel.pasys.ZookeeperService;
 import deploymentTool.DeploymentToolsUtils;
@@ -1132,7 +1136,74 @@ public class KafkaServiceImpl extends CommunicationServiceImpl implements KafkaS
 	 */
 	@Override
 	public void configureDeploymentOnOrchestrator() throws ConfigurationException {
-		// TODO
+		OrchestratorDeploymentConf conf = (OrchestratorDeploymentConf) getDeploymentConfig();
+		OrchestrationCluster host = (OrchestrationCluster) getHost();
+		if (host instanceof KubernetesCluster) {
+			configureDeploymentInKubernetes(conf, (KubernetesCluster)host );
+		} else if (host instanceof SwarmCluster) {
+			configureDeploymentInSwarm(conf, (SwarmCluster)host);
+		} else {
+			configureDeploymentInNomad(conf, (NomadCluster) host);
+		}
 	}
+
+	private void configureDeploymentInNomad(OrchestratorDeploymentConf conf, NomadCluster host) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void configureDeploymentInSwarm(OrchestratorDeploymentConf conf, SwarmCluster host) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void configureDeploymentInKubernetes(OrchestratorDeploymentConf conf, KubernetesCluster host) throws ConfigurationException {
+		
+		try {
+		// Values File generation
+				String valuesFile = "kafka"+commId+"values.yaml";
+				DeploymentFileDescriptor configFile = new DeploymentFileDescriptorImpl(valuesFile,
+						"C:\\Temp\\helm", generateValuesFileContent(conf), DeployableComponentType.KAFKA_SERVICE);
+				// Script Generation
+				String scriptContent = "helm install "+"kafka"+id+ " \\src\\main\\resources\\kafka\\helm ";
+				scriptContent +="-f "+"C:\\Temp\\helm\\"+valuesFile+ " --kubeconfig "+host.getKubeConfigPath();
+				DeploymentFileDescriptor script = new DeploymentFileDescriptorImpl("kafka"+commId+".sh",
+					"C:\\Temp\\localScripts", scriptContent, DeployableComponentType.KAFKA_SERVICE);
+				
+				ComputationalSystemImpl.getLocalNode().addConfigFile(configFile);
+				ComputationalSystemImpl.getLocalNode().addLaunchingScript(script);
+				
+		} catch (IOException e) {
+			throw new ConfigurationException("No se encuentra el fichero de propiedades de Zookeeper");
+		}
+		
+	}
+
+	private String generateValuesFileContent(OrchestratorDeploymentConf conf) throws IOException, ConfigurationException {
+		Properties props = new Properties();
+		try {
+			props.load(this.getClass().getClassLoader().getResourceAsStream("kafka/helm/values.yaml"));
+		
+		
+		props.put("name", getName()+"-helm");
+		props.put("replicaCount", Integer.toString(conf.getReplicas()));
+		props.put("image.repository", conf.getImage());
+		props.put("image.tag", conf.getImageTag());
+		props.put("image.pullPolicy", conf.getImagePullPolicy());
+		
+		props.put("clientPort", Integer.toString(clientPort));
+		props.put("listeners", listeners);
+		
+		//TODO Rellenar el resto de propiedades
+		
+		String configFileContent = DeploymentToolsUtils.propertiesToString(props);
+		return configFileContent;
+		
+		} catch (IOException e) {
+			throw new ConfigurationException("No se encuentra el fichero de propiedades de Kafka");
+		}
+	}
+	
+	
 
 } // KafkaServiceImpl

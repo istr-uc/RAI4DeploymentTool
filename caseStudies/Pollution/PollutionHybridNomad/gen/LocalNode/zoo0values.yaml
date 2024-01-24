@@ -1,4 +1,4 @@
-#Wed Jan 24 10:00:10 CET 2024
+#Wed Jan 24 09:41:24 CET 2024
 maxReplicas=100
 image.pullPolicy=IfNotPresent
 nameOverride=""
@@ -16,7 +16,7 @@ pullPolicy=IfNotPresent
 enabled=false
 nodeSelector={}
 image.tag=3.7
-replicaCount=3
+replicaCount=1
 tolerations=[]
 clientPort=2181
 create=true
